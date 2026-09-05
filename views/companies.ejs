@@ -1,0 +1,3676 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Companies | PlacementX</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Inter", sans-serif;
+            color: #eafff9;
+            background:
+                radial-gradient(circle at 10% 10%, rgba(0, 196, 156, 0.14), transparent 28%),
+                radial-gradient(circle at 90% 20%, rgba(0, 140, 112, 0.14), transparent 28%),
+                radial-gradient(circle at 50% 100%, rgba(0, 255, 204, 0.08), transparent 35%),
+                #050807;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+
+        /* =====================================================
+           ANIMATED BACKGROUND
+        ===================================================== */
+
+        .background-glow {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .glow {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: .18;
+            animation: floatGlow 10s ease-in-out infinite alternate;
+        }
+
+        .glow.one {
+            background: #00c49c;
+            top: 5%;
+            left: -100px;
+        }
+
+        .glow.two {
+            background: #008c70;
+            right: -100px;
+            top: 35%;
+            animation-delay: 2s;
+        }
+
+        .glow.three {
+            background: #00ffd0;
+            bottom: -120px;
+            left: 40%;
+            animation-delay: 4s;
+        }
+
+        @keyframes floatGlow {
+
+            from {
+                transform: translate(0, 0) scale(1);
+            }
+
+            to {
+                transform: translate(50px, -35px) scale(1.15);
+            }
+
+        }
+
+
+        .grid-background {
+            position: fixed;
+            inset: 0;
+            z-index: -3;
+            opacity: .12;
+            background-image:
+                linear-gradient(rgba(0, 196, 156, .16) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 196, 156, .16) 1px, transparent 1px);
+            background-size: 55px 55px;
+            mask-image: linear-gradient(to bottom, black, transparent);
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .navbar {
+            background: rgba(5, 12, 10, .78) !important;
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(0, 196, 156, .14);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            color: #ffffff !important;
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -.4px;
+        }
+
+        .brand-dot {
+            display: inline-block;
+            width: 9px;
+            height: 9px;
+            background: #00c49c;
+            border-radius: 50%;
+            margin-right: 8px;
+            box-shadow: 0 0 15px #00c49c;
+        }
+
+        .nav-dashboard {
+            color: #d9fff6;
+            border: 1px solid rgba(0, 196, 156, .35);
+            background: rgba(0, 196, 156, .08);
+            border-radius: 10px;
+            padding: 9px 18px;
+            font-weight: 600;
+            transition: .3s;
+            text-decoration: none;
+        }
+
+        .nav-dashboard:hover {
+            color: #ffffff;
+            background: #008c70;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 196, 156, .2);
+        }
+
+
+        /* =====================================================
+           MAIN CONTAINER
+        ===================================================== */
+
+        .main-container {
+            max-width: 1250px;
+            margin: auto;
+            padding: 35px 20px 60px;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 65px 30px;
+            text-align: center;
+            border-radius: 28px;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(0, 140, 112, .25),
+                    rgba(0, 196, 156, .07)
+                );
+            border: 1px solid rgba(0, 196, 156, .22);
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, .35),
+                inset 0 1px rgba(255, 255, 255, .05);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border: 1px solid rgba(0, 196, 156, .08);
+            border-radius: 50%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulseRing 5s linear infinite;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            border: 1px solid rgba(0, 196, 156, .04);
+            border-radius: 50%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes pulseRing {
+
+            0% {
+                transform: translate(-50%, -50%) scale(.85);
+                opacity: .2;
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: .7;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1.12);
+                opacity: 0;
+            }
+
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            border-radius: 50px;
+            background: rgba(0, 196, 156, .10);
+            border: 1px solid rgba(0, 196, 156, .25);
+            color: #68ffdc;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(34px, 5vw, 62px);
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 15px;
+        }.gradient-text {
+    background: linear-gradient(90deg, #00f5c4, #00a8ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+        .hero p {
+            color: #9dbab3;
+            max-width: 720px;
+            margin: auto;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+
+        /* =====================================================
+           STATS
+        ===================================================== */
+
+        .stats-row {
+            margin-top: 25px;
+        }
+
+        .stat-card {
+            height: 100%;
+            padding: 22px;
+            border-radius: 18px;
+            background: rgba(11, 22, 19, .72);
+            border: 1px solid rgba(0, 196, 156, .14);
+            backdrop-filter: blur(15px);
+            transition: .3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 196, 156, .35);
+            box-shadow: 0 15px 40px rgba(0, 196, 156, .08);
+        }
+
+        .stat-icon {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 13px;
+            background: rgba(0, 196, 156, .10);
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .stat-label {
+            color: #78958e;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+
+
+        /* =====================================================
+           SECTION
+        ===================================================== */
+
+        .section-title {
+            margin-top: 48px;
+            margin-bottom: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .section-title h2 {
+            font-size: 25px;
+            font-weight: 800;
+            margin: 0;
+        }
+
+        .section-title p {
+            color: #708a84;
+            font-size: 13px;
+            margin: 5px 0 0;
+        }
+
+
+        /* =====================================================
+           SEARCH
+        ===================================================== */
+
+        .search-box {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .search-box input {
+            width: 100%;
+            background: rgba(9, 20, 17, .8);
+            border: 1px solid rgba(0, 196, 156, .18);
+            border-radius: 14px;
+            padding: 15px 20px 15px 48px;
+            color: white;
+            outline: none;
+            transition: .3s;
+        }
+
+        .search-box input::placeholder {
+            color: #658079;
+        }
+
+        .search-box input:focus {
+            border-color: #00c49c;
+            box-shadow: 0 0 0 4px rgba(0, 196, 156, .08);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 17px;
+            top: 13px;
+            font-size: 20px;
+            color: #00c49c;
+        }
+
+
+        /* =====================================================
+           COMPANY CARD
+        ===================================================== */
+
+        .company-card {
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            padding: 26px;
+            border-radius: 22px;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(16, 31, 27, .92),
+                    rgba(7, 16, 14, .92)
+                );
+            border: 1px solid rgba(0, 196, 156, .13);
+            transition: .4s cubic-bezier(.2,.8,.2,1);
+        }
+
+        .company-card::before {
+            content: "";
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: rgba(0, 196, 156, .08);
+            filter: blur(35px);
+            right: -50px;
+            top: -50px;
+        }
+
+        .company-card:hover {
+            transform: translateY(-9px);
+            border-color: rgba(0, 196, 156, .42);
+            box-shadow:
+                0 25px 60px rgba(0, 0, 0, .45),
+                0 0 30px rgba(0, 196, 156, .06);
+        }
+
+        .company-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+            z-index: 2;
+        }
+
+        .company-icon {
+            width: 62px;
+            height: 62px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 18px;
+            font-size: 30px;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(0, 196, 156, .18),
+                    rgba(0, 140, 112, .05)
+                );
+            border: 1px solid rgba(0, 196, 156, .20);
+            box-shadow: inset 0 1px rgba(255,255,255,.05);
+        }
+
+        .company-rank {
+            color: #5affd9;
+            background: rgba(0, 196, 156, .08);
+            border: 1px solid rgba(0, 196, 156, .18);
+            border-radius: 50px;
+            padding: 6px 10px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .company-card h4 {
+            margin-top: 20px;
+            margin-bottom: 5px;
+            font-size: 21px;
+            font-weight: 800;
+        }
+
+        .company-name {
+            color: #79958e;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .company-desc {
+            color: #9cb3ad;
+            line-height: 1.7;
+            font-size: 13px;
+            min-height: 65px;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            padding: 5px 9px;
+            margin: 3px 2px;
+            border-radius: 7px;
+            font-size: 10px;
+            color: #8dfff0;
+            background: rgba(0, 196, 156, .07);
+            border: 1px solid rgba(0, 196, 156, .12);
+        }
+
+        .readiness {
+            margin-top: 18px;
+        }
+
+        .readiness-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: #79958e;
+            margin-bottom: 7px;
+        }
+
+        .progress {
+            height: 5px;
+            background: rgba(255,255,255,.06);
+            border-radius: 10px;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, #008c70, #00d5a9);
+            border-radius: 10px;
+        }
+
+        .company-btn {
+            width: 100%;
+            margin-top: 20px;
+            padding: 11px;
+            border-radius: 11px;
+            border: 1px solid rgba(0, 196, 156, .25);
+            background: rgba(0, 196, 156, .08);
+            color: #7fffe5;
+            font-weight: 700;
+            transition: .3s;
+        }
+
+        .company-btn:hover {
+            background: #008c70;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+
+        /* =====================================================
+           PREPARATION CARDS
+        ===================================================== */
+
+        .prep-card {
+            height: 100%;
+            padding: 24px;
+            border-radius: 18px;
+            background: rgba(9, 20, 17, .75);
+            border: 1px solid rgba(0, 196, 156, .13);
+            transition: .35s;
+        }
+
+        .prep-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(0, 196, 156, .35);
+        }
+
+        .prep-icon {
+            width: 52px;
+            height: 52px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            background: rgba(0, 196, 156, .10);
+            font-size: 25px;
+            margin-bottom: 16px;
+        }
+
+        .prep-card h5 {
+            font-weight: 800;
+        }
+
+        .prep-card p {
+            color: #819b94;
+            font-size: 12px;
+            line-height: 1.7;
+            min-height: 55px;
+        }
+
+        .prep-btn {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 10px;
+            color: #8dffea;
+            border: 1px solid rgba(0, 196, 156, .18);
+            background: rgba(0, 196, 156, .06);
+            font-size: 12px;
+            font-weight: 700;
+            transition: .3s;
+        }
+
+        .prep-btn:hover {
+            color: #fff;
+            background: #008c70;
+        }
+
+
+        /* =====================================================
+           PROCESS TIMELINE
+        ===================================================== */
+
+        .timeline {
+            position: relative;
+            margin-top: 30px;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 24px;
+            top: 10px;
+            bottom: 10px;
+            width: 2px;
+            background: linear-gradient(
+                #00c49c,
+                rgba(0,196,156,.05)
+            );
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 65px;
+            margin-bottom: 25px;
+        }
+
+        .timeline-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            background: #091914;
+            border: 1px solid rgba(0, 196, 156, .35);
+            color: #55ffda;
+            font-weight: 800;
+            z-index: 2;
+        }
+
+        .timeline-content {
+            padding: 18px 20px;
+            border-radius: 15px;
+            background: rgba(10, 22, 19, .7);
+            border: 1px solid rgba(0, 196, 156, .11);
+        }
+
+        .timeline-content h6 {
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .timeline-content p {
+            color: #819b94;
+            font-size: 12px;
+            margin: 0;
+        }
+
+
+        /* =====================================================
+           MODAL
+        ===================================================== */
+
+        .modal-content {
+            background: #0a1713;
+            color: #eafff9;
+            border: 1px solid rgba(0,196,156,.25);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .modal-header {
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(0,140,112,.3),
+                    rgba(0,196,156,.05)
+                );
+            border-bottom: 1px solid rgba(0,196,156,.13);
+        }
+
+        .modal-title {
+            font-weight: 800;
+        }
+
+        .modal-body {
+            color: #a3bbb5;
+        }
+
+        .modal-body li {
+            margin-bottom: 10px;
+        }
+
+        .modal-body li::marker {
+            color: #00c49c;
+        }
+
+        .btn-close {
+            filter: invert(1);
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .footer {
+            margin-top: 60px;
+            padding: 25px;
+            text-align: center;
+            border-top: 1px solid rgba(0,196,156,.1);
+            color: #617b74;
+            font-size: 12px;
+        }
+
+        .footer strong {
+            color: #00c49c;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media(max-width:768px) {
+
+            .main-container {
+                padding: 20px 14px 45px;
+            }
+
+            .hero {
+                padding: 45px 20px;
+                border-radius: 20px;
+            }
+
+            .hero h1 {
+                letter-spacing: -1px;
+            }
+
+            .section-title {
+                margin-top: 35px;
+            }
+
+            .stat-card {
+                padding: 18px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         BACKGROUND
+    ===================================================== -->
+
+    <div class="background-glow">
+
+        <div class="glow one"></div>
+
+        <div class="glow two"></div>
+
+        <div class="glow three"></div>
+
+    </div>
+
+
+    <div class="grid-background"></div>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ===================================================== -->
+
+    <nav class="navbar navbar-dark">
+
+        <div class="container">
+
+            <span class="navbar-brand">
+
+                <span class="brand-dot"></span>
+
+                PlacementX
+
+            </span>
+
+
+            <a
+                href="/dashboard"
+                class="nav-dashboard">
+
+                ← Dashboard
+
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <main class="main-container">
+
+
+        <!-- =================================================
+             HERO
+        ================================================= -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="hero-badge">
+
+                    🚀 CAREER INTELLIGENCE
+
+                </div>
+
+
+                <h1>
+
+                    <span class="gradient-text">
+
+                        Placement Companies
+
+                    </span>
+
+                </h1>
+
+
+                <p>
+
+                    Explore top companies, understand their hiring
+                    process, identify required skills and prepare
+                    strategically for your placement journey.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             STATS
+        ================================================= -->
+
+        <div class="row g-3 stats-row">
+
+
+            <div class="col-6 col-lg-3">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        🏢
+                    </div>
+
+                    <div class="stat-number">
+                        16+
+                    </div>
+
+                    <div class="stat-label">
+                        Featured Companies
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-lg-3">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        💻
+                    </div>
+
+                    <div class="stat-number">
+                        12+
+                    </div>
+
+                    <div class="stat-label">
+                        Core Skill Areas
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-lg-3">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        🎯
+                    </div>
+
+                    <div class="stat-number">
+                        04
+                    </div>
+
+                    <div class="stat-label">
+                        Main Selection Rounds
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-lg-3">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📈
+                    </div>
+
+                    <div class="stat-number">
+                        360°
+                    </div>
+
+                    <div class="stat-label">
+                        Preparation Approach
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             COMPANY SECTION
+        ================================================= -->
+
+        <div class="section-title">
+
+            <div>
+
+                <h2>
+                    ⭐ Top Companies
+                </h2>
+
+                <p>
+                    Choose a company and start your preparation.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            <span class="search-icon">
+                🔍
+            </span>
+
+
+            <input
+                type="text"
+                id="companySearch"
+                placeholder="Search company... e.g. TCS, Infosys, IBM">
+
+        </div>
+
+
+        <div
+            class="row g-4"
+            id="companyContainer">
+
+
+            <!-- =================================================
+                 TCS
+            ================================================= -->
+
+            <div
+                class="col-md-6 col-lg-4 company-item"
+                data-company="tcs tata consultancy services">
+
+                <div class="company-card">
+
+                    <div class="company-top">
+
+                        <div class="company-icon">
+                            💻
+                        </div>
+
+                        <div class="company-rank">
+                            TOP PICK
+                        </div>
+
+                    </div>
+
+                    <h4>TCS</h4>
+
+                    <div class="company-name">
+                        Tata Consultancy Services
+                    </div>
+
+                    <p class="company-desc">
+                        Focus on aptitude, coding, technical
+                        knowledge and communication skills.
+                    </p>
+
+                    <div>
+
+                        <span class="skill-tag">Aptitude</span>
+                        <span class="skill-tag">Coding</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">DBMS</span>
+
+                    </div>
+
+                    <div class="readiness">
+
+                        <div class="readiness-header">
+                            <span>Preparation Level</span>
+                            <span>90%</span>
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:90%">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="company-btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#tcsModal">
+
+                        View Preparation →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 INFOSYS
+            ================================================= -->
+
+            <div
+                class="col-md-6 col-lg-4 company-item"
+                data-company="infosys infosys limited">
+
+                <div class="company-card">
+
+                    <div class="company-top">
+
+                        <div class="company-icon">
+                            🌐
+                        </div>
+
+                        <div class="company-rank">
+                            POPULAR
+                        </div>
+
+                    </div>
+
+                    <h4>Infosys</h4>
+
+                    <div class="company-name">
+                        Infosys Limited
+                    </div>
+
+                    <p class="company-desc">
+                        Prepare programming, aptitude,
+                        problem solving and technical concepts.
+                    </p>
+
+                    <div>
+
+                        <span class="skill-tag">Programming</span>
+                        <span class="skill-tag">Aptitude</span>
+                        <span class="skill-tag">DBMS</span>
+                        <span class="skill-tag">Problem Solving</span>
+
+                    </div>
+
+                    <div class="readiness">
+
+                        <div class="readiness-header">
+                            <span>Preparation Level</span>
+                            <span>85%</span>
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:85%">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="company-btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#infosysModal">
+
+                        View Preparation →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 WIPRO
+            ================================================= -->
+
+            <div
+                class="col-md-6 col-lg-4 company-item"
+                data-company="wipro wipro limited">
+
+                <div class="company-card">
+
+                    <div class="company-top">
+
+                        <div class="company-icon">
+                            🚀
+                        </div>
+
+                        <div class="company-rank">
+                            TARGET
+                        </div>
+
+                    </div>
+
+                    <h4>Wipro</h4>
+
+                    <div class="company-name">
+                        Wipro Limited
+                    </div>
+
+                    <p class="company-desc">
+                        Prepare aptitude, logical reasoning,
+                        coding and communication skills.
+                    </p>
+
+                    <div>
+
+                        <span class="skill-tag">Reasoning</span>
+                        <span class="skill-tag">Coding</span>
+                        <span class="skill-tag">Verbal</span>
+                        <span class="skill-tag">HR</span>
+
+                    </div>
+
+                    <div class="readiness">
+
+                        <div class="readiness-header">
+                            <span>Preparation Level</span>
+                            <span>82%</span>
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:82%">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="company-btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#wiproModal">
+
+                        View Preparation →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ACCENTURE
+            ================================================= -->
+
+            <div
+                class="col-md-6 col-lg-4 company-item"
+                data-company="accenture">
+
+                <div class="company-card">
+
+                    <div class="company-top">
+
+                        <div class="company-icon">
+                            🏆
+                        </div>
+
+                        <div class="company-rank">
+                            GLOBAL
+                        </div>
+
+                    </div>
+
+                    <h4>Accenture</h4>
+
+                    <div class="company-name">
+                        Accenture
+                    </div>
+
+                    <p class="company-desc">
+                        Focus on aptitude, coding, communication
+                        and technical fundamentals.
+                    </p>
+
+                    <div>
+
+                        <span class="skill-tag">Aptitude</span>
+                        <span class="skill-tag">Coding</span>
+                        <span class="skill-tag">Communication</span>
+                        <span class="skill-tag">Technical</span>
+
+                    </div>
+
+                    <div class="readiness">
+
+                        <div class="readiness-header">
+                            <span>Preparation Level</span>
+                            <span>88%</span>
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:88%">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="company-btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#accentureModal">
+
+                        View Preparation →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 COGNIZANT
+            ================================================= -->
+
+            <div
+                class="col-md-6 col-lg-4 company-item"
+                data-company="cognizant cognizant technology solutions">
+
+                <div class="company-card">
+
+                    <div class="company-top">
+
+                        <div class="company-icon">
+                            🔥
+                        </div>
+
+                        <div class="company-rank">
+                            IT CORE
+                        </div>
+
+                    </div>
+
+                    <h4>Cognizant</h4>
+
+                    <div class="company-name">
+                        Cognizant Technology Solutions
+                    </div>
+
+                    <p class="company-desc">
+                        Prepare programming, SQL, DBMS,
+                        aptitude and communication skills.
+                    </p>
+
+                    <div>
+
+                        <span class="skill-tag">Programming</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">DBMS</span>
+                        <span class="skill-tag">Aptitude</span>
+
+                    </div>
+
+                    <div class="readiness">
+
+                        <div class="readiness-header">
+                            <span>Preparation Level</span>
+                            <span>86%</span>
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:86%">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="company-btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#cognizantModal">
+
+                        View Preparation →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CAPGEMINI
+            ================================================= -->
+
+            <div
+                class="col-md-6 col-lg-4 company-item"
+                data-company="capgemini">
+
+                <div class="company-card">
+
+                    <div class="company-top">
+
+                        <div class="company-icon">
+                            ⭐
+                        </div>
+
+                        <div class="company-rank">
+                            FEATURED
+                        </div>
+
+                    </div>
+
+                    <h4>Capgemini</h4>
+
+                    <div class="company-name">
+                        Capgemini
+                    </div>
+
+                    <p class="company-desc">
+                        Focus on aptitude, coding, technical
+                        and HR interview preparation.
+                    </p>
+
+                    <div>
+
+                        <span class="skill-tag">Aptitude</span>
+                        <span class="skill-tag">Coding</span>
+                        <span class="skill-tag">Technical</span>
+                        <span class="skill-tag">HR</span>
+
+                    </div>
+
+                    <div class="readiness">
+
+                        <div class="readiness-header">
+                            <span>Preparation Level</span>
+                            <span>84%</span>
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:84%">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="company-btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#capgeminiModal">
+
+                        View Preparation →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 IBM
+            ================================================= -->
+
+            <div
+                class="col-md-6 col-lg-4 company-item"
+                data-company="ibm international business machines">
+
+                <div class="company-card">
+
+                    <div class="company-top">
+
+                        <div class="company-icon">
+                            🤖
+                        </div>
+
+                        <div class="company-rank">
+                            GLOBAL
+                        </div>
+
+                    </div>
+
+                    <h4>IBM</h4>
+
+                    <div class="company-name">
+                        International Business Machines
+                    </div>
+
+                    <p class="company-desc">
+                        Build strong programming, data structures,
+                        cloud, AI and technical fundamentals.
+                    </p>
+
+                    <div>
+
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">DSA</span>
+                        <span class="skill-tag">Cloud</span>
+                        <span class="skill-tag">AI</span>
+
+                    </div>
+
+                    <div class="readiness">
+
+                        <div class="readiness-header">
+                            <span>Preparation Level</span>
+                            <span>89%</span>
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:89%">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="company-btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#ibmModal">
+
+                        View Preparation →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 HCLTECH
+            ================================================= -->
+
+            <div
+                class="col-md-6 col-lg-4 company-item"
+                data-company="hcl hcltech hcl technologies">
+
+                <div class="company-card">
+
+                    <div class="company-top">
+
+                        <div class="company-icon">
+                            💡
+                        </div>
+
+                        <div class="company-rank">
+                            IT CORE
+                        </div>
+
+                    </div>
+
+                    <h4>HCLTech</h4>
+
+                    <div class="company-name">
+                        HCL Technologies
+                    </div>
+
+                    <p class="company-desc">
+                        Prepare aptitude, programming, SQL,
+                        networking and technical interviews.
+                    </p>
+
+                    <div>
+
+                        <span class="skill-tag">Aptitude</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Networking</span>
+
+                    </div>
+
+                    <div class="readiness">
+
+                        <div class="readiness-header">
+                            <span>Preparation Level</span>
+                            <span>83%</span>
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:83%">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="company-btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#hclModal">
+
+                        View Preparation →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 TECH MAHINDRA
+            ================================================= -->
+
+            <div
+                class="col-md-6 col-lg-4 company-item"
+                data-company="tech mahindra techmahindra">
+
+                <div class="company-card">
+
+                    <div class="company-top">
+
+                        <div class="company-icon">
+                            📡
+                        </div>
+
+                        <div class="company-rank">
+                            TARGET
+                        </div>
+
+                    </div>
+
+                    <h4>Tech Mahindra</h4>
+
+                    <div class="company-name">
+                        Tech Mahindra
+                    </div>
+
+                    <p class="company-desc">
+                        Focus on aptitude, reasoning, communication,
+                        coding and technical fundamentals.
+                    </p>
+
+                    <div>
+
+                        <span class="skill-tag">Reasoning</span>
+                        <span class="skill-tag">Coding</span>
+                        <span class="skill-tag">English</span>
+                        <span class="skill-tag">Technical</span>
+
+                    </div>
+
+                    <div class="readiness">
+
+                        <div class="readiness-header">
+                            <span>Preparation Level</span>
+                            <span>81%</span>
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:81%">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="company-btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#techMahindraModal">
+
+                        View Preparation →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DELOITTE
+            ================================================= -->
+
+            <div
+                class="col-md-6 col-lg-4 company-item"
+                data-company="deloitte">
+
+                <div class="company-card">
+
+                    <div class="company-top">
+
+                        <div class="company-icon">
+                            📊
+                        </div>
+
+                        <div class="company-rank">
+                            PREMIUM
+                        </div>
+
+                    </div>
+
+                    <h4>Deloitte</h4>
+
+                    <div class="company-name">
+                        Deloitte
+                    </div>
+
+                    <p class="company-desc">
+                        Develop analytical thinking, aptitude,
+                        SQL, communication and business knowledge.
+                    </p>
+
+                    <div>
+
+                        <span class="skill-tag">Analytics</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Aptitude</span>
+                        <span class="skill-tag">Communication</span>
+
+                    </div>
+
+                    <div class="readiness">
+
+                        <div class="readiness-header">
+                            <span>Preparation Level</span>
+                            <span>91%</span>
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:91%">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="company-btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#deloitteModal">
+
+                        View Preparation →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 LTIMINDTREE
+            ================================================= -->
+
+            <div
+                class="col-md-6 col-lg-4 company-item"
+                data-company="ltimindtree ltimindtree">
+
+                <div class="company-card">
+
+                    <div class="company-top">
+
+                        <div class="company-icon">
+                            🌱
+                        </div>
+
+                        <div class="company-rank">
+                            FEATURED
+                        </div>
+
+                    </div>
+
+                    <h4>LTIMindtree</h4>
+
+                    <div class="company-name">
+                        LTIMindtree
+                    </div>
+
+                    <p class="company-desc">
+                        Prepare coding, aptitude, Java, SQL,
+                        cloud concepts and technical interviews.
+                    </p>
+
+                    <div>
+
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Coding</span>
+                        <span class="skill-tag">Cloud</span>
+
+                    </div>
+
+                    <div class="readiness">
+
+                        <div class="readiness-header">
+                            <span>Preparation Level</span>
+                            <span>80%</span>
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:80%">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="company-btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#ltimindtreeModal">
+
+                        View Preparation →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PERSISTENT SYSTEMS
+            ================================================= -->
+
+            <div
+                class="col-md-6 col-lg-4 company-item"
+                data-company="persistent persistent systems">
+
+                <div class="company-card">
+
+                    <div class="company-top">
+
+                        <div class="company-icon">
+                            ⚙️
+                        </div>
+
+                        <div class="company-rank">
+                            PRODUCT
+                        </div>
+
+                    </div>
+
+                    <h4>Persistent Systems</h4>
+
+                    <div class="company-name">
+                        Persistent Systems
+                    </div>
+
+                    <p class="company-desc">
+                        Strong focus on programming, DSA, coding,
+                        databases and software engineering concepts.
+                    </p>
+
+                    <div>
+
+                        <span class="skill-tag">DSA</span>
+                        <span class="skill-tag">Coding</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">DBMS</span>
+
+                    </div>
+
+                    <div class="readiness">
+
+                        <div class="readiness-header">
+                            <span>Preparation Level</span>
+                            <span>92%</span>
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:92%">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="company-btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#persistentModal">
+
+                        View Preparation →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 INFOSYS BPM
+            ================================================= -->
+
+            <div
+                class="col-md-6 col-lg-4 company-item"
+                data-company="infosys bpm">
+
+                <div class="company-card">
+
+                    <div class="company-top">
+
+                        <div class="company-icon">
+                            📋
+                        </div>
+
+                        <div class="company-rank">
+                            POPULAR
+                        </div>
+
+                    </div>
+
+                    <h4>Infosys BPM</h4>
+
+                    <div class="company-name">
+                        Infosys Business Process Management
+                    </div>
+
+                    <p class="company-desc">
+                        Improve communication, aptitude, analytical
+                        reasoning, Excel and business process skills.
+                    </p>
+
+                    <div>
+
+                        <span class="skill-tag">Excel</span>
+                        <span class="skill-tag">Aptitude</span>
+                        <span class="skill-tag">Verbal</span>
+                        <span class="skill-tag">Analytics</span>
+
+                    </div>
+
+                    <div class="readiness">
+
+                        <div class="readiness-header">
+                            <span>Preparation Level</span>
+                            <span>78%</span>
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:78%">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="company-btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#infosysBpmModal">
+
+                        View Preparation →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 HEXAWARE
+            ================================================= -->
+
+            <div
+                class="col-md-6 col-lg-4 company-item"
+                data-company="hexaware">
+
+                <div class="company-card">
+
+                    <div class="company-top">
+
+                        <div class="company-icon">
+                            🔷
+                        </div>
+
+                        <div class="company-rank">
+                            IT CORE
+                        </div>
+
+                    </div>
+
+                    <h4>Hexaware</h4>
+
+                    <div class="company-name">
+                        Hexaware Technologies
+                    </div>
+
+                    <p class="company-desc">
+                        Focus on programming, SQL, aptitude,
+                        automation and technical fundamentals.
+                    </p>
+
+                    <div>
+
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Automation</span>
+                        <span class="skill-tag">Aptitude</span>
+
+                    </div>
+
+                    <div class="readiness">
+
+                        <div class="readiness-header">
+                            <span>Preparation Level</span>
+                            <span>82%</span>
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:82%">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="company-btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#hexawareModal">
+
+                        View Preparation →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 AMAZON
+            ================================================= -->
+
+            <div
+                class="col-md-6 col-lg-4 company-item"
+                data-company="amazon">
+
+                <div class="company-card">
+
+                    <div class="company-top">
+
+                        <div class="company-icon">
+                            📦
+                        </div>
+
+                        <div class="company-rank">
+                            TOP TARGET
+                        </div>
+
+                    </div>
+
+                    <h4>Amazon</h4>
+
+                    <div class="company-name">
+                        Amazon
+                    </div>
+
+                    <p class="company-desc">
+                        Strong focus on data structures, algorithms,
+                        coding, problem solving and leadership principles.
+                    </p>
+
+                    <div>
+
+                        <span class="skill-tag">DSA</span>
+                        <span class="skill-tag">Coding</span>
+                        <span class="skill-tag">Algorithms</span>
+                        <span class="skill-tag">Problem Solving</span>
+
+                    </div>
+
+                    <div class="readiness">
+
+                        <div class="readiness-header">
+                            <span>Preparation Level</span>
+                            <span>95%</span>
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:95%">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="company-btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#amazonModal">
+
+                        View Preparation →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 GOOGLE
+            ================================================= -->
+
+            <div
+                class="col-md-6 col-lg-4 company-item"
+                data-company="google">
+
+                <div class="company-card">
+
+                    <div class="company-top">
+
+                        <div class="company-icon">
+                            🔎
+                        </div>
+
+                        <div class="company-rank">
+                            DREAM
+                        </div>
+
+                    </div>
+
+                    <h4>Google</h4>
+
+                    <div class="company-name">
+                        Google
+                    </div>
+
+                    <p class="company-desc">
+                        Build excellent DSA, algorithms, system design,
+                        coding and problem-solving skills.
+                    </p>
+
+                    <div>
+
+                        <span class="skill-tag">DSA</span>
+                        <span class="skill-tag">Algorithms</span>
+                        <span class="skill-tag">Coding</span>
+                        <span class="skill-tag">System Design</span>
+
+                    </div>
+
+                    <div class="readiness">
+
+                        <div class="readiness-header">
+                            <span>Preparation Level</span>
+                            <span>98%</span>
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:98%">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="company-btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#googleModal">
+
+                        View Preparation →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 MICROSOFT
+            ================================================= -->
+
+            <div
+                class="col-md-6 col-lg-4 company-item"
+                data-company="microsoft">
+
+                <div class="company-card">
+
+                    <div class="company-top">
+
+                        <div class="company-icon">
+                            🪟
+                        </div>
+
+                        <div class="company-rank">
+                            DREAM
+                        </div>
+
+                    </div>
+
+                    <h4>Microsoft</h4>
+
+                    <div class="company-name">
+                        Microsoft
+                    </div>
+
+                    <p class="company-desc">
+                        Focus on DSA, coding, object-oriented programming,
+                        problem solving and system design.
+                    </p>
+
+                    <div>
+
+                        <span class="skill-tag">DSA</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">OOP</span>
+                        <span class="skill-tag">System Design</span>
+
+                    </div>
+
+                    <div class="readiness">
+
+                        <div class="readiness-header">
+                            <span>Preparation Level</span>
+                            <span>96%</span>
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:96%">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="company-btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#microsoftModal">
+
+                        View Preparation →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 AMAZON EXTRA / ACCENTURE SUPPORT
+            ================================================= -->
+
+            <div
+                class="col-md-6 col-lg-4 company-item"
+                data-company="oracle">
+
+                <div class="company-card">
+
+                    <div class="company-top">
+
+                        <div class="company-icon">
+                            🗄️
+                        </div>
+
+                        <div class="company-rank">
+                            PRODUCT
+                        </div>
+
+                    </div>
+
+                    <h4>Oracle</h4>
+
+                    <div class="company-name">
+                        Oracle
+                    </div>
+
+                    <p class="company-desc">
+                        Prepare database concepts, SQL, Java,
+                        data structures and technical problem solving.
+                    </p>
+
+                    <div>
+
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">DBMS</span>
+                        <span class="skill-tag">DSA</span>
+
+                    </div>
+
+                    <div class="readiness">
+
+                        <div class="readiness-header">
+                            <span>Preparation Level</span>
+                            <span>93%</span>
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:93%">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="company-btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#oracleModal">
+
+                        View Preparation →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SAP
+            ================================================= -->
+
+            <div
+                class="col-md-6 col-lg-4 company-item"
+                data-company="sap">
+
+                <div class="company-card">
+
+                    <div class="company-top">
+
+                        <div class="company-icon">
+                            ☁️
+                        </div>
+
+                        <div class="company-rank">
+                            ENTERPRISE
+                        </div>
+
+                    </div>
+
+                    <h4>SAP</h4>
+
+                    <div class="company-name">
+                        SAP
+                    </div>
+
+                    <p class="company-desc">
+                        Develop programming, database, cloud,
+                        enterprise software and analytical skills.
+                    </p>
+
+                    <div>
+
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Cloud</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Analytics</span>
+
+                    </div>
+
+                    <div class="readiness">
+
+                        <div class="readiness-header">
+                            <span>Preparation Level</span>
+                            <span>87%</span>
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:87%">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="company-btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#sapModal">
+
+                        View Preparation →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =================================================
+             NO RESULT
+        ================================================= -->
+
+        <div
+            id="noResult"
+            class="text-center mt-5"
+            style="display:none;">
+
+            <div style="font-size:45px;">
+                🔎
+            </div>
+
+            <h5 class="mt-3">
+                No company found
+            </h5>
+
+            <p style="color:#708a84;">
+                Try searching with another company name.
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             PREPARATION
+        ================================================= -->
+
+        <div class="section-title">
+
+            <div>
+
+                <h2>
+                    📚 Complete Preparation
+                </h2>
+
+                <p>
+                    Build every skill required for placement.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="prep-card">
+
+                    <div class="prep-icon">
+                        🧮
+                    </div>
+
+                    <h5>Aptitude</h5>
+
+                    <p>
+                        Practice quantitative aptitude,
+                        logical reasoning, verbal ability
+                        and problem solving.
+                    </p>
+
+                    <a
+                        href="/aptitude"
+                        class="prep-btn">
+
+                        Start Practice →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="prep-card">
+
+                    <div class="prep-icon">
+                        💻
+                    </div>
+
+                    <h5>Coding</h5>
+
+                    <p>
+                        Strengthen C, C++, Java, Python,
+                        SQL and programming fundamentals.
+                    </p>
+
+                    <a
+                        href="/coding"
+                        class="prep-btn">
+
+                        Start Coding →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="prep-card">
+
+                    <div class="prep-icon">
+                        🎤
+                    </div>
+
+                    <h5>Interview</h5>
+
+                    <p>
+                        Prepare HR and technical questions
+                        and improve interview confidence.
+                    </p>
+
+                    <a
+                        href="/interview"
+                        class="prep-btn">
+
+                        Practice Interview →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="prep-card">
+
+                    <div class="prep-icon">
+                        📄
+                    </div>
+
+                    <h5>Resume</h5>
+
+                    <p>
+                        Create a professional resume
+                        suitable for placement applications.
+                    </p>
+
+                    <a
+                        href="/resume"
+                        class="prep-btn">
+
+                        Build Resume →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             PLACEMENT PROCESS
+        ================================================= -->
+
+        <div class="section-title">
+
+            <div>
+
+                <h2>
+                    🎯 Common Placement Journey
+                </h2>
+
+                <p>
+                    Understand the typical selection process.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-number">
+                    01
+                </div>
+
+                <div class="timeline-content">
+
+                    <h6>
+                        Aptitude & Assessment
+                    </h6>
+
+                    <p>
+                        Quantitative aptitude, logical reasoning,
+                        verbal ability and online assessments.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-number">
+                    02
+                </div>
+
+                <div class="timeline-content">
+
+                    <h6>
+                        Coding Test
+                    </h6>
+
+                    <p>
+                        Programming, problem solving, algorithms,
+                        SQL and coding fundamentals.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-number">
+                    03
+                </div>
+
+                <div class="timeline-content">
+
+                    <h6>
+                        Technical Interview
+                    </h6>
+
+                    <p>
+                        Programming, DBMS, OOP, operating systems,
+                        networking and project discussion.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-number">
+                    04
+                </div>
+
+                <div class="timeline-content">
+
+                    <h6>
+                        HR Interview
+                    </h6>
+
+                    <p>
+                        Communication, confidence, personality,
+                        career goals and behavioral questions.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =================================================
+             MODALS
+        ================================================= -->
+
+
+        <!-- TCS -->
+
+        <div class="modal fade" id="tcsModal">
+
+            <div class="modal-dialog modal-dialog-centered">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title">
+                            💻 TCS Preparation
+                        </h5>
+
+                        <button
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                        </button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        <p>
+                            Important preparation areas:
+                        </p>
+
+                        <ul>
+
+                            <li>Quantitative Aptitude</li>
+                            <li>Logical Reasoning</li>
+                            <li>Verbal Ability</li>
+                            <li>Programming</li>
+                            <li>DBMS and SQL</li>
+                            <li>Technical Interview</li>
+                            <li>HR Interview</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- INFOSYS -->
+
+        <div class="modal fade" id="infosysModal">
+
+            <div class="modal-dialog modal-dialog-centered">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title">
+                            🌐 Infosys Preparation
+                        </h5>
+
+                        <button
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                        </button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        <ul>
+
+                            <li>Aptitude</li>
+                            <li>Logical Reasoning</li>
+                            <li>Programming</li>
+                            <li>Problem Solving</li>
+                            <li>DBMS</li>
+                            <li>Technical Interview</li>
+                            <li>HR Interview</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- WIPRO -->
+
+        <div class="modal fade" id="wiproModal">
+
+            <div class="modal-dialog modal-dialog-centered">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title">
+                            🚀 Wipro Preparation
+                        </h5>
+
+                        <button
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                        </button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        <ul>
+
+                            <li>Quantitative Aptitude</li>
+                            <li>Logical Reasoning</li>
+                            <li>Verbal Ability</li>
+                            <li>Coding</li>
+                            <li>Technical Concepts</li>
+                            <li>HR Questions</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ACCENTURE -->
+
+        <div class="modal fade" id="accentureModal">
+
+            <div class="modal-dialog modal-dialog-centered">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title">
+                            🏆 Accenture Preparation
+                        </h5>
+
+                        <button
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                        </button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        <ul>
+
+                            <li>Aptitude</li>
+                            <li>Logical Reasoning</li>
+                            <li>Verbal Ability</li>
+                            <li>Coding</li>
+                            <li>Problem Solving</li>
+                            <li>Communication</li>
+                            <li>Interview Preparation</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- COGNIZANT -->
+
+        <div class="modal fade" id="cognizantModal">
+
+            <div class="modal-dialog modal-dialog-centered">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title">
+                            🔥 Cognizant Preparation
+                        </h5>
+
+                        <button
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                        </button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        <ul>
+
+                            <li>Programming</li>
+                            <li>SQL</li>
+                            <li>DBMS</li>
+                            <li>Aptitude</li>
+                            <li>Logical Reasoning</li>
+                            <li>Technical Interview</li>
+                            <li>HR Interview</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CAPGEMINI -->
+
+        <div class="modal fade" id="capgeminiModal">
+
+            <div class="modal-dialog modal-dialog-centered">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title">
+                            ⭐ Capgemini Preparation
+                        </h5>
+
+                        <button
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                        </button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        <ul>
+
+                            <li>Quantitative Aptitude</li>
+                            <li>Logical Reasoning</li>
+                            <li>English</li>
+                            <li>Coding</li>
+                            <li>Technical Questions</li>
+                            <li>HR Interview</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- IBM -->
+
+        <div class="modal fade" id="ibmModal">
+
+            <div class="modal-dialog modal-dialog-centered">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title">
+                            🤖 IBM Preparation
+                        </h5>
+
+                        <button
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                        </button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        <p>
+                            Important preparation areas:
+                        </p>
+
+                        <ul>
+
+                            <li>Python / Java / C++</li>
+                            <li>Data Structures</li>
+                            <li>Algorithms</li>
+                            <li>SQL and DBMS</li>
+                            <li>Cloud Computing</li>
+                            <li>Artificial Intelligence</li>
+                            <li>Technical Interview</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- HCL -->
+
+        <div class="modal fade" id="hclModal">
+
+            <div class="modal-dialog modal-dialog-centered">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title">
+                            💡 HCLTech Preparation
+                        </h5>
+
+                        <button
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                        </button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        <ul>
+
+                            <li>Quantitative Aptitude</li>
+                            <li>Logical Reasoning</li>
+                            <li>Java / C++ / Python</li>
+                            <li>SQL</li>
+                            <li>DBMS</li>
+                            <li>Computer Networks</li>
+                            <li>Technical Interview</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TECH MAHINDRA -->
+
+        <div class="modal fade" id="techMahindraModal">
+
+            <div class="modal-dialog modal-dialog-centered">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title">
+                            📡 Tech Mahindra Preparation
+                        </h5>
+
+                        <button
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                        </button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        <ul>
+
+                            <li>Quantitative Aptitude</li>
+                            <li>Logical Reasoning</li>
+                            <li>English Communication</li>
+                            <li>Programming</li>
+                            <li>Computer Fundamentals</li>
+                            <li>Technical Interview</li>
+                            <li>HR Interview</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- DELOITTE -->
+
+        <div class="modal fade" id="deloitteModal">
+
+            <div class="modal-dialog modal-dialog-centered">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title">
+                            📊 Deloitte Preparation
+                        </h5>
+
+                        <button
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                        </button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        <p>
+                            Important preparation areas:
+                        </p>
+
+                        <ul>
+
+                            <li>Analytical Reasoning</li>
+                            <li>Quantitative Aptitude</li>
+                            <li>SQL</li>
+                            <li>Excel</li>
+                            <li>Data Analytics</li>
+                            <li>Communication</li>
+                            <li>Case Study / Interview</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- LTIMINDTREE -->
+
+        <div class="modal fade" id="ltimindtreeModal">
+
+            <div class="modal-dialog modal-dialog-centered">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title">
+                            🌱 LTIMindtree Preparation
+                        </h5>
+
+                        <button
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                        </button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        <ul>
+
+                            <li>Programming</li>
+                            <li>Java</li>
+                            <li>SQL</li>
+                            <li>Data Structures</li>
+                            <li>Cloud Fundamentals</li>
+                            <li>Problem Solving</li>
+                            <li>Technical Interview</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PERSISTENT -->
+
+        <div class="modal fade" id="persistentModal">
+
+            <div class="modal-dialog modal-dialog-centered">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title">
+                            ⚙️ Persistent Systems Preparation
+                        </h5>
+
+                        <button
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                        </button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        <ul>
+
+                            <li>Data Structures and Algorithms</li>
+                            <li>C / C++ / Java</li>
+                            <li>Object Oriented Programming</li>
+                            <li>DBMS</li>
+                            <li>SQL</li>
+                            <li>Coding Problems</li>
+                            <li>Technical Interview</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- INFOSYS BPM -->
+
+        <div class="modal fade" id="infosysBpmModal">
+
+            <div class="modal-dialog modal-dialog-centered">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title">
+                            📋 Infosys BPM Preparation
+                        </h5>
+
+                        <button
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                        </button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        <ul>
+
+                            <li>Verbal Ability</li>
+                            <li>Quantitative Aptitude</li>
+                            <li>Logical Reasoning</li>
+                            <li>Excel</li>
+                            <li>Analytical Skills</li>
+                            <li>Communication</li>
+                            <li>HR Interview</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- HEXAWARE -->
+
+        <div class="modal fade" id="hexawareModal">
+
+            <div class="modal-dialog modal-dialog-centered">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title">
+                            🔷 Hexaware Preparation
+                        </h5>
+
+                        <button
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                        </button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        <ul>
+
+                            <li>Python / Java</li>
+                            <li>SQL</li>
+                            <li>DBMS</li>
+                            <li>Automation</li>
+                            <li>Quantitative Aptitude</li>
+                            <li>Problem Solving</li>
+                            <li>Technical Interview</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- AMAZON -->
+
+        <div class="modal fade" id="amazonModal">
+
+            <div class="modal-dialog modal-dialog-centered">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title">
+                            📦 Amazon Preparation
+                        </h5>
+
+                        <button
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                        </button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        <p>
+                            Important preparation areas:
+                        </p>
+
+                        <ul>
+
+                            <li>Data Structures</li>
+                            <li>Algorithms</li>
+                            <li>Coding Problems</li>
+                            <li>Problem Solving</li>
+                            <li>Object Oriented Programming</li>
+                            <li>System Design</li>
+                            <li>Leadership Principles</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- GOOGLE -->
+
+        <div class="modal fade" id="googleModal">
+
+            <div class="modal-dialog modal-dialog-centered">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title">
+                            🔎 Google Preparation
+                        </h5>
+
+                        <button
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                        </button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        <p>
+                            Important preparation areas:
+                        </p>
+
+                        <ul>
+
+                            <li>Advanced Data Structures</li>
+                            <li>Algorithms</li>
+                            <li>Problem Solving</li>
+                            <li>Competitive Programming</li>
+                            <li>System Design</li>
+                            <li>Computer Science Fundamentals</li>
+                            <li>Behavioral Interview</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MICROSOFT -->
+
+        <div class="modal fade" id="microsoftModal">
+
+            <div class="modal-dialog modal-dialog-centered">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title">
+                            🪟 Microsoft Preparation
+                        </h5>
+
+                        <button
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                        </button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        <ul>
+
+                            <li>Data Structures</li>
+                            <li>Algorithms</li>
+                            <li>C++ / Java / Python</li>
+                            <li>Object Oriented Programming</li>
+                            <li>Problem Solving</li>
+                            <li>System Design</li>
+                            <li>Behavioral Interview</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ORACLE -->
+
+        <div class="modal fade" id="oracleModal">
+
+            <div class="modal-dialog modal-dialog-centered">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title">
+                            🗄️ Oracle Preparation
+                        </h5>
+
+                        <button
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                        </button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        <ul>
+
+                            <li>SQL</li>
+                            <li>DBMS</li>
+                            <li>Java</li>
+                            <li>Data Structures</li>
+                            <li>Algorithms</li>
+                            <li>Database Design</li>
+                            <li>Technical Interview</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SAP -->
+
+        <div class="modal fade" id="sapModal">
+
+            <div class="modal-dialog modal-dialog-centered">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title">
+                            ☁️ SAP Preparation
+                        </h5>
+
+                        <button
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                        </button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        <ul>
+
+                            <li>SQL and Databases</li>
+                            <li>Java</li>
+                            <li>Cloud Computing</li>
+                            <li>Enterprise Software</li>
+                            <li>Data Analytics</li>
+                            <li>Problem Solving</li>
+                            <li>Communication</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer class="footer">
+
+        <div>
+
+            © 2026
+
+            <strong>
+                PlacementX
+            </strong>
+
+            • Placement Preparation Portal
+
+        </div>
+
+
+        <div class="mt-2">
+
+            Build skills. Practice consistently. Get placed. 🚀
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         BOOTSTRAP
+    ===================================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+
+    <!-- =====================================================
+         SEARCH SCRIPT
+    ===================================================== -->
+
+    <script>
+
+        const searchInput =
+            document.getElementById("companySearch");
+
+
+        const companyItems =
+            document.querySelectorAll(".company-item");
+
+
+        const noResult =
+            document.getElementById("noResult");
+
+
+        searchInput.addEventListener(
+            "input",
+            function () {
+
+
+                const searchValue =
+                    this.value
+                        .toLowerCase()
+                        .trim();
+
+
+                let visibleCount = 0;
+
+
+                companyItems.forEach(
+                    function (item) {
+
+
+                        const companyName =
+                            item.dataset.company
+                                .toLowerCase();
+
+
+                        if (
+                            companyName.includes(
+                                searchValue
+                            )
+                        ) {
+
+
+                            item.style.display =
+                                "";
+
+
+                            visibleCount++;
+
+
+                        } else {
+
+
+                            item.style.display =
+                                "none";
+
+                        }
+
+                    }
+                );
+
+
+                if (visibleCount === 0) {
+
+                    noResult.style.display =
+                        "block";
+
+                } else {
+
+                    noResult.style.display =
+                        "none";
+
+                }
+
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,3860 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Number System | PlacementX</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        /* =================================================
+           RESET
+        ================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            background: #050706;
+
+            color: white;
+
+            font-family: "Figtree", sans-serif;
+
+            overflow-x: hidden;
+
+        }
+
+
+        /* =================================================
+           BACKGROUND
+        ================================================= */
+
+        .background {
+
+            position: fixed;
+
+            inset: 0;
+
+            overflow: hidden;
+
+            z-index: -10;
+
+            background:
+
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(0,140,112,0.15),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 80% 70%,
+                    rgba(0,140,112,0.10),
+                    transparent 30%
+                ),
+
+                #050706;
+
+        }
+
+
+        .orb {
+
+            position: absolute;
+
+            border-radius: 50%;
+
+            filter: blur(2px);
+
+            opacity: 0.35;
+
+            animation:
+                floatOrb 12s infinite ease-in-out;
+
+        }
+
+
+        .orb-one {
+
+            width: 280px;
+
+            height: 280px;
+
+            background:
+
+                radial-gradient(
+                    circle at 30% 30%,
+                    #00c49c,
+                    #008c70,
+                    transparent 70%
+                );
+
+            top: 10%;
+
+            left: -100px;
+
+        }
+
+
+        .orb-two {
+
+            width: 350px;
+
+            height: 350px;
+
+            background:
+
+                radial-gradient(
+                    circle at 40% 40%,
+                    #008c70,
+                    transparent 70%
+                );
+
+            right: -150px;
+
+            top: 35%;
+
+            animation-delay: 2s;
+
+        }
+
+
+        .orb-three {
+
+            width: 200px;
+
+            height: 200px;
+
+            background:
+
+                radial-gradient(
+                    circle,
+                    #00c49c,
+                    transparent 70%
+                );
+
+            bottom: 5%;
+
+            left: 35%;
+
+            animation-delay: 4s;
+
+        }
+
+
+        @keyframes floatOrb {
+
+            0%,
+            100% {
+
+                transform:
+                    translate3d(0,0,0)
+                    rotate(0deg);
+
+            }
+
+            50% {
+
+                transform:
+                    translate3d(50px,-40px,80px)
+                    rotate(180deg);
+
+            }
+
+        }
+
+
+        /* =================================================
+           NAVBAR
+        ================================================= */
+
+        .navbar {
+
+            position: sticky;
+
+            top: 18px;
+
+            z-index: 100;
+
+            width: calc(100% - 50px);
+
+            max-width: 1400px;
+
+            margin: auto;
+
+            min-height: 72px;
+
+            padding: 12px 18px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.14);
+
+            border-radius: 18px;
+
+            background:
+                rgba(15,18,17,0.55);
+
+            backdrop-filter: blur(25px);
+
+            box-shadow:
+                0 20px 70px
+                rgba(0,0,0,0.35);
+
+        }
+
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+        }
+
+
+        .logo-box {
+
+            width: 42px;
+
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: #008c70;
+
+            font-weight: 800;
+
+            font-size: 20px;
+
+            box-shadow:
+                0 0 30px
+                rgba(0,140,112,0.35);
+
+        }
+
+
+        .logo-text h2 {
+
+            font-size: 14px;
+
+        }
+
+
+        .logo-text span {
+
+            display: block;
+
+            margin-top: 3px;
+
+            font-size: 13px;
+
+            color:
+                rgba(255,255,255,0.45);
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .nav-links {
+
+            display: flex;
+
+            gap: 25px;
+
+        }
+
+
+        .nav-links a {
+
+            color:
+                rgba(255,255,255,0.62);
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+
+        }
+
+
+        .nav-links a:hover {
+
+            color: #00c49c;
+
+        }
+
+
+        .profile {
+
+            width: 40px;
+
+            height: 40px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.15);
+
+            background:
+                rgba(255,255,255,0.08);
+
+            color: white;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+        }
+
+
+        /* =================================================
+           MAIN PAGE
+        ================================================= */
+
+        .page {
+
+            width: 100%;
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding:
+                70px 25px 100px;
+
+        }
+
+
+        /* =================================================
+           HERO
+        ================================================= */
+
+        .hero {
+
+            text-align: center;
+
+            padding: 50px 20px;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .label {
+
+            color: #00c49c;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        .hero-icon {
+
+            width: 80px;
+
+            height: 80px;
+
+            margin:
+                20px auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 22px;
+
+            background:
+                rgba(0,140,112,0.16);
+
+            border:
+                1px solid
+                rgba(0,196,156,0.20);
+
+            font-size: 38px;
+
+            box-shadow:
+                0 0 40px
+                rgba(0,140,112,0.20);
+
+        }
+
+
+        .hero h1 {
+
+            font-size:
+                clamp(42px,6vw,72px);
+
+            line-height: 1;
+
+            letter-spacing: -3px;
+
+        }
+
+
+        .green {
+
+            color: #008c70;
+
+            text-shadow:
+                0 0 40px
+                rgba(0,140,112,0.30);
+
+        }
+
+
+        .hero p {
+
+            max-width: 700px;
+
+            margin:
+                22px auto 0;
+
+            color:
+                rgba(255,255,255,0.52);
+
+            font-size: 15px;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =================================================
+           GLASS SECTION
+        ================================================= */
+
+        .glass-section {
+
+            margin-top: 30px;
+
+            padding: 30px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.10);
+
+            border-radius: 20px;
+
+            background:
+                rgba(255,255,255,0.045);
+
+            backdrop-filter: blur(20px);
+
+            box-shadow:
+                0 20px 60px
+                rgba(0,0,0,0.20);
+
+        }
+
+
+        /* =================================================
+           SECTION TITLE
+        ================================================= */
+
+        .section-title {
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .section-title h2 {
+
+            margin-top: 7px;
+
+            font-size: 30px;
+
+            letter-spacing: -1px;
+
+        }
+
+
+        .section-title p {
+
+            margin-top: 6px;
+
+            color:
+                rgba(255,255,255,0.45);
+
+            font-size: 13px;
+
+        }
+
+
+        /* =================================================
+           INTRO
+        ================================================= */
+
+        .intro {
+
+            color:
+                rgba(255,255,255,0.62);
+
+            font-size: 15px;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =================================================
+           TOPICS LIST
+        ================================================= */
+
+        .topics-list {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2,1fr);
+
+            gap: 12px;
+
+        }
+
+
+        .topic-item {
+
+            padding: 15px 18px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.08);
+
+            border-radius: 12px;
+
+            background:
+                rgba(255,255,255,0.04);
+
+            color:
+                rgba(255,255,255,0.68);
+
+            transition: 0.3s;
+
+        }
+
+
+        .topic-item:hover {
+
+            transform:
+                translateX(5px);
+
+            border-color:
+                rgba(0,196,156,0.30);
+
+            background:
+                rgba(0,140,112,0.08);
+
+        }
+
+
+        .topic-number {
+
+            color: #00c49c;
+
+            font-weight: 700;
+
+            margin-right: 8px;
+
+        }
+
+
+        /* =================================================
+           DEFINITION BOX
+        ================================================= */
+
+        .topic-box {
+
+            margin-bottom: 14px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.09);
+
+            border-radius: 15px;
+
+            background:
+                rgba(255,255,255,0.045);
+
+            overflow: hidden;
+
+            transition: 0.3s;
+
+        }
+
+
+        .topic-box:hover {
+
+            border-color:
+                rgba(0,196,156,0.25);
+
+        }
+
+
+        .topic-title {
+
+            padding: 18px 20px;
+
+            color: white;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+
+        .topic-title::after {
+
+            content: "+";
+
+            width: 28px;
+
+            height: 28px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                rgba(0,140,112,0.15);
+
+            color: #00c49c;
+
+            font-size: 20px;
+
+        }
+
+
+        .topic-title.active::after {
+
+            content: "−";
+
+        }
+
+
+        .definition {
+
+            margin:
+                0 18px 18px;
+
+            padding: 18px;
+
+            border-left:
+                4px solid
+                #008c70;
+
+            border-radius: 10px;
+
+            background:
+                rgba(0,140,112,0.08);
+
+            color:
+                rgba(255,255,255,0.62);
+
+            line-height: 1.7;
+
+        }
+
+
+        .definition b {
+
+            color: #00c49c;
+
+        }
+
+
+        /* =================================================
+           QUESTION CARD
+        ================================================= */
+
+        .question-card {
+
+            padding: 22px;
+
+            margin-bottom: 18px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.09);
+
+            border-radius: 16px;
+
+            background:
+                rgba(255,255,255,0.045);
+
+            transition: 0.3s;
+
+        }
+
+
+        .question-card:hover {
+
+            transform:
+                translateY(-3px);
+
+            border-color:
+                rgba(0,196,156,0.25);
+
+        }
+
+
+        .question-number {
+
+            color: #00c49c;
+
+            font-weight: 700;
+
+            font-size: 18px;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .question-text {
+
+            color:
+                rgba(255,255,255,0.78);
+
+            line-height: 1.7;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        /* =================================================
+           OPTIONS
+        ================================================= */
+
+        .option {
+
+            display: block;
+
+            background: #0a100e;
+
+            color: white;
+
+            border:
+                1px solid
+                #285e51;
+
+            border-radius: 8px;
+
+            padding: 12px 15px;
+
+            margin-bottom: 10px;
+
+            cursor: pointer;
+
+            transition: 0.25s;
+
+        }
+
+
+        .option:hover {
+
+            background: #0d1c18;
+
+            border-color: #00c49c;
+
+        }
+
+
+        .option input {
+
+            margin-right: 10px;
+
+            accent-color: #00c49c;
+
+        }
+
+
+        .option.disabled-option {
+
+            cursor: not-allowed;
+
+        }
+
+
+        /* =================================================
+           SUBMIT QUESTION
+        ================================================= */
+
+        .submit-question {
+
+            margin-top: 8px;
+
+            background: #008c70;
+
+            border: none;
+
+            color: white;
+
+            padding: 10px 20px;
+
+            border-radius: 8px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+        }
+
+
+        .submit-question:hover {
+
+            background: #00a886;
+
+            transform:
+                translateY(-1px);
+
+        }
+
+
+        .submit-question:disabled {
+
+            opacity: 0.55;
+
+            cursor: not-allowed;
+
+            transform: none;
+
+        }
+
+
+        /* =================================================
+           ANSWER RESULT
+        ================================================= */
+
+        .answer-result {
+
+            display: none;
+
+            margin-top: 16px;
+
+            padding: 16px;
+
+            border-radius: 10px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .correct-result {
+
+            display: block;
+
+            background: #073d2f;
+
+            border:
+                1px solid
+                #00c49c;
+
+        }
+
+
+        .wrong-result {
+
+            display: block;
+
+            background: #351414;
+
+            border:
+                1px solid
+                #dc3545;
+
+        }
+
+
+        .correct-result strong,
+        .wrong-result strong {
+
+            color: white;
+
+        }
+
+
+        /* =================================================
+           FINAL SCORE
+        ================================================= */
+
+        #finalScore {
+
+            display: none;
+
+            margin-top: 30px;
+
+            padding: 30px;
+
+            border:
+                2px solid
+                #00c49c;
+
+            border-radius: 16px;
+
+            background:
+                rgba(0,196,156,0.08);
+
+            text-align: center;
+
+            box-shadow:
+                0 0 35px
+                rgba(0,196,156,0.12);
+
+        }
+
+
+        #finalScore h3 {
+
+            color: #00c49c;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        #scoreText {
+
+            color: white;
+
+            font-size: 24px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        #scoreMessage {
+
+            color:
+                rgba(255,255,255,0.70);
+
+            margin: 0;
+
+        }
+
+
+        /* =================================================
+           SUBMIT ALL BUTTON
+        ================================================= */
+
+        .main-submit {
+
+            margin-top: 10px;
+
+            padding:
+                14px 28px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #008c70,
+                    #00b890
+                );
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 0 25px
+                rgba(0,140,112,0.20);
+
+            transition: 0.3s;
+
+        }
+
+
+        .main-submit:hover {
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 0 35px
+                rgba(0,196,156,0.35);
+
+        }
+
+
+        /* =================================================
+           IMPORTANCE
+        ================================================= */
+
+        .custom-list {
+
+            list-style: none;
+
+            padding: 0;
+
+        }
+
+
+        .custom-list li {
+
+            position: relative;
+
+            padding:
+                12px 15px 12px 35px;
+
+            color:
+                rgba(255,255,255,0.60);
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.06);
+
+        }
+
+
+        .custom-list li::before {
+
+            content: "✓";
+
+            position: absolute;
+
+            left: 8px;
+
+            color: #00c49c;
+
+            font-weight: bold;
+
+        }
+
+
+        /* =================================================
+           PREPARATION TIPS
+        ================================================= */
+
+        .tips-box {
+
+            padding: 20px;
+
+            border-radius: 15px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    rgba(0,140,112,0.16),
+                    rgba(0,196,156,0.04)
+                );
+
+            border:
+                1px solid
+                rgba(0,196,156,0.15);
+
+        }
+
+
+        .tips-box li {
+
+            color:
+                rgba(255,255,255,0.62);
+
+            margin-bottom: 10px;
+
+        }
+
+
+        /* =================================================
+           COMPANY TABLE
+        ================================================= */
+
+        .table-wrapper {
+
+            overflow-x: auto;
+
+        }
+
+
+        .company-table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+
+            overflow: hidden;
+
+            border-radius: 12px;
+
+        }
+
+
+        .company-table th {
+
+            padding: 15px;
+
+            text-align: left;
+
+            background:
+                rgba(0,140,112,0.22);
+
+            color: #00c49c;
+
+            border-bottom:
+                1px solid
+                rgba(0,196,156,0.15);
+
+        }
+
+
+        .company-table td {
+
+            padding: 14px 15px;
+
+            color:
+                rgba(255,255,255,0.60);
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.07);
+
+        }
+
+
+        .company-table tr:hover td {
+
+            background:
+                rgba(0,140,112,0.06);
+
+        }
+
+
+        /* =================================================
+           BUTTONS
+        ================================================= */
+
+        .button-area {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 14px;
+
+            flex-wrap: wrap;
+
+            margin-top: 35px;
+
+        }
+
+
+        .btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding:
+                13px 22px;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+
+            border: none;
+
+            cursor: pointer;
+
+            font-family:
+                "Figtree",
+                sans-serif;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            transition: 0.3s;
+
+        }
+
+
+        .btn-success {
+
+            background: #008c70;
+
+            color: white;
+
+            box-shadow:
+                0 0 25px
+                rgba(0,140,112,0.20);
+
+        }
+
+
+        .btn-success:hover {
+
+            background: #00a985;
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 0 35px
+                rgba(0,196,156,0.35);
+
+        }
+
+
+        .btn-primary {
+
+            background:
+                rgba(255,255,255,0.07);
+
+            color: white;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.14);
+
+        }
+
+
+        .btn-primary:hover {
+
+            background:
+                rgba(0,140,112,0.18);
+
+            border-color:
+                rgba(0,196,156,0.30);
+
+            transform:
+                translateY(-2px);
+
+        }
+
+
+        /* =================================================
+           FOOTER
+        ================================================= */
+
+        footer {
+
+            padding:
+                35px 7vw;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,0.08);
+
+            color:
+                rgba(255,255,255,0.40);
+
+            text-align: center;
+
+            font-size: 14px;
+
+        }
+
+
+        /* =================================================
+           MOBILE
+        ================================================= */
+
+        @media(max-width: 900px) {
+
+            .nav-links {
+
+                display: none;
+
+            }
+
+
+            .page {
+
+                padding:
+                    50px 18px 80px;
+
+            }
+
+
+            .topics-list {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+
+        @media(max-width: 600px) {
+
+            .navbar {
+
+                width:
+                    calc(100% - 24px);
+
+            }
+
+
+            .logo-text span {
+
+                display: none;
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 46px;
+
+                letter-spacing: -2px;
+
+            }
+
+
+            .hero {
+
+                padding:
+                    35px 10px;
+
+            }
+
+
+            .glass-section {
+
+                padding: 20px;
+
+            }
+
+
+            .section-title h2 {
+
+                font-size: 25px;
+
+            }
+
+
+            .button-area {
+
+                flex-direction: column;
+
+            }
+
+
+            .btn {
+
+                width: 100%;
+
+            }
+
+
+            .main-submit {
+
+                width: 100%;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =================================================
+         BACKGROUND
+    ================================================= -->
+
+    <div class="background">
+
+        <div class="orb orb-one"></div>
+
+        <div class="orb orb-two"></div>
+
+        <div class="orb orb-three"></div>
+
+    </div>
+
+
+    <!-- =================================================
+         NAVBAR
+    ================================================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+
+            <div class="logo-box">
+                P
+            </div>
+
+            <div class="logo-text">
+
+                <h2>
+                    PlacementX
+                </h2>
+
+                <span>
+                    Career Preparation Portal
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <nav class="nav-links">
+
+            <a href="/dashboard">
+                Dashboard
+            </a>
+
+            <a href="/aptitude">
+                Aptitude
+            </a>
+
+            <a href="/coding">
+                Coding
+            </a>
+
+            <a href="/companies">
+                Companies
+            </a>
+
+            <a href="/interview">
+                Interview
+            </a>
+
+        </nav>
+
+
+        <button class="profile">
+            M
+        </button>
+
+    </header>
+
+
+    <!-- =================================================
+         MAIN
+    ================================================= -->
+
+    <main class="page">
+
+
+        <!-- =================================================
+             HERO
+        ================================================= -->
+
+        <section class="hero">
+
+            <span class="label">
+                QUANTITATIVE APTITUDE
+            </span>
+
+
+            <div class="hero-icon">
+                🔢
+            </div>
+
+
+            <h1>
+
+                Number
+
+                <span class="green">
+                    System
+                </span>
+
+            </h1>
+
+
+            <p>
+
+                Number System is a fundamental topic in
+                quantitative aptitude. Learn different types
+                of numbers, their properties, factors,
+                multiples, HCF, LCM, divisibility rules,
+                remainders and number-based calculations.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             OVERVIEW
+        ================================================= -->
+
+        <section class="glass-section">
+
+            <div class="section-title">
+
+                <span class="label">
+                    OVERVIEW
+                </span>
+
+                <h2>
+                    About Number System
+                </h2>
+
+            </div>
+
+
+            <p class="intro">
+
+                The Number System is one of the most important
+                topics in placement aptitude examinations.
+                Understanding numbers and their properties helps
+                you solve HCF, LCM, divisibility, remainder,
+                factors, multiples and other mathematical
+                problems quickly.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             TOPICS COVERED
+        ================================================= -->
+
+        <section class="glass-section">
+
+            <div class="section-title">
+
+                <span class="label">
+                    TOPICS
+                </span>
+
+                <h2>
+                    Topics Covered
+                </h2>
+
+                <p>
+                    Important concepts you should learn.
+                </p>
+
+            </div>
+
+
+            <div class="topics-list">
+
+                <div class="topic-item">
+                    <span class="topic-number">01</span>
+                    Natural Numbers
+                </div>
+
+                <div class="topic-item">
+                    <span class="topic-number">02</span>
+                    Whole Numbers
+                </div>
+
+                <div class="topic-item">
+                    <span class="topic-number">03</span>
+                    Integers
+                </div>
+
+                <div class="topic-item">
+                    <span class="topic-number">04</span>
+                    Prime Numbers
+                </div>
+
+                <div class="topic-item">
+                    <span class="topic-number">05</span>
+                    Composite Numbers
+                </div>
+
+                <div class="topic-item">
+                    <span class="topic-number">06</span>
+                    Factors
+                </div>
+
+                <div class="topic-item">
+                    <span class="topic-number">07</span>
+                    Multiples
+                </div>
+
+                <div class="topic-item">
+                    <span class="topic-number">08</span>
+                    HCF
+                </div>
+
+                <div class="topic-item">
+                    <span class="topic-number">09</span>
+                    LCM
+                </div>
+
+                <div class="topic-item">
+                    <span class="topic-number">10</span>
+                    Divisibility Rules
+                </div>
+
+                <div class="topic-item">
+                    <span class="topic-number">11</span>
+                    Remainders
+                </div>
+
+                <div class="topic-item">
+                    <span class="topic-number">12</span>
+                    Number Properties
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             DEFINITIONS
+        ================================================= -->
+
+        <section class="glass-section">
+
+            <div class="section-title">
+
+                <span class="label">
+                    LEARN
+                </span>
+
+                <h2>
+                    Important Topic Definitions
+                </h2>
+
+                <p>
+                    Click each topic to view its definition.
+                </p>
+
+            </div>
+
+
+            <!-- NATURAL NUMBERS -->
+
+            <div class="topic-box">
+
+                <div class="topic-title"
+                     onclick="toggleTopic(this)">
+
+                    1. Natural Numbers
+
+                </div>
+
+
+                <div class="definition-content"
+                     style="display:none;">
+
+                    <div class="definition">
+
+                        <b>Definition:</b>
+
+                        Natural numbers are positive counting
+                        numbers.
+
+                        <br><br>
+
+                        <b>Example:</b>
+
+                        1, 2, 3, 4, 5, ...
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- WHOLE NUMBERS -->
+
+            <div class="topic-box">
+
+                <div class="topic-title"
+                     onclick="toggleTopic(this)">
+
+                    2. Whole Numbers
+
+                </div>
+
+
+                <div class="definition-content"
+                     style="display:none;">
+
+                    <div class="definition">
+
+                        <b>Definition:</b>
+
+                        Whole numbers are natural numbers
+                        including zero.
+
+                        <br><br>
+
+                        <b>Example:</b>
+
+                        0, 1, 2, 3, 4, 5, ...
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- INTEGERS -->
+
+            <div class="topic-box">
+
+                <div class="topic-title"
+                     onclick="toggleTopic(this)">
+
+                    3. Integers
+
+                </div>
+
+
+                <div class="definition-content"
+                     style="display:none;">
+
+                    <div class="definition">
+
+                        <b>Definition:</b>
+
+                        Integers include positive numbers,
+                        negative numbers and zero.
+
+                        <br><br>
+
+                        <b>Example:</b>
+
+                        ..., -3, -2, -1, 0, 1, 2, 3, ...
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRIME -->
+
+            <div class="topic-box">
+
+                <div class="topic-title"
+                     onclick="toggleTopic(this)">
+
+                    4. Prime Numbers
+
+                </div>
+
+
+                <div class="definition-content"
+                     style="display:none;">
+
+                    <div class="definition">
+
+                        <b>Definition:</b>
+
+                        A prime number has exactly two factors:
+                        1 and itself.
+
+                        <br><br>
+
+                        <b>Examples:</b>
+
+                        2, 3, 5, 7, 11, 13
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- COMPOSITE -->
+
+            <div class="topic-box">
+
+                <div class="topic-title"
+                     onclick="toggleTopic(this)">
+
+                    5. Composite Numbers
+
+                </div>
+
+
+                <div class="definition-content"
+                     style="display:none;">
+
+                    <div class="definition">
+
+                        <b>Definition:</b>
+
+                        A composite number has more than two
+                        factors.
+
+                        <br><br>
+
+                        <b>Examples:</b>
+
+                        4, 6, 8, 9, 10, 12
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- FACTORS -->
+
+            <div class="topic-box">
+
+                <div class="topic-title"
+                     onclick="toggleTopic(this)">
+
+                    6. Factors
+
+                </div>
+
+
+                <div class="definition-content"
+                     style="display:none;">
+
+                    <div class="definition">
+
+                        <b>Definition:</b>
+
+                        Factors are numbers that divide another
+                        number exactly without leaving a remainder.
+
+                        <br><br>
+
+                        <b>Factors of 12:</b>
+
+                        1, 2, 3, 4, 6 and 12.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- MULTIPLES -->
+
+            <div class="topic-box">
+
+                <div class="topic-title"
+                     onclick="toggleTopic(this)">
+
+                    7. Multiples
+
+                </div>
+
+
+                <div class="definition-content"
+                     style="display:none;">
+
+                    <div class="definition">
+
+                        <b>Definition:</b>
+
+                        Multiples are numbers obtained by
+                        multiplying a number by whole numbers.
+
+                        <br><br>
+
+                        <b>Example:</b>
+
+                        Multiples of 5 are
+                        5, 10, 15, 20, 25, ...
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- HCF -->
+
+            <div class="topic-box">
+
+                <div class="topic-title"
+                     onclick="toggleTopic(this)">
+
+                    8. HCF
+
+                </div>
+
+
+                <div class="definition-content"
+                     style="display:none;">
+
+                    <div class="definition">
+
+                        <b>Definition:</b>
+
+                        HCF means Highest Common Factor.
+                        It is the greatest number that divides
+                        two or more numbers exactly.
+
+                        <br><br>
+
+                        <b>Example:</b>
+
+                        HCF of 12 and 18 = 6
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- LCM -->
+
+            <div class="topic-box">
+
+                <div class="topic-title"
+                     onclick="toggleTopic(this)">
+
+                    9. LCM
+
+                </div>
+
+
+                <div class="definition-content"
+                     style="display:none;">
+
+                    <div class="definition">
+
+                        <b>Definition:</b>
+
+                        LCM means Least Common Multiple.
+                        It is the smallest positive number
+                        divisible by two or more numbers.
+
+                        <br><br>
+
+                        <b>Example:</b>
+
+                        LCM of 4 and 6 = 12
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DIVISIBILITY -->
+
+            <div class="topic-box">
+
+                <div class="topic-title"
+                     onclick="toggleTopic(this)">
+
+                    10. Divisibility Rules
+
+                </div>
+
+
+                <div class="definition-content"
+                     style="display:none;">
+
+                    <div class="definition">
+
+                        <b>Definition:</b>
+
+                        Divisibility rules are shortcuts used
+                        to determine whether a number can be
+                        divided exactly by another number.
+
+                        <br><br>
+
+                        <b>Examples:</b>
+
+                        A number is divisible by 2 if its last
+                        digit is even.
+
+                        <br>
+
+                        A number is divisible by 5 if its last
+                        digit is 0 or 5.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- REMAINDER -->
+
+            <div class="topic-box">
+
+                <div class="topic-title"
+                     onclick="toggleTopic(this)">
+
+                    11. Remainders
+
+                </div>
+
+
+                <div class="definition-content"
+                     style="display:none;">
+
+                    <div class="definition">
+
+                        <b>Definition:</b>
+
+                        The remainder is the value left after
+                        dividing one number by another.
+
+                        <br><br>
+
+                        <b>Example:</b>
+
+                        17 ÷ 5 gives quotient 3 and remainder 2.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- NUMBER PROPERTIES -->
+
+            <div class="topic-box">
+
+                <div class="topic-title"
+                     onclick="toggleTopic(this)">
+
+                    12. Number Properties
+
+                </div>
+
+
+                <div class="definition-content"
+                     style="display:none;">
+
+                    <div class="definition">
+
+                        <b>Definition:</b>
+
+                        Number properties describe mathematical
+                        characteristics such as even, odd, positive,
+                        negative, prime and composite numbers.
+
+                        <br><br>
+
+                        <b>Example:</b>
+
+                        8 is even, while 7 is odd.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PRACTICE QUESTIONS
+        ================================================= -->
+
+        <section class="glass-section">
+
+            <div class="section-title">
+
+                <span class="label">
+                    PRACTICE
+                </span>
+
+                <h2>
+                    Number System Practice Questions
+                </h2>
+
+                <p>
+                    Select an option and submit each question.
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 QUESTION 1
+            ================================================= -->
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    Question 01
+                </div>
+
+
+                <div class="question-text">
+
+                    Which of the following is a prime number?
+
+                </div>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q1"
+                        value="4">
+
+                    A) 4
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q1"
+                        value="9">
+
+                    B) 9
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q1"
+                        value="11">
+
+                    C) 11
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q1"
+                        value="15">
+
+                    D) 15
+
+                </label>
+
+
+                <button
+                    class="submit-question"
+                    onclick="checkAnswer(1, '11')">
+
+                    Submit Answer
+
+                </button>
+
+
+                <div id="result1"
+                     class="answer-result">
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 QUESTION 2
+            ================================================= -->
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    Question 02
+                </div>
+
+
+                <div class="question-text">
+
+                    Find the HCF of 12 and 18.
+
+                </div>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q2"
+                        value="3">
+
+                    A) 3
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q2"
+                        value="6">
+
+                    B) 6
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q2"
+                        value="9">
+
+                    C) 9
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q2"
+                        value="12">
+
+                    D) 12
+
+                </label>
+
+
+                <button
+                    class="submit-question"
+                    onclick="checkAnswer(2, '6')">
+
+                    Submit Answer
+
+                </button>
+
+
+                <div id="result2"
+                     class="answer-result">
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 QUESTION 3
+            ================================================= -->
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    Question 03
+                </div>
+
+
+                <div class="question-text">
+
+                    Find the LCM of 4 and 6.
+
+                </div>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q3"
+                        value="8">
+
+                    A) 8
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q3"
+                        value="10">
+
+                    B) 10
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q3"
+                        value="12">
+
+                    C) 12
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q3"
+                        value="24">
+
+                    D) 24
+
+                </label>
+
+
+                <button
+                    class="submit-question"
+                    onclick="checkAnswer(3, '12')">
+
+                    Submit Answer
+
+                </button>
+
+
+                <div id="result3"
+                     class="answer-result">
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 QUESTION 4
+            ================================================= -->
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    Question 04
+                </div>
+
+
+                <div class="question-text">
+
+                    Which of the following numbers is divisible
+                    by 3?
+
+                </div>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q4"
+                        value="124">
+
+                    A) 124
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q4"
+                        value="135">
+
+                    B) 135
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q4"
+                        value="142">
+
+                    C) 142
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q4"
+                        value="157">
+
+                    D) 157
+
+                </label>
+
+
+                <button
+                    class="submit-question"
+                    onclick="checkAnswer(4, '135')">
+
+                    Submit Answer
+
+                </button>
+
+
+                <div id="result4"
+                     class="answer-result">
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 QUESTION 5
+            ================================================= -->
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    Question 05
+                </div>
+
+
+                <div class="question-text">
+
+                    How many factors does the number 12 have?
+
+                </div>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q5"
+                        value="4">
+
+                    A) 4
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q5"
+                        value="5">
+
+                    B) 5
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q5"
+                        value="6">
+
+                    C) 6
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q5"
+                        value="8">
+
+                    D) 8
+
+                </label>
+
+
+                <button
+                    class="submit-question"
+                    onclick="checkAnswer(5, '6')">
+
+                    Submit Answer
+
+                </button>
+
+
+                <div id="result5"
+                     class="answer-result">
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 QUESTION 6
+            ================================================= -->
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    Question 06
+                </div>
+
+
+                <div class="question-text">
+
+                    What is the remainder when 17 is divided by 5?
+
+                </div>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q6"
+                        value="1">
+
+                    A) 1
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q6"
+                        value="2">
+
+                    B) 2
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q6"
+                        value="3">
+
+                    C) 3
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q6"
+                        value="4">
+
+                    D) 4
+
+                </label>
+
+
+                <button
+                    class="submit-question"
+                    onclick="checkAnswer(6, '2')">
+
+                    Submit Answer
+
+                </button>
+
+
+                <div id="result6"
+                     class="answer-result">
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 QUESTION 7
+            ================================================= -->
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    Question 07
+                </div>
+
+
+                <div class="question-text">
+
+                    Which of the following is a composite number?
+
+                </div>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q7"
+                        value="7">
+
+                    A) 7
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q7"
+                        value="11">
+
+                    B) 11
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q7"
+                        value="13">
+
+                    C) 13
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q7"
+                        value="15">
+
+                    D) 15
+
+                </label>
+
+
+                <button
+                    class="submit-question"
+                    onclick="checkAnswer(7, '15')">
+
+                    Submit Answer
+
+                </button>
+
+
+                <div id="result7"
+                     class="answer-result">
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 QUESTION 8
+            ================================================= -->
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    Question 08
+                </div>
+
+
+                <div class="question-text">
+
+                    What is the smallest number divisible by
+                    both 8 and 12?
+
+                </div>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q8"
+                        value="16">
+
+                    A) 16
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q8"
+                        value="20">
+
+                    B) 20
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q8"
+                        value="24">
+
+                    C) 24
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q8"
+                        value="32">
+
+                    D) 32
+
+                </label>
+
+
+                <button
+                    class="submit-question"
+                    onclick="checkAnswer(8, '24')">
+
+                    Submit Answer
+
+                </button>
+
+
+                <div id="result8"
+                     class="answer-result">
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 QUESTION 9
+            ================================================= -->
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    Question 09
+                </div>
+
+
+                <div class="question-text">
+
+                    Which of the following numbers is divisible
+                    by 5?
+
+                </div>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q9"
+                        value="123">
+
+                    A) 123
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q9"
+                        value="146">
+
+                    B) 146
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q9"
+                        value="275">
+
+                    C) 275
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q9"
+                        value="318">
+
+                    D) 318
+
+                </label>
+
+
+                <button
+                    class="submit-question"
+                    onclick="checkAnswer(9, '275')">
+
+                    Submit Answer
+
+                </button>
+
+
+                <div id="result9"
+                     class="answer-result">
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 QUESTION 10
+            ================================================= -->
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    Question 10
+                </div>
+
+
+                <div class="question-text">
+
+                    If the HCF of two numbers is 6 and their LCM
+                    is 72, which of the following could be the
+                    two numbers?
+
+                </div>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q10"
+                        value="12 and 36">
+
+                    A) 12 and 36
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q10"
+                        value="18 and 24">
+
+                    B) 18 and 24
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q10"
+                        value="6 and 72">
+
+                    C) 6 and 72
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q10"
+                        value="24 and 30">
+
+                    D) 24 and 30
+
+                </label>
+
+
+                <button
+                    class="submit-question"
+                    onclick="checkAnswer(10, '18 and 24')">
+
+                    Submit Answer
+
+                </button>
+
+
+                <div id="result10"
+                     class="answer-result">
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SUBMIT ALL
+            ================================================= -->
+
+            <div style="text-align:center; margin-top:30px;">
+
+                <button
+                    class="main-submit"
+                    onclick="calculateScore()">
+
+                    🏆 Submit All Questions
+
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 FINAL SCORE
+            ================================================= -->
+
+            <div id="finalScore">
+
+                <h3>
+                    🎉 Quiz Completed!
+                </h3>
+
+
+                <h4 id="scoreText">
+                </h4>
+
+
+                <p id="scoreMessage">
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             IMPORTANCE
+        ================================================= -->
+
+        <section class="glass-section">
+
+            <div class="section-title">
+
+                <span class="label">
+                    WHY LEARN IT?
+                </span>
+
+                <h2>
+                    Importance
+                </h2>
+
+            </div>
+
+
+            <ul class="custom-list">
+
+                <li>
+                    Builds basic mathematical concepts.
+                </li>
+
+                <li>
+                    Important for aptitude examinations.
+                </li>
+
+                <li>
+                    Useful in HCF and LCM problems.
+                </li>
+
+                <li>
+                    Helps solve divisibility problems quickly.
+                </li>
+
+                <li>
+                    Improves calculation ability.
+                </li>
+
+                <li>
+                    Helps solve remainder-based questions.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =================================================
+             PREPARATION TIPS
+        ================================================= -->
+
+        <section class="glass-section">
+
+            <div class="section-title">
+
+                <span class="label">
+                    PREPARE SMART
+                </span>
+
+                <h2>
+                    Preparation Tips
+                </h2>
+
+            </div>
+
+
+            <div class="tips-box">
+
+                <ul>
+
+                    <li>
+                        Learn important divisibility rules.
+                    </li>
+
+                    <li>
+                        Practice prime and composite numbers.
+                    </li>
+
+                    <li>
+                        Practice HCF and LCM regularly.
+                    </li>
+
+                    <li>
+                        Learn factors and multiples.
+                    </li>
+
+                    <li>
+                        Practice remainder questions.
+                    </li>
+
+                    <li>
+                        Solve number-system questions daily.
+                    </li>
+
+                    <li>
+                        Try to solve questions without a calculator.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             COMPANIES
+        ================================================= -->
+
+        <section class="glass-section">
+
+            <div class="section-title">
+
+                <span class="label">
+                    PLACEMENT
+                </span>
+
+                <h2>
+                    Companies
+                </h2>
+
+                <p>
+                    Typical Number System aptitude difficulty.
+                </p>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table class="company-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Company
+                            </th>
+
+                            <th>
+                                Difficulty
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                TCS
+                            </td>
+
+                            <td>
+                                Medium
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Infosys
+                            </td>
+
+                            <td>
+                                Medium
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Wipro
+                            </td>
+
+                            <td>
+                                Easy to Medium
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Accenture
+                            </td>
+
+                            <td>
+                                Medium
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Cognizant
+                            </td>
+
+                            <td>
+                                Medium
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Capgemini
+                            </td>
+
+                            <td>
+                                Medium
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                IBM
+                            </td>
+
+                            <td>
+                                Medium to High
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             BUTTONS
+        ================================================= -->
+
+        <div class="button-area">
+
+            <button
+                onclick="completeTopic()"
+                class="btn btn-success">
+
+                ✅ Complete Today's Task
+
+            </button>
+
+
+            <a
+                href="/aptitude"
+                class="btn btn-primary">
+
+                ⬅ Back to Aptitude
+
+            </a>
+
+        </div>
+
+
+    </main>
+
+
+    <!-- =================================================
+         FOOTER
+    ================================================= -->
+
+    <footer>
+
+        PlacementX · Build skills. Practice daily. Get hired.
+
+    </footer>
+
+
+    <!-- =================================================
+         JAVASCRIPT
+    ================================================= -->
+
+    <script>
+
+
+        /* =================================================
+           SCORE VARIABLES
+        ================================================= */
+
+        let score = 0;
+
+        let answeredQuestions = new Set();
+
+
+        /* =================================================
+           ANSWERS
+        ================================================= */
+
+        const answerText = {
+
+            1: "C) 11",
+
+            2: "B) 6",
+
+            3: "C) 12",
+
+            4: "B) 135",
+
+            5: "C) 6",
+
+            6: "B) 2",
+
+            7: "D) 15",
+
+            8: "C) 24",
+
+            9: "C) 275",
+
+            10: "B) 18 and 24"
+
+        };
+
+
+        /* =================================================
+           EXPLANATIONS
+        ================================================= */
+
+        const explanations = {
+
+            1:
+                "11 is a prime number because it has exactly two factors: 1 and 11.",
+
+
+            2:
+                "Factors of 12 are 1, 2, 3, 4, 6, 12 and factors of 18 are 1, 2, 3, 6, 9, 18. The highest common factor is 6.",
+
+
+            3:
+                "Multiples of 4 are 4, 8, 12, 16... and multiples of 6 are 6, 12, 18... Therefore, the LCM is 12.",
+
+
+            4:
+                "For divisibility by 3, the sum of digits must be divisible by 3. 1 + 3 + 5 = 9, so 135 is divisible by 3.",
+
+
+            5:
+                "The factors of 12 are 1, 2, 3, 4, 6 and 12. Therefore, 12 has 6 factors.",
+
+
+            6:
+                "17 = 5 × 3 + 2. Therefore, the remainder is 2.",
+
+
+            7:
+                "15 is composite because it has more than two factors: 1, 3, 5 and 15.",
+
+
+            8:
+                "The multiples of 8 include 8, 16, 24... and multiples of 12 include 12, 24... Therefore, the LCM is 24.",
+
+
+            9:
+                "A number is divisible by 5 when its last digit is 0 or 5. 275 ends in 5, so it is divisible by 5.",
+
+
+            10:
+                "For 18 and 24, HCF = 6 and LCM = 72. Therefore, 18 and 24 satisfy both conditions."
+
+        };
+
+
+        /* =================================================
+           CHECK INDIVIDUAL ANSWER
+        ================================================= */
+
+        function checkAnswer(questionNumber, correctAnswer) {
+
+
+            const selected = document.querySelector(
+                `input[name="q${questionNumber}"]:checked`
+            );
+
+
+            const result = document.getElementById(
+                `result${questionNumber}`
+            );
+
+
+            /* ---------------------------------------------
+               NO OPTION SELECTED
+            --------------------------------------------- */
+
+            if (!selected) {
+
+                result.style.display = "block";
+
+                result.className =
+                    "answer-result wrong-result";
+
+                result.innerHTML =
+                    "⚠️ <strong>Please select an option first.</strong>";
+
+                return;
+
+            }
+
+
+            /* ---------------------------------------------
+               ALREADY ANSWERED
+            --------------------------------------------- */
+
+            if (answeredQuestions.has(questionNumber)) {
+
+                result.style.display = "block";
+
+                result.className =
+                    "answer-result correct-result";
+
+                result.innerHTML =
+                    "ℹ️ <strong>This question has already been submitted.</strong>";
+
+                return;
+
+            }
+
+
+            /* ---------------------------------------------
+               MARK AS ANSWERED
+            --------------------------------------------- */
+
+            answeredQuestions.add(questionNumber);
+
+
+            /* ---------------------------------------------
+               CHECK CORRECT ANSWER
+            --------------------------------------------- */
+
+            if (selected.value === correctAnswer) {
+
+                score++;
+
+                result.style.display = "block";
+
+                result.className =
+                    "answer-result correct-result";
+
+                result.innerHTML =
+
+                    "✅ <strong>Correct Answer!</strong><br><br>" +
+
+                    "Your answer: <strong>" +
+                    answerText[questionNumber] +
+                    "</strong><br><br>" +
+
+                    "💡 " +
+                    explanations[questionNumber];
+
+            }
+
+
+            /* ---------------------------------------------
+               WRONG ANSWER
+            --------------------------------------------- */
+
+            else {
+
+                result.style.display = "block";
+
+                result.className =
+                    "answer-result wrong-result";
+
+                result.innerHTML =
+
+                    "❌ <strong>Incorrect Answer!</strong><br><br>" +
+
+                    "Your answer: <strong>" +
+                    selected.parentElement.textContent.trim() +
+                    "</strong><br><br>" +
+
+                    "✅ Correct Answer: <strong>" +
+                    answerText[questionNumber] +
+                    "</strong><br><br>" +
+
+                    "💡 " +
+                    explanations[questionNumber];
+
+            }
+
+
+            /* ---------------------------------------------
+               DISABLE OPTIONS
+            --------------------------------------------- */
+
+            const options = document.querySelectorAll(
+                `input[name="q${questionNumber}"]`
+            );
+
+
+            options.forEach(function(option) {
+
+                option.disabled = true;
+
+                option.parentElement.classList.add(
+                    "disabled-option"
+                );
+
+            });
+
+
+            /* ---------------------------------------------
+               DISABLE CURRENT BUTTON
+            --------------------------------------------- */
+
+            const currentCard =
+                result.closest(".question-card");
+
+
+            const currentButton =
+                currentCard.querySelector(
+                    ".submit-question"
+                );
+
+
+            currentButton.disabled = true;
+
+            currentButton.innerText =
+                "✓ Answer Submitted";
+
+        }
+
+
+        /* =================================================
+           CALCULATE FINAL SCORE
+        ================================================= */
+
+        function calculateScore() {
+
+
+            const finalScore =
+                document.getElementById(
+                    "finalScore"
+                );
+
+
+            const scoreText =
+                document.getElementById(
+                    "scoreText"
+                );
+
+
+            const scoreMessage =
+                document.getElementById(
+                    "scoreMessage"
+                );
+
+
+            const attempted =
+                answeredQuestions.size;
+
+
+            /* ---------------------------------------------
+               SHOW SCORE
+            --------------------------------------------- */
+
+            finalScore.style.display = "block";
+
+
+            scoreText.innerHTML =
+                "Your Score: " +
+                score +
+                " / 10";
+
+
+            /* ---------------------------------------------
+               SCORE MESSAGE
+            --------------------------------------------- */
+
+            if (attempted === 0) {
+
+                scoreMessage.innerHTML =
+                    "⚠️ Please attempt the questions before checking your score.";
+
+            }
+
+            else if (attempted < 10) {
+
+                scoreMessage.innerHTML =
+                    "📝 You attempted " +
+                    attempted +
+                    " out of 10 questions. Attempt all questions for a complete test.";
+
+            }
+
+            else if (score === 10) {
+
+                scoreMessage.innerHTML =
+                    "🏆 Excellent! You got all 10 questions correct!";
+
+            }
+
+            else if (score >= 8) {
+
+                scoreMessage.innerHTML =
+                    "🌟 Great job! Your Number System skills are strong.";
+
+            }
+
+            else if (score >= 5) {
+
+                scoreMessage.innerHTML =
+                    "👍 Good attempt! Keep practicing Number System questions.";
+
+            }
+
+            else {
+
+                scoreMessage.innerHTML =
+                    "📚 Keep practicing. Review the explanations and try again.";
+
+            }
+
+
+            /* ---------------------------------------------
+               SCROLL TO SCORE
+            --------------------------------------------- */
+
+            finalScore.scrollIntoView({
+
+                behavior: "smooth",
+
+                block: "center"
+
+            });
+
+        }
+
+
+        /* =================================================
+           COLLAPSIBLE TOPICS
+        ================================================= */
+
+        function toggleTopic(element) {
+
+
+            const content =
+                element.nextElementSibling;
+
+
+            const isOpen =
+                content.style.display === "block";
+
+
+            /* ---------------------------------------------
+               CLOSE ALL TOPICS
+            --------------------------------------------- */
+
+            document
+                .querySelectorAll(".definition-content")
+                .forEach(function(item) {
+
+                    item.style.display = "none";
+
+                });
+
+
+            document
+                .querySelectorAll(".topic-title")
+                .forEach(function(item) {
+
+                    item.classList.remove("active");
+
+                });
+
+
+            /* ---------------------------------------------
+               OPEN SELECTED TOPIC
+            --------------------------------------------- */
+
+            if (!isOpen) {
+
+                content.style.display = "block";
+
+                element.classList.add("active");
+
+            }
+
+        }
+
+
+        /* =================================================
+           COMPLETE TOPIC
+        ================================================= */
+
+        function completeTopic() {
+
+
+            const today =
+                new Date().toDateString();
+
+
+            let progress =
+                JSON.parse(
+                    localStorage.getItem(
+                        "placementProgress"
+                    )
+                ) || {
+
+                    streak: 0,
+
+                    lastCompleted: "",
+
+                    completedTopics: {}
+
+                };
+
+
+            const topic =
+                "Number System";
+
+
+            /* ---------------------------------------------
+               ALREADY COMPLETED TODAY
+            --------------------------------------------- */
+
+            if (
+                progress.completedTopics[topic]
+                === today
+            ) {
+
+                alert(
+                    "✅ You already completed this task today!"
+                );
+
+                return;
+
+            }
+
+
+            /* ---------------------------------------------
+               SAVE COMPLETION
+            --------------------------------------------- */
+
+            progress.completedTopics[topic] =
+                today;
+
+
+            /* ---------------------------------------------
+               UPDATE STREAK
+            --------------------------------------------- */
+
+            if (
+                progress.lastCompleted
+                !== today
+            ) {
+
+                progress.streak++;
+
+                progress.lastCompleted =
+                    today;
+
+            }
+
+
+            /* ---------------------------------------------
+               SAVE LOCAL STORAGE
+            --------------------------------------------- */
+
+            localStorage.setItem(
+
+                "placementProgress",
+
+                JSON.stringify(progress)
+
+            );
+
+
+            /* ---------------------------------------------
+               SUCCESS MESSAGE
+            --------------------------------------------- */
+
+            alert(
+
+                "🎉 Number System completed!\n\n" +
+
+                "🔥 Streak: " +
+
+                progress.streak +
+
+                " day(s)"
+
+            );
+
+
+            /* ---------------------------------------------
+               DASHBOARD
+            --------------------------------------------- */
+
+            window.location.href =
+                "/dashboard";
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

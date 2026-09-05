@@ -1,0 +1,1914 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Latest Jobs | PlacementX</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #050706;
+            color: white;
+            min-height: 100vh;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar-custom {
+            background: rgba(5, 7, 6, 0.96);
+            border-bottom: 1px solid #008c70;
+            padding: 14px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+        }
+
+        .navbar-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            text-decoration: none;
+            font-size: 23px;
+            font-weight: 800;
+            color: #00c49c;
+        }
+
+        .brand span {
+            color: white;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: rgba(255,255,255,.75) !important;
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: .3s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #00c49c !important;
+            background: rgba(0,196,156,.08);
+        }
+
+        .nav-link i {
+            margin-right: 5px;
+        }
+
+        .profile-btn {
+            text-decoration: none;
+            background: #008c70;
+            color: white;
+            border: none;
+            padding: 9px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .profile-btn:hover {
+            background: #00a886;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            padding: 55px 20px 45px;
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    #0c3027,
+                    #050706 65%
+                );
+
+            border-bottom: 1px solid #123d33;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            font-weight: 800;
+            color: #00c49c;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: rgba(255,255,255,.65);
+            margin-bottom: 22px;
+        }
+
+        .maharashtra-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 8px 14px;
+            border-radius: 30px;
+
+            background: rgba(0,196,156,.10);
+
+            border: 1px solid rgba(0,196,156,.30);
+
+            color: #00c49c;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        /* ================= MAIN CONTAINER ================= */
+
+        .job-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* ================= SEARCH BOX ================= */
+
+        .search-box {
+            background:
+                linear-gradient(
+                    145deg,
+                    #08100e,
+                    #07100d
+                );
+
+            border: 1px solid #285e51;
+            border-radius: 18px;
+
+            padding: 24px;
+            margin-bottom: 35px;
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,.20);
+        }
+
+        .search-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 18px;
+        }
+
+        .search-title i {
+            color: #00c49c;
+            margin-right: 7px;
+        }
+
+        .form-label {
+            color: rgba(255,255,255,.75);
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 7px;
+        }
+
+        .form-control,
+        .form-select {
+            background: #050706 !important;
+            color: white !important;
+
+            border: 1px solid #285e51 !important;
+
+            min-height: 46px;
+            border-radius: 9px;
+        }
+
+        .form-control::placeholder {
+            color: rgba(255,255,255,.38);
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: #00c49c !important;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(0,196,156,.12)
+                !important;
+        }
+
+        input[list]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+            opacity: .7;
+            cursor: pointer;
+        }
+
+        /* ================= SEARCH BUTTON ================= */
+
+        .search-btn {
+            background: #008c70;
+            color: white;
+            border: none;
+
+            width: 100%;
+            min-height: 46px;
+
+            border-radius: 9px;
+
+            font-weight: 700;
+
+            transition: .3s;
+        }
+
+        .search-btn:hover {
+            background: #00a886;
+            transform: translateY(-2px);
+        }
+
+        /* ================= QUICK SEARCH ================= */
+
+        .quick-search {
+            margin-top: 18px;
+
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 8px;
+            align-items: center;
+        }
+
+        .quick-title {
+            color: rgba(255,255,255,.45);
+            font-size: 12px;
+            margin-right: 5px;
+        }
+
+        .quick-btn {
+            background: rgba(0,196,156,.06);
+
+            color: #00c49c;
+
+            border: 1px solid rgba(0,196,156,.22);
+
+            padding: 6px 11px;
+
+            border-radius: 20px;
+
+            font-size: 11px;
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+        .quick-btn:hover {
+            background: rgba(0,196,156,.15);
+
+            border-color: #00c49c;
+
+            transform: translateY(-1px);
+        }
+
+        /* ================= LOCATION INFO ================= */
+
+        .location-info {
+            margin-top: 15px;
+
+            padding: 12px 15px;
+
+            border-radius: 9px;
+
+            background: rgba(0,196,156,.05);
+
+            border: 1px solid rgba(0,196,156,.15);
+
+            color: rgba(255,255,255,.65);
+
+            font-size: 12px;
+        }
+
+        .location-info i {
+            color: #00c49c;
+            margin-right: 5px;
+        }
+
+        /* ================= DATA INFO ================= */
+
+        .vacancy-info {
+            display: flex;
+            align-items: center;
+
+            gap: 10px;
+
+            background: rgba(0,196,156,.07);
+
+            border: 1px solid rgba(0,196,156,.20);
+
+            padding: 13px 16px;
+
+            border-radius: 10px;
+
+            margin-bottom: 25px;
+
+            color: rgba(255,255,255,.70);
+
+            font-size: 13px;
+        }
+
+        .vacancy-info i {
+            color: #00c49c;
+            font-size: 18px;
+        }
+
+        /* ================= SECTION ================= */
+
+        .section-heading {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 20px;
+
+            gap: 15px;
+        }
+
+        .section-heading h2 {
+            color: #00c49c;
+
+            font-size: 24px;
+
+            font-weight: 800;
+
+            margin: 0;
+        }
+
+        .job-count {
+            color: rgba(255,255,255,.55);
+
+            font-size: 13px;
+
+            white-space: nowrap;
+        }
+
+        /* ================= JOB CARD ================= */
+
+        .job-card {
+            background:
+                linear-gradient(
+                    145deg,
+                    #0a100e,
+                    #07100d
+                );
+
+            border: 1px solid #285e51;
+
+            border-radius: 16px;
+
+            padding: 24px;
+
+            margin-bottom: 18px;
+
+            transition: .3s;
+        }
+
+        .job-card:hover {
+            transform: translateY(-4px);
+
+            border-color: #00c49c;
+
+            box-shadow:
+                0 12px 35px
+                rgba(0,196,156,.10);
+        }
+
+        /* ================= COMPANY LOGO ================= */
+
+        .company-logo {
+            width: 58px;
+            height: 58px;
+
+            border-radius: 13px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #008c70,
+                    #00c49c
+                );
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 22px;
+
+            font-weight: 800;
+
+            color: white;
+
+            box-shadow:
+                0 5px 15px
+                rgba(0,196,156,.12);
+        }
+
+        /* ================= JOB TEXT ================= */
+
+        .job-title {
+            color: white;
+
+            font-size: 19px;
+
+            font-weight: 750;
+
+            margin-bottom: 5px;
+        }
+
+        .company-name {
+            color: #00c49c;
+
+            font-weight: 600;
+
+            font-size: 14px;
+        }
+
+        /* ================= BADGES ================= */
+
+        .latest-badge {
+            display: inline-block;
+
+            background:
+                rgba(0,196,156,.12);
+
+            color: #00c49c;
+
+            border:
+                1px solid
+                rgba(0,196,156,.3);
+
+            padding: 4px 9px;
+
+            border-radius: 20px;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            margin-bottom: 8px;
+        }
+
+        .fresher-badge {
+            display: inline-block;
+
+            background:
+                rgba(52,152,219,.12);
+
+            color: #5dade2;
+
+            border:
+                1px solid
+                rgba(52,152,219,.25);
+
+            padding: 4px 9px;
+
+            border-radius: 20px;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            margin-left: 5px;
+
+            margin-bottom: 8px;
+        }
+
+        /* ================= JOB INFORMATION ================= */
+
+        .job-info {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 18px;
+
+            margin-top: 16px;
+
+            color: rgba(255,255,255,.65);
+
+            font-size: 13px;
+        }
+
+        .job-info i {
+            color: #00c49c;
+
+            margin-right: 4px;
+        }
+
+        /* ================= SKILLS ================= */
+
+        .skill-tag {
+            display: inline-block;
+
+            background:
+                rgba(0,196,156,.08);
+
+            border:
+                1px solid
+                rgba(0,196,156,.25);
+
+            color: #00c49c;
+
+            padding: 5px 9px;
+
+            border-radius: 6px;
+
+            font-size: 11px;
+
+            margin:
+                5px 4px 0 0;
+        }
+
+        /* ================= APPLY ================= */
+
+        .apply-btn {
+            display: inline-block;
+
+            text-decoration: none;
+
+            background: #008c70;
+
+            color: white;
+
+            padding: 9px 18px;
+
+            border-radius: 8px;
+
+            font-weight: 700;
+
+            font-size: 13px;
+
+            transition: .3s;
+        }
+
+        .apply-btn:hover {
+            background: #00a886;
+
+            color: white;
+
+            transform: translateY(-2px);
+        }
+
+        /* ================= DESCRIPTION ================= */
+
+        .job-description {
+            color:
+                rgba(255,255,255,.55);
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+            margin-top: 15px;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,.06);
+
+            padding-top: 13px;
+        }
+
+        /* ================= SOURCE BADGE ================= */
+
+        .source-badge {
+            display: inline-block;
+
+            margin-top: 12px;
+
+            padding: 5px 10px;
+
+            border-radius: 20px;
+
+            font-size: 10px;
+
+            background:
+                rgba(0,196,156,.08);
+
+            border:
+                1px solid
+                rgba(0,196,156,.20);
+
+            color:
+                rgba(255,255,255,.55);
+        }
+
+        /* ================= EMPTY ================= */
+
+        .empty-message {
+            text-align: center;
+
+            padding: 70px 20px;
+
+            color:
+                rgba(255,255,255,.5);
+
+            background: #08100e;
+
+            border:
+                1px solid #285e51;
+
+            border-radius: 16px;
+        }
+
+        .empty-message i {
+            font-size: 48px;
+
+            color: #00c49c;
+        }
+
+        /* ================= FOOTER ================= */
+
+        .footer {
+            text-align: center;
+
+            padding: 35px;
+
+            margin-top: 60px;
+
+            border-top:
+                1px solid #285e51;
+
+            color:
+                rgba(255,255,255,.45);
+
+            font-size: 13px;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media(max-width:768px) {
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .job-card {
+                padding: 18px;
+            }
+
+            .section-heading {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .company-logo {
+                width: 50px;
+                height: 50px;
+            }
+
+            .nav-right {
+                gap: 5px;
+            }
+
+            .nav-link {
+                padding: 7px;
+                font-size: 12px;
+            }
+
+            .nav-link span {
+                display: none;
+            }
+
+            .profile-btn span {
+                display: none;
+            }
+
+            .profile-btn {
+                padding: 8px 11px;
+            }
+        }
+
+        @media(max-width:500px) {
+
+            .brand {
+                font-size: 20px;
+            }
+
+            .hero {
+                padding: 40px 15px;
+            }
+
+            .hero h1 {
+                font-size: 24px;
+            }
+
+            .hero p {
+                font-size: 13px;
+            }
+
+            .job-container {
+                padding: 0 12px;
+                margin-top: 25px;
+            }
+
+            .search-box {
+                padding: 18px;
+            }
+
+            .job-info {
+                gap: 10px;
+                flex-direction: column;
+            }
+
+            .job-card .row {
+                align-items: flex-start !important;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar-custom">
+
+    <div class="container">
+
+        <div class="navbar-inner">
+
+            <!-- BRAND -->
+
+            <a href="/dashboard" class="brand">
+                Placement<span>X</span>
+            </a>
+
+            <!-- NAVIGATION -->
+
+            <div class="nav-right">
+
+                <a href="/dashboard" class="nav-link">
+
+                    <i class="bi bi-speedometer2"></i>
+
+                    <span>Dashboard</span>
+
+                </a>
+
+                <a href="/jobs" class="nav-link active">
+
+                    <i class="bi bi-briefcase"></i>
+
+                    <span>Latest Jobs</span>
+
+                </a>
+
+                <a href="/coding" class="nav-link">
+
+                    <i class="bi bi-code-slash"></i>
+
+                    <span>Coding</span>
+
+                </a>
+
+                <a href="/profile" class="profile-btn">
+
+                    <i class="bi bi-person-circle"></i>
+
+                    <span>Profile</span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="container">
+
+        <h1>
+
+            <i class="bi bi-briefcase"></i>
+
+            Latest Job Opportunities
+
+        </h1>
+
+        <p>
+
+            Search jobs, internships and fresher
+            opportunities across Maharashtra.
+
+        </p>
+
+        <div class="maharashtra-badge">
+
+            <i class="bi bi-geo-alt-fill"></i>
+
+            Maharashtra Jobs
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<div class="job-container">
+
+
+    <!-- =================================================
+         SEARCH BOX
+    ================================================= -->
+
+    <div class="search-box">
+
+        <div class="search-title">
+
+            <i class="bi bi-search"></i>
+
+            Find Your Perfect Job
+
+        </div>
+
+
+        <form
+            action="/jobs"
+            method="GET">
+
+
+            <div class="row g-3">
+
+
+                <!-- ROLE -->
+
+                <div class="col-md-5">
+
+                    <label class="form-label">
+                        Job Role / Skill
+                    </label>
+
+                    <input
+                        type="text"
+                        name="role"
+                        id="roleSearch"
+                        class="form-control"
+                        list="roleSuggestions"
+                        placeholder="e.g. Data Analyst, Python Developer..."
+                        value="<%= typeof searchRole !== 'undefined' ? searchRole : (typeof query !== 'undefined' ? query : '') %>"
+                        autocomplete="off">
+
+
+                    <datalist id="roleSuggestions">
+
+                        <option value="Software Developer">
+                        <option value="Software Engineer">
+                        <option value="Data Analyst">
+                        <option value="Data Scientist">
+                        <option value="Business Analyst">
+                        <option value="Python Developer">
+                        <option value="Java Developer">
+                        <option value="Java Full Stack Developer">
+                        <option value="Frontend Developer">
+                        <option value="Backend Developer">
+                        <option value="Full Stack Developer">
+                        <option value="Web Developer">
+                        <option value="React Developer">
+                        <option value="Node.js Developer">
+                        <option value="AI Engineer">
+                        <option value="Machine Learning Engineer">
+                        <option value="AI/ML Intern">
+                        <option value="Cloud Engineer">
+                        <option value="DevOps Engineer">
+                        <option value="Cybersecurity Analyst">
+                        <option value="Cybersecurity Intern">
+                        <option value="Network Engineer">
+                        <option value="Power BI Developer">
+                        <option value="SQL Developer">
+                        <option value="UI/UX Designer">
+                        <option value="HR Intern">
+                        <option value="Marketing Intern">
+
+                    </datalist>
+
+                </div>
+
+
+                <!-- LOCATION -->
+
+                <div class="col-md-4">
+
+                    <label class="form-label">
+                        Location
+                    </label>
+
+                    <input
+                        type="text"
+                        name="location"
+                        id="locationSearch"
+                        class="form-control"
+                        list="locationSuggestions"
+                        placeholder="e.g. Pune, Mumbai, Nagpur..."
+                        value="<%= typeof searchLocation !== 'undefined' ? searchLocation : '' %>"
+                        autocomplete="off">
+
+
+                    <datalist id="locationSuggestions">
+
+                        <option value="Maharashtra">
+                        <option value="Pune">
+                        <option value="Mumbai">
+                        <option value="Navi Mumbai">
+                        <option value="Thane">
+                        <option value="Nagpur">
+                        <option value="Nashik">
+                        <option value="Aurangabad">
+                        <option value="Chhatrapati Sambhajinagar">
+                        <option value="Amravati">
+                        <option value="Akola">
+                        <option value="Kolhapur">
+                        <option value="Solapur">
+                        <option value="Satara">
+                        <option value="Sangli">
+                        <option value="Jalgaon">
+                        <option value="Ahmednagar">
+                        <option value="Latur">
+                        <option value="Nanded">
+                        <option value="Ratnagiri">
+                        <option value="Wardha">
+                        <option value="Remote">
+
+                    </datalist>
+
+                </div>
+
+
+                <!-- SEARCH -->
+
+                <div class="col-md-3">
+
+                    <label class="form-label">
+                        &nbsp;
+                    </label>
+
+                    <button
+                        type="submit"
+                        class="search-btn">
+
+                        <i class="bi bi-search"></i>
+
+                        Search Jobs
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUICK SEARCH -->
+
+            <div class="quick-search">
+
+                <span class="quick-title">
+                    Popular:
+                </span>
+
+
+                <button
+                    type="button"
+                    class="quick-btn"
+                    onclick="quickSearch('Data Analyst')">
+
+                    Data Analyst
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="quick-btn"
+                    onclick="quickSearch('Python Developer')">
+
+                    Python Developer
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="quick-btn"
+                    onclick="quickSearch('Java Developer')">
+
+                    Java Developer
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="quick-btn"
+                    onclick="quickSearch('Software Developer')">
+
+                    Software Developer
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="quick-btn"
+                    onclick="quickSearch('AI/ML Intern')">
+
+                    AI/ML
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="quick-btn"
+                    onclick="quickLocation('Pune')">
+
+                    Pune
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="quick-btn"
+                    onclick="quickLocation('Mumbai')">
+
+                    Mumbai
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="quick-btn"
+                    onclick="quickLocation('Nagpur')">
+
+                    Nagpur
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="quick-btn"
+                    onclick="quickLocation('Amravati')">
+
+                    Amravati
+
+                </button>
+
+            </div>
+
+
+            <!-- LOCATION INFORMATION -->
+
+            <div class="location-info">
+
+                <i class="bi bi-info-circle"></i>
+
+                Search <strong>all Maharashtra jobs</strong>
+                by selecting Maharashtra, or select a
+                specific city to find local opportunities.
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <!-- =================================================
+         VACANCY INFORMATION
+    ================================================= -->
+
+    <div class="vacancy-info">
+
+        <i class="bi bi-lightbulb-fill"></i>
+
+        <span>
+
+            <strong>PlacementX Job Vacancies:</strong>
+
+            Explore fresher jobs, internships and
+            entry-level opportunities in Maharashtra.
+
+        </span>
+
+    </div>
+
+
+    <!-- =================================================
+         FALLBACK JOB DATA
+    ================================================= -->
+
+    <%
+        /*
+         * DEMO / FALLBACK JOB VACANCIES
+         *
+         * These jobs appear when MongoDB has no
+         * matching jobs.
+         */
+
+        const fallbackJobs = [
+
+            {
+                title: "Data Analyst",
+                company: "TCS",
+                location: "Pune, Maharashtra",
+                type: "Full Time",
+                salary: "₹4 - ₹7 LPA",
+                experience: "0 - 2 Years",
+                skills: ["SQL", "Python", "Excel", "Power BI"],
+                description:
+                    "Analyze business data, prepare reports and dashboards, and provide data-driven insights to business teams.",
+                applyLink: "https://www.tcs.com/careers"
+            },
+
+            {
+                title: "Python Developer",
+                company: "Infosys",
+                location: "Pune, Maharashtra",
+                type: "Full Time",
+                salary: "₹4 - ₹8 LPA",
+                experience: "0 - 2 Years",
+                skills: ["Python", "Django", "SQL", "REST API"],
+                description:
+                    "Develop Python applications, APIs and backend services for enterprise software solutions.",
+                applyLink: "https://www.infosys.com/careers/"
+            },
+
+            {
+                title: "Software Developer",
+                company: "Accenture",
+                location: "Mumbai, Maharashtra",
+                type: "Full Time",
+                salary: "₹5 - ₹9 LPA",
+                experience: "0 - 2 Years",
+                skills: ["Java", "Python", "SQL", "Git"],
+                description:
+                    "Build, test and maintain software applications while working with modern development technologies.",
+                applyLink: "https://www.accenture.com/in-en/careers"
+            },
+
+            {
+                title: "Java Developer",
+                company: "Capgemini",
+                location: "Mumbai, Maharashtra",
+                type: "Full Time",
+                salary: "₹4 - ₹8 LPA",
+                experience: "0 - 2 Years",
+                skills: ["Java", "Spring Boot", "SQL", "Git"],
+                description:
+                    "Work on Java-based enterprise applications and develop scalable backend services.",
+                applyLink: "https://www.capgemini.com/careers/"
+            },
+
+            {
+                title: "Frontend Developer",
+                company: "Wipro",
+                location: "Pune, Maharashtra",
+                type: "Full Time",
+                salary: "₹4 - ₹7 LPA",
+                experience: "0 - 2 Years",
+                skills: ["HTML", "CSS", "JavaScript", "React"],
+                description:
+                    "Create responsive and interactive user interfaces using modern frontend technologies.",
+                applyLink: "https://careers.wipro.com/"
+            },
+
+            {
+                title: "Full Stack Developer",
+                company: "Persistent Systems",
+                location: "Pune, Maharashtra",
+                type: "Full Time",
+                salary: "₹5 - ₹10 LPA",
+                experience: "0 - 2 Years",
+                skills: ["React", "Node.js", "MongoDB", "JavaScript"],
+                description:
+                    "Develop complete web applications using frontend, backend and database technologies.",
+                applyLink: "https://www.persistent.com/careers/"
+            },
+
+            {
+                title: "AI/ML Intern",
+                company: "Tech Mahindra",
+                location: "Pune, Maharashtra",
+                type: "Internship",
+                salary: "₹15,000 - ₹30,000 / Month",
+                experience: "Fresher",
+                skills: ["Python", "Machine Learning", "Pandas", "NumPy"],
+                description:
+                    "Assist the AI and machine learning team in developing models, performing data analysis and experiments.",
+                applyLink: "https://careers.techmahindra.com/"
+            },
+
+            {
+                title: "Data Science Intern",
+                company: "IBM",
+                location: "Pune, Maharashtra",
+                type: "Internship",
+                salary: "₹20,000 - ₹35,000 / Month",
+                experience: "Fresher",
+                skills: ["Python", "Pandas", "Machine Learning", "SQL"],
+                description:
+                    "Work with data science teams on data preparation, analysis, visualization and machine learning projects.",
+                applyLink: "https://www.ibm.com/careers"
+            },
+{
+    title: "Data Analyst Intern",
+    company: "Deloitte",
+    location: "Remote",
+    type: "Internship",
+    salary: "₹15,000 - ₹25,000 / Month",
+    experience: "Fresher",
+    skills: ["Excel", "SQL", "Python", "Power BI"],
+    description:
+        "Support data analysis projects, create reports and dashboards and learn professional analytics practices.",
+    applyLink: "https://southasiacareers.deloitte.com/go/Deloitte-India/718244/"
+},
+
+
+            {
+                title: "Cybersecurity Analyst",
+                company: "HCLTech",
+                location: "Nagpur, Maharashtra",
+                type: "Full Time",
+                salary: "₹4 - ₹8 LPA",
+                experience: "0 - 2 Years",
+                skills: ["Cybersecurity", "SIEM", "Networking", "Linux"],
+                description:
+                    "Monitor security events, analyze threats and assist in maintaining enterprise cybersecurity systems.",
+                applyLink: "https://www.hcltech.com/careers"
+            },
+
+            {
+                title: "Web Developer Intern",
+                company: "Startup India",
+                location: "Amravati, Maharashtra",
+                type: "Internship",
+                salary: "₹8,000 - ₹15,000 / Month",
+                experience: "Fresher",
+                skills: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+                description:
+                    "Work on responsive websites and web applications while gaining practical development experience.",
+                applyLink: "#"
+            },
+
+            {
+                title: "Power BI Developer",
+                company: "LTIMindtree",
+                location: "Nashik, Maharashtra",
+                type: "Full Time",
+                salary: "₹5 - ₹9 LPA",
+                experience: "0 - 2 Years",
+                skills: ["Power BI", "SQL", "Excel", "DAX"],
+                description:
+                    "Create interactive dashboards and reports and transform business data into useful insights.",
+                applyLink: "https://www.ltimindtree.com/careers/"
+            },
+
+            {
+                title: "Node.js Developer",
+                company: "Mphasis",
+                location: "Pune, Maharashtra",
+                type: "Full Time",
+                salary: "₹4 - ₹8 LPA",
+                experience: "0 - 2 Years",
+                skills: ["Node.js", "Express", "MongoDB", "JavaScript"],
+                description:
+                    "Develop backend services and REST APIs using Node.js and modern web technologies.",
+                applyLink: "https://www.mphasis.com/home/careers.html"
+            },
+
+            {
+                title: "Cloud Engineer",
+                company: "Cognizant",
+                location: "Pune, Maharashtra",
+                type: "Full Time",
+                salary: "₹5 - ₹10 LPA",
+                experience: "0 - 2 Years",
+                skills: ["AWS", "Azure", "Linux", "Cloud"],
+                description:
+                    "Support cloud infrastructure, deployments and monitoring for enterprise applications.",
+                applyLink: "https://careers.cognizant.com/"
+            },
+
+            {
+                title: "Machine Learning Engineer",
+                company: "Zensar Technologies",
+                location: "Pune, Maharashtra",
+                type: "Full Time",
+                salary: "₹6 - ₹12 LPA",
+                experience: "0 - 2 Years",
+                skills: ["Python", "Machine Learning", "Scikit-learn", "SQL"],
+                description:
+                    "Develop machine learning solutions and work with data science teams to solve business problems.",
+                applyLink: "https://www.zensar.com/careers"
+            },
+
+            {
+                title: "SQL Developer",
+                company: "Hexaware",
+                location: "Mumbai, Maharashtra",
+                type: "Full Time",
+                salary: "₹4 - ₹8 LPA",
+                experience: "0 - 2 Years",
+                skills: ["SQL", "MySQL", "Database", "Excel"],
+                description:
+                    "Develop SQL queries, database procedures and reports for business applications.",
+                applyLink: "https://hexaware.com/careers/"
+            },
+
+            {
+                title: "Software Engineer",
+                company: "Reliance Jio",
+                location: "Navi Mumbai, Maharashtra",
+                type: "Full Time",
+                salary: "₹5 - ₹10 LPA",
+                experience: "0 - 2 Years",
+                skills: ["Java", "Python", "DSA", "SQL"],
+                description:
+                    "Design and develop software applications and contribute to large-scale technology projects.",
+                applyLink: "https://careers.jio.com/"
+            },
+
+            {
+                title: "React Developer",
+                company: "Persistent Systems",
+                location: "Chhatrapati Sambhajinagar, Maharashtra",
+                type: "Full Time",
+                salary: "₹4 - ₹8 LPA",
+                experience: "Fresher",
+                skills: ["React", "JavaScript", "HTML", "CSS"],
+                description:
+                    "Build modern responsive interfaces and reusable React components for web applications.",
+                applyLink: "https://www.persistent.com/careers/"
+            },
+
+            {
+                title: "Java Full Stack Developer",
+                company: "Infosys",
+                location: "Nagpur, Maharashtra",
+                type: "Full Time",
+                salary: "₹5 - ₹9 LPA",
+                experience: "0 - 2 Years",
+                skills: ["Java", "Spring Boot", "React", "SQL"],
+                description:
+                    "Develop full-stack enterprise applications using Java backend and modern frontend technologies.",
+                applyLink: "https://www.infosys.com/careers/"
+            },
+
+            {
+                title: "Data Analyst Intern",
+                company: "Deloitte",
+                location: "Remote",
+                type: "Internship",
+                salary: "₹15,000 - ₹25,000 / Month",
+                experience: "Fresher",
+                skills: ["Excel", "SQL", "Python", "Power BI"],
+                description:
+                    "Support data analysis projects, create reports and dashboards and learn professional analytics practices.",
+                applyLink: "https://www.deloitte.com/careers"
+            }
+
+        ];
+
+
+        /* ================= DATABASE JOBS ================= */
+
+        let databaseJobs = [];
+
+        if (
+            typeof jobs !== "undefined" &&
+            Array.isArray(jobs)
+        ) {
+
+            databaseJobs = jobs;
+
+        }
+
+
+        /* ================= SEARCH VALUES ================= */
+
+        let currentRole =
+            typeof searchRole !== "undefined"
+                ? String(searchRole || "").trim().toLowerCase()
+                : "";
+
+        let currentLocation =
+            typeof searchLocation !== "undefined"
+                ? String(searchLocation || "").trim().toLowerCase()
+                : "";
+
+
+        /* ================= DISPLAY JOBS ================= */
+
+        let displayJobs = databaseJobs;
+
+
+        /*
+         * If database has no jobs,
+         * use fallback jobs.
+         */
+
+        if (displayJobs.length === 0) {
+
+            displayJobs = fallbackJobs.filter(function(job) {
+
+                const roleText = (
+
+                    job.title + " " +
+                    job.company + " " +
+                    (job.skills || []).join(" ") + " " +
+                    job.description
+
+                ).toLowerCase();
+
+
+                const locationText =
+                    String(job.location || "").toLowerCase();
+
+
+                const roleMatches =
+                    !currentRole ||
+                    roleText.includes(currentRole);
+
+
+                let locationMatches = true;
+
+
+                if (currentLocation) {
+
+                    if (
+                        currentLocation === "maharashtra"
+                    ) {
+
+                        locationMatches =
+                            locationText.includes(
+                                "maharashtra"
+                            );
+
+                    } else {
+
+                        locationMatches =
+                            locationText.includes(
+                                currentLocation
+                            );
+
+                    }
+
+                }
+
+
+                return roleMatches && locationMatches;
+
+            });
+
+        }
+
+
+        /*
+         * If specific search returns no results,
+         * show fallback jobs.
+         */
+
+        if (
+            displayJobs.length === 0 &&
+            (currentRole || currentLocation)
+        ) {
+
+            displayJobs = fallbackJobs;
+
+        }
+
+    %>
+
+
+    <!-- =================================================
+         JOB HEADING
+    ================================================= -->
+
+    <div class="section-heading">
+
+        <h2>
+
+            <i class="bi bi-lightning-charge-fill"></i>
+
+            Latest Opportunities
+
+        </h2>
+
+        <span class="job-count">
+
+            <%= displayJobs.length %> jobs found
+
+        </span>
+
+    </div>
+
+
+    <!-- =================================================
+         JOB LIST
+    ================================================= -->
+
+    <% if (displayJobs.length > 0) { %>
+
+
+        <% displayJobs.forEach(function(job) { %>
+
+
+            <div class="job-card">
+
+
+                <div class="row align-items-center">
+
+
+                    <!-- COMPANY LOGO -->
+
+                    <div class="col-auto">
+
+                        <div class="company-logo">
+
+                            <%= job.company
+                                ? String(job.company)
+                                    .charAt(0)
+                                    .toUpperCase()
+                                : "J"
+                            %>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- JOB DETAILS -->
+
+                    <div class="col">
+
+                        <span class="latest-badge">
+
+                            <i class="bi bi-lightning-fill"></i>
+
+                            LATEST
+
+                        </span>
+
+
+                        <% if (
+                            job.experience &&
+                            String(job.experience)
+                                .toLowerCase()
+                                .includes("fresher")
+                        ) { %>
+
+                            <span class="fresher-badge">
+
+                                <i class="bi bi-person-check"></i>
+
+                                FRESHER
+
+                            </span>
+
+                        <% } %>
+
+
+                        <div class="job-title">
+
+                            <%= job.title || "Job Position" %>
+
+                        </div>
+
+
+                        <div class="company-name">
+
+                            <i class="bi bi-building"></i>
+
+                            <%= job.company || "Company" %>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- APPLY -->
+
+                    <div
+                        class="col-md-auto
+                               mt-3
+                               mt-md-0">
+
+                 <a
+                    href="<%= job.applyLink && /^https?:\/\//i.test(job.applyLink) ? job.applyLink : '#' %>"
+           target="_blank"
+            rel="noopener noreferrer"
+                 class="apply-btn">
+
+    Apply Now
+    <i class="bi bi-arrow-up-right"></i>
+
+</a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- JOB INFORMATION -->
+
+                <div class="job-info">
+
+
+                    <span>
+
+                        <i class="bi bi-geo-alt-fill"></i>
+
+                        <%= job.location || "Maharashtra" %>
+
+                    </span>
+
+
+                    <span>
+
+                        <i class="bi bi-clock-fill"></i>
+
+                        <%= job.type || "Full Time" %>
+
+                    </span>
+
+
+                    <span>
+
+                        <i class="bi bi-currency-rupee"></i>
+
+                        <%= job.salary || "Competitive Salary" %>
+
+                    </span>
+
+
+                    <% if (job.experience) { %>
+
+                        <span>
+
+                            <i class="bi bi-person-workspace"></i>
+
+                            <%= job.experience %>
+
+                        </span>
+
+                    <% } %>
+
+
+                </div>
+
+
+                <!-- SKILLS -->
+
+                <% if (
+                    job.skills &&
+                    Array.isArray(job.skills) &&
+                    job.skills.length > 0
+                ) { %>
+
+
+                    <div class="mt-3">
+
+                        <% job.skills.forEach(function(skill) { %>
+
+                            <span class="skill-tag">
+
+                                <%= skill %>
+
+                            </span>
+
+                        <% }) %>
+
+                    </div>
+
+
+                <% } %>
+
+
+                <!-- DESCRIPTION -->
+
+                <% if (job.description) { %>
+
+                    <div class="job-description">
+
+                        <%= job.description %>
+
+                    </div>
+
+                <% } %>
+
+
+                <!-- SOURCE -->
+
+                <div class="source-badge">
+
+                    <i class="bi bi-shield-check"></i>
+
+                    PlacementX Vacancy
+
+                </div>
+
+
+            </div>
+
+
+        <% }) %>
+
+
+    <% } else { %>
+
+
+        <!-- EMPTY STATE -->
+
+        <div class="empty-message">
+
+            <i class="bi bi-search"></i>
+
+            <h4 class="mt-3">
+
+                No vacancies available
+
+            </h4>
+
+            <p>
+
+                Try another job role or Maharashtra
+                location.
+
+            </p>
+
+        </div>
+
+
+    <% } %>
+
+
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<div class="footer">
+
+    © 2026 PlacementX
+
+    <br>
+
+    Find your opportunity. Build your career. 🚀
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+    function quickSearch(role) {
+
+        const roleInput =
+            document.getElementById("roleSearch");
+
+        const locationInput =
+            document.getElementById("locationSearch");
+
+        roleInput.value = role;
+
+        locationInput.value = "";
+
+        document
+            .querySelector(".search-box form")
+            .submit();
+
+    }
+
+
+    function quickLocation(location) {
+
+        const roleInput =
+            document.getElementById("roleSearch");
+
+        const locationInput =
+            document.getElementById("locationSearch");
+
+        locationInput.value = location;
+
+        roleInput.value = "";
+
+        document
+            .querySelector(".search-box form")
+            .submit();
+
+    }
+
+
+    /* ================= ENTER KEY SEARCH ================= */
+
+    document
+        .getElementById("roleSearch")
+        .addEventListener(
+            "keypress",
+            function(event) {
+
+                if (event.key === "Enter") {
+
+                    event.preventDefault();
+
+                    document
+                        .querySelector(".search-box form")
+                        .submit();
+
+                }
+
+            }
+        );
+
+
+    document
+        .getElementById("locationSearch")
+        .addEventListener(
+            "keypress",
+            function(event) {
+
+                if (event.key === "Enter") {
+
+                    event.preventDefault();
+
+                    document
+                        .querySelector(".search-box form")
+                        .submit();
+
+                }
+
+            }
+        );
+
+</script>
+
+
+</body>
+
+</html>

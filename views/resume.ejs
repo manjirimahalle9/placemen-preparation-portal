@@ -1,0 +1,3741 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Resume Builder | Placement</title>
+
+    <!-- ================= BOOTSTRAP ================= -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- ================= BOOTSTRAP ICONS ================= -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+
+        /* =====================================================
+           GENERAL
+        ===================================================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            margin: 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #050706 !important;
+
+            color: white !important;
+
+            min-height: 100vh;
+
+        }
+
+        .container {
+            max-width: 1250px;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .navbar-custom {
+
+            background: #050706 !important;
+
+            border-bottom:
+                1px solid #008c70;
+
+            padding: 14px 0;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+        }
+
+        .brand {
+
+            text-decoration: none;
+
+            font-size: 22px;
+
+            font-weight: 700;
+
+            color: #00c49c;
+
+        }
+
+        .brand span {
+            color: white;
+        }
+
+        .nav-link {
+
+            color: rgba(255,255,255,.8) !important;
+
+            font-weight: 600;
+
+            transition: .3s;
+
+            text-decoration: none;
+
+        }
+
+        .nav-link:hover {
+
+            color: #00c49c !important;
+
+        }
+.profile-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    background: #008c70;
+    color: white !important;
+
+    border: none;
+    padding: 8px 16px;
+
+    border-radius: 8px;
+
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: .3s;
+}
+
+.profile-btn:hover {
+    background: #00a886;
+    color: white !important;
+    transform: translateY(-2px);
+}
+
+
+        /* =====================================================
+           PAGE HEADER
+        ===================================================== */
+
+        .page-header {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #050706,
+                    #071d17,
+                    #050706
+                );
+
+            color: white;
+
+            padding: 45px 20px;
+
+            border-bottom:
+                1px solid #008c70;
+
+            text-align: center;
+
+            box-shadow:
+                0 5px 25px
+                rgba(0,140,112,.10);
+
+        }
+
+        .page-header h1 {
+
+            font-size: 32px;
+
+            font-weight: 700;
+
+            margin-bottom: 8px;
+
+            color: #00c49c;
+
+        }
+
+        .page-header p {
+
+            margin: 0;
+
+            color: rgba(255,255,255,.75);
+
+        }
+
+
+        /* =====================================================
+           MAIN
+        ===================================================== */
+
+        .main-container {
+
+            max-width: 1250px;
+
+            margin: 35px auto;
+
+            padding: 0 15px;
+
+        }
+
+
+        /* =====================================================
+           BUILDER CARD
+        ===================================================== */
+
+        .builder-card {
+
+            background: #050706 !important;
+
+            border-radius: 18px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 0 20px
+                rgba(0,140,112,.08);
+
+            border:
+                1px solid #008c70 !important;
+
+        }
+
+
+        /* =====================================================
+           SECTION TITLE
+        ===================================================== */
+
+        .section-title {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+            color: #ffffff;
+
+            border-bottom:
+                1px solid #285e51;
+
+            padding-bottom: 12px;
+
+            margin-bottom: 20px;
+
+        }
+
+        .section-title i {
+
+            color: #00c49c;
+
+        }
+
+
+        /* =====================================================
+           FORM
+        ===================================================== */
+
+        .form-label {
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            color: rgba(255,255,255,.9);
+
+        }
+
+        .form-control,
+        .form-select {
+
+            min-height: 45px;
+
+            border:
+                1px solid #285e51;
+
+            border-radius: 8px;
+
+            padding: 10px 12px;
+
+            background: #0a100e !important;
+
+            color: white !important;
+
+        }
+
+        .form-control::placeholder {
+
+            color:
+                rgba(255,255,255,.40);
+
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+
+            border-color: #00c49c;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(0,196,156,.12);
+
+            background: #0a100e !important;
+
+            color: white !important;
+
+        }
+
+        textarea.form-control {
+
+            min-height: 100px;
+
+            resize: vertical;
+
+        }
+
+        .text-muted {
+
+            color:
+                rgba(255,255,255,.50) !important;
+
+        }
+
+
+        /* =====================================================
+           CERTIFICATE UPLOAD
+        ===================================================== */
+
+        .resume-upload-box {
+
+            border:
+                2px dashed #285e51;
+
+            background: #0a100e;
+
+            padding: 20px;
+
+            border-radius: 12px;
+
+            transition: .3s;
+
+        }
+
+        .resume-upload-box:hover {
+
+            border-color: #00c49c;
+
+            background: #0d1c18;
+
+        }
+
+        input[type="file"] {
+
+            color: white;
+
+            background: #0a100e;
+
+        }
+
+        input[type="file"]::file-selector-button {
+
+            background: #008c70;
+
+            color: white;
+
+            border: none;
+
+            padding: 8px 14px;
+
+            margin-right: 10px;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+        }
+
+        input[type="file"]::file-selector-button:hover {
+
+            background: #00a886;
+
+        }
+
+
+        /* =====================================================
+           CERTIFICATE PREVIEW
+        ===================================================== */
+
+        .certificate-preview {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(150px, 1fr)
+                );
+
+            gap: 15px;
+
+            margin-top: 20px;
+
+        }
+
+        .certificate-card {
+
+            background: #0a100e;
+
+            border:
+                1px solid #285e51;
+
+            border-radius: 10px;
+
+            padding: 8px;
+
+            box-shadow:
+                0 0 12px
+                rgba(0,140,112,.10);
+
+        }
+
+        .certificate-card img {
+
+            width: 100%;
+
+            height: 120px;
+
+            object-fit: cover;
+
+            border-radius: 7px;
+
+        }
+
+        .certificate-name {
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            color: #00c49c;
+
+            margin-top: 7px;
+
+            word-break: break-word;
+
+        }
+
+
+        /* =====================================================
+           GENERATE BUTTON
+        ===================================================== */
+
+        .generate-btn {
+
+            width: 100%;
+
+            border: none;
+
+            background: #008c70;
+
+            color: white;
+
+            padding: 13px;
+
+            border-radius: 9px;
+
+            font-weight: 700;
+
+            margin-top: 20px;
+
+            transition: .3s;
+
+        }
+
+        .generate-btn:hover {
+
+            background: #00a886;
+
+            color: white;
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 5px 20px
+                rgba(0,196,156,.20);
+
+        }
+
+
+        /* =====================================================
+           PREVIEW
+        ===================================================== */
+
+        .preview-container {
+
+            position: sticky;
+
+            top: 90px;
+
+        }
+
+        .preview-header {
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items: center;
+
+            margin-bottom: 15px;
+
+        }
+
+        .preview-title {
+
+            font-size: 20px;
+
+            font-weight: 700;
+
+            color: #00c49c;
+
+        }
+
+
+        /* =====================================================
+           PRINT BUTTON
+        ===================================================== */
+
+        .print-btn {
+
+            background: #008c70;
+
+            border: none;
+
+            color: white;
+
+            padding: 8px 15px;
+
+            border-radius: 7px;
+
+            font-weight: 600;
+
+            transition: .3s;
+
+        }
+
+        .print-btn:hover {
+
+            background: #00a886;
+
+            color: white;
+
+        }
+
+
+        /* =====================================================
+           RESUME PAPER
+        ===================================================== */
+
+        .resume-paper {
+
+            background: #ffffff;
+
+            width: 100%;
+
+            min-height: 1120px;
+
+            padding: 40px;
+
+            box-shadow:
+                0 8px 30px
+                rgba(0,0,0,.40);
+
+            border-radius: 5px;
+
+            color: #222222;
+
+        }
+
+
+        /* =====================================================
+           RESUME HEADER
+        ===================================================== */
+
+        .resume-name {
+
+            font-size: 30px;
+
+            font-weight: 800;
+
+            color: #006f5a;
+
+            margin-bottom: 5px;
+
+        }
+
+        .resume-role {
+
+            font-size: 15px;
+
+            color: #333333;
+
+            font-weight: 600;
+
+            margin-bottom: 12px;
+
+        }
+
+        .contact-line {
+
+            font-size: 12px;
+
+            color: #333333;
+
+            border-bottom:
+                2px solid #008c70;
+
+            padding-bottom: 15px;
+
+            margin-bottom: 20px;
+
+            line-height: 1.8;
+
+        }
+
+        .contact-line a {
+
+            color: #006f5a;
+
+            text-decoration: none;
+
+            font-weight: 600;
+
+        }
+
+        .contact-line a:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+        /* =====================================================
+           RESUME SECTIONS
+        ===================================================== */
+
+        .resume-section {
+
+            margin-bottom: 20px;
+
+        }
+
+        .resume-section h4 {
+
+            font-size: 15px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+            color: #006f5a;
+
+            border-bottom:
+                2px solid #b8d8d0;
+
+            padding-bottom: 6px;
+
+            margin-bottom: 10px;
+
+            font-weight: 800;
+
+        }
+
+        .resume-section p {
+
+            font-size: 12px;
+
+            line-height: 1.6;
+
+            margin-bottom: 5px;
+
+            color: #333333;
+
+        }
+
+        .resume-item {
+
+            margin-bottom: 12px;
+
+        }
+
+        .resume-item strong {
+
+            font-size: 13px;
+
+            color: #111111;
+
+            font-weight: 700;
+
+        }
+
+        .resume-item small {
+
+            color: #555555;
+
+        }
+
+
+        /* =====================================================
+           SKILLS
+        ===================================================== */
+
+        .skill-list {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 6px;
+
+        }
+
+        .skill {
+
+            background: #e8f5f2;
+
+            color: #006f5a;
+
+            padding: 5px 9px;
+
+            border-radius: 5px;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            border:
+                1px solid #c8e5dd;
+
+        }
+
+
+        /* =====================================================
+           RESUME CERTIFICATES
+        ===================================================== */
+
+        .resume-certificate {
+
+            width: 100%;
+
+            max-height: 230px;
+
+            object-fit: contain;
+
+            border:
+                1px solid #dceae6;
+
+            border-radius: 6px;
+
+            margin-bottom: 10px;
+
+            display: block;
+
+        }
+
+
+        /* =====================================================
+           LATEST JOBS SECTION
+        ===================================================== */
+
+        .latest-jobs-section {
+
+            margin-top: 60px;
+
+            padding: 40px 0;
+
+            border-top:
+                1px solid #285e51;
+
+        }
+
+        .jobs-heading {
+
+            text-align: center;
+
+            margin-bottom: 10px;
+
+        }
+
+        .jobs-heading h2 {
+
+            font-size: 28px;
+
+            font-weight: 800;
+
+            color: #00c49c;
+
+            margin-bottom: 8px;
+
+        }
+
+        .jobs-heading p {
+
+            color:
+                rgba(255,255,255,.65);
+
+            margin-bottom: 30px;
+
+        }
+
+
+        /* =====================================================
+           JOB CARD
+        ===================================================== */
+
+        .job-card {
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #07100d,
+                    #0a1713
+                );
+
+            border:
+                1px solid #285e51;
+
+            border-radius: 15px;
+
+            padding: 22px;
+
+            height: 100%;
+
+            transition:
+                transform .3s ease,
+                border-color .3s ease,
+                box-shadow .3s ease;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+        .job-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 3px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #008c70,
+                    #00c49c
+                );
+
+        }
+
+        .job-card:hover {
+
+            transform:
+                translateY(-6px);
+
+            border-color:
+                #00c49c;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0,196,156,.12);
+
+        }
+
+
+        /* =====================================================
+           JOB COMPANY ICON
+        ===================================================== */
+
+        .company-icon {
+
+            width: 48px;
+
+            height: 48px;
+
+            border-radius: 12px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                rgba(0,196,156,.12);
+
+            border:
+                1px solid
+                rgba(0,196,156,.25);
+
+            color: #00c49c;
+
+            font-size: 22px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .job-title {
+
+            color: #ffffff;
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+            margin-bottom: 5px;
+
+        }
+
+        .company-name {
+
+            color: #00c49c;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            margin-bottom: 14px;
+
+        }
+
+
+        .job-info {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-bottom: 15px;
+
+        }
+
+        .job-info span {
+
+            background:
+                #101d19;
+
+            border:
+                1px solid #285e51;
+
+            color:
+                rgba(255,255,255,.75);
+
+            border-radius: 6px;
+
+            padding: 5px 8px;
+
+            font-size: 11px;
+
+        }
+
+        .job-info i {
+
+            color: #00c49c;
+
+            margin-right: 3px;
+
+        }
+
+
+        .job-description {
+
+            font-size: 12px;
+
+            line-height: 1.6;
+
+            color:
+                rgba(255,255,255,.62);
+
+            min-height: 58px;
+
+        }
+
+
+        .job-skills {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 5px;
+
+            margin: 14px 0;
+
+        }
+
+        .job-skill {
+
+            color: #00c49c;
+
+            background:
+                rgba(0,196,156,.08);
+
+            border:
+                1px solid
+                rgba(0,196,156,.18);
+
+            padding: 4px 7px;
+
+            border-radius: 5px;
+
+            font-size: 10px;
+
+            font-weight: 600;
+
+        }
+
+
+        .apply-btn {
+
+            display: block;
+
+            width: 100%;
+
+            text-align: center;
+
+            text-decoration: none;
+
+            background: #008c70;
+
+            color: white;
+
+            border-radius: 8px;
+
+            padding: 9px 12px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            margin-top: 15px;
+
+            transition: .3s;
+
+        }
+
+        .apply-btn:hover {
+
+            background: #00a886;
+
+            color: white;
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* =====================================================
+           JOB STATUS
+        ===================================================== */
+
+        .job-status {
+
+            position: absolute;
+
+            top: 15px;
+
+            right: 15px;
+
+            background:
+                rgba(0,196,156,.12);
+
+            color: #00c49c;
+
+            border:
+                1px solid
+                rgba(0,196,156,.25);
+
+            padding: 4px 8px;
+
+            border-radius: 20px;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+        }
+
+
+        /* =====================================================
+           VIEW ALL JOBS
+        ===================================================== */
+
+        .view-all-jobs {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            margin-top: 30px;
+
+            color: #00c49c;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+            border:
+                1px solid #285e51;
+
+            padding: 10px 18px;
+
+            border-radius: 8px;
+
+            transition: .3s;
+
+        }
+
+        .view-all-jobs:hover {
+
+            color: white;
+
+            background: #008c70;
+
+            border-color: #008c70;
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .footer {
+
+            text-align: center;
+
+            padding: 30px;
+
+            color:
+                rgba(255,255,255,.45);
+
+            font-size: 13px;
+
+            border-top:
+                1px solid #285e51;
+
+            margin-top: 30px;
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media(max-width: 992px) {
+
+            .preview-container {
+
+                position: static;
+
+                margin-top: 30px;
+
+            }
+
+        }
+
+
+        @media(max-width: 576px) {
+
+            .builder-card {
+
+                padding: 20px;
+
+            }
+
+            .resume-paper {
+
+                padding: 25px;
+
+            }
+
+            .page-header h1 {
+
+                font-size: 26px;
+
+            }
+
+            .preview-header {
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                gap: 10px;
+
+            }
+
+            .print-btn {
+
+                width: 100%;
+
+            }
+
+            .resume-name {
+
+                font-size: 24px;
+
+            }
+
+            .jobs-heading h2 {
+
+                font-size: 24px;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           PRINT
+        ===================================================== */
+
+        @media print {
+
+            body {
+
+                background: white !important;
+
+            }
+
+            .navbar-custom,
+            .page-header,
+            .builder-section,
+            .preview-header,
+            .latest-jobs-section,
+            .footer {
+
+                display: none !important;
+
+            }
+
+            .main-container {
+
+                margin: 0;
+
+                padding: 0;
+
+                max-width: 100%;
+
+            }
+
+            .preview-container {
+
+                position: static;
+
+            }
+
+            .resume-paper {
+
+                background: white !important;
+
+                box-shadow: none;
+
+                border: none;
+
+                min-height: auto;
+
+                width: 100%;
+
+                border-radius: 0;
+
+                color: #222222 !important;
+
+            }
+
+            .resume-name {
+
+                color: #006f5a !important;
+
+            }
+
+            .resume-role,
+            .contact-line,
+            .resume-section p {
+
+                color: #333333 !important;
+
+            }
+
+            .resume-section h4 {
+
+                color: #006f5a !important;
+
+            }
+
+            .resume-item strong {
+
+                color: #111111 !important;
+
+            }
+
+            .resume-item small {
+
+                color: #555555 !important;
+
+            }
+
+            .contact-line a {
+
+                color: #006f5a !important;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar-custom">
+
+    <div class="container">
+
+        <div
+            class="d-flex
+                   justify-content-between
+                   align-items-center">
+
+            <a
+                href="/dashboard"
+                class="brand">
+
+                Placement<span></span>
+
+            </a>
+
+
+            <div
+                class="d-flex
+                       gap-3
+                       align-items-center">
+
+                <a
+                    href="/dashboard"
+                    class="nav-link d-none d-md-block">
+
+                    Dashboard
+
+                </a>
+
+                <a
+                    href="#latestJobs"
+                    class="nav-link d-none d-md-block">
+
+                    Latest Jobs
+
+                </a>
+
+                <a
+                    href="/coding"
+                    class="nav-link d-none d-md-block">
+
+                    Coding
+
+                </a>
+<a
+    href="/profile"
+    class="profile-btn">
+
+    <i class="bi bi-person-circle"></i>
+    Profile
+
+</a>
+  
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================================
+     PAGE HEADER
+===================================================== -->
+
+<section class="page-header">
+
+    <div class="container">
+
+        <h1>
+
+            📄 Professional Resume Builder
+
+        </h1>
+
+        <p>
+
+            Create a professional resume for your
+            placement and job applications.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<div class="main-container">
+
+    <div class="row g-4">
+
+
+        <!-- =================================================
+             LEFT FORM
+        ================================================= -->
+
+        <div class="col-lg-6">
+
+            <div
+                class="builder-card
+                       builder-section">
+
+
+                <!-- PERSONAL -->
+
+                <div class="section-title">
+
+                    <i class="bi bi-person"></i>
+
+                    Personal Information
+
+                </div>
+
+
+                <div class="row g-3">
+
+
+                    <div class="col-md-6">
+
+                        <label class="form-label">
+
+                            Full Name *
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            class="form-control"
+                            placeholder="Your full name">
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <label class="form-label">
+
+                            Professional Title
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="role"
+                            class="form-control"
+                            placeholder="Software Engineer">
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <label class="form-label">
+
+                            Email *
+
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            class="form-control"
+                            placeholder="your@email.com">
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <label class="form-label">
+
+                            Phone *
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="phone"
+                            class="form-control"
+                            placeholder="+91 XXXXX XXXXX">
+
+                    </div>
+
+
+                    <div class="col-12">
+
+                        <label class="form-label">
+
+                            Location
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="location"
+                            class="form-control"
+                            placeholder="City, State, India">
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <label class="form-label">
+
+                            <i class="bi bi-linkedin"></i>
+
+                            LinkedIn Profile
+
+                        </label>
+
+                        <input
+                            type="url"
+                            id="linkedin"
+                            class="form-control"
+                            placeholder="https://linkedin.com/in/yourname">
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <label class="form-label">
+
+                            <i class="bi bi-github"></i>
+
+                            GitHub Profile
+
+                        </label>
+
+                        <input
+                            type="url"
+                            id="github"
+                            class="form-control"
+                            placeholder="https://github.com/yourusername">
+
+                        <small class="text-muted">
+
+                            Add your GitHub profile link
+
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- OBJECTIVE -->
+
+                <div class="section-title mt-4">
+
+                    <i class="bi bi-bullseye"></i>
+
+                    Career Objective
+
+                </div>
+
+
+                <textarea
+                    id="objective"
+                    class="form-control"
+                    placeholder="Write a short professional career objective..."></textarea>
+
+
+                <!-- EDUCATION -->
+
+                <div class="section-title mt-4">
+
+                    <i class="bi bi-mortarboard"></i>
+
+                    Education
+
+                </div>
+
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+
+                        Degree
+
+                    </label>
+
+                    <input
+                        type="text"
+                        id="degree"
+                        class="form-control"
+                        placeholder="B.E. Computer Science">
+
+                </div>
+
+
+                <div class="row g-3">
+
+
+                    <div class="col-md-6">
+
+                        <label class="form-label">
+
+                            College
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="college"
+                            class="form-control"
+                            placeholder="College Name">
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <label class="form-label">
+
+                            Graduation Year
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="year"
+                            class="form-control"
+                            placeholder="2027">
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <label class="form-label">
+
+                            CGPA / Percentage
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="cgpa"
+                            class="form-control"
+                            placeholder="8.5 CGPA">
+
+                    </div>
+
+                </div>
+
+
+                <!-- SKILLS -->
+
+                <div class="section-title mt-4">
+
+                    <i class="bi bi-code-slash"></i>
+
+                    Technical Skills
+
+                </div>
+
+
+                <label class="form-label">
+
+                    Skills
+
+                </label>
+
+
+                <input
+                    type="text"
+                    id="skills"
+                    class="form-control"
+                    placeholder="Python, Java, SQL, HTML, CSS, Power BI">
+
+
+                <small class="text-muted">
+
+                    Separate skills using commas.
+
+                </small>
+
+
+                <!-- EXPERIENCE -->
+
+                <div class="section-title mt-4">
+
+                    <i class="bi bi-briefcase"></i>
+
+                    Internship / Experience
+
+                </div>
+
+
+                <input
+                    type="text"
+                    id="experienceTitle"
+                    class="form-control mb-3"
+                    placeholder="Software Development Intern">
+
+
+                <input
+                    type="text"
+                    id="experienceCompany"
+                    class="form-control mb-3"
+                    placeholder="Company Name">
+
+
+                <textarea
+                    id="experienceDescription"
+                    class="form-control"
+                    placeholder="Describe your work, responsibilities and achievements..."></textarea>
+
+
+                <!-- PROJECT -->
+
+                <div class="section-title mt-4">
+
+                    <i class="bi bi-folder"></i>
+
+                    Projects
+
+                </div>
+
+
+                <input
+                    type="text"
+                    id="projectName"
+                    class="form-control mb-3"
+                    placeholder="Project Name">
+
+
+                <textarea
+                    id="projectDescription"
+                    class="form-control"
+                    placeholder="Describe your project, technologies used and results..."></textarea>
+
+
+                <!-- CERTIFICATIONS -->
+
+                <div class="section-title mt-4">
+
+                    <i class="bi bi-award"></i>
+
+                    Certifications
+
+                </div>
+
+
+                <textarea
+                    id="certifications"
+                    class="form-control"
+                    placeholder="Python Certification&#10;Power BI Certification&#10;SQL Certification"></textarea>
+
+
+                <!-- CERTIFICATE IMAGES -->
+
+                <div class="section-title mt-4">
+
+                    <i class="bi bi-patch-check"></i>
+
+                    Certificate Images
+
+                </div>
+
+
+                <div class="resume-upload-box">
+
+                    <label class="form-label">
+
+                        Upload Certificates
+
+                    </label>
+
+
+                    <input
+                        type="file"
+                        id="certificateImages"
+                        class="form-control"
+                        accept="image/png,image/jpeg,image/jpg,image/webp"
+                        multiple
+                        onchange="previewCertificates()">
+
+
+                    <small class="text-muted">
+
+                        Upload JPG, PNG or WEBP certificate images.
+                        You can select multiple certificates.
+
+                    </small>
+
+                </div>
+
+
+                <div
+                    id="certificatePreview"
+                    class="certificate-preview">
+
+                </div>
+
+
+                <!-- ACHIEVEMENTS -->
+
+                <div class="section-title mt-4">
+
+                    <i class="bi bi-trophy"></i>
+
+                    Achievements
+
+                </div>
+
+
+                <textarea
+                    id="achievements"
+                    class="form-control"
+                    placeholder="Hackathon winner&#10;College coding competition&#10;Data analytics project"></textarea>
+
+
+                <!-- GENERATE -->
+
+                <button
+                    type="button"
+                    class="generate-btn"
+                    onclick="generateResume()">
+
+                    <i class="bi bi-file-earmark-check"></i>
+
+                    Generate Resume
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             RIGHT SIDE RESUME PREVIEW
+        ================================================= -->
+
+        <div class="col-lg-6">
+
+            <div class="preview-container">
+
+
+                <div class="preview-header">
+
+                    <div class="preview-title">
+
+                        <i class="bi bi-eye"></i>
+
+                        Resume Preview
+
+                    </div>
+
+
+                    <button
+                        class="print-btn"
+                        onclick="window.print()">
+
+                        <i class="bi bi-printer"></i>
+
+                        Print / PDF
+
+                    </button>
+
+                </div>
+
+
+                <!-- =================================================
+                     RESUME PAPER
+                ================================================= -->
+
+                <div
+                    class="resume-paper"
+                    id="resumePreview">
+
+
+                    <!-- NAME -->
+
+                    <div
+                        class="resume-name"
+                        id="previewName">
+
+                        Your Name
+
+                    </div>
+
+
+                    <!-- ROLE -->
+
+                    <div
+                        class="resume-role"
+                        id="previewRole">
+
+                        Your Professional Title
+
+                    </div>
+
+
+                    <!-- CONTACT -->
+
+                    <div class="contact-line">
+
+                        <span id="previewEmail">
+
+                            your@email.com
+
+                        </span>
+
+                        &nbsp; | &nbsp;
+
+                        <span id="previewPhone">
+
+                            +91 XXXXX XXXXX
+
+                        </span>
+
+                        &nbsp; | &nbsp;
+
+                        <span id="previewLocation">
+
+                            City, India
+
+                        </span>
+
+
+                        <br>
+
+
+                        <a
+                            id="previewLinkedin"
+                            href="#"
+                            target="_blank">
+
+                            LinkedIn
+
+                        </a>
+
+
+                        &nbsp; | &nbsp;
+
+
+                        <a
+                            id="previewGithub"
+                            href="#"
+                            target="_blank">
+
+                            GitHub
+
+                        </a>
+
+                    </div>
+
+
+                    <!-- OBJECTIVE -->
+
+                    <div class="resume-section">
+
+                        <h4>
+
+                            Career Objective
+
+                        </h4>
+
+
+                        <p id="previewObjective">
+
+                            A motivated engineering student seeking
+                            opportunities to apply technical and
+                            problem-solving skills in a professional
+                            environment.
+
+                        </p>
+
+                    </div>
+
+
+                    <!-- EDUCATION -->
+
+                    <div class="resume-section">
+
+                        <h4>
+
+                            Education
+
+                        </h4>
+
+
+                        <div class="resume-item">
+
+                            <strong id="previewDegree">
+
+                                B.E. / B.Tech
+
+                            </strong>
+
+
+                            <br>
+
+
+                            <span id="previewCollege">
+
+                                College Name
+
+                            </span>
+
+
+                            <br>
+
+
+                            <small>
+
+                                <span id="previewYear">
+
+                                    2027
+
+                                </span>
+
+                                &nbsp; | &nbsp;
+
+                                <span id="previewCgpa">
+
+                                    CGPA
+
+                                </span>
+
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SKILLS -->
+
+                    <div class="resume-section">
+
+                        <h4>
+
+                            Technical Skills
+
+                        </h4>
+
+
+                        <div
+                            class="skill-list"
+                            id="previewSkills">
+
+                            <span class="skill">
+
+                                Python
+
+                            </span>
+
+
+                            <span class="skill">
+
+                                SQL
+
+                            </span>
+
+
+                            <span class="skill">
+
+                                HTML
+
+                            </span>
+
+
+                            <span class="skill">
+
+                                CSS
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EXPERIENCE -->
+
+                    <div class="resume-section">
+
+                        <h4>
+
+                            Experience
+
+                        </h4>
+
+
+                        <div class="resume-item">
+
+
+                            <strong
+                                id="previewExperienceTitle">
+
+                                Internship / Experience
+
+                            </strong>
+
+
+                            <br>
+
+
+                            <small
+                                id="previewExperienceCompany">
+
+                                Company Name
+
+                            </small>
+
+
+                            <p
+                                id="previewExperienceDescription">
+
+                                Describe your professional
+                                experience here.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PROJECT -->
+
+                    <div class="resume-section">
+
+                        <h4>
+
+                            Projects
+
+                        </h4>
+
+
+                        <div class="resume-item">
+
+
+                            <strong
+                                id="previewProjectName">
+
+                                Project Name
+
+                            </strong>
+
+
+                            <p
+                                id="previewProjectDescription">
+
+                                Describe your project and
+                                technologies used.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CERTIFICATIONS -->
+
+                    <div class="resume-section">
+
+                        <h4>
+
+                            Certifications
+
+                        </h4>
+
+
+                        <div
+                            id="previewCertifications">
+
+                            <p>
+
+                                • Python Certification
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CERTIFICATE IMAGES -->
+
+                    <div class="resume-section">
+
+                        <h4>
+
+                            Certificate Images
+
+                        </h4>
+
+
+                        <div
+                            id="resumeCertificatePreview">
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ACHIEVEMENTS -->
+
+                    <div class="resume-section">
+
+                        <h4>
+
+                            Achievements
+
+                        </h4>
+
+
+                        <div
+                            id="previewAchievements">
+
+                            <p>
+
+                                • Add your achievements here.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         LATEST JOBS
+    ===================================================== -->
+
+    <section
+        class="latest-jobs-section"
+        id="latestJobs">
+
+
+        <div class="jobs-heading">
+
+            <h2>
+
+                <i class="bi bi-briefcase-fill"></i>
+
+                Latest Job Opportunities
+
+            </h2>
+
+            <p>
+
+                Explore current placement and fresher
+                opportunities from leading companies.
+
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- JOB 1 -->
+
+            <div class="col-md-6 col-xl-4">
+
+                <div class="job-card">
+
+                    <span class="job-status">
+
+                        NEW
+
+                    </span>
+
+
+                    <div class="company-icon">
+
+                        <i class="bi bi-bar-chart-fill"></i>
+
+                    </div>
+
+
+                    <div class="job-title">
+
+                        Data Analyst
+
+                    </div>
+
+
+                    <div class="company-name">
+
+                        TCS
+
+                    </div>
+
+
+                    <div class="job-info">
+
+                        <span>
+
+                            <i class="bi bi-geo-alt"></i>
+
+                            Pune
+
+                        </span>
+
+                        <span>
+
+                            <i class="bi bi-briefcase"></i>
+
+                            Fresher
+
+                        </span>
+
+                        <span>
+
+                            <i class="bi bi-clock"></i>
+
+                            Full Time
+
+                        </span>
+
+                    </div>
+
+
+                    <p class="job-description">
+
+                        Analyze business data, create dashboards,
+                        prepare reports and support data-driven
+                        business decisions.
+
+                    </p>
+
+
+                    <div class="job-skills">
+
+                        <span class="job-skill">
+
+                            Python
+
+                        </span>
+
+                        <span class="job-skill">
+
+                            SQL
+
+                        </span>
+
+                        <span class="job-skill">
+
+                            Excel
+
+                        </span>
+
+                        <span class="job-skill">
+
+                            Power BI
+
+                        </span>
+
+                    </div>
+
+
+                    <a
+                        href="/jobs"
+                        class="apply-btn">
+
+                        View Job
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- JOB 2 -->
+
+            <div class="col-md-6 col-xl-4">
+
+                <div class="job-card">
+
+                    <span class="job-status">
+
+                        NEW
+
+                    </span>
+
+
+                    <div class="company-icon">
+
+                        <i class="bi bi-code-square"></i>
+
+                    </div>
+
+
+                    <div class="job-title">
+
+                        Software Developer
+
+                    </div>
+
+
+                    <div class="company-name">
+
+                        Infosys
+
+                    </div>
+
+
+                    <div class="job-info">
+
+                        <span>
+
+                            <i class="bi bi-geo-alt"></i>
+
+                            Bengaluru
+
+                        </span>
+
+                        <span>
+
+                            <i class="bi bi-briefcase"></i>
+
+                            Fresher
+
+                        </span>
+
+                        <span>
+
+                            <i class="bi bi-clock"></i>
+
+                            Full Time
+
+                        </span>
+
+                    </div>
+
+
+                    <p class="job-description">
+
+                        Develop and maintain software applications,
+                        solve programming problems and work with
+                        modern development technologies.
+
+                    </p>
+
+
+                    <div class="job-skills">
+
+                        <span class="job-skill">
+
+                            Java
+
+                        </span>
+
+                        <span class="job-skill">
+
+                            Python
+
+                        </span>
+
+                        <span class="job-skill">
+
+                            SQL
+
+                        </span>
+
+                        <span class="job-skill">
+
+                            Git
+
+                        </span>
+
+                    </div>
+
+
+                    <a
+                        href="/jobs"
+                        class="apply-btn">
+
+                        View Job
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- JOB 3 -->
+
+            <div class="col-md-6 col-xl-4">
+
+                <div class="job-card">
+
+                    <span class="job-status">
+
+                        HOT
+
+                    </span>
+
+
+                    <div class="company-icon">
+
+                        <i class="bi bi-cloud-fill"></i>
+
+                    </div>
+
+
+                    <div class="job-title">
+
+                        Cloud Engineer
+
+                    </div>
+
+
+                    <div class="company-name">
+
+                        Accenture
+
+                    </div>
+
+
+                    <div class="job-info">
+
+                        <span>
+
+                            <i class="bi bi-geo-alt"></i>
+
+                            Hyderabad
+
+                        </span>
+
+                        <span>
+
+                            <i class="bi bi-briefcase"></i>
+
+                            0–2 Years
+
+                        </span>
+
+                        <span>
+
+                            <i class="bi bi-clock"></i>
+
+                            Full Time
+
+                        </span>
+
+                    </div>
+
+
+                    <p class="job-description">
+
+                        Support cloud infrastructure, automation,
+                        deployment and monitoring for enterprise
+                        applications.
+
+                    </p>
+
+
+                    <div class="job-skills">
+
+                        <span class="job-skill">
+
+                            AWS
+
+                        </span>
+
+                        <span class="job-skill">
+
+                            Linux
+
+                        </span>
+
+                        <span class="job-skill">
+
+                            Python
+
+                        </span>
+
+                        <span class="job-skill">
+
+                            DevOps
+
+                        </span>
+
+                    </div>
+
+
+                    <a
+                        href="/jobs"
+                        class="apply-btn">
+
+                        View Job
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- JOB 4 -->
+
+            <div class="col-md-6 col-xl-4">
+
+                <div class="job-card">
+
+                    <span class="job-status">
+
+                        NEW
+
+                    </span>
+
+
+                    <div class="company-icon">
+
+                        <i class="bi bi-database-fill"></i>
+
+                    </div>
+
+
+                    <div class="job-title">
+
+                        SQL Developer
+
+                    </div>
+
+
+                    <div class="company-name">
+
+                        Wipro
+
+                    </div>
+
+
+                    <div class="job-info">
+
+                        <span>
+
+                            <i class="bi bi-geo-alt"></i>
+
+                            Mumbai
+
+                        </span>
+
+                        <span>
+
+                            <i class="bi bi-briefcase"></i>
+
+                            Fresher
+
+                        </span>
+
+                        <span>
+
+                            <i class="bi bi-clock"></i>
+
+                            Full Time
+
+                        </span>
+
+                    </div>
+
+
+                    <p class="job-description">
+
+                        Work with databases, write optimized SQL
+                        queries, develop reports and support
+                        enterprise data systems.
+
+                    </p>
+
+
+                    <div class="job-skills">
+
+                        <span class="job-skill">
+
+                            SQL
+
+                        </span>
+
+                        <span class="job-skill">
+
+                            MySQL
+
+                        </span>
+
+                        <span class="job-skill">
+
+                            Database
+
+                        </span>
+
+                        <span class="job-skill">
+
+                            Excel
+
+                        </span>
+
+                    </div>
+
+
+                    <a
+                        href="/jobs"
+                        class="apply-btn">
+
+                        View Job
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- JOB 5 -->
+
+            <div class="col-md-6 col-xl-4">
+
+                <div class="job-card">
+
+                    <span class="job-status">
+
+                        NEW
+
+                    </span>
+
+
+                    <div class="company-icon">
+
+                        <i class="bi bi-cpu-fill"></i>
+
+                    </div>
+
+
+                    <div class="job-title">
+
+                        Machine Learning Intern
+
+                    </div>
+
+
+                    <div class="company-name">
+
+                        IBM
+
+                    </div>
+
+
+                    <div class="job-info">
+
+                        <span>
+
+                            <i class="bi bi-geo-alt"></i>
+
+                            Pune
+
+                        </span>
+
+                        <span>
+
+                            <i class="bi bi-briefcase"></i>
+
+                            Internship
+
+                        </span>
+
+                        <span>
+
+                            <i class="bi bi-clock"></i>
+
+                            Hybrid
+
+                        </span>
+
+                    </div>
+
+
+                    <p class="job-description">
+
+                        Assist in building machine learning models,
+                        data preprocessing, experimentation and
+                        model evaluation.
+
+                    </p>
+
+
+                    <div class="job-skills">
+
+                        <span class="job-skill">
+
+                            Python
+
+                        </span>
+
+                        <span class="job-skill">
+
+                            Pandas
+
+                        </span>
+
+                        <span class="job-skill">
+
+                            ML
+
+                        </span>
+
+                        <span class="job-skill">
+
+                            NumPy
+
+                        </span>
+
+                    </div>
+
+
+                    <a
+                        href="/jobs"
+                        class="apply-btn">
+
+                        View Job
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- JOB 6 -->
+
+            <div class="col-md-6 col-xl-4">
+
+                <div class="job-card">
+
+                    <span class="job-status">
+
+                        HOT
+
+                    </span>
+
+
+                    <div class="company-icon">
+
+                        <i class="bi bi-window-stack"></i>
+
+                    </div>
+
+
+                    <div class="job-title">
+
+                        Frontend Developer
+
+                    </div>
+
+
+                    <div class="company-name">
+
+                        Deloitte
+
+                    </div>
+
+
+                    <div class="job-info">
+
+                        <span>
+
+                            <i class="bi bi-geo-alt"></i>
+
+                            Mumbai
+
+                        </span>
+
+                        <span>
+
+                            <i class="bi bi-briefcase"></i>
+
+                            Fresher
+
+                        </span>
+
+                        <span>
+
+                            <i class="bi bi-clock"></i>
+
+                            Full Time
+
+                        </span>
+
+                    </div>
+
+
+                    <p class="job-description">
+
+                        Build responsive web interfaces and work
+                        with modern frontend technologies to create
+                        user-friendly applications.
+
+                    </p>
+
+
+                    <div class="job-skills">
+
+                        <span class="job-skill">
+
+                            HTML
+
+                        </span>
+
+                        <span class="job-skill">
+
+                            CSS
+
+                        </span>
+
+                        <span class="job-skill">
+
+                            JavaScript
+
+                        </span>
+
+                        <span class="job-skill">
+
+                            React
+
+                        </span>
+
+                    </div>
+
+
+                    <a
+                        href="/jobs"
+                        class="apply-btn">
+
+                        View Job
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="text-center">
+
+            <a
+                href="/jobs"
+                class="view-all-jobs">
+
+                View All Jobs
+
+                <i class="bi bi-arrow-right"></i>
+
+            </a>
+
+        </div>
+
+
+    </section>
+
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<div class="footer">
+
+    © 2026 Placement
+
+
+
+    <br>
+
+    Build your career with confidence 🚀
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   GET VALUE
+===================================================== */
+
+function getValue(id, defaultValue = "") {
+
+    const element =
+        document.getElementById(id);
+
+    if (!element) {
+
+        return defaultValue;
+
+    }
+
+    return (
+        element.value.trim()
+        || defaultValue
+    );
+
+}
+
+
+/* =====================================================
+   GENERATE / UPDATE RESUME
+===================================================== */
+
+function generateResume() {
+
+
+    /* =================================================
+       PERSONAL INFORMATION
+    ================================================= */
+
+    document.getElementById(
+        "previewName"
+    ).textContent =
+
+        getValue(
+            "name",
+            "Your Name"
+        );
+
+
+    document.getElementById(
+        "previewRole"
+    ).textContent =
+
+        getValue(
+            "role",
+            "Your Professional Title"
+        );
+
+
+    document.getElementById(
+        "previewEmail"
+    ).textContent =
+
+        getValue(
+            "email",
+            "your@email.com"
+        );
+
+
+    document.getElementById(
+        "previewPhone"
+    ).textContent =
+
+        getValue(
+            "phone",
+            "+91 XXXXX XXXXX"
+        );
+
+
+    document.getElementById(
+        "previewLocation"
+    ).textContent =
+
+        getValue(
+            "location",
+            "City, India"
+        );
+
+
+    /* =================================================
+       LINKEDIN
+    ================================================= */
+
+    const linkedin =
+        getValue(
+            "linkedin",
+            ""
+        );
+
+
+    const linkedinElement =
+        document.getElementById(
+            "previewLinkedin"
+        );
+
+
+    if (linkedin) {
+
+        linkedinElement.href =
+            linkedin;
+
+        linkedinElement.textContent =
+            "LinkedIn Profile";
+
+    }
+
+    else {
+
+        linkedinElement.removeAttribute(
+            "href"
+        );
+
+        linkedinElement.textContent =
+            "LinkedIn";
+
+    }
+
+
+    /* =================================================
+       GITHUB
+    ================================================= */
+
+    const github =
+        getValue(
+            "github",
+            ""
+        );
+
+
+    const githubElement =
+        document.getElementById(
+            "previewGithub"
+        );
+
+
+    if (github) {
+
+        githubElement.href =
+            github;
+
+        githubElement.textContent =
+            "GitHub Profile";
+
+    }
+
+    else {
+
+        githubElement.removeAttribute(
+            "href"
+        );
+
+        githubElement.textContent =
+            "GitHub";
+
+    }
+
+
+    /* =================================================
+       CAREER OBJECTIVE
+    ================================================= */
+
+    document.getElementById(
+        "previewObjective"
+    ).textContent =
+
+        getValue(
+            "objective",
+            "A motivated student seeking opportunities to apply technical and problem-solving skills in a professional environment."
+        );
+
+
+    /* =================================================
+       EDUCATION
+    ================================================= */
+
+    document.getElementById(
+        "previewDegree"
+    ).textContent =
+
+        getValue(
+            "degree",
+            "B.E. / B.Tech"
+        );
+
+
+    document.getElementById(
+        "previewCollege"
+    ).textContent =
+
+        getValue(
+            "college",
+            "College Name"
+        );
+
+
+    document.getElementById(
+        "previewYear"
+    ).textContent =
+
+        getValue(
+            "year",
+            "2027"
+        );
+
+
+    document.getElementById(
+        "previewCgpa"
+    ).textContent =
+
+        getValue(
+            "cgpa",
+            "CGPA"
+        );
+
+
+    /* =================================================
+       SKILLS
+    ================================================= */
+
+    const skills =
+        getValue(
+            "skills",
+            "Python, SQL, HTML, CSS"
+        );
+
+
+    const skillArray =
+        skills
+            .split(",")
+            .map(
+                skill =>
+                    skill.trim()
+            )
+            .filter(
+                skill =>
+                    skill !== ""
+            );
+
+
+    const skillContainer =
+        document.getElementById(
+            "previewSkills"
+        );
+
+
+    skillContainer.innerHTML =
+        "";
+
+
+    skillArray.forEach(
+        skill => {
+
+            const span =
+                document.createElement(
+                    "span"
+                );
+
+            span.className =
+                "skill";
+
+            span.textContent =
+                skill;
+
+            skillContainer.appendChild(
+                span
+            );
+
+        }
+    );
+
+
+    /* =================================================
+       EXPERIENCE
+    ================================================= */
+
+    document.getElementById(
+        "previewExperienceTitle"
+    ).textContent =
+
+        getValue(
+            "experienceTitle",
+            "Internship / Experience"
+        );
+
+
+    document.getElementById(
+        "previewExperienceCompany"
+    ).textContent =
+
+        getValue(
+            "experienceCompany",
+            "Company Name"
+        );
+
+
+    document.getElementById(
+        "previewExperienceDescription"
+    ).textContent =
+
+        getValue(
+            "experienceDescription",
+            "Describe your professional experience here."
+        );
+
+
+    /* =================================================
+       PROJECT
+    ================================================= */
+
+    document.getElementById(
+        "previewProjectName"
+    ).textContent =
+
+        getValue(
+            "projectName",
+            "Project Name"
+        );
+
+
+    document.getElementById(
+        "previewProjectDescription"
+    ).textContent =
+
+        getValue(
+            "projectDescription",
+            "Describe your project and technologies used."
+        );
+
+
+    /* =================================================
+       CERTIFICATIONS
+    ================================================= */
+
+    const certifications =
+        getValue(
+            "certifications",
+            "Add your certifications here."
+        );
+
+
+    const certificationContainer =
+        document.getElementById(
+            "previewCertifications"
+        );
+
+
+    certificationContainer.innerHTML =
+        "";
+
+
+    certifications
+        .split("\n")
+        .filter(
+            item =>
+                item.trim() !== ""
+        )
+        .forEach(
+            item => {
+
+                const p =
+                    document.createElement(
+                        "p"
+                    );
+
+                p.textContent =
+                    "• " +
+                    item.trim();
+
+                certificationContainer
+                    .appendChild(p);
+
+            }
+        );
+
+
+    /* =================================================
+       ACHIEVEMENTS
+    ================================================= */
+
+    const achievements =
+        getValue(
+            "achievements",
+            "Add your achievements here."
+        );
+
+
+    const achievementContainer =
+        document.getElementById(
+            "previewAchievements"
+        );
+
+
+    achievementContainer.innerHTML =
+        "";
+
+
+    achievements
+        .split("\n")
+        .filter(
+            item =>
+                item.trim() !== ""
+        )
+        .forEach(
+            item => {
+
+                const p =
+                    document.createElement(
+                        "p"
+                    );
+
+                p.textContent =
+                    "• " +
+                    item.trim();
+
+                achievementContainer
+                    .appendChild(p);
+
+            }
+        );
+
+}
+
+
+/* =====================================================
+   LIVE RESUME PREVIEW
+===================================================== */
+
+const formFields = [
+
+    "name",
+    "role",
+    "email",
+    "phone",
+    "location",
+    "linkedin",
+    "github",
+    "objective",
+    "degree",
+    "college",
+    "year",
+    "cgpa",
+    "skills",
+    "experienceTitle",
+    "experienceCompany",
+    "experienceDescription",
+    "projectName",
+    "projectDescription",
+    "certifications",
+    "achievements"
+
+];
+
+
+formFields.forEach(
+    id => {
+
+        const element =
+            document.getElementById(id);
+
+        if (element) {
+
+            element.addEventListener(
+                "input",
+                generateResume
+            );
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   CERTIFICATE IMAGE PREVIEW
+===================================================== */
+
+function previewCertificates() {
+
+    const input =
+        document.getElementById(
+            "certificateImages"
+        );
+
+
+    const uploadPreview =
+        document.getElementById(
+            "certificatePreview"
+        );
+
+
+    const resumePreview =
+        document.getElementById(
+            "resumeCertificatePreview"
+        );
+
+
+    uploadPreview.innerHTML =
+        "";
+
+
+    resumePreview.innerHTML =
+        "";
+
+
+    const files =
+        input.files;
+
+
+    if (
+        !files ||
+        files.length === 0
+    ) {
+
+        return;
+
+    }
+
+
+    for (
+        let i = 0;
+        i < files.length;
+        i++
+    ) {
+
+
+        const file =
+            files[i];
+
+
+        if (
+            !file.type.startsWith(
+                "image/"
+            )
+        ) {
+
+            continue;
+
+        }
+
+
+        const reader =
+            new FileReader();
+
+
+        reader.onload =
+            function(event) {
+
+
+                /* =====================================
+                   UPLOAD PREVIEW CARD
+                ===================================== */
+
+                const uploadCard =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                uploadCard.className =
+                    "certificate-card";
+
+
+                const image =
+                    document.createElement(
+                        "img"
+                    );
+
+
+                image.src =
+                    event.target.result;
+
+
+                image.alt =
+                    "Certificate";
+
+
+                const name =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                name.className =
+                    "certificate-name";
+
+
+                name.textContent =
+                    file.name;
+
+
+                uploadCard.appendChild(
+                    image
+                );
+
+
+                uploadCard.appendChild(
+                    name
+                );
+
+
+                uploadPreview.appendChild(
+                    uploadCard
+                );
+
+
+                /* =====================================
+                   RESUME PREVIEW IMAGE
+                ===================================== */
+
+                const resumeImage =
+                    document.createElement(
+                        "img"
+                    );
+
+
+                resumeImage.src =
+                    event.target.result;
+
+
+                resumeImage.alt =
+                    "Certificate";
+
+
+                resumeImage.className =
+                    "resume-certificate";
+
+
+                resumePreview.appendChild(
+                    resumeImage
+                );
+
+            };
+
+
+        reader.readAsDataURL(
+            file
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   INITIAL RESUME PREVIEW
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        generateResume();
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
+

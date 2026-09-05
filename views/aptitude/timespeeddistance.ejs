@@ -1,0 +1,2395 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Time and Work | PlacementX</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <style>
+
+        body {
+            background: #050706 !important;
+            color: white !important;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: #050706;
+            max-width: 1000px;
+        }
+
+        p,
+        li,
+        h2,
+        h4,
+        h5,
+        strong {
+            color: white;
+        }
+
+
+        /* ==============================
+           TITLE
+        ============================== */
+
+        .page-title {
+            color: #00c49c !important;
+            font-weight: 700;
+        }
+
+        hr {
+            border-color: #008c70;
+            opacity: 1;
+        }
+
+
+        /* ==============================
+           TOPICS LIST
+        ============================== */
+
+        .list-group-item {
+            background: #050706 !important;
+            color: white !important;
+            border-color: #008c70 !important;
+        }
+
+
+        /* ==============================
+           ACCORDION
+        ============================== */
+
+        .accordion-item {
+            background: #050706 !important;
+            border-color: #008c70 !important;
+        }
+
+        .accordion-button {
+            background: #050706 !important;
+            color: white !important;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: #008c70 !important;
+            color: white !important;
+        }
+
+        .accordion-body {
+            background: #050706 !important;
+            color: white !important;
+            line-height: 1.7;
+        }
+
+        .accordion-button::after {
+            filter: brightness(0) invert(1);
+        }
+
+
+        /* ==============================
+           QUESTION CARD
+        ============================== */
+
+        .question-card {
+            background: #050706 !important;
+            color: white !important;
+            border: 1px solid #008c70 !important;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+
+            box-shadow:
+                0 0 12px rgba(0, 140, 112, 0.10);
+        }
+
+        .question-title {
+            color: #00c49c !important;
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .question-text {
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+
+        /* ==============================
+           OPTIONS
+        ============================== */
+
+        .option {
+            display: block;
+            background: #0a100e;
+            color: white;
+            border: 1px solid #285e51;
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .option:hover {
+            background: #0d1c18;
+            border-color: #00c49c;
+        }
+
+        .option input {
+            margin-right: 10px;
+            accent-color: #00c49c;
+        }
+
+
+        /* ==============================
+           SUBMIT QUESTION BUTTON
+        ============================== */
+
+        .submit-question {
+            background: #008c70;
+            border: none;
+            color: white;
+            padding: 9px 20px;
+            border-radius: 7px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .submit-question:hover {
+            background: #00a886;
+            color: white;
+        }
+
+        .submit-question:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+
+        /* ==============================
+           MAIN SUBMIT BUTTON
+        ============================== */
+
+        .main-submit {
+            background: #008c70 !important;
+            border: none;
+            color: white !important;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .main-submit:hover {
+            background: #00a886 !important;
+            color: white !important;
+        }
+
+
+        /* ==============================
+           ANSWER RESULT
+        ============================== */
+
+        .answer-result {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            line-height: 1.7;
+        }
+
+        .correct-result {
+            background: #073d2f;
+            border: 1px solid #00c49c;
+        }
+
+        .wrong-result {
+            background: #351414;
+            border: 1px solid #dc3545;
+        }
+
+        .correct-result strong,
+        .wrong-result strong {
+            color: white;
+        }
+
+
+        /* ==============================
+           FINAL SCORE
+        ============================== */
+
+        #finalScore {
+            display: none;
+            background: #071d17;
+            border: 2px solid #00c49c;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        #finalScore h3 {
+            color: #00c49c !important;
+        }
+
+        #scoreText {
+            color: white !important;
+        }
+
+        #scoreMessage {
+            color: white !important;
+        }
+
+
+        /* ==============================
+           PREPARATION ALERT
+        ============================== */
+
+        .alert-success {
+            background: #050706 !important;
+            color: white !important;
+            border: 1px solid #008c70 !important;
+        }
+
+        .alert-success li {
+            color: white !important;
+        }
+
+
+        /* ==============================
+           TABLE
+        ============================== */
+
+        .table {
+            background: #050706 !important;
+            color: white !important;
+        }
+
+        .table tbody tr,
+        .table tbody td {
+            background: #050706 !important;
+            color: white !important;
+            border-color: #008c70 !important;
+        }
+
+        .table-primary,
+        .table-primary th {
+            background: #008c70 !important;
+            color: white !important;
+        }
+
+
+        /* ==============================
+           BOTTOM BUTTONS
+        ============================== */
+
+        .complete-btn {
+            background: #198754;
+            border: none;
+            color: white;
+        }
+
+        .complete-btn:hover {
+            background: #157347;
+            color: white;
+        }
+
+        .back-btn {
+            background: #008c70;
+            border: none;
+            color: white;
+        }
+
+        .back-btn:hover {
+            background: #00a886;
+            color: white;
+        }
+
+
+        /* ==============================
+           MOBILE
+        ============================== */
+
+        @media (max-width: 576px) {
+
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .question-card {
+                padding: 16px;
+            }
+
+            .bottom-buttons a,
+            .bottom-buttons button {
+                width: 100%;
+                margin: 5px 0 !important;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="container mt-5 mb-5">
+
+
+    <!-- ==========================================
+         TITLE
+    =========================================== -->
+
+    <h2 class="text-center page-title">
+
+        ⏱️ Time and Work
+
+    </h2>
+
+
+    <hr>
+
+
+    <!-- ==========================================
+         INTRODUCTION
+    =========================================== -->
+
+    <p>
+
+        Time and Work is an important quantitative aptitude
+        topic used in placement examinations. It deals with
+        the relationship between the amount of work, time
+        required and efficiency of workers.
+
+        These concepts are useful for solving questions
+        involving individual work, combined work, efficiency,
+        wages, pipes and cisterns.
+
+    </p>
+
+
+    <!-- ==========================================
+         TOPICS COVERED
+    =========================================== -->
+
+    <h4 class="mt-4">
+
+        📚 Topics Covered
+
+    </h4>
+
+
+    <ul class="list-group mb-4">
+
+        <li class="list-group-item">
+            Basic Work Concepts
+        </li>
+
+        <li class="list-group-item">
+            Work Efficiency
+        </li>
+
+        <li class="list-group-item">
+            Individual Work
+        </li>
+
+        <li class="list-group-item">
+            Combined Work
+        </li>
+
+        <li class="list-group-item">
+            Work and Wages
+        </li>
+
+        <li class="list-group-item">
+            Pipes and Cisterns
+        </li>
+
+        <li class="list-group-item">
+            Men, Women and Children Work
+        </li>
+
+        <li class="list-group-item">
+            Work and Time Relationship
+        </li>
+
+    </ul>
+
+
+    <!-- ==========================================
+         TOPIC DEFINITIONS
+    =========================================== -->
+
+    <h4>
+
+        📖 Topic Definitions
+
+    </h4>
+
+
+    <div class="accordion"
+         id="timeWorkTopics">
+
+
+        <!-- BASIC WORK -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#basicWork">
+
+                    1. Basic Work Concept
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="basicWork"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    Work represents the task completed by
+                    a person or group.
+
+                    <br><br>
+
+                    If a person completes a work in 10 days,
+                    then the work completed in one day is:
+
+                    <br><br>
+
+                    <strong>One Day's Work = 1 / Number of Days</strong>
+
+                    <br><br>
+
+                    Example:
+
+                    <br>
+
+                    If A completes a work in 10 days:
+
+                    <br>
+
+                    A's one-day work = 1/10.
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- EFFICIENCY -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#efficiency">
+
+                    2. Work Efficiency
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="efficiency"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    Efficiency represents how quickly a person
+                    can complete a particular amount of work.
+
+                    <br><br>
+
+                    A person with higher efficiency completes
+                    the same work in less time.
+
+                    <br><br>
+
+                    <strong>Efficiency ∝ 1 / Time</strong>
+
+                    <br><br>
+
+                    Therefore, if A takes 10 days and B takes
+                    5 days, B is twice as efficient as A.
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- INDIVIDUAL WORK -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#individualWork">
+
+                    3. Individual Work
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="individualWork"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    Individual work problems determine the
+                    amount of work completed by one person.
+
+                    <br><br>
+
+                    <strong>One Day's Work = 1 / Total Days</strong>
+
+                    <br><br>
+
+                    Example:
+
+                    <br>
+
+                    If A completes a job in 20 days:
+
+                    <br>
+
+                    A's one-day work = 1/20.
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- COMBINED WORK -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#combinedWork">
+
+                    4. Combined Work
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="combinedWork"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    Combined work means two or more people
+                    work together to complete the same task.
+
+                    <br><br>
+
+                    Their individual work rates are added.
+
+                    <br><br>
+
+                    <strong>
+                        Combined Rate = A's Rate + B's Rate
+                    </strong>
+
+                    <br><br>
+
+                    Example:
+
+                    <br>
+
+                    A completes work in 10 days and B
+                    completes it in 20 days.
+
+                    <br><br>
+
+                    Combined rate:
+
+                    <br>
+
+                    1/10 + 1/20 = 3/20.
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- WORK AND WAGES -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#workWages">
+
+                    5. Work and Wages
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="workWages"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    Work and wages problems determine the
+                    payment received by workers according
+                    to the amount of work performed.
+
+                    <br><br>
+
+                    Wages are generally proportional to
+                    the work done.
+
+                    <br><br>
+
+                    <strong>
+                        Wage Ratio = Work Ratio
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PIPES -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#pipes">
+
+                    6. Pipes and Cisterns
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="pipes"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    Pipes and cisterns problems involve
+                    filling or emptying a tank using pipes.
+
+                    <br><br>
+
+                    A filling pipe adds water while an
+                    emptying pipe removes water.
+
+                    <br><br>
+
+                    <strong>
+                        Net Rate = Filling Rate − Emptying Rate
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MEN WOMEN CHILDREN -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#menWomen">
+
+                    7. Men, Women and Children Work
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="menWomen"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    These problems compare the efficiency
+                    of men, women and children.
+
+                    <br><br>
+
+                    If the efficiency ratio is known, the
+                    amount of work performed can be compared.
+
+                    <br><br>
+
+                    Example:
+
+                    <br>
+
+                    If 2 men do the same work as 3 women:
+
+                    <br>
+
+                    <strong>
+                        1 Man = 3/2 Women
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- WORK TIME -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#workTime">
+
+                    8. Work and Time Relationship
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="workTime"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    For the same amount of work, time and
+                    efficiency are inversely proportional.
+
+                    <br><br>
+
+                    <strong>
+                        Work = Efficiency × Time
+                    </strong>
+
+                    <br><br>
+
+                    Therefore:
+
+                    <br>
+
+                    <strong>
+                        Time = Work / Efficiency
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ==========================================
+         PRACTICE QUESTIONS
+    =========================================== -->
+
+    <h4 class="mt-5">
+
+        📝 Practice Questions
+
+    </h4>
+
+
+    <!-- QUESTION 1 -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+            Question 1
+        </div>
+
+
+        <div class="question-text">
+
+            A can complete a work in 10 days.
+            How much work does A complete in one day?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q1"
+                value="1/5">
+
+            1/5
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q1"
+                value="1/10">
+
+            1/10
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q1"
+                value="1/20">
+
+            1/20
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q1"
+                value="10">
+
+            10
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(1, '1/10')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result1"
+             class="answer-result">
+
+        </div>
+
+    </div>
+
+
+    <!-- QUESTION 2 -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+            Question 2
+        </div>
+
+
+        <div class="question-text">
+
+            A completes a work in 12 days and B completes
+            the same work in 6 days. How long will they
+            take together?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q2"
+                value="2">
+
+            2 days
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q2"
+                value="3">
+
+            3 days
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q2"
+                value="4">
+
+            4 days
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q2"
+                value="6">
+
+            6 days
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(2, '4')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result2"
+             class="answer-result">
+
+        </div>
+
+    </div>
+
+
+    <!-- QUESTION 3 -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+            Question 3
+        </div>
+
+
+        <div class="question-text">
+
+            A worker completes a job in 20 days.
+            What fraction of the work is completed
+            in 5 days?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q3"
+                value="1/2">
+
+            1/2
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q3"
+                value="1/3">
+
+            1/3
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q3"
+                value="1/4">
+
+            1/4
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q3"
+                value="1/5">
+
+            1/5
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(3, '1/4')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result3"
+             class="answer-result">
+
+        </div>
+
+    </div>
+
+
+    <!-- QUESTION 4 -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+            Question 4
+        </div>
+
+
+        <div class="question-text">
+
+            A can complete a work in 15 days and B can
+            complete it in 10 days. How many days will
+            they take together?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q4"
+                value="4">
+
+            4 days
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q4"
+                value="5">
+
+            5 days
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q4"
+                value="6">
+
+            6 days
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q4"
+                value="8">
+
+            8 days
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(4, '6')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result4"
+             class="answer-result">
+
+        </div>
+
+    </div>
+
+
+    <!-- QUESTION 5 -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+            Question 5
+        </div>
+
+
+        <div class="question-text">
+
+            A completes a work in 8 days.
+            How much work does A complete in 2 days?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q5"
+                value="1/2">
+
+            1/2
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q5"
+                value="1/4">
+
+            1/4
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q5"
+                value="1/8">
+
+            1/8
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q5"
+                value="3/8">
+
+            3/8
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(5, '1/4')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result5"
+             class="answer-result">
+
+        </div>
+
+    </div>
+
+
+    <!-- QUESTION 6 -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+            Question 6
+        </div>
+
+
+        <div class="question-text">
+
+            A is twice as efficient as B.
+            If B completes a work in 18 days,
+            how many days will A take?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q6"
+                value="6">
+
+            6 days
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q6"
+                value="9">
+
+            9 days
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q6"
+                value="12">
+
+            12 days
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q6"
+                value="15">
+
+            15 days
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(6, '9')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result6"
+             class="answer-result">
+
+        </div>
+
+    </div>
+
+
+    <!-- QUESTION 7 -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+            Question 7
+        </div>
+
+
+        <div class="question-text">
+
+            A and B together can complete a work in
+            8 days. A alone can complete it in 12 days.
+            How many days will B alone take?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q7"
+                value="18">
+
+            18 days
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q7"
+                value="20">
+
+            20 days
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q7"
+                value="24">
+
+            24 days
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q7"
+                value="30">
+
+            30 days
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(7, '24')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result7"
+             class="answer-result">
+
+        </div>
+
+    </div>
+
+
+    <!-- QUESTION 8 -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+            Question 8
+        </div>
+
+
+        <div class="question-text">
+
+            A pipe can fill a tank in 6 hours.
+            What fraction of the tank does it fill
+            in one hour?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q8"
+                value="1/2">
+
+            1/2
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q8"
+                value="1/3">
+
+            1/3
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q8"
+                value="1/6">
+
+            1/6
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q8"
+                value="1/8">
+
+            1/8
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(8, '1/6')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result8"
+             class="answer-result">
+
+        </div>
+
+    </div>
+
+
+    <!-- QUESTION 9 -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+            Question 9
+        </div>
+
+
+        <div class="question-text">
+
+            A can do a work in 20 days and B can do it
+            in 30 days. How much work can they complete
+            together in one day?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q9"
+                value="1/10">
+
+            1/10
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q9"
+                value="1/12">
+
+            1/12
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q9"
+                value="1/15">
+
+            1/15
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q9"
+                value="1/20">
+
+            1/20
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(9, '1/12')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result9"
+             class="answer-result">
+
+        </div>
+
+    </div>
+
+
+    <!-- QUESTION 10 -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+            Question 10
+        </div>
+
+
+        <div class="question-text">
+
+            A can complete a work in 10 days.
+            B is 50% more efficient than A.
+            How many days will B take?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q10"
+                value="5">
+
+            5 days
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q10"
+                value="6.67">
+
+            6.67 days
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q10"
+                value="7.5">
+
+            7.5 days
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q10"
+                value="8">
+
+            8 days
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(10, '6.67')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result10"
+             class="answer-result">
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         SUBMIT ALL
+    =========================================== -->
+
+    <div class="text-center mt-4">
+
+        <button
+            class="btn btn-lg main-submit"
+            onclick="calculateScore()">
+
+            🏆 Submit All Questions
+
+        </button>
+
+    </div>
+
+
+    <!-- ==========================================
+         FINAL SCORE
+    =========================================== -->
+
+    <div id="finalScore">
+
+        <h3>
+            🎉 Quiz Completed!
+        </h3>
+
+
+        <h4 id="scoreText"></h4>
+
+
+        <p id="scoreMessage"></p>
+
+    </div>
+
+
+    <!-- ==========================================
+         IMPORTANCE
+    =========================================== -->
+
+    <h4 class="mt-5">
+
+        🎯 Importance of Time and Work
+
+    </h4>
+
+
+    <ul>
+
+        <li>
+            Useful in placement aptitude tests.
+        </li>
+
+        <li>
+            Improves mathematical problem-solving skills.
+        </li>
+
+        <li>
+            Helps understand work-rate concepts.
+        </li>
+
+        <li>
+            Develops calculation speed.
+        </li>
+
+        <li>
+            Helps solve efficiency-based problems.
+        </li>
+
+        <li>
+            Useful for pipes and cistern questions.
+        </li>
+
+    </ul>
+
+
+    <!-- ==========================================
+         PREPARATION TIPS
+    =========================================== -->
+
+    <h4 class="mt-4">
+
+        🚀 Preparation Tips
+
+    </h4>
+
+
+    <div class="alert alert-success">
+
+        <ul>
+
+            <li>
+                Understand the concept of one-day work.
+            </li>
+
+            <li>
+                Remember that efficiency and time are
+                inversely proportional.
+            </li>
+
+            <li>
+                Practice combined work problems.
+            </li>
+
+            <li>
+                Learn shortcut methods for efficiency.
+            </li>
+
+            <li>
+                Practice pipes and cistern questions.
+            </li>
+
+            <li>
+                Solve previous placement aptitude questions.
+            </li>
+
+            <li>
+                Practice calculations without a calculator.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- ==========================================
+         COMPANIES
+    =========================================== -->
+
+    <h4 class="mt-4">
+
+        🏢 Companies Asking Time and Work
+
+    </h4>
+
+
+    <table class="table table-bordered">
+
+        <thead class="table-primary">
+
+            <tr>
+
+                <th>
+                    Company
+                </th>
+
+                <th>
+                    Difficulty
+                </th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+            <tr>
+                <td>TCS</td>
+                <td>Medium</td>
+            </tr>
+
+            <tr>
+                <td>Infosys</td>
+                <td>Medium</td>
+            </tr>
+
+            <tr>
+                <td>Wipro</td>
+                <td>Medium</td>
+            </tr>
+
+            <tr>
+                <td>Accenture</td>
+                <td>Medium</td>
+            </tr>
+
+            <tr>
+                <td>Cognizant</td>
+                <td>Medium</td>
+            </tr>
+
+            <tr>
+                <td>Capgemini</td>
+                <td>Medium</td>
+            </tr>
+
+            <tr>
+                <td>IBM</td>
+                <td>Medium to High</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+
+    <!-- ==========================================
+         BOTTOM BUTTONS
+    =========================================== -->
+
+    <div class="text-center mt-4 mb-5 bottom-buttons">
+
+        <button
+            onclick="completeTopic()"
+            class="btn complete-btn btn-lg">
+
+            ✅ Complete Today's Task
+
+        </button>
+
+
+        <a
+            href="/aptitude"
+            class="btn back-btn btn-lg ms-2">
+
+            ⬅ Back to Aptitude
+
+        </a>
+
+    </div>
+
+
+</div>
+
+
+<!-- ==========================================
+     BOOTSTRAP JAVASCRIPT
+=========================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+<script>
+
+
+/* =================================================
+   SCORE VARIABLES
+================================================= */
+
+let score = 0;
+
+let answeredQuestions = new Set();
+
+
+/* =================================================
+   ANSWER INFORMATION
+================================================= */
+
+const answerText = {
+
+    1: "1/10",
+
+    2: "4 days",
+
+    3: "1/4",
+
+    4: "6 days",
+
+    5: "1/4",
+
+    6: "9 days",
+
+    7: "24 days",
+
+    8: "1/6",
+
+    9: "1/12",
+
+    10: "6.67 days"
+
+};
+
+
+/* =================================================
+   EXPLANATIONS
+================================================= */
+
+const explanations = {
+
+    1:
+        "One day's work = 1 / Total days = 1 / 10 = 1/10.",
+
+
+    2:
+        "A's rate = 1/12 and B's rate = 1/6. Combined rate = 1/12 + 1/6 = 3/12 = 1/4. Therefore, they complete the work in 4 days.",
+
+
+    3:
+        "One day's work = 1/20. In 5 days, work completed = 5 × 1/20 = 1/4.",
+
+
+    4:
+        "A's rate = 1/15 and B's rate = 1/10. Combined rate = 1/15 + 1/10 = 5/30 = 1/6. Therefore, they take 6 days.",
+
+
+    5:
+        "A's one-day work = 1/8. In 2 days, work = 2 × 1/8 = 1/4.",
+
+
+    6:
+        "A is twice as efficient as B, so A takes half the time. B takes 18 days, therefore A takes 18/2 = 9 days.",
+
+
+    7:
+        "A+B rate = 1/8. A's rate = 1/12. B's rate = 1/8 − 1/12 = 1/24. Therefore B alone takes 24 days.",
+
+
+    8:
+        "One-hour filling rate = 1 / 6. Therefore, the pipe fills 1/6 of the tank in one hour.",
+
+
+    9:
+        "A's rate = 1/20 and B's rate = 1/30. Combined rate = 1/20 + 1/30 = 5/60 = 1/12.",
+
+
+    10:
+        "B is 50% more efficient than A, so B's efficiency = 150% of A. Therefore B's time = 10 / 1.5 = 6.67 days."
+
+};
+
+
+/* =================================================
+   CHECK INDIVIDUAL QUESTION
+================================================= */
+
+function checkAnswer(questionNumber, correctAnswer) {
+
+
+    const selected =
+        document.querySelector(
+            `input[name="q${questionNumber}"]:checked`
+        );
+
+
+    const result =
+        document.getElementById(
+            `result${questionNumber}`
+        );
+
+
+    /* ---------------------------------------------
+       NO OPTION SELECTED
+    --------------------------------------------- */
+
+    if (!selected) {
+
+        result.style.display = "block";
+
+        result.className =
+            "answer-result wrong-result";
+
+        result.innerHTML =
+
+            "⚠️ <strong>Please select an option first.</strong>";
+
+        return;
+
+    }
+
+
+    /* ---------------------------------------------
+       ALREADY ANSWERED
+    --------------------------------------------- */
+
+    if (
+        answeredQuestions.has(questionNumber)
+    ) {
+
+        result.style.display = "block";
+
+        result.className =
+            "answer-result correct-result";
+
+        result.innerHTML =
+
+            "ℹ️ <strong>This question has already been submitted.</strong>";
+
+        return;
+
+    }
+
+
+    /* ---------------------------------------------
+       MARK QUESTION AS ANSWERED
+    --------------------------------------------- */
+
+    answeredQuestions.add(questionNumber);
+
+
+    /* ---------------------------------------------
+       CORRECT ANSWER
+    --------------------------------------------- */
+
+    if (
+        selected.value === correctAnswer
+    ) {
+
+        score++;
+
+
+        result.style.display = "block";
+
+        result.className =
+            "answer-result correct-result";
+
+
+        result.innerHTML =
+
+            "✅ <strong>Correct Answer!</strong><br><br>" +
+
+            "Your answer: <strong>" +
+            answerText[questionNumber] +
+            "</strong><br><br>" +
+
+            "💡 " +
+            explanations[questionNumber];
+
+    }
+
+
+    /* ---------------------------------------------
+       WRONG ANSWER
+    --------------------------------------------- */
+
+    else {
+
+        result.style.display = "block";
+
+        result.className =
+            "answer-result wrong-result";
+
+
+        result.innerHTML =
+
+            "❌ <strong>Incorrect Answer!</strong><br><br>" +
+
+            "Your answer: <strong>" +
+            selected.parentElement.textContent.trim() +
+            "</strong><br><br>" +
+
+            "✅ Correct Answer: <strong>" +
+            answerText[questionNumber] +
+            "</strong><br><br>" +
+
+            "💡 " +
+            explanations[questionNumber];
+
+    }
+
+
+    /* ---------------------------------------------
+       DISABLE OPTIONS
+    --------------------------------------------- */
+
+    const options =
+        document.querySelectorAll(
+            `input[name="q${questionNumber}"]`
+        );
+
+
+    options.forEach(function(option) {
+
+        option.disabled = true;
+
+    });
+
+
+    /* ---------------------------------------------
+       DISABLE CURRENT BUTTON
+    --------------------------------------------- */
+
+    const currentCard =
+        result.closest(".question-card");
+
+
+    const currentButton =
+        currentCard.querySelector(
+            ".submit-question"
+        );
+
+
+    currentButton.disabled = true;
+
+
+    currentButton.innerText =
+        "✓ Answer Submitted";
+
+}
+
+
+/* =================================================
+   CALCULATE FINAL SCORE
+================================================= */
+
+function calculateScore() {
+
+
+    const finalScore =
+        document.getElementById(
+            "finalScore"
+        );
+
+
+    const scoreText =
+        document.getElementById(
+            "scoreText"
+        );
+
+
+    const scoreMessage =
+        document.getElementById(
+            "scoreMessage"
+        );
+
+
+    /* ---------------------------------------------
+       SHOW SCORE
+    --------------------------------------------- */
+
+    finalScore.style.display = "block";
+
+
+    scoreText.innerHTML =
+        "Your Score: " +
+        score +
+        " / 10";
+
+
+    /* ---------------------------------------------
+       SCORE MESSAGE
+    --------------------------------------------- */
+
+    if (score === 10) {
+
+        scoreMessage.innerHTML =
+            "🏆 Excellent! You got all 10 questions correct!";
+
+    }
+
+    else if (score >= 8) {
+
+        scoreMessage.innerHTML =
+            "🌟 Great job! Your Time and Work skills are strong.";
+
+    }
+
+    else if (score >= 5) {
+
+        scoreMessage.innerHTML =
+            "👍 Good attempt! Keep practicing Time and Work questions.";
+
+    }
+
+    else {
+
+        scoreMessage.innerHTML =
+            "📚 Keep practicing. Review the explanations and try again.";
+
+    }
+
+
+    /* ---------------------------------------------
+       SCROLL TO SCORE
+    --------------------------------------------- */
+
+    finalScore.scrollIntoView({
+
+        behavior: "smooth",
+
+        block: "center"
+
+    });
+
+}
+
+
+/* =================================================
+   COMPLETE TODAY'S TASK
+================================================= */
+
+function completeTopic() {
+
+
+    const today =
+        new Date().toDateString();
+
+
+    let progress =
+        JSON.parse(
+            localStorage.getItem(
+                "placementProgress"
+            )
+        ) || {
+
+            streak: 0,
+
+            lastCompleted: "",
+
+            completedTopics: {}
+
+        };
+
+
+    /* ---------------------------------------------
+       CORRECT TOPIC NAME
+    --------------------------------------------- */
+
+    const topic =
+        "Time and Work";
+
+
+    /* ---------------------------------------------
+       ALREADY COMPLETED TODAY
+    --------------------------------------------- */
+
+    if (
+        progress.completedTopics[topic] === today
+    ) {
+
+        alert(
+            "✅ You already completed this task today!"
+        );
+
+        return;
+
+    }
+
+
+    /* ---------------------------------------------
+       SAVE COMPLETION
+    --------------------------------------------- */
+
+    progress.completedTopics[topic] =
+        today;
+
+
+    /* ---------------------------------------------
+       UPDATE STREAK
+    --------------------------------------------- */
+
+    if (
+        progress.lastCompleted !== today
+    ) {
+
+        progress.streak++;
+
+        progress.lastCompleted =
+            today;
+
+    }
+
+
+    /* ---------------------------------------------
+       SAVE TO LOCAL STORAGE
+    --------------------------------------------- */
+
+    localStorage.setItem(
+
+        "placementProgress",
+
+        JSON.stringify(progress)
+
+    );
+
+
+    /* ---------------------------------------------
+       SUCCESS MESSAGE
+    --------------------------------------------- */
+
+    alert(
+
+        "🎉 Time and Work completed!" +
+
+        "\n🔥 Streak: " +
+
+        progress.streak +
+
+        " day(s)"
+
+    );
+
+
+    /* ---------------------------------------------
+       GO TO DASHBOARD
+    --------------------------------------------- */
+
+    window.location.href =
+        "/dashboard";
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

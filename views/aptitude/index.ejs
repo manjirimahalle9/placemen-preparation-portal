@@ -1,0 +1,2464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Aptitude | PlacementX</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: #050706;
+            color: white;
+            font-family: "Figtree", sans-serif;
+            overflow-x: hidden;
+        }
+
+
+        /* =================================================
+           3D BACKGROUND
+        ================================================= */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            z-index: -10;
+
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(0,140,112,0.15),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 80% 70%,
+                    rgba(0,140,112,0.10),
+                    transparent 30%
+                ),
+
+                #050706;
+        }
+
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(2px);
+            opacity: 0.35;
+
+            animation:
+                floatOrb 12s infinite ease-in-out;
+        }
+
+
+        .orb-one {
+            width: 280px;
+            height: 280px;
+
+            background:
+                radial-gradient(
+                    circle at 30% 30%,
+                    #00c49c,
+                    #008c70,
+                    transparent 70%
+                );
+
+            top: 10%;
+            left: -100px;
+        }
+
+
+        .orb-two {
+            width: 350px;
+            height: 350px;
+
+            background:
+                radial-gradient(
+                    circle at 40% 40%,
+                    #008c70,
+                    transparent 70%
+                );
+
+            right: -150px;
+            top: 35%;
+
+            animation-delay: 2s;
+        }
+
+
+        .orb-three {
+            width: 200px;
+            height: 200px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    #00c49c,
+                    transparent 70%
+                );
+
+            bottom: 5%;
+            left: 35%;
+
+            animation-delay: 4s;
+        }
+
+
+        @keyframes floatOrb {
+
+            0%,
+            100% {
+                transform:
+                    translate3d(0,0,0)
+                    rotate(0deg);
+            }
+
+            50% {
+                transform:
+                    translate3d(50px,-40px,80px)
+                    rotate(180deg);
+            }
+        }
+
+
+        /* =================================================
+           NAVBAR
+        ================================================= */
+
+        .navbar {
+
+            position: sticky;
+            top: 18px;
+            z-index: 100;
+
+            width: calc(100% - 50px);
+            max-width: 1400px;
+
+            margin: auto;
+
+            min-height: 72px;
+
+            padding: 12px 18px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.14);
+
+            border-radius: 18px;
+
+            background:
+                rgba(15,18,17,0.55);
+
+            backdrop-filter: blur(25px);
+
+            box-shadow:
+                0 20px 70px
+                rgba(0,0,0,0.35);
+        }
+
+
+        .logo {
+
+            display: flex;
+            align-items: center;
+            gap: 11px;
+        }
+
+
+        .logo-box {
+
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: #008c70;
+
+            font-weight: 800;
+            font-size: 20px;
+
+            box-shadow:
+                0 0 30px
+                rgba(0,140,112,0.35);
+        }
+
+
+        .logo-text h2 {
+            font-size: 14px;
+        }
+
+
+        .logo-text span {
+
+            display: block;
+
+            margin-top: 3px;
+
+            font-size: 13px;
+
+            color:
+                rgba(255,255,255,0.45);
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+        }
+
+
+        .nav-links {
+
+            display: flex;
+            gap: 25px;
+        }
+
+
+        .nav-links a {
+
+            color:
+                rgba(255,255,255,0.62);
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+
+        .nav-links a:hover {
+            color: #00c49c;
+        }
+
+
+        .profile {
+
+            width: 40px;
+            height: 40px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.15);
+
+            background:
+                rgba(255,255,255,0.08);
+
+            color: white;
+
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+
+        /* =================================================
+           PAGE
+        ================================================= */
+
+        .page {
+
+            max-width: 1400px;
+
+            margin: auto;
+
+            padding:
+                90px 7vw 100px;
+        }
+
+
+        /* =================================================
+           HERO
+        ================================================= */
+
+        .hero {
+
+            display: grid;
+
+            grid-template-columns:
+                1.3fr 0.7fr;
+
+            gap: 60px;
+
+            align-items: center;
+
+            min-height: 480px;
+        }
+
+
+        .label {
+
+            color: #00c49c;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+        }
+
+
+        .hero h1 {
+
+            margin-top: 12px;
+
+            font-size:
+                clamp(55px,7vw,100px);
+
+            line-height: 0.9;
+
+            letter-spacing: -5px;
+        }
+
+
+        .green {
+
+            color: #008c70;
+
+            text-shadow:
+                0 0 40px
+                rgba(0,140,112,0.3);
+        }
+
+
+        .hero p {
+
+            max-width: 570px;
+
+            margin-top: 25px;
+
+            color:
+                rgba(255,255,255,0.52);
+
+            font-size: 14px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =================================================
+           3D LOADER
+        ================================================= */
+
+        .loader-area {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            perspective: 800px;
+        }
+
+
+        .loader-3d {
+
+            position: relative;
+
+            width: 180px;
+            height: 180px;
+
+            transform-style: preserve-3d;
+
+            animation:
+                rotateLoader 8s infinite linear;
+        }
+
+
+        .loader-ring {
+
+            position: absolute;
+
+            inset: 0;
+
+            border-radius: 50%;
+
+            border:
+                5px solid
+                rgba(0,140,112,0.12);
+
+            border-top-color: #00c49c;
+
+            border-right-color: #008c70;
+
+            box-shadow:
+                0 0 35px
+                rgba(0,140,112,0.25);
+        }
+
+
+        .loader-ring:nth-child(1) {
+
+            transform:
+                rotateX(65deg);
+        }
+
+
+        .loader-ring:nth-child(2) {
+
+            transform:
+                rotateY(65deg);
+        }
+
+
+        .loader-ring:nth-child(3) {
+
+            transform:
+                rotateX(65deg)
+                rotateY(65deg);
+        }
+
+
+        .loader-core {
+
+            position: absolute;
+
+            width: 55px;
+            height: 55px;
+
+            left: 50%;
+            top: 50%;
+
+            transform:
+                translate(-50%,-50%);
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle at 30% 30%,
+                    #00e0b0,
+                    #008c70
+                );
+
+            box-shadow:
+                0 0 50px
+                rgba(0,196,156,0.7);
+
+            animation:
+                corePulse 2s infinite;
+        }
+
+
+        @keyframes rotateLoader {
+
+            from {
+
+                transform:
+                    rotateX(0deg)
+                    rotateY(0deg);
+            }
+
+            to {
+
+                transform:
+                    rotateX(360deg)
+                    rotateY(360deg);
+            }
+        }
+
+
+        @keyframes corePulse {
+
+            0%,
+            100% {
+
+                transform:
+                    translate(-50%,-50%)
+                    scale(1);
+            }
+
+            50% {
+
+                transform:
+                    translate(-50%,-50%)
+                    scale(1.25);
+            }
+        }
+
+
+        /* =================================================
+           STATS
+        ================================================= */
+
+        .stats {
+
+            display: flex;
+
+            gap: 15px;
+
+            margin-top: 30px;
+        }
+
+
+        .stat {
+
+            padding: 14px 20px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.1);
+
+            border-radius: 12px;
+
+            background:
+                rgba(255,255,255,0.05);
+
+            backdrop-filter: blur(15px);
+        }
+
+
+        .stat strong {
+
+            display: block;
+
+            font-size: 20px;
+        }
+
+
+        .stat span {
+
+            display: block;
+
+            margin-top: 3px;
+
+            color:
+                rgba(255,255,255,0.42);
+
+            font-size: 14px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =================================================
+           SECTION TITLE
+        ================================================= */
+
+        .section-title {
+
+            margin-top: 70px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .section-title h2 {
+
+            margin-top: 7px;
+
+            font-size: 36px;
+
+            letter-spacing: -1px;
+        }
+
+
+        .section-title p {
+
+            margin-top: 6px;
+
+            color:
+                rgba(255,255,255,0.45);
+
+            font-size: 13px;
+        }
+
+
+        /* =================================================
+           TOPIC SLIDER
+        ================================================= */
+
+        .topic-slider {
+
+            position: relative;
+
+            width: 100%;
+
+            padding: 0 60px;
+        }
+
+
+        /* CARD VIEWPORT */
+
+        .topic-stream {
+
+            position: relative;
+
+            width: 100%;
+
+            overflow: hidden;
+
+            padding: 15px 0 35px;
+        }
+
+
+        /* CARD TRACK */
+
+        .topic-track {
+
+            display: flex;
+
+            gap: 18px;
+
+            width: max-content;
+
+            transform: translateX(0);
+
+            transition:
+                transform 0.6s
+                cubic-bezier(0.25,0.8,0.25,1);
+
+            will-change: transform;
+        }
+
+
+        /* =================================================
+           SLIDER ARROWS
+        ================================================= */
+
+        .slider-arrow {
+
+            position: absolute;
+
+            top: 50%;
+
+            width: 48px;
+            height: 48px;
+
+            transform:
+                translateY(-50%);
+
+            z-index: 100;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.20);
+
+            border-radius: 50%;
+
+            background:
+                rgba(0,140,112,0.95);
+
+            color: white;
+
+            font-size: 24px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            user-select: none;
+
+            outline: none;
+
+            backdrop-filter: blur(15px);
+
+            box-shadow:
+                0 0 25px
+                rgba(0,196,156,0.30);
+
+            transition:
+                background 0.3s ease,
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+
+        .slider-left {
+            left: 0;
+        }
+
+
+        .slider-right {
+            right: 0;
+        }
+
+
+        .slider-arrow:hover {
+
+            background: #00c49c;
+
+            box-shadow:
+                0 0 35px
+                rgba(0,196,156,0.60);
+
+            transform:
+                translateY(-50%)
+                scale(1.10);
+        }
+
+
+        .slider-arrow:active {
+
+            transform:
+                translateY(-50%)
+                scale(0.92);
+        }
+
+
+        /* =================================================
+           3D FLIP CARD
+        ================================================= */
+
+        .flip-card {
+
+            width: 260px;
+
+            height: 300px;
+
+            flex: 0 0 260px;
+
+            perspective: 1000px;
+
+            cursor: pointer;
+        }
+
+
+        .flip-inner {
+
+            position: relative;
+
+            width: 100%;
+            height: 100%;
+
+            transform-style:
+                preserve-3d;
+
+            transition:
+                transform 0.7s ease;
+        }
+
+
+        .flip-card:hover .flip-inner {
+
+            transform:
+                rotateY(180deg);
+        }
+
+
+        .flip-front,
+        .flip-back {
+
+            position: absolute;
+
+            inset: 0;
+
+            padding: 24px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.12);
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.10),
+                    rgba(255,255,255,0.025)
+                );
+
+            backdrop-filter: blur(20px);
+
+            backface-visibility:
+                hidden;
+
+            -webkit-backface-visibility:
+                hidden;
+
+            box-shadow:
+                0 20px 50px
+                rgba(0,0,0,0.25);
+        }
+
+
+        .flip-front {
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content:
+                space-between;
+        }
+
+
+        .flip-back {
+
+            transform:
+                rotateY(180deg);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(0,140,112,0.28),
+                    rgba(5,7,6,0.95)
+                );
+        }
+
+
+        .topic-icon {
+
+            width: 55px;
+            height: 55px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 15px;
+
+            background:
+                rgba(0,140,112,0.16);
+
+            font-size: 25px;
+
+            box-shadow:
+                0 0 25px
+                rgba(0,140,112,0.12);
+        }
+
+
+        .topic-number {
+
+            color:
+                rgba(255,255,255,0.3);
+
+            font-size: 14px;
+        }
+
+
+        .flip-front h3 {
+
+            margin-top: 10px;
+
+            font-size: 23px;
+        }
+
+
+        .flip-front p {
+
+            margin-top: 8px;
+
+            color:
+                rgba(255,255,255,0.45);
+
+            font-size: 14px;
+
+            line-height: 1.5;
+        }
+
+
+        .difficulty {
+
+            display: inline-block;
+
+            margin-top: 15px;
+
+            padding: 6px 9px;
+
+            border-radius: 6px;
+
+            background:
+                rgba(0,196,156,0.10);
+
+            color: #00c49c;
+
+            font-size: 10px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+        }
+
+
+        .flip-back h3 {
+
+            font-size: 22px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .flip-back ul {
+
+            padding-left: 18px;
+
+            color:
+                rgba(255,255,255,0.58);
+
+            font-size: 14px;
+
+            line-height: 2;
+        }
+
+
+        .practice-btn {
+
+            margin-top: 20px;
+
+            width: 100%;
+
+            padding: 11px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #008c70;
+
+            color: white;
+
+            cursor: pointer;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+
+        .practice-btn:hover {
+
+            background: #00a985;
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* =================================================
+           PROGRESS
+        ================================================= */
+
+        .progress-box {
+
+            margin-top: 35px;
+
+            padding: 25px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.1);
+
+            border-radius: 18px;
+
+            background:
+                rgba(255,255,255,0.05);
+
+            backdrop-filter: blur(20px);
+        }
+
+
+        .progress-top {
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            margin-bottom: 12px;
+        }
+
+
+        .progress-top strong {
+            font-size: 14px;
+        }
+
+
+        .progress-top span {
+
+            color: #00c49c;
+
+            font-size: 14px;
+        }
+
+
+        .progress {
+
+            width: 100%;
+
+            height: 7px;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            background:
+                rgba(255,255,255,0.08);
+        }
+
+
+        .progress-fill {
+
+            height: 100%;
+
+            width: 72%;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #008c70,
+                    #00c49c
+                );
+
+            box-shadow:
+                0 0 15px
+                rgba(0,196,156,0.4);
+        }
+
+
+        /* =================================================
+           FOOTER
+        ================================================= */
+
+        footer {
+
+            padding: 35px 7vw;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,0.08);
+
+            color:
+                rgba(255,255,255,0.4);
+
+            text-align: center;
+
+            font-size: 14px;
+        }
+
+
+        /* =================================================
+           MOBILE
+        ================================================= */
+
+        @media(max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+
+            .hero {
+
+                grid-template-columns: 1fr;
+
+                text-align: center;
+            }
+
+
+            .hero p {
+
+                margin-left: auto;
+
+                margin-right: auto;
+            }
+
+
+            .loader-area {
+                order: -1;
+            }
+
+
+            .stats {
+
+                justify-content: center;
+
+                flex-wrap: wrap;
+            }
+
+
+            .topic-slider {
+                padding: 0 50px;
+            }
+
+
+            .slider-arrow {
+
+                width: 44px;
+
+                height: 44px;
+
+                font-size: 21px;
+            }
+        }
+
+
+        @media(max-width: 600px) {
+
+            .navbar {
+
+                width:
+                    calc(100% - 24px);
+            }
+
+
+            .page {
+
+                padding:
+                    70px 18px;
+            }
+
+
+            .hero h1 {
+
+                font-size: 58px;
+
+                letter-spacing: -4px;
+            }
+
+
+            .loader-3d {
+
+                width: 130px;
+
+                height: 130px;
+            }
+
+
+            .flip-card {
+
+                width: 230px;
+
+                flex: 0 0 230px;
+
+                height: 280px;
+            }
+
+
+            .section-title h2 {
+
+                font-size: 29px;
+            }
+
+
+            .topic-slider {
+
+                padding: 0 43px;
+            }
+
+
+            .slider-arrow {
+
+                width: 38px;
+
+                height: 38px;
+
+                font-size: 18px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =================================================
+         3D BACKGROUND
+    ================================================= -->
+
+    <div class="background">
+
+        <div class="orb orb-one"></div>
+
+        <div class="orb orb-two"></div>
+
+        <div class="orb orb-three"></div>
+
+    </div>
+
+
+    <!-- =================================================
+         NAVBAR
+    ================================================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+
+            <div class="logo-box">
+                P
+            </div>
+
+            <div class="logo-text">
+
+                <h2>
+                    PlacementX
+                </h2>
+
+                <span>
+                    Career Preparation Portal
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <nav class="nav-links">
+
+            <a href="/dashboard">
+                Dashboard
+            </a>
+
+            <a href="/aptitude">
+                Aptitude
+            </a>
+
+            <a href="/coding">
+                Coding
+            </a>
+
+            <a href="/companies">
+                Companies
+            </a>
+
+            <a href="/interview">
+                Interview
+            </a>
+
+        </nav>
+
+
+        <button class="profile">
+            M
+        </button>
+
+    </header>
+
+
+
+    <main class="page">
+
+
+        <!-- =================================================
+             HERO
+        ================================================= -->
+
+        <section class="hero">
+
+            <div>
+
+                <span class="label">
+                    APTITUDE PREPARATION
+                </span>
+
+
+                <h1>
+
+                    Think.
+
+                    <br>
+
+                    <span class="green">
+                        Calculate.
+                    </span>
+
+                    <br>
+
+                    Succeed.
+
+                </h1>
+
+
+                <p>
+
+                    Master quantitative aptitude,
+                    logical reasoning and verbal ability
+                    with structured placement preparation.
+
+                </p>
+
+
+                <div class="stats">
+
+                    <div class="stat">
+
+                        <strong>
+                            150+
+                        </strong>
+
+                        <span>
+                            Questions
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <strong>
+                            9
+                        </strong>
+
+                        <span>
+                            Topics
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <strong>
+                            72%
+                        </strong>
+
+                        <span>
+                            Progress
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 3D LOADER -->
+
+            <div class="loader-area">
+
+                <div class="loader-3d">
+
+                    <div class="loader-ring"></div>
+
+                    <div class="loader-ring"></div>
+
+                    <div class="loader-ring"></div>
+
+                    <div class="loader-core"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TOPIC SECTION
+        ================================================= -->
+
+        <div class="section-title">
+
+            <span class="label">
+                EXPLORE TOPICS
+            </span>
+
+            <h2>
+                Choose your aptitude topic
+            </h2>
+
+            <p>
+                Hover over a card to explore the topic.
+                Use the arrows to move between topics.
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             HORIZONTAL 3D TOPIC SLIDER
+        ================================================= -->
+
+        <section class="topic-slider">
+
+
+            <!-- LEFT ARROW -->
+
+            <button
+                class="slider-arrow slider-left"
+                onclick="moveTopics(-1)"
+                aria-label="Previous topic">
+
+                &#10094;
+
+            </button>
+
+
+            <!-- CARD AREA -->
+
+            <div class="topic-stream">
+
+                <div class="topic-track">
+
+
+                    <!-- CARD 1 -->
+
+                    <div class="flip-card">
+
+                        <div class="flip-inner">
+
+
+                            <div class="flip-front">
+
+                                <div>
+
+                                    <span class="topic-number">
+                                        01
+                                    </span>
+
+                                    <div class="topic-icon">
+                                        🔢
+                                    </div>
+
+                                    <h3>
+                                        Number System
+                                    </h3>
+
+                                    <p>
+                                        Learn numbers, divisibility,
+                                        factors and remainders.
+                                    </p>
+
+                                </div>
+
+
+                                <span class="difficulty">
+                                    Beginner
+                                </span>
+
+                            </div>
+
+
+
+                            <div class="flip-back">
+
+                                <h3>
+                                    Number System
+                                </h3>
+
+                                <ul>
+
+                                    <li>
+                                        Divisibility
+                                    </li>
+
+                                    <li>
+                                        Prime Numbers
+                                    </li>
+
+                                    <li>
+                                        HCF & LCM
+                                    </li>
+
+                                    <li>
+                                        Remainders
+                                    </li>
+
+                                </ul>
+
+
+                                <button
+                                    class="practice-btn"
+                                    onclick="window.location.href='/aptitude/numbersystem'">
+
+                                    Practice →
+
+                                </button>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- CARD 2 -->
+
+                    <div class="flip-card">
+
+                        <div class="flip-inner">
+
+
+                            <div class="flip-front">
+
+                                <div>
+
+                                    <span class="topic-number">
+                                        02
+                                    </span>
+
+                                    <div class="topic-icon">
+                                        📊
+                                    </div>
+
+                                    <h3>
+                                        Percentage
+                                    </h3>
+
+                                    <p>
+                                        Master percentage calculations
+                                        used in placement exams.
+                                    </p>
+
+                                </div>
+
+
+                                <span class="difficulty">
+                                    Beginner
+                                </span>
+
+                            </div>
+
+
+
+                            <div class="flip-back">
+
+                                <h3>
+                                    Percentage
+                                </h3>
+
+                                <ul>
+
+                                    <li>
+                                        Basic Percentage
+                                    </li>
+
+                                    <li>
+                                        Increase & Decrease
+                                    </li>
+
+                                    <li>
+                                        Profit Percentage
+                                    </li>
+
+                                    <li>
+                                        Exam Problems
+                                    </li>
+
+                                </ul>
+
+
+                                <button
+                                    class="practice-btn"
+                                    onclick="window.location.href='/aptitude/percentage'">
+
+                                    Practice →
+
+                                </button>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- CARD 3 -->
+
+                    <div class="flip-card">
+
+                        <div class="flip-inner">
+
+
+                            <div class="flip-front">
+
+                                <div>
+
+                                    <span class="topic-number">
+                                        03
+                                    </span>
+
+                                    <div class="topic-icon">
+                                        💰
+                                    </div>
+
+                                    <h3>
+                                        Profit & Loss
+                                    </h3>
+
+                                    <p>
+                                        Solve real-world business
+                                        calculation problems.
+                                    </p>
+
+                                </div>
+
+
+                                <span class="difficulty">
+                                    Intermediate
+                                </span>
+
+                            </div>
+
+
+
+                            <div class="flip-back">
+
+                                <h3>
+                                    Profit & Loss
+                                </h3>
+
+                                <ul>
+
+                                    <li>
+                                        Cost Price
+                                    </li>
+
+                                    <li>
+                                        Selling Price
+                                    </li>
+
+                                    <li>
+                                        Discount
+                                    </li>
+
+                                    <li>
+                                        Profit & Loss
+                                    </li>
+
+                                </ul>
+
+
+                                <button
+                                    class="practice-btn"
+                                    onclick="window.location.href='/aptitude/profitloss'">
+
+                                    Practice →
+
+                                </button>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- CARD 4 -->
+
+                    <div class="flip-card">
+
+                        <div class="flip-inner">
+
+
+                            <div class="flip-front">
+
+                                <div>
+
+                                    <span class="topic-number">
+                                        04
+                                    </span>
+
+                                    <div class="topic-icon">
+                                        🚗
+                                    </div>
+
+                                    <h3>
+                                        Time & Distance
+                                    </h3>
+
+                                    <p>
+                                        Improve speed, distance and
+                                        time problem solving.
+                                    </p>
+
+                                </div>
+
+
+                                <span class="difficulty">
+                                    Intermediate
+                                </span>
+
+                            </div>
+
+
+
+                            <div class="flip-back">
+
+                                <h3>
+                                    Time & Distance
+                                </h3>
+
+                                <ul>
+
+                                    <li>
+                                        Speed
+                                    </li>
+
+                                    <li>
+                                        Distance
+                                    </li>
+
+                                    <li>
+                                        Relative Speed
+                                    </li>
+
+                                    <li>
+                                        Trains
+                                    </li>
+
+                                </ul>
+
+
+                                <button
+                                    class="practice-btn"
+                                    onclick="window.location.href='/aptitude/timespeeddistance'">
+
+                                    Practice →
+
+                                </button>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- CARD 5 -->
+
+                    <div class="flip-card">
+
+                        <div class="flip-inner">
+
+
+                            <div class="flip-front">
+
+                                <div>
+
+                                    <span class="topic-number">
+                                        05
+                                    </span>
+
+                                    <div class="topic-icon">
+                                        🧠
+                                    </div>
+
+                                    <h3>
+                                        Logical Reasoning
+                                    </h3>
+
+                                    <p>
+                                        Improve analytical thinking
+                                        and logical problem solving.
+                                    </p>
+
+                                </div>
+
+
+                                <span class="difficulty">
+                                    Advanced
+                                </span>
+
+                            </div>
+
+
+
+                            <div class="flip-back">
+
+                                <h3>
+                                    Logical Reasoning
+                                </h3>
+
+                                <ul>
+
+                                    <li>
+                                        Coding-Decoding
+                                    </li>
+
+                                    <li>
+                                        Blood Relations
+                                    </li>
+
+                                    <li>
+                                        Direction Sense
+                                    </li>
+
+                                    <li>
+                                        Puzzles
+                                    </li>
+
+                                </ul>
+
+
+                                <button
+                                    class="practice-btn"
+                                    onclick="window.location.href='/aptitude/logical'">
+
+                                    Practice →
+
+                                </button>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- CARD 6 -->
+
+                    <div class="flip-card">
+
+                        <div class="flip-inner">
+
+                            <div class="flip-front">
+
+                                <div>
+
+                                    <span class="topic-number">
+                                        06
+                                    </span>
+
+                                    <div class="topic-icon">
+                                        🧮
+                                    </div>
+
+                                    <h3>
+                                        Quantitative Aptitude
+                                    </h3>
+
+                                    <p>
+                                        Build strong calculation skills
+                                        for placement aptitude tests.
+                                    </p>
+
+                                </div>
+
+                                <span class="difficulty">
+                                    Intermediate
+                                </span>
+
+                            </div>
+
+                            <div class="flip-back">
+
+                                <h3>
+                                    Quantitative Aptitude
+                                </h3>
+
+                                <ul>
+
+                                    <li>
+                                        Number Problems
+                                    </li>
+
+                                    <li>
+                                        Percentage Problems
+                                    </li>
+
+                                    <li>
+                                        Profit & Loss
+                                    </li>
+
+                                    <li>
+                                        Time, Work & Distance
+                                    </li>
+
+                                </ul>
+
+                                <button
+                                    class="practice-btn"
+                                    onclick="window.location.href='/aptitude/quantitative'">
+
+                                    Practice →
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CARD 7 -->
+
+                    <div class="flip-card">
+
+                        <div class="flip-inner">
+
+
+                            <div class="flip-front">
+
+                                <div>
+
+                                    <span class="topic-number">
+                                        07
+                                    </span>
+
+                                    <div class="topic-icon">
+                                        ⏱️
+                                    </div>
+
+                                    <h3>
+                                        Time & Work
+                                    </h3>
+
+                                    <p>
+                                        Solve work efficiency and
+                                        completion problems.
+                                    </p>
+
+                                </div>
+
+
+                                <span class="difficulty">
+                                    Intermediate
+                                </span>
+
+                            </div>
+
+
+
+                            <div class="flip-back">
+
+                                <h3>
+                                    Time & Work
+                                </h3>
+
+                                <ul>
+
+                                    <li>
+                                        Work Efficiency
+                                    </li>
+
+                                    <li>
+                                        Work & Time
+                                    </li>
+
+                                    <li>
+                                        Pipes & Cisterns
+                                    </li>
+
+                                    <li>
+                                        Combined Work
+                                    </li>
+
+                                </ul>
+
+
+                                <button
+                                    class="practice-btn"
+                                    onclick="window.location.href='/aptitude/timework'">
+
+                                    Practice →
+
+                                </button>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- CARD 9 -->
+
+                    <div class="flip-card">
+
+                        <div class="flip-inner">
+
+                            <div class="flip-front">
+
+                                <div>
+
+                                    <span class="topic-number">
+                                        08
+                                    </span>
+
+                                    <div class="topic-icon">
+                                        📊
+                                    </div>
+
+                                    <h3>
+                                        Data Interpretation
+                                    </h3>
+
+                                    <p>
+                                        Analyze tables, charts and graphs
+                                        with speed and accuracy.
+                                    </p>
+
+                                </div>
+
+                                <span class="difficulty">
+                                    Intermediate
+                                </span>
+
+                            </div>
+
+                            <div class="flip-back">
+
+                                <h3>
+                                    Data Interpretation
+                                </h3>
+
+                                <ul>
+
+                                    <li>
+                                        Tables
+                                    </li>
+
+                                    <li>
+                                        Bar & Line Graphs
+                                    </li>
+
+                                    <li>
+                                        Pie Charts
+                                    </li>
+
+                                    <li>
+                                        Caselet DI
+                                    </li>
+
+                                </ul>
+
+                                <button
+                                    class="practice-btn"
+                                    onclick="window.location.href='/aptitude/datainterpretation'">
+
+                                    Practice →
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CARD 10 -->
+
+                    <div class="flip-card">
+
+                        <div class="flip-inner">
+
+                            <div class="flip-front">
+
+                                <div>
+
+                                    <span class="topic-number">
+                                        09
+                                    </span>
+
+                                    <div class="topic-icon">
+                                        💬
+                                    </div>
+
+                                    <h3>
+                                        Verbal Ability
+                                    </h3>
+
+                                    <p>
+                                        Improve grammar, vocabulary and
+                                        reading skills for placements.
+                                    </p>
+
+                                </div>
+
+                                <span class="difficulty">
+                                    Intermediate
+                                </span>
+
+                            </div>
+
+                            <div class="flip-back">
+
+                                <h3>
+                                    Verbal Ability
+                                </h3>
+
+                                <ul>
+
+                                    <li>
+                                        Grammar
+                                    </li>
+
+                                    <li>
+                                        Vocabulary
+                                    </li>
+
+                                    <li>
+                                        Reading Comprehension
+                                    </li>
+
+                                    <li>
+                                        Sentence Correction
+                                    </li>
+
+                                </ul>
+
+                                <button
+                                    class="practice-btn"
+                                    onclick="window.location.href='/aptitude/verbal'">
+
+                                    Practice →
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT ARROW -->
+
+            <button
+                class="slider-arrow slider-right"
+                onclick="moveTopics(1)"
+                aria-label="Next topic">
+
+                &#10095;
+
+            </button>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             PROGRESS
+        ================================================= -->
+
+        <div class="progress-box">
+
+            <div class="progress-top">
+
+                <strong>
+                    Aptitude Preparation Progress
+                </strong>
+
+                <span>
+                    72%
+                </span>
+
+            </div>
+
+            <div class="progress">
+
+                <div class="progress-fill"></div>
+
+            </div>
+
+        </div>
+
+
+    </main>
+
+
+
+    <footer>
+
+        PlacementX · Build skills. Practice daily. Get hired.
+
+    </footer>
+
+
+
+    <!-- =================================================
+         HORIZONTAL SLIDER JAVASCRIPT
+    ================================================= -->
+
+    <script>
+
+        const topicTrack =
+            document.querySelector(".topic-track");
+
+
+        const topicCards =
+            document.querySelectorAll(".flip-card");
+
+
+        const topicStream =
+            document.querySelector(".topic-stream");
+
+
+        let currentPosition = 0;
+
+
+        /*
+         * Card width = 260px
+         * Gap = 18px
+         * Total movement = 278px
+         */
+
+        function getCardStep() {
+
+            const firstCard =
+                topicCards[0];
+
+            if (!firstCard) {
+                return 278;
+            }
+
+            const cardStyle =
+                window.getComputedStyle(firstCard);
+
+            const cardWidth =
+                firstCard.getBoundingClientRect().width;
+
+            const gap =
+                parseFloat(
+                    window.getComputedStyle(topicTrack).gap
+                ) || 18;
+
+            return cardWidth + gap;
+        }
+
+
+        function moveTopics(direction) {
+
+            if (!topicTrack || !topicStream) {
+                return;
+            }
+
+
+            const visibleWidth =
+                topicStream.clientWidth;
+
+
+            const totalWidth =
+                topicTrack.scrollWidth;
+
+
+            const maxPosition =
+                Math.max(
+                    0,
+                    totalWidth - visibleWidth
+                );
+
+
+            const cardStep =
+                getCardStep();
+
+
+            currentPosition +=
+                direction * cardStep;
+
+
+            if (currentPosition < 0) {
+
+                currentPosition = 0;
+
+            }
+
+
+            if (currentPosition > maxPosition) {
+
+                currentPosition =
+                    maxPosition;
+
+            }
+
+
+            topicTrack.style.transform =
+                `translateX(-${currentPosition}px)`;
+
+        }
+
+
+        /* =================================================
+           MOUSE WHEEL HORIZONTAL MOVEMENT
+        ================================================= */
+
+        topicStream.addEventListener(
+            "wheel",
+            function(event) {
+
+                if (
+                    Math.abs(event.deltaY) >
+                    Math.abs(event.deltaX)
+                ) {
+
+                    event.preventDefault();
+
+
+                    moveTopics(
+                        event.deltaY > 0
+                            ? 1
+                            : -1
+                    );
+
+                }
+
+            },
+            {
+                passive: false
+            }
+        );
+
+
+        /* =================================================
+           TOUCH SWIPE SUPPORT
+        ================================================= */
+
+        let touchStartX = 0;
+
+        let touchEndX = 0;
+
+
+        topicStream.addEventListener(
+            "touchstart",
+            function(event) {
+
+                touchStartX =
+                    event.touches[0].clientX;
+
+            },
+            {
+                passive: true
+            }
+        );
+
+
+        topicStream.addEventListener(
+            "touchend",
+            function(event) {
+
+                touchEndX =
+                    event.changedTouches[0].clientX;
+
+
+                const difference =
+                    touchStartX - touchEndX;
+
+
+                if (
+                    Math.abs(difference) > 50
+                ) {
+
+                    if (difference > 0) {
+
+                        moveTopics(1);
+
+                    } else {
+
+                        moveTopics(-1);
+
+                    }
+
+                }
+
+            },
+            {
+                passive: true
+            }
+        );
+
+
+        /* =================================================
+           WINDOW RESIZE
+        ================================================= */
+
+        window.addEventListener(
+            "resize",
+            function() {
+
+                if (!topicTrack || !topicStream) {
+                    return;
+                }
+
+
+                const visibleWidth =
+                    topicStream.clientWidth;
+
+
+                const totalWidth =
+                    topicTrack.scrollWidth;
+
+
+                const maxPosition =
+                    Math.max(
+                        0,
+                        totalWidth - visibleWidth
+                    );
+
+
+                if (
+                    currentPosition >
+                    maxPosition
+                ) {
+
+                    currentPosition =
+                        maxPosition;
+
+                    topicTrack.style.transform =
+                        `translateX(-${currentPosition}px)`;
+
+                }
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+ </html>

@@ -1,0 +1,2676 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Percentage | PlacementX</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+
+    <style>
+
+        /* ==========================================
+           BODY
+        =========================================== */
+
+        body {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+            min-height: 100vh;
+
+        }
+
+
+        .container {
+
+            background: #050706;
+
+            max-width: 1000px;
+
+        }
+
+
+        p,
+        li,
+        h2,
+        h4,
+        strong {
+
+            color: white;
+
+        }
+
+
+        /* ==========================================
+           TITLE
+        =========================================== */
+
+        .page-title {
+
+            color: #00c49c !important;
+
+            font-weight: 700;
+
+        }
+
+
+        hr {
+
+            border-color: #008c70;
+
+            opacity: 1;
+
+        }
+
+
+        /* ==========================================
+           TOPICS LIST
+        =========================================== */
+
+        .list-group-item {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+            border-color: #008c70 !important;
+
+        }
+
+
+        /* ==========================================
+           ACCORDION
+        =========================================== */
+
+        .accordion-item {
+
+            background: #050706 !important;
+
+            border-color: #008c70 !important;
+
+        }
+
+
+        .accordion-button {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+        }
+
+
+        .accordion-button:not(.collapsed) {
+
+            background: #008c70 !important;
+
+            color: white !important;
+
+        }
+
+
+        .accordion-body {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+        }
+
+
+        .accordion-button::after {
+
+            filter: brightness(0) invert(1);
+
+        }
+
+
+        /* ==========================================
+           QUESTION CARD
+        =========================================== */
+
+        .question-card {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+            border: 1px solid #008c70 !important;
+
+            border-radius: 10px;
+
+            padding: 20px;
+
+            margin-bottom: 20px;
+
+            box-shadow:
+                0 0 12px rgba(0, 140, 112, 0.10);
+
+        }
+
+
+        .question-title {
+
+            color: #00c49c !important;
+
+            font-size: 19px;
+
+            font-weight: 700;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .question-text {
+
+            line-height: 1.7;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        /* ==========================================
+           OPTIONS
+        =========================================== */
+
+        .option {
+
+            display: block;
+
+            background: #0a100e;
+
+            color: white;
+
+            border: 1px solid #285e51;
+
+            border-radius: 8px;
+
+            padding: 12px 15px;
+
+            margin-bottom: 10px;
+
+            cursor: pointer;
+
+            transition: 0.25s;
+
+        }
+
+
+        .option:hover {
+
+            background: #0d1c18;
+
+            border-color: #00c49c;
+
+        }
+
+
+        .option input {
+
+            margin-right: 10px;
+
+            accent-color: #00c49c;
+
+        }
+
+
+        /* ==========================================
+           SUBMIT QUESTION BUTTON
+        =========================================== */
+
+        .submit-question {
+
+            background: #008c70;
+
+            border: none;
+
+            color: white;
+
+            padding: 9px 20px;
+
+            border-radius: 7px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+        }
+
+
+        .submit-question:hover {
+
+            background: #00a886;
+
+            color: white;
+
+        }
+
+
+        .submit-question:disabled {
+
+            opacity: 0.6;
+
+            cursor: not-allowed;
+
+        }
+
+
+        /* ==========================================
+           ANSWER RESULT
+        =========================================== */
+
+        .answer-result {
+
+            display: none;
+
+            margin-top: 15px;
+
+            padding: 15px;
+
+            border-radius: 8px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .correct-result {
+
+            background: #073d2f;
+
+            border: 1px solid #00c49c;
+
+        }
+
+
+        .wrong-result {
+
+            background: #351414;
+
+            border: 1px solid #dc3545;
+
+        }
+
+
+        .correct-result strong,
+        .wrong-result strong {
+
+            color: white;
+
+        }
+
+
+        /* ==========================================
+           FINAL SCORE
+        =========================================== */
+
+        #finalScore {
+
+            display: none;
+
+            background: #071d17;
+
+            border: 2px solid #00c49c;
+
+            border-radius: 12px;
+
+            padding: 25px;
+
+            margin-top: 30px;
+
+            text-align: center;
+
+        }
+
+
+        #finalScore h3 {
+
+            color: #00c49c !important;
+
+        }
+
+
+        #scoreText {
+
+            color: white !important;
+
+        }
+
+
+        #scoreMessage {
+
+            color: white !important;
+
+        }
+
+
+        /* ==========================================
+           PREPARATION ALERT
+        =========================================== */
+
+        .alert-success {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+            border: 1px solid #008c70 !important;
+
+        }
+
+
+        .alert-success li {
+
+            color: white !important;
+
+        }
+
+
+        /* ==========================================
+           TABLE
+        =========================================== */
+
+        .table {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+        }
+
+
+        .table tbody tr,
+        .table tbody td {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+            border-color: #008c70 !important;
+
+        }
+
+
+        .table-primary,
+        .table-primary th {
+
+            background: #008c70 !important;
+
+            color: white !important;
+
+        }
+
+
+        /* ==========================================
+           BOTTOM BUTTONS
+        =========================================== */
+
+        .complete-btn {
+
+            background: #198754;
+
+            border: none;
+
+            color: white;
+
+        }
+
+
+        .complete-btn:hover {
+
+            background: #157347;
+
+            color: white;
+
+        }
+
+
+        .back-btn {
+
+            background: #008c70;
+
+            border: none;
+
+            color: white;
+
+        }
+
+
+        .back-btn:hover {
+
+            background: #00a886;
+
+            color: white;
+
+        }
+
+
+        /* ==========================================
+           MOBILE
+        =========================================== */
+
+        @media (max-width: 576px) {
+
+            .container {
+
+                padding-left: 15px;
+
+                padding-right: 15px;
+
+            }
+
+
+            .question-card {
+
+                padding: 16px;
+
+            }
+
+
+            .bottom-buttons a,
+            .bottom-buttons button {
+
+                width: 100%;
+
+                margin: 5px 0 !important;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="container mt-5 mb-5">
+
+
+    <!-- ==========================================
+         TITLE
+    =========================================== -->
+
+    <h2 class="text-center page-title">
+
+        📊 Percentage
+
+    </h2>
+
+
+    <hr>
+
+
+    <!-- ==========================================
+         INTRODUCTION
+    =========================================== -->
+
+    <p>
+
+        Percentage is one of the most important topics in
+        quantitative aptitude. It is widely used in profit and
+        loss, discounts, marks, population, salary calculations,
+        data interpretation and many other aptitude problems.
+
+        A strong understanding of percentages helps you solve
+        placement questions quickly and accurately.
+
+    </p>
+
+
+    <!-- ==========================================
+         TOPICS COVERED
+    =========================================== -->
+
+    <h4 class="mt-4">
+
+        📚 Topics Covered
+
+    </h4>
+
+
+    <ul class="list-group mb-4">
+
+        <li class="list-group-item">
+            Basic Percentage
+        </li>
+
+        <li class="list-group-item">
+            Percentage Increase
+        </li>
+
+        <li class="list-group-item">
+            Percentage Decrease
+        </li>
+
+        <li class="list-group-item">
+            Successive Percentage
+        </li>
+
+        <li class="list-group-item">
+            Marks Percentage
+        </li>
+
+        <li class="list-group-item">
+            Population Percentage
+        </li>
+
+        <li class="list-group-item">
+            Salary Percentage
+        </li>
+
+        <li class="list-group-item">
+            Percentage Comparison
+        </li>
+
+        <li class="list-group-item">
+            Percentage Change
+        </li>
+
+        <li class="list-group-item">
+            Applications of Percentage
+        </li>
+
+    </ul>
+
+
+    <!-- ==========================================
+         TOPIC DEFINITIONS
+    =========================================== -->
+
+    <h4>
+
+        📖 Topic Definitions
+
+    </h4>
+
+
+    <div class="accordion"
+         id="percentageTopics">
+
+
+        <!-- ======================================
+             BASIC PERCENTAGE
+        ======================================= -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#basicPercentage">
+
+                    1. Basic Percentage
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="basicPercentage"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    Percentage represents a quantity out of 100.
+
+                    <br><br>
+
+                    <strong>Formula:</strong>
+
+                    <br>
+
+                    Percentage =
+                    (Value ÷ Total) × 100
+
+                    <br><br>
+
+                    <strong>Example:</strong>
+
+                    <br>
+
+                    If a student scores 40 marks out of 50:
+
+                    <br><br>
+
+                    Percentage =
+                    (40 ÷ 50) × 100 = 80%
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ======================================
+             PERCENTAGE INCREASE
+        ======================================= -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#percentageIncrease">
+
+                    2. Percentage Increase
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="percentageIncrease"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    Percentage increase shows how much a value
+                    has increased compared with its original value.
+
+                    <br><br>
+
+                    <strong>Formula:</strong>
+
+                    <br>
+
+                    Percentage Increase =
+                    (Increase ÷ Original Value) × 100
+
+                    <br><br>
+
+                    <strong>Example:</strong>
+
+                    <br>
+
+                    A salary increases from ₹20,000 to ₹25,000.
+
+                    <br><br>
+
+                    Increase = ₹5,000
+
+                    <br>
+
+                    Percentage Increase =
+                    (5,000 ÷ 20,000) × 100 = 25%
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ======================================
+             PERCENTAGE DECREASE
+        ======================================= -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#percentageDecrease">
+
+                    3. Percentage Decrease
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="percentageDecrease"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    Percentage decrease shows how much a value
+                    has decreased compared with its original value.
+
+                    <br><br>
+
+                    <strong>Formula:</strong>
+
+                    <br>
+
+                    Percentage Decrease =
+                    (Decrease ÷ Original Value) × 100
+
+                    <br><br>
+
+                    <strong>Example:</strong>
+
+                    <br>
+
+                    A price decreases from ₹500 to ₹400.
+
+                    <br><br>
+
+                    Decrease = ₹100
+
+                    <br>
+
+                    Percentage Decrease =
+                    (100 ÷ 500) × 100 = 20%
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ======================================
+             SUCCESSIVE PERCENTAGE
+        ======================================= -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#successivePercentage">
+
+                    4. Successive Percentage
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="successivePercentage"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    Successive percentage means applying two or
+                    more percentage changes one after another.
+
+                    <br><br>
+
+                    <strong>Formula for two increases:</strong>
+
+                    <br>
+
+                    Net Increase =
+                    A + B + (AB ÷ 100)
+
+                    <br><br>
+
+                    <strong>Example:</strong>
+
+                    <br>
+
+                    A value increases by 10% and then by 20%.
+
+                    <br>
+
+                    Net increase =
+                    10 + 20 + (10 × 20 ÷ 100)
+
+                    = 32%
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ======================================
+             MARKS PERCENTAGE
+        ======================================= -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#marksPercentage">
+
+                    5. Marks Percentage
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="marksPercentage"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    Marks percentage represents the marks
+                    obtained compared with the total marks.
+
+                    <br><br>
+
+                    <strong>Formula:</strong>
+
+                    <br>
+
+                    Percentage =
+                    (Marks Obtained ÷ Total Marks) × 100
+
+                    <br><br>
+
+                    <strong>Example:</strong>
+
+                    <br>
+
+                    A student scores 450 out of 500.
+
+                    <br><br>
+
+                    Percentage =
+                    (450 ÷ 500) × 100 = 90%
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ======================================
+             POPULATION PERCENTAGE
+        ======================================= -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#populationPercentage">
+
+                    6. Population Percentage
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="populationPercentage"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    Population percentage is used to calculate
+                    the increase or decrease in population.
+
+                    <br><br>
+
+                    <strong>Example:</strong>
+
+                    <br>
+
+                    If a city's population is 1,00,000 and
+                    increases by 10%, the new population is:
+
+                    <br><br>
+
+                    1,00,000 + 10% of 1,00,000
+
+                    <br>
+
+                    = 1,10,000
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ======================================
+             SALARY PERCENTAGE
+        ======================================= -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#salaryPercentage">
+
+                    7. Salary Percentage
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="salaryPercentage"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    Percentage calculations are commonly used
+                    to calculate salary hikes, deductions,
+                    bonuses and changes in income.
+
+                    <br><br>
+
+                    <strong>Example:</strong>
+
+                    <br>
+
+                    If a salary of ₹40,000 increases by 15%:
+
+                    <br><br>
+
+                    Increase =
+                    15% of ₹40,000 = ₹6,000
+
+                    <br>
+
+                    New salary = ₹46,000
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ==========================================
+         PRACTICE QUESTIONS
+    =========================================== -->
+
+    <h4 class="mt-5">
+
+        📝 Practice Questions
+
+    </h4>
+
+
+    <!-- ==========================================
+         QUESTION 1
+    =========================================== -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+
+            Question 1
+
+        </div>
+
+
+        <div class="question-text">
+
+            What is 25% of 200?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q1"
+                value="25">
+
+            25
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q1"
+                value="40">
+
+            40
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q1"
+                value="50">
+
+            50
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q1"
+                value="75">
+
+            75
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(1, '50')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result1"
+             class="answer-result">
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         QUESTION 2
+    =========================================== -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+
+            Question 2
+
+        </div>
+
+
+        <div class="question-text">
+
+            A number increases from 100 to 120.
+
+            What is the percentage increase?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q2"
+                value="10">
+
+            10%
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q2"
+                value="20">
+
+            20%
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q2"
+                value="25">
+
+            25%
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q2"
+                value="30">
+
+            30%
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(2, '20')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result2"
+             class="answer-result">
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         QUESTION 3
+    =========================================== -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+
+            Question 3
+
+        </div>
+
+
+        <div class="question-text">
+
+            A student's marks are 80 out of 100.
+
+            Find the percentage.
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q3"
+                value="60">
+
+            60%
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q3"
+                value="70">
+
+            70%
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q3"
+                value="80">
+
+            80%
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q3"
+                value="90">
+
+            90%
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(3, '80')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result3"
+             class="answer-result">
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         QUESTION 4
+    =========================================== -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+
+            Question 4
+
+        </div>
+
+
+        <div class="question-text">
+
+            A salary of ₹20,000 is increased by 15%.
+
+            What is the new salary?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q4"
+                value="21000">
+
+            ₹21,000
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q4"
+                value="22000">
+
+            ₹22,000
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q4"
+                value="23000">
+
+            ₹23,000
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q4"
+                value="24000">
+
+            ₹24,000
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(4, '23000')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result4"
+             class="answer-result">
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         QUESTION 5
+    =========================================== -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+
+            Question 5
+
+        </div>
+
+
+        <div class="question-text">
+
+            The price of a product decreases from
+            ₹500 to ₹400.
+
+            What is the percentage decrease?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q5"
+                value="10">
+
+            10%
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q5"
+                value="15">
+
+            15%
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q5"
+                value="20">
+
+            20%
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q5"
+                value="25">
+
+            25%
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(5, '20')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result5"
+             class="answer-result">
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         QUESTION 6
+    =========================================== -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+
+            Question 6
+
+        </div>
+
+
+        <div class="question-text">
+
+            A number is increased by 20% and then
+            increased by another 10%.
+
+            What is the overall percentage increase?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q6"
+                value="28">
+
+            28%
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q6"
+                value="30">
+
+            30%
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q6"
+                value="32">
+
+            32%
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q6"
+                value="35">
+
+            35%
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(6, '32')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result6"
+             class="answer-result">
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         QUESTION 7
+    =========================================== -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+
+            Question 7
+
+        </div>
+
+
+        <div class="question-text">
+
+            A student scores 450 marks out of 500.
+
+            What is the percentage scored?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q7"
+                value="80">
+
+            80%
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q7"
+                value="85">
+
+            85%
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q7"
+                value="90">
+
+            90%
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q7"
+                value="95">
+
+            95%
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(7, '90')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result7"
+             class="answer-result">
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         QUESTION 8
+    =========================================== -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+
+            Question 8
+
+        </div>
+
+
+        <div class="question-text">
+
+            The population of a city is 1,00,000.
+
+            It increases by 10%.
+
+            What is the new population?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q8"
+                value="105000">
+
+            1,05,000
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q8"
+                value="110000">
+
+            1,10,000
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q8"
+                value="115000">
+
+            1,15,000
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q8"
+                value="120000">
+
+            1,20,000
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(8, '110000')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result8"
+             class="answer-result">
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         QUESTION 9
+    =========================================== -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+
+            Question 9
+
+        </div>
+
+
+        <div class="question-text">
+
+            A company's sales increase from
+            ₹80,000 to ₹1,00,000.
+
+            What is the percentage increase?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q9"
+                value="20">
+
+            20%
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q9"
+                value="25">
+
+            25%
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q9"
+                value="30">
+
+            30%
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q9"
+                value="35">
+
+            35%
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(9, '25')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result9"
+             class="answer-result">
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         QUESTION 10
+    =========================================== -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+
+            Question 10
+
+        </div>
+
+
+        <div class="question-text">
+
+            A product is priced at ₹1,000.
+
+            It is given a discount of 20%.
+
+            What is the selling price after discount?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q10"
+                value="700">
+
+            ₹700
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q10"
+                value="750">
+
+            ₹750
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q10"
+                value="800">
+
+            ₹800
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q10"
+                value="850">
+
+            ₹850
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(10, '800')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result10"
+             class="answer-result">
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         SUBMIT ALL QUESTIONS
+    =========================================== -->
+
+    <div class="text-center mt-4">
+
+        <button
+            class="btn btn-lg main-submit submit-question"
+            onclick="calculateScore()">
+
+            🏆 Submit All Questions
+
+        </button>
+
+    </div>
+
+
+    <!-- ==========================================
+         FINAL SCORE
+    =========================================== -->
+
+    <div id="finalScore">
+
+        <h3>
+
+            🎉 Quiz Completed!
+
+        </h3>
+
+
+        <h4 id="scoreText">
+
+        </h4>
+
+
+        <p id="scoreMessage">
+
+        </p>
+
+    </div>
+
+
+    <!-- ==========================================
+         IMPORTANCE
+    =========================================== -->
+
+    <h4 class="mt-5">
+
+        🎯 Importance of Percentage
+
+    </h4>
+
+
+    <ul>
+
+        <li>
+            Important for placement examinations.
+        </li>
+
+        <li>
+            Used in profit and loss calculations.
+        </li>
+
+        <li>
+            Useful for discount calculations.
+        </li>
+
+        <li>
+            Used in marks and examination problems.
+        </li>
+
+        <li>
+            Useful for salary and increment calculations.
+        </li>
+
+        <li>
+            Helps solve data interpretation problems.
+        </li>
+
+        <li>
+            Useful in population and business calculations.
+        </li>
+
+    </ul>
+
+
+    <!-- ==========================================
+         PREPARATION TIPS
+    =========================================== -->
+
+    <h4 class="mt-4">
+
+        🚀 Preparation Tips
+
+    </h4>
+
+
+    <div class="alert alert-success">
+
+        <ul>
+
+            <li>
+                Learn common percentage values such as
+                10%, 20%, 25%, 50% and 75%.
+            </li>
+
+            <li>
+                Practice mental percentage calculations.
+            </li>
+
+            <li>
+                Understand percentage increase and decrease.
+            </li>
+
+            <li>
+                Practice successive percentage problems.
+            </li>
+
+            <li>
+                Solve marks and salary-based questions.
+            </li>
+
+            <li>
+                Practice previous placement questions.
+            </li>
+
+            <li>
+                Improve calculation speed and accuracy.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- ==========================================
+         COMPANIES
+    =========================================== -->
+
+    <h4 class="mt-4">
+
+        🏢 Companies Asking Percentage Questions
+
+    </h4>
+
+
+    <table class="table table-bordered">
+
+        <thead class="table-primary">
+
+            <tr>
+
+                <th>
+                    Company
+                </th>
+
+                <th>
+                    Difficulty
+                </th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+            <tr>
+
+                <td>
+                    TCS
+                </td>
+
+                <td>
+                    Medium
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Infosys
+                </td>
+
+                <td>
+                    Medium
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Wipro
+                </td>
+
+                <td>
+                    Medium
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Accenture
+                </td>
+
+                <td>
+                    Medium
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Cognizant
+                </td>
+
+                <td>
+                    Medium
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Capgemini
+                </td>
+
+                <td>
+                    Medium
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    IBM
+                </td>
+
+                <td>
+                    Medium to High
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+
+    <!-- ==========================================
+         BOTTOM BUTTONS
+    =========================================== -->
+
+    <div class="text-center mt-4 mb-5 bottom-buttons">
+
+
+        <button
+            onclick="completeTopic()"
+            class="btn complete-btn btn-lg">
+
+            ✅ Complete Today's Task
+
+        </button>
+
+
+        <a
+            href="/aptitude"
+            class="btn back-btn btn-lg ms-2">
+
+            ⬅ Back to Aptitude
+
+        </a>
+
+
+    </div>
+
+
+</div>
+
+
+<!-- ==========================================
+     BOOTSTRAP JAVASCRIPT
+=========================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+<script>
+
+
+/* =================================================
+   SCORE VARIABLES
+================================================= */
+
+let score = 0;
+
+let answeredQuestions = new Set();
+
+
+/* =================================================
+   ANSWER INFORMATION
+================================================= */
+
+const answerText = {
+
+    1: "50",
+
+    2: "20%",
+
+    3: "80%",
+
+    4: "₹23,000",
+
+    5: "20%",
+
+    6: "32%",
+
+    7: "90%",
+
+    8: "1,10,000",
+
+    9: "25%",
+
+    10: "₹800"
+
+};
+
+
+/* =================================================
+   EXPLANATIONS
+================================================= */
+
+const explanations = {
+
+    1:
+        "Calculation: 25% of 200 = (25 ÷ 100) × 200 = 50.",
+
+
+    2:
+        "Increase = 120 - 100 = 20. Percentage increase = (20 ÷ 100) × 100 = 20%.",
+
+
+    3:
+        "Percentage = (80 ÷ 100) × 100 = 80%.",
+
+
+    4:
+        "15% of ₹20,000 = ₹3,000. New salary = ₹20,000 + ₹3,000 = ₹23,000.",
+
+
+    5:
+        "Decrease = ₹500 - ₹400 = ₹100. Percentage decrease = (100 ÷ 500) × 100 = 20%.",
+
+
+    6:
+        "Net increase = 20 + 10 + (20 × 10 ÷ 100) = 32%.",
+
+
+    7:
+        "Percentage = (450 ÷ 500) × 100 = 90%.",
+
+
+    8:
+        "10% of 1,00,000 = 10,000. New population = 1,00,000 + 10,000 = 1,10,000.",
+
+
+    9:
+        "Increase = ₹1,00,000 - ₹80,000 = ₹20,000. Percentage increase = (20,000 ÷ 80,000) × 100 = 25%.",
+
+
+    10:
+        "Discount = 20% of ₹1,000 = ₹200. Selling price = ₹1,000 - ₹200 = ₹800."
+
+};
+
+
+/* =================================================
+   CHECK INDIVIDUAL QUESTION
+================================================= */
+
+function checkAnswer(questionNumber, correctAnswer) {
+
+
+    const selected =
+        document.querySelector(
+            `input[name="q${questionNumber}"]:checked`
+        );
+
+
+    const result =
+        document.getElementById(
+            `result${questionNumber}`
+        );
+
+
+    /* ---------------------------------------------
+       NO OPTION SELECTED
+    --------------------------------------------- */
+
+    if (!selected) {
+
+        result.style.display = "block";
+
+        result.className =
+            "answer-result wrong-result";
+
+        result.innerHTML =
+
+            "⚠️ <strong>Please select an option first.</strong>";
+
+        return;
+
+    }
+
+
+    /* ---------------------------------------------
+       ALREADY ANSWERED
+    --------------------------------------------- */
+
+    if (
+        answeredQuestions.has(questionNumber)
+    ) {
+
+        result.style.display = "block";
+
+        result.className =
+            "answer-result correct-result";
+
+        result.innerHTML =
+
+            "ℹ️ <strong>This question has already been submitted.</strong>";
+
+        return;
+
+    }
+
+
+    /* ---------------------------------------------
+       MARK QUESTION AS ANSWERED
+    --------------------------------------------- */
+
+    answeredQuestions.add(questionNumber);
+
+
+    /* ---------------------------------------------
+       CORRECT ANSWER
+    --------------------------------------------- */
+
+    if (
+        selected.value === correctAnswer
+    ) {
+
+        score++;
+
+
+        result.style.display = "block";
+
+        result.className =
+            "answer-result correct-result";
+
+
+        result.innerHTML =
+
+            "✅ <strong>Correct Answer!</strong><br><br>" +
+
+            "Your answer: <strong>" +
+            answerText[questionNumber] +
+            "</strong><br><br>" +
+
+            "💡 " +
+            explanations[questionNumber];
+
+
+    }
+
+
+    /* ---------------------------------------------
+       WRONG ANSWER
+    --------------------------------------------- */
+
+    else {
+
+        result.style.display = "block";
+
+        result.className =
+            "answer-result wrong-result";
+
+
+        result.innerHTML =
+
+            "❌ <strong>Incorrect Answer!</strong><br><br>" +
+
+            "Your answer: <strong>" +
+            selected.parentElement.textContent.trim() +
+            "</strong><br><br>" +
+
+            "✅ Correct Answer: <strong>" +
+            answerText[questionNumber] +
+            "</strong><br><br>" +
+
+            "💡 " +
+            explanations[questionNumber];
+
+    }
+
+
+    /* ---------------------------------------------
+       DISABLE OPTIONS
+    --------------------------------------------- */
+
+    const options =
+        document.querySelectorAll(
+            `input[name="q${questionNumber}"]`
+        );
+
+
+    options.forEach(function(option) {
+
+        option.disabled = true;
+
+    });
+
+
+    /* ---------------------------------------------
+       DISABLE CURRENT BUTTON
+    --------------------------------------------- */
+
+    const currentCard =
+        result.closest(".question-card");
+
+
+    const currentButton =
+        currentCard.querySelector(
+            ".submit-question"
+        );
+
+
+    currentButton.disabled = true;
+
+
+    currentButton.innerText =
+        "✓ Answer Submitted";
+
+}
+
+
+/* =================================================
+   CALCULATE FINAL SCORE
+================================================= */
+
+function calculateScore() {
+
+
+    const finalScore =
+        document.getElementById(
+            "finalScore"
+        );
+
+
+    const scoreText =
+        document.getElementById(
+            "scoreText"
+        );
+
+
+    const scoreMessage =
+        document.getElementById(
+            "scoreMessage"
+        );
+
+
+    /* ---------------------------------------------
+       SHOW SCORE
+    --------------------------------------------- */
+
+    finalScore.style.display = "block";
+
+
+    scoreText.innerHTML =
+
+        "Your Score: " +
+
+        score +
+
+        " / 10";
+
+
+    /* ---------------------------------------------
+       SCORE MESSAGE
+    --------------------------------------------- */
+
+    if (score === 10) {
+
+        scoreMessage.innerHTML =
+
+            "🏆 Excellent! You got all 10 questions correct!";
+
+    }
+
+
+    else if (score >= 8) {
+
+        scoreMessage.innerHTML =
+
+            "🌟 Great job! Your Percentage skills are strong.";
+
+    }
+
+
+    else if (score >= 5) {
+
+        scoreMessage.innerHTML =
+
+            "👍 Good attempt! Keep practicing percentage questions.";
+
+    }
+
+
+    else {
+
+        scoreMessage.innerHTML =
+
+            "📚 Keep practicing. Review the explanations and try again.";
+
+    }
+
+
+    /* ---------------------------------------------
+       SCROLL TO SCORE
+    --------------------------------------------- */
+
+    finalScore.scrollIntoView({
+
+        behavior: "smooth",
+
+        block: "center"
+
+    });
+
+}
+
+
+/* =================================================
+   COMPLETE TODAY'S TASK
+================================================= */
+
+function completeTopic() {
+
+
+    const today =
+        new Date().toDateString();
+
+
+    let progress =
+        JSON.parse(
+            localStorage.getItem(
+                "placementProgress"
+            )
+        ) || {
+
+            streak: 0,
+
+            lastCompleted: "",
+
+            completedTopics: {}
+
+        };
+
+
+    const topic =
+        "Percentage";
+
+
+    /* ---------------------------------------------
+       ALREADY COMPLETED TODAY
+    --------------------------------------------- */
+
+    if (
+        progress.completedTopics[topic] === today
+    ) {
+
+        alert(
+            "✅ You already completed this task today!"
+        );
+
+        return;
+
+    }
+
+
+    /* ---------------------------------------------
+       SAVE COMPLETION
+    --------------------------------------------- */
+
+    progress.completedTopics[topic] =
+        today;
+
+
+    /* ---------------------------------------------
+       UPDATE STREAK
+    --------------------------------------------- */
+
+    if (
+        progress.lastCompleted !== today
+    ) {
+
+        progress.streak++;
+
+        progress.lastCompleted =
+            today;
+
+    }
+
+
+    /* ---------------------------------------------
+       SAVE TO LOCAL STORAGE
+    --------------------------------------------- */
+
+    localStorage.setItem(
+
+        "placementProgress",
+
+        JSON.stringify(progress)
+
+    );
+
+
+    /* ---------------------------------------------
+       SUCCESS MESSAGE
+    --------------------------------------------- */
+
+    alert(
+
+        "🎉 Percentage completed!" +
+
+        "\n🔥 Streak: " +
+
+        progress.streak +
+
+        " day(s)"
+
+    );
+
+
+    /* ---------------------------------------------
+       GO TO DASHBOARD
+    --------------------------------------------- */
+
+    window.location.href =
+        "/dashboard";
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
