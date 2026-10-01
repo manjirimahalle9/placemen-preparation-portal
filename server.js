@@ -12,10 +12,10 @@ dns.setServers([
 ]);
 
 const express = require("express");
-const mongoose = require("mongoose");
+
 const path = require("path");
 const session = require("express-session");
-const MongoStore = require("connect-mongo");
+const MongoStore = require("connect-mongo").default;
 
 require("dotenv").config();
 
@@ -25,7 +25,7 @@ const Student = require("./models/Student");
 // =====================================================
 // APP
 // =====================================================
-
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 
@@ -66,49 +66,48 @@ app.set(
 // =====================================================
 // SESSION
 // =====================================================
-
 app.use(
     session({
-
-        secret:
-            process.env.SESSION_SECRET ||
-            "placementx-secret-key",
+        secret: process.env.SESSION_SECRET || "placementx-secret-key",
 
         resave: false,
 
         saveUninitialized: false,
 
+        store: MongoStore.create({
+            mongoUrl: process.env.MONGO_URI
+        }),
+
         cookie: {
             maxAge: 1000 * 60 * 60 * 24
         }
-
     })
 );
+
 
 
 // =====================================================
 // MONGODB
 // =====================================================
 
-mongoose
-    .connect(process.env.MONGO_URI)
+const mongoose = require("mongoose");
 
-    .then(() => {
+async function main() {
+  try {
+    // Wait for the connection to complete first
+await mongoose.connect(process.env.MONGO_URI);   
+ console.log('Connected to MongoDB successfully');
 
-        console.log(
-            "✅ MongoDB Atlas Connected"
-        );
+    // Now safe to query
+    const student = await Student.findOne({ rollNo: "AIDSU24150"});
+   console.log("Student:", student);} catch (err) {
+    console.error('Database connection error:', err);
+  }
+}
 
-    })
+main();
 
-    .catch((err) => {
 
-        console.log(
-            "❌ MongoDB Connection Error:",
-            err.message
-        );
-
-    });
 
 
 // =====================================================
@@ -446,14 +445,12 @@ app.get("/notifications", requireLogin, (req, res) => {
 // =====================================================
 // PROFILE
 // =====================================================
-
-app.get("/profile", (req, res) => {
-
+app.get("/profile", requireLogin, (req, res) => {
     res.render("profile", {
-        user: req.session.user || {}
+        user: req.session.user
     });
-
 });
+
 
 
 // =====================================================
@@ -1109,21 +1106,5 @@ app.use(
 // SERVER
 // =====================================================
 
-const PORT =
-    process.env.PORT || 3000;
 
 
-app.listen(
-    PORT,
-    () => {
-
-        console.log(
-            `🚀 Placement Server Running on Port ${PORT}`
-        );
-
-        console.log(
-            `🌐 http://localhost:${PORT}`
-        );
-
-    }
-);
