@@ -1,0 +1,2578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SQL Programming | PlacementX</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <style>
+
+        body {
+            background: #050706 !important;
+            color: white !important;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: #050706;
+            max-width: 1000px;
+        }
+
+        p,
+        li,
+        h2,
+        h3,
+        h4,
+        strong {
+            color: white;
+        }
+
+        /* ==============================
+           NAVBAR
+        ============================== */
+
+        .navbar {
+            background: #050706 !important;
+            border-bottom: 1px solid #008c70;
+        }
+
+        .navbar-brand {
+            color: #00c49c !important;
+            font-weight: 700;
+        }
+
+        .dashboard-btn {
+            background: #008c70;
+            border: none;
+            color: white;
+        }
+
+        .dashboard-btn:hover {
+            background: #00a886;
+            color: white;
+        }
+
+        /* ==============================
+           HEADER
+        ============================== */
+
+        .header {
+            background: #050706;
+            color: white;
+            padding: 35px;
+            text-align: center;
+            border-bottom: 1px solid #008c70;
+        }
+
+        .header h1 {
+            color: #00c49c;
+            font-weight: 700;
+        }
+
+        .header p {
+            color: white;
+        }
+
+        /* ==============================
+           TITLE
+        ============================== */
+
+        .page-title {
+            color: #00c49c !important;
+            font-weight: 700;
+        }
+
+        hr {
+            border-color: #008c70;
+            opacity: 1;
+        }
+
+        /* ==============================
+           TOPIC CARDS
+        ============================== */
+
+        .topic-card {
+            background: #050706 !important;
+            color: white !important;
+            border: 1px solid #008c70 !important;
+            border-radius: 10px;
+            margin-bottom: 20px;
+
+            box-shadow:
+                0 0 12px rgba(0, 140, 112, 0.10);
+        }
+
+        .topic-card .card-body {
+            background: #050706 !important;
+            color: white !important;
+            padding: 22px;
+        }
+
+        .topic-card h3 {
+            color: #00c49c !important;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* ==============================
+           CODE
+        ============================== */
+
+        pre {
+            background: #0a100e !important;
+            color: #00e6b5 !important;
+            padding: 18px;
+            border-radius: 8px;
+            border: 1px solid #285e51;
+            overflow-x: auto;
+            line-height: 1.6;
+        }
+
+        code {
+            color: #00e6b5 !important;
+        }
+
+        /* ==============================
+           LIST
+        ============================== */
+
+        .list-group-item {
+            background: #050706 !important;
+            color: white !important;
+            border-color: #008c70 !important;
+        }
+
+        /* ==============================
+           ACCORDION
+        ============================== */
+
+        .accordion-item {
+            background: #050706 !important;
+            border-color: #008c70 !important;
+        }
+
+        .accordion-button {
+            background: #050706 !important;
+            color: white !important;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: #008c70 !important;
+            color: white !important;
+        }
+
+        .accordion-body {
+            background: #050706 !important;
+            color: white !important;
+        }
+
+        .accordion-button::after {
+            filter: brightness(0) invert(1);
+        }
+
+        /* ==============================
+           QUESTION CARD
+        ============================== */
+
+        .question-card {
+            background: #050706 !important;
+            color: white !important;
+            border: 1px solid #008c70 !important;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+
+            box-shadow:
+                0 0 12px rgba(0, 140, 112, 0.10);
+        }
+
+        .question-title {
+            color: #00c49c !important;
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .question-text {
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+        /* ==============================
+           OPTIONS
+        ============================== */
+
+        .option {
+            display: block;
+            background: #0a100e;
+            color: white;
+            border: 1px solid #285e51;
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .option:hover {
+            background: #0d1c18;
+            border-color: #00c49c;
+        }
+
+        .option input {
+            margin-right: 10px;
+            accent-color: #00c49c;
+        }
+
+        /* ==============================
+           SUBMIT QUESTION
+        ============================== */
+
+        .submit-question {
+            background: #008c70;
+            border: none;
+            color: white;
+            padding: 9px 20px;
+            border-radius: 7px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .submit-question:hover {
+            background: #00a886;
+            color: white;
+        }
+
+        .submit-question:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* ==============================
+           ANSWER RESULT
+        ============================== */
+
+        .answer-result {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            line-height: 1.7;
+        }
+
+        .correct-result {
+            background: #073d2f;
+            border: 1px solid #00c49c;
+        }
+
+        .wrong-result {
+            background: #351414;
+            border: 1px solid #dc3545;
+        }
+
+        .correct-result strong,
+        .wrong-result strong {
+            color: white;
+        }
+
+        /* ==============================
+           FINAL SCORE
+        ============================== */
+
+        #finalScore {
+            display: none;
+            background: #071d17;
+            border: 2px solid #00c49c;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        #finalScore h3 {
+            color: #00c49c !important;
+        }
+
+        #scoreText,
+        #scoreMessage {
+            color: white !important;
+        }
+
+        /* ==============================
+           PREPARATION ALERT
+        ============================== */
+
+        .alert-success {
+            background: #050706 !important;
+            color: white !important;
+            border: 1px solid #008c70 !important;
+        }
+
+        /* ==============================
+           TABLE
+        ============================== */
+
+        .table {
+            background: #050706 !important;
+            color: white !important;
+        }
+
+        .table tbody tr,
+        .table tbody td {
+            background: #050706 !important;
+            color: white !important;
+            border-color: #008c70 !important;
+        }
+
+        .table-primary,
+        .table-primary th {
+            background: #008c70 !important;
+            color: white !important;
+        }
+
+        /* ==============================
+           BUTTONS
+        ============================== */
+
+        .main-submit {
+            background: #008c70;
+            border: none;
+            color: white;
+        }
+
+        .main-submit:hover {
+            background: #00a886;
+            color: white;
+        }
+
+        .complete-btn {
+            background: #198754;
+            border: none;
+            color: white;
+        }
+
+        .complete-btn:hover {
+            background: #157347;
+            color: white;
+        }
+
+        .back-btn {
+            background: #008c70;
+            border: none;
+            color: white;
+        }
+
+        .back-btn:hover {
+            background: #00a886;
+            color: white;
+        }
+
+        /* ==============================
+           MOBILE
+        ============================== */
+
+        @media (max-width: 576px) {
+
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .question-card {
+                padding: 16px;
+            }
+
+            .topic-card .card-body {
+                padding: 17px;
+            }
+
+            pre {
+                font-size: 13px;
+            }
+
+            .bottom-buttons a,
+            .bottom-buttons button {
+                width: 100%;
+                margin: 5px 0 !important;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     NAVBAR
+=========================================== -->
+
+<nav class="navbar navbar-dark">
+
+    <div class="container">
+
+        <a href="/coding"
+           class="navbar-brand">
+
+            🗄️ Coding Preparation
+
+        </a>
+
+        <a href="/dashboard"
+           class="btn dashboard-btn">
+
+            Dashboard
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- ==========================================
+     HEADER
+=========================================== -->
+
+<div class="header">
+
+    <h1>
+        🗄️ SQL Programming
+    </h1>
+
+    <p>
+        Learn SQL for placement exams and technical interviews
+    </p>
+
+</div>
+
+
+<div class="container mt-5 mb-5">
+
+
+<!-- ==========================================
+     INTRODUCTION
+=========================================== -->
+
+<h2 class="text-center page-title">
+
+    🗄️ SQL Programming
+
+</h2>
+
+<hr>
+
+<p>
+
+    SQL (Structured Query Language) is a standard language used
+    to store, retrieve, manipulate and manage data in relational
+    databases. SQL is one of the most important skills for
+    software development, data analytics, database management
+    and placement examinations.
+
+</p>
+
+
+<!-- ==========================================
+     TOPICS COVERED
+=========================================== -->
+
+<h4 class="mt-4">
+
+    📚 Topics Covered
+
+</h4>
+
+
+<ul class="list-group mb-4">
+
+    <li class="list-group-item">
+        SQL Basics
+    </li>
+
+    <li class="list-group-item">
+        Database and Tables
+    </li>
+
+    <li class="list-group-item">
+        SELECT Statement
+    </li>
+
+    <li class="list-group-item">
+        WHERE Clause
+    </li>
+
+    <li class="list-group-item">
+        ORDER BY
+    </li>
+
+    <li class="list-group-item">
+        GROUP BY
+    </li>
+
+    <li class="list-group-item">
+        HAVING
+    </li>
+
+    <li class="list-group-item">
+        Aggregate Functions
+    </li>
+
+    <li class="list-group-item">
+        INSERT, UPDATE and DELETE
+    </li>
+
+    <li class="list-group-item">
+        SQL Joins
+    </li>
+
+    <li class="list-group-item">
+        Subqueries
+    </li>
+
+    <li class="list-group-item">
+        Primary Key and Foreign Key
+    </li>
+
+</ul>
+
+
+<!-- ==========================================
+     SQL TOPICS
+=========================================== -->
+
+<h4>
+
+    📖 SQL Topics and Examples
+
+</h4>
+
+
+<div class="accordion"
+     id="sqlTopics">
+
+
+<!-- SQL BASICS -->
+
+<div class="accordion-item">
+
+    <h2 class="accordion-header">
+
+        <button
+            class="accordion-button collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#basicSQL">
+
+            1. Basic SQL Program
+
+        </button>
+
+    </h2>
+
+
+    <div
+        id="basicSQL"
+        class="accordion-collapse collapse">
+
+        <div class="accordion-body">
+
+            SQL is used to communicate with relational databases.
+
+<pre>
+CREATE DATABASE College;
+
+USE College;
+
+CREATE TABLE Students (
+    id INT,
+    name VARCHAR(50),
+    age INT
+);
+</pre>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- SELECT -->
+
+<div class="accordion-item">
+
+    <h2 class="accordion-header">
+
+        <button
+            class="accordion-button collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#selectSQL">
+
+            2. SELECT Statement
+
+        </button>
+
+    </h2>
+
+
+    <div
+        id="selectSQL"
+        class="accordion-collapse collapse">
+
+        <div class="accordion-body">
+
+            The SELECT statement is used to retrieve data
+            from a table.
+
+<pre>
+SELECT * FROM Students;
+
+SELECT name, age
+FROM Students;
+</pre>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- WHERE -->
+
+<div class="accordion-item">
+
+    <h2 class="accordion-header">
+
+        <button
+            class="accordion-button collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#whereSQL">
+
+            3. WHERE Clause
+
+        </button>
+
+    </h2>
+
+
+    <div
+        id="whereSQL"
+        class="accordion-collapse collapse">
+
+        <div class="accordion-body">
+
+            WHERE is used to filter records based on a condition.
+
+<pre>
+SELECT *
+FROM Students
+WHERE age > 18;
+</pre>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ORDER BY -->
+
+<div class="accordion-item">
+
+    <h2 class="accordion-header">
+
+        <button
+            class="accordion-button collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#orderSQL">
+
+            4. ORDER BY
+
+        </button>
+
+    </h2>
+
+
+    <div
+        id="orderSQL"
+        class="accordion-collapse collapse">
+
+        <div class="accordion-body">
+
+            ORDER BY is used to sort query results.
+
+<pre>
+SELECT *
+FROM Students
+ORDER BY age ASC;
+
+SELECT *
+FROM Students
+ORDER BY age DESC;
+</pre>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- INSERT -->
+
+<div class="accordion-item">
+
+    <h2 class="accordion-header">
+
+        <button
+            class="accordion-button collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#insertSQL">
+
+            5. INSERT Statement
+
+        </button>
+
+    </h2>
+
+
+    <div
+        id="insertSQL"
+        class="accordion-collapse collapse">
+
+        <div class="accordion-body">
+
+            INSERT is used to add new records to a table.
+
+<pre>
+INSERT INTO Students
+(id, name, age)
+VALUES
+(1, 'Rahul', 20);
+</pre>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- UPDATE -->
+
+<div class="accordion-item">
+
+    <h2 class="accordion-header">
+
+        <button
+            class="accordion-button collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#updateSQL">
+
+            6. UPDATE Statement
+
+        </button>
+
+    </h2>
+
+
+    <div
+        id="updateSQL"
+        class="accordion-collapse collapse">
+
+        <div class="accordion-body">
+
+            UPDATE is used to modify existing records.
+
+<pre>
+UPDATE Students
+SET age = 21
+WHERE id = 1;
+</pre>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- DELETE -->
+
+<div class="accordion-item">
+
+    <h2 class="accordion-header">
+
+        <button
+            class="accordion-button collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#deleteSQL">
+
+            7. DELETE Statement
+
+        </button>
+
+    </h2>
+
+
+    <div
+        id="deleteSQL"
+        class="accordion-collapse collapse">
+
+        <div class="accordion-body">
+
+            DELETE is used to remove records from a table.
+
+<pre>
+DELETE FROM Students
+WHERE id = 1;
+</pre>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- AGGREGATE -->
+
+<div class="accordion-item">
+
+    <h2 class="accordion-header">
+
+        <button
+            class="accordion-button collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#aggregateSQL">
+
+            8. Aggregate Functions
+
+        </button>
+
+    </h2>
+
+
+    <div
+        id="aggregateSQL"
+        class="accordion-collapse collapse">
+
+        <div class="accordion-body">
+
+            Aggregate functions perform calculations on multiple
+            rows.
+
+            <ul>
+
+                <li>COUNT()</li>
+                <li>SUM()</li>
+                <li>AVG()</li>
+                <li>MAX()</li>
+                <li>MIN()</li>
+
+            </ul>
+
+<pre>
+SELECT COUNT(*)
+FROM Students;
+
+SELECT AVG(age)
+FROM Students;
+
+SELECT MAX(age)
+FROM Students;
+
+SELECT MIN(age)
+FROM Students;
+
+SELECT SUM(age)
+FROM Students;
+</pre>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- GROUP BY -->
+
+<div class="accordion-item">
+
+    <h2 class="accordion-header">
+
+        <button
+            class="accordion-button collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#groupSQL">
+
+            9. GROUP BY
+
+        </button>
+
+    </h2>
+
+
+    <div
+        id="groupSQL"
+        class="accordion-collapse collapse">
+
+        <div class="accordion-body">
+
+            GROUP BY groups rows having the same values.
+
+<pre>
+SELECT department, COUNT(*)
+FROM Students
+GROUP BY department;
+</pre>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- HAVING -->
+
+<div class="accordion-item">
+
+    <h2 class="accordion-header">
+
+        <button
+            class="accordion-button collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#havingSQL">
+
+            10. HAVING Clause
+
+        </button>
+
+    </h2>
+
+
+    <div
+        id="havingSQL"
+        class="accordion-collapse collapse">
+
+        <div class="accordion-body">
+
+            HAVING is used to filter grouped records.
+
+<pre>
+SELECT department, COUNT(*)
+FROM Students
+GROUP BY department
+HAVING COUNT(*) > 2;
+</pre>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- JOINS -->
+
+<div class="accordion-item">
+
+    <h2 class="accordion-header">
+
+        <button
+            class="accordion-button collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#joinsSQL">
+
+            11. SQL Joins
+
+        </button>
+
+    </h2>
+
+
+    <div
+        id="joinsSQL"
+        class="accordion-collapse collapse">
+
+        <div class="accordion-body">
+
+            Joins are used to combine data from multiple tables.
+
+            <ul>
+
+                <li>INNER JOIN</li>
+                <li>LEFT JOIN</li>
+                <li>RIGHT JOIN</li>
+                <li>FULL JOIN</li>
+
+            </ul>
+
+<pre>
+SELECT Students.name,
+       Courses.course_name
+
+FROM Students
+
+INNER JOIN Courses
+
+ON Students.course_id =
+   Courses.course_id;
+</pre>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- SUBQUERY -->
+
+<div class="accordion-item">
+
+    <h2 class="accordion-header">
+
+        <button
+            class="accordion-button collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#subquerySQL">
+
+            12. Subquery
+
+        </button>
+
+    </h2>
+
+
+    <div
+        id="subquerySQL"
+        class="accordion-collapse collapse">
+
+        <div class="accordion-body">
+
+            A subquery is a query inside another SQL query.
+
+<pre>
+SELECT name
+FROM Students
+WHERE age >
+(
+    SELECT AVG(age)
+    FROM Students
+);
+</pre>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+<!-- ==========================================
+     IMPORTANT QUESTIONS
+=========================================== -->
+
+<div class="card shadow topic-card mt-5">
+
+    <div class="card-body">
+
+        <h3>
+
+            🎯 Important SQL Coding Questions
+
+        </h3>
+
+        <ol>
+
+            <li>Find the second highest salary.</li>
+
+            <li>Find duplicate records.</li>
+
+            <li>Find employees with salary greater than average salary.</li>
+
+            <li>Find the maximum salary from a table.</li>
+
+            <li>Find the third highest salary.</li>
+
+            <li>Count employees in each department.</li>
+
+            <li>Find employees who do not belong to any department.</li>
+
+            <li>Find duplicate names in a table.</li>
+
+            <li>Find the highest salary in each department.</li>
+
+            <li>Retrieve employees whose names start with 'A'.</li>
+
+            <li>Find employees who joined after a specific date.</li>
+
+            <li>Remove duplicate records.</li>
+
+            <li>Use INNER JOIN between two tables.</li>
+
+            <li>Use GROUP BY and HAVING.</li>
+
+            <li>Write a query using a subquery.</li>
+
+        </ol>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     PRACTICE QUESTIONS
+=========================================== -->
+
+<h4 class="mt-5">
+
+    📝 SQL Practice Questions
+
+</h4>
+
+
+<!-- QUESTION 1 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+        Question 1
+    </div>
+
+    <div class="question-text">
+
+        Which SQL command is used to retrieve data from a table?
+
+    </div>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q1"
+               value="SELECT">
+
+        SELECT
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q1"
+               value="INSERT">
+
+        INSERT
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q1"
+               value="UPDATE">
+
+        UPDATE
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q1"
+               value="DELETE">
+
+        DELETE
+
+    </label>
+
+
+    <button
+        class="submit-question"
+        onclick="checkAnswer(1, 'SELECT')">
+
+        Submit Answer
+
+    </button>
+
+
+    <div id="result1"
+         class="answer-result">
+    </div>
+
+</div>
+
+
+<!-- QUESTION 2 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+        Question 2
+    </div>
+
+    <div class="question-text">
+
+        Which clause is used to filter records in SQL?
+
+    </div>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q2"
+               value="ORDER BY">
+
+        ORDER BY
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q2"
+               value="WHERE">
+
+        WHERE
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q2"
+               value="GROUP BY">
+
+        GROUP BY
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q2"
+               value="HAVING">
+
+        HAVING
+
+    </label>
+
+
+    <button
+        class="submit-question"
+        onclick="checkAnswer(2, 'WHERE')">
+
+        Submit Answer
+
+    </button>
+
+
+    <div id="result2"
+         class="answer-result">
+    </div>
+
+</div>
+
+
+<!-- QUESTION 3 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+        Question 3
+    </div>
+
+    <div class="question-text">
+
+        Which SQL command is used to add new records?
+
+    </div>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q3"
+               value="INSERT">
+
+        INSERT
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q3"
+               value="ADD">
+
+        ADD
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q3"
+               value="CREATE">
+
+        CREATE
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q3"
+               value="NEW">
+
+        NEW
+
+    </label>
+
+
+    <button
+        class="submit-question"
+        onclick="checkAnswer(3, 'INSERT')">
+
+        Submit Answer
+
+    </button>
+
+
+    <div id="result3"
+         class="answer-result">
+    </div>
+
+</div>
+
+
+<!-- QUESTION 4 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+        Question 4
+    </div>
+
+    <div class="question-text">
+
+        Which SQL function is used to count rows?
+
+    </div>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q4"
+               value="SUM">
+
+        SUM()
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q4"
+               value="COUNT">
+
+        COUNT()
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q4"
+               value="TOTAL">
+
+        TOTAL()
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q4"
+               value="NUMBER">
+
+        NUMBER()
+
+    </label>
+
+
+    <button
+        class="submit-question"
+        onclick="checkAnswer(4, 'COUNT')">
+
+        Submit Answer
+
+    </button>
+
+
+    <div id="result4"
+         class="answer-result">
+    </div>
+
+</div>
+
+
+<!-- QUESTION 5 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+        Question 5
+    </div>
+
+    <div class="question-text">
+
+        Which keyword is used to sort SQL query results?
+
+    </div>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q5"
+               value="SORT">
+
+        SORT
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q5"
+               value="ORDER BY">
+
+        ORDER BY
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q5"
+               value="GROUP BY">
+
+        GROUP BY
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q5"
+               value="ARRANGE">
+
+        ARRANGE
+
+    </label>
+
+
+    <button
+        class="submit-question"
+        onclick="checkAnswer(5, 'ORDER BY')">
+
+        Submit Answer
+
+    </button>
+
+
+    <div id="result5"
+         class="answer-result">
+    </div>
+
+</div>
+
+
+<!-- QUESTION 6 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+        Question 6
+    </div>
+
+    <div class="question-text">
+
+        Which key uniquely identifies each record in a table?
+
+    </div>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q6"
+               value="FOREIGN">
+
+        Foreign Key
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q6"
+               value="PRIMARY">
+
+        Primary Key
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q6"
+               value="UNIQUE">
+
+        Unique Key
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q6"
+               value="DEFAULT">
+
+        Default Key
+
+    </label>
+
+
+    <button
+        class="submit-question"
+        onclick="checkAnswer(6, 'PRIMARY')">
+
+        Submit Answer
+
+    </button>
+
+
+    <div id="result6"
+         class="answer-result">
+    </div>
+
+</div>
+
+
+<!-- QUESTION 7 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+        Question 7
+    </div>
+
+    <div class="question-text">
+
+        Which clause is used to group rows having the same values?
+
+    </div>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q7"
+               value="GROUP">
+
+        GROUP BY
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q7"
+               value="ORDER">
+
+        ORDER BY
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q7"
+               value="WHERE">
+
+        WHERE
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q7"
+               value="SORT">
+
+        SORT BY
+
+    </label>
+
+
+    <button
+        class="submit-question"
+        onclick="checkAnswer(7, 'GROUP')">
+
+        Submit Answer
+
+    </button>
+
+
+    <div id="result7"
+         class="answer-result">
+    </div>
+
+</div>
+
+
+<!-- QUESTION 8 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+        Question 8
+    </div>
+
+    <div class="question-text">
+
+        Which SQL command is used to modify existing records?
+
+    </div>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q8"
+               value="UPDATE">
+
+        UPDATE
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q8"
+               value="ALTER">
+
+        ALTER
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q8"
+               value="MODIFY">
+
+        MODIFY
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q8"
+               value="CHANGE">
+
+        CHANGE
+
+    </label>
+
+
+    <button
+        class="submit-question"
+        onclick="checkAnswer(8, 'UPDATE')">
+
+        Submit Answer
+
+    </button>
+
+
+    <div id="result8"
+         class="answer-result">
+    </div>
+
+</div>
+
+
+<!-- QUESTION 9 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+        Question 9
+    </div>
+
+    <div class="question-text">
+
+        Which JOIN returns only matching records from both tables?
+
+    </div>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q9"
+               value="INNER">
+
+        INNER JOIN
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q9"
+               value="LEFT">
+
+        LEFT JOIN
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q9"
+               value="RIGHT">
+
+        RIGHT JOIN
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q9"
+               value="FULL">
+
+        FULL JOIN
+
+    </label>
+
+
+    <button
+        class="submit-question"
+        onclick="checkAnswer(9, 'INNER')">
+
+        Submit Answer
+
+    </button>
+
+
+    <div id="result9"
+         class="answer-result">
+    </div>
+
+</div>
+
+
+<!-- QUESTION 10 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+        Question 10
+    </div>
+
+    <div class="question-text">
+
+        Which function returns the highest value from a column?
+
+    </div>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q10"
+               value="MAX">
+
+        MAX()
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q10"
+               value="HIGH">
+
+        HIGH()
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q10"
+               value="TOP">
+
+        TOP()
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q10"
+               value="UPPER">
+
+        UPPER()
+
+    </label>
+
+
+    <button
+        class="submit-question"
+        onclick="checkAnswer(10, 'MAX')">
+
+        Submit Answer
+
+    </button>
+
+
+    <div id="result10"
+         class="answer-result">
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     SUBMIT ALL
+=========================================== -->
+
+<div class="text-center mt-4">
+
+    <button
+        class="btn btn-lg main-submit"
+        onclick="calculateScore()">
+
+        🏆 Submit All Questions
+
+    </button>
+
+</div>
+
+
+<!-- ==========================================
+     FINAL SCORE
+=========================================== -->
+
+<div id="finalScore">
+
+    <h3>
+        🎉 Quiz Completed!
+    </h3>
+
+    <h4 id="scoreText"></h4>
+
+    <p id="scoreMessage"></p>
+
+</div>
+
+
+<!-- ==========================================
+     IMPORTANCE
+=========================================== -->
+
+<h4 class="mt-5">
+
+    🎯 Importance of SQL for Placements
+
+</h4>
+
+
+<ul>
+
+    <li>
+        SQL is widely used in software development.
+    </li>
+
+    <li>
+        SQL is essential for database-related interviews.
+    </li>
+
+    <li>
+        SQL is commonly asked in technical placement rounds.
+    </li>
+
+    <li>
+        Useful for Data Analyst and Data Scientist roles.
+    </li>
+
+    <li>
+        Helps retrieve and analyze large amounts of data.
+    </li>
+
+    <li>
+        Important for backend development.
+    </li>
+
+</ul>
+
+
+<!-- ==========================================
+     PREPARATION TIPS
+=========================================== -->
+
+<h4 class="mt-4">
+
+    🚀 SQL Preparation Tips
+
+</h4>
+
+
+<div class="alert alert-success">
+
+    <ul>
+
+        <li>
+            Practice SELECT queries every day.
+        </li>
+
+        <li>
+            Learn WHERE, GROUP BY and HAVING properly.
+        </li>
+
+        <li>
+            Practice all types of JOINs.
+        </li>
+
+        <li>
+            Understand primary and foreign keys.
+        </li>
+
+        <li>
+            Practice aggregate functions.
+        </li>
+
+        <li>
+            Solve second and third highest salary questions.
+        </li>
+
+        <li>
+            Practice SQL interview questions with a timer.
+        </li>
+
+    </ul>
+
+</div>
+
+
+<!-- ==========================================
+     COMPANIES
+=========================================== -->
+
+<h4 class="mt-4">
+
+    🏢 Companies Where SQL May Be Used
+
+</h4>
+
+
+<table class="table table-bordered">
+
+    <thead class="table-primary">
+
+        <tr>
+
+            <th>
+                Company
+            </th>
+
+            <th>
+                Difficulty
+            </th>
+
+        </tr>
+
+    </thead>
+
+
+    <tbody>
+
+        <tr>
+            <td>TCS</td>
+            <td>Easy to Medium</td>
+        </tr>
+
+        <tr>
+            <td>Infosys</td>
+            <td>Easy to Medium</td>
+        </tr>
+
+        <tr>
+            <td>Wipro</td>
+            <td>Medium</td>
+        </tr>
+
+        <tr>
+            <td>Accenture</td>
+            <td>Medium</td>
+        </tr>
+
+        <tr>
+            <td>Cognizant</td>
+            <td>Medium</td>
+        </tr>
+
+        <tr>
+            <td>Capgemini</td>
+            <td>Medium</td>
+        </tr>
+
+        <tr>
+            <td>IBM</td>
+            <td>Medium to High</td>
+        </tr>
+
+    </tbody>
+
+</table>
+
+
+<!-- ==========================================
+     BOTTOM BUTTONS
+=========================================== -->
+
+<div class="text-center mt-4 mb-5 bottom-buttons">
+
+    <button
+        onclick="completeTopic()"
+        class="btn complete-btn btn-lg">
+
+        ✅ Complete Today's Task
+
+    </button>
+
+
+    <a
+        href="/coding"
+        class="btn back-btn btn-lg ms-2">
+
+        ⬅ Back to Coding
+
+    </a>
+
+</div>
+
+
+</div>
+
+
+<!-- ==========================================
+     BOOTSTRAP JAVASCRIPT
+=========================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+<script>
+
+/* =================================================
+   SCORE VARIABLES
+================================================= */
+
+let score = 0;
+
+let answeredQuestions = new Set();
+
+
+/* =================================================
+   ANSWER INFORMATION
+================================================= */
+
+const answerText = {
+
+    1: "SELECT",
+    2: "WHERE",
+    3: "INSERT",
+    4: "COUNT()",
+    5: "ORDER BY",
+    6: "Primary Key",
+    7: "GROUP BY",
+    8: "UPDATE",
+    9: "INNER JOIN",
+    10: "MAX()"
+
+};
+
+
+/* =================================================
+   EXPLANATIONS
+================================================= */
+
+const explanations = {
+
+    1:
+        "SELECT is used to retrieve data from a database table.",
+
+    2:
+        "WHERE is used to filter records based on a condition.",
+
+    3:
+        "INSERT is used to add new records to a table.",
+
+    4:
+        "COUNT() returns the number of rows or records.",
+
+    5:
+        "ORDER BY is used to sort query results in ascending or descending order.",
+
+    6:
+        "A Primary Key uniquely identifies each record in a table.",
+
+    7:
+        "GROUP BY groups rows having the same values.",
+
+    8:
+        "UPDATE is used to modify existing records in a table.",
+
+    9:
+        "INNER JOIN returns records that have matching values in both tables.",
+
+    10:
+        "MAX() returns the highest value from a column."
+
+};
+
+
+/* =================================================
+   CHECK INDIVIDUAL QUESTION
+================================================= */
+
+function checkAnswer(questionNumber, correctAnswer) {
+
+    const selected =
+        document.querySelector(
+            `input[name="q${questionNumber}"]:checked`
+        );
+
+
+    const result =
+        document.getElementById(
+            `result${questionNumber}`
+        );
+
+
+    /* ---------------------------------------------
+       NO OPTION SELECTED
+    --------------------------------------------- */
+
+    if (!selected) {
+
+        result.style.display = "block";
+
+        result.className =
+            "answer-result wrong-result";
+
+        result.innerHTML =
+            "⚠️ <strong>Please select an option first.</strong>";
+
+        return;
+
+    }
+
+
+    /* ---------------------------------------------
+       ALREADY ANSWERED
+    --------------------------------------------- */
+
+    if (
+        answeredQuestions.has(questionNumber)
+    ) {
+
+        result.style.display = "block";
+
+        result.className =
+            "answer-result correct-result";
+
+        result.innerHTML =
+            "ℹ️ <strong>This question has already been submitted.</strong>";
+
+        return;
+
+    }
+
+
+    /* ---------------------------------------------
+       MARK ANSWERED
+    --------------------------------------------- */
+
+    answeredQuestions.add(questionNumber);
+
+
+    /* ---------------------------------------------
+       CORRECT
+    --------------------------------------------- */
+
+    if (
+        selected.value === correctAnswer
+    ) {
+
+        score++;
+
+
+        result.style.display = "block";
+
+        result.className =
+            "answer-result correct-result";
+
+
+        result.innerHTML =
+            "✅ <strong>Correct Answer!</strong><br><br>" +
+
+            "Your answer: <strong>" +
+
+            answerText[questionNumber] +
+
+            "</strong><br><br>" +
+
+            "💡 " +
+
+            explanations[questionNumber];
+
+    }
+
+
+    /* ---------------------------------------------
+       WRONG
+    --------------------------------------------- */
+
+    else {
+
+        result.style.display = "block";
+
+        result.className =
+            "answer-result wrong-result";
+
+
+        result.innerHTML =
+            "❌ <strong>Incorrect Answer!</strong><br><br>" +
+
+            "Your answer: <strong>" +
+
+            selected.parentElement.textContent.trim() +
+
+            "</strong><br><br>" +
+
+            "✅ Correct Answer: <strong>" +
+
+            answerText[questionNumber] +
+
+            "</strong><br><br>" +
+
+            "💡 " +
+
+            explanations[questionNumber];
+
+    }
+
+
+    /* ---------------------------------------------
+       DISABLE OPTIONS
+    --------------------------------------------- */
+
+    const options =
+        document.querySelectorAll(
+            `input[name="q${questionNumber}"]`
+        );
+
+
+    options.forEach(function(option) {
+
+        option.disabled = true;
+
+    });
+
+
+    /* ---------------------------------------------
+       DISABLE BUTTON
+    --------------------------------------------- */
+
+    const currentCard =
+        result.closest(".question-card");
+
+
+    const currentButton =
+        currentCard.querySelector(
+            ".submit-question"
+        );
+
+
+    currentButton.disabled = true;
+
+    currentButton.innerText =
+        "✓ Answer Submitted";
+
+}
+
+
+/* =================================================
+   CALCULATE FINAL SCORE
+================================================= */
+
+function calculateScore() {
+
+    const finalScore =
+        document.getElementById(
+            "finalScore"
+        );
+
+
+    const scoreText =
+        document.getElementById(
+            "scoreText"
+        );
+
+
+    const scoreMessage =
+        document.getElementById(
+            "scoreMessage"
+        );
+
+
+    finalScore.style.display =
+        "block";
+
+
+    scoreText.innerHTML =
+        "Your Score: " +
+        score +
+        " / 10";
+
+
+    if (score === 10) {
+
+        scoreMessage.innerHTML =
+            "🏆 Excellent! You got all 10 questions correct!";
+
+    }
+
+    else if (score >= 8) {
+
+        scoreMessage.innerHTML =
+            "🌟 Great job! Your SQL skills are strong.";
+
+    }
+
+    else if (score >= 5) {
+
+        scoreMessage.innerHTML =
+            "👍 Good attempt! Keep practicing SQL queries.";
+
+    }
+
+    else {
+
+        scoreMessage.innerHTML =
+            "📚 Keep practicing. Review the explanations and try again.";
+
+    }
+
+
+    finalScore.scrollIntoView({
+
+        behavior: "smooth",
+
+        block: "center"
+
+    });
+
+}
+
+
+/* =================================================
+   COMPLETE TODAY'S TASK
+================================================= */
+
+function completeTopic() {
+
+    const today =
+        new Date().toDateString();
+
+
+    let progress =
+        JSON.parse(
+            localStorage.getItem(
+                "placementProgress"
+            )
+        ) || {
+
+            streak: 0,
+
+            lastCompleted: "",
+
+            completedTasks: {}
+
+        };
+
+
+    const taskName =
+        "SQL Programming";
+
+
+    /* ---------------------------------------------
+       CREATE completedTasks
+    --------------------------------------------- */
+
+    if (!progress.completedTasks) {
+
+        progress.completedTasks = {};
+
+    }
+
+
+    /* ---------------------------------------------
+       CHECK COMPLETION
+    --------------------------------------------- */
+
+    if (
+        progress.completedTasks[taskName] === today
+    ) {
+
+        alert(
+            "✅ You already completed SQL Programming today!"
+        );
+
+        return;
+
+    }
+
+
+    /* ---------------------------------------------
+       MARK COMPLETED
+    --------------------------------------------- */
+
+    progress.completedTasks[taskName] =
+        today;
+
+
+    /* ---------------------------------------------
+       UPDATE STREAK
+    --------------------------------------------- */
+
+    if (
+        progress.lastCompleted !== today
+    ) {
+
+        progress.streak++;
+
+        progress.lastCompleted =
+            today;
+
+    }
+
+
+    /* ---------------------------------------------
+       SAVE PROGRESS
+    --------------------------------------------- */
+
+    localStorage.setItem(
+
+        "placementProgress",
+
+        JSON.stringify(progress)
+
+    );
+
+
+    /* ---------------------------------------------
+       SUCCESS MESSAGE
+    --------------------------------------------- */
+
+    alert(
+
+        "🎉 SQL Programming completed!\n\n" +
+
+        "🔥 Current Streak: " +
+
+        progress.streak +
+
+        " day(s)"
+
+    );
+
+
+    /* ---------------------------------------------
+       DASHBOARD
+    --------------------------------------------- */
+
+    window.location.href =
+        "/dashboard";
+
+}
+
+</script>
+
+
+</body>
+
+</html>

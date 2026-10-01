@@ -1,0 +1,2652 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Profile | PlacementX</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            margin: 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(0,196,156,.08),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 80%,
+                    rgba(0,140,112,.08),
+                    transparent 30%
+                ),
+                #050706;
+
+            color: white;
+
+            min-height: 100vh;
+
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .navbar-custom {
+
+            background: rgba(5,7,6,.96);
+
+            border-bottom:
+                1px solid rgba(0,196,156,.30);
+
+            padding: 14px 0;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 9999;
+
+            backdrop-filter: blur(15px);
+
+        }
+
+        .navbar-container {
+
+            max-width: 1250px;
+
+            margin: auto;
+
+            padding:
+                0 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+        }
+
+        .brand {
+
+            text-decoration: none;
+
+            font-size: 24px;
+
+            font-weight: 800;
+
+            color: #00c49c;
+
+            letter-spacing: -.5px;
+
+        }
+
+        .brand span {
+
+            color: white;
+
+        }
+
+        .nav-menu {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+        }
+
+        .nav-link-custom {
+
+            text-decoration: none;
+
+            color:
+                rgba(255,255,255,.75);
+
+            padding:
+                9px 13px;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            transition: .3s;
+
+        }
+
+        .nav-link-custom:hover {
+
+            color: #00c49c;
+
+            background:
+                rgba(0,196,156,.08);
+
+        }
+
+        .nav-link-custom i {
+
+            margin-right: 5px;
+
+        }
+
+        .profile-btn {
+
+            border: none;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #008c70,
+                    #00a886
+                );
+
+            color: white;
+
+            padding:
+                9px 16px;
+
+            border-radius: 9px;
+
+            font-weight: 700;
+
+            text-decoration: none;
+
+            box-shadow:
+                0 5px 18px
+                rgba(0,196,156,.12);
+
+        }
+
+        .profile-btn:hover {
+
+            color: white;
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 8px 25px
+                rgba(0,196,156,.22);
+
+        }
+
+        .mobile-menu {
+
+            display: none;
+
+            color: white;
+
+            background: transparent;
+
+            border: none;
+
+            font-size: 25px;
+
+        }
+
+
+        /* =====================================================
+           MAIN
+        ===================================================== */
+
+        .main-container {
+
+            max-width: 1250px;
+
+            margin:
+                35px auto;
+
+            padding:
+                0 20px;
+
+        }
+
+
+        /* =====================================================
+           PROFILE HERO
+        ===================================================== */
+
+        .profile-hero {
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #07100d,
+                    #0a1713,
+                    #07100d
+                );
+
+            border:
+                1px solid #285e51;
+
+            border-radius: 20px;
+
+            padding:
+                30px;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 15px 45px
+                rgba(0,0,0,.25);
+
+        }
+
+        .profile-hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 280px;
+
+            height: 280px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(0,196,156,.08);
+
+            top: -150px;
+
+            right: -80px;
+
+            filter: blur(5px);
+
+        }
+
+        .profile-hero-content {
+
+            position: relative;
+
+            z-index: 2;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 25px;
+
+        }
+
+        .profile-left {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 22px;
+
+        }
+
+
+        /* =====================================================
+           PROFILE AVATAR
+        ===================================================== */
+
+        .avatar {
+
+            width: 105px;
+
+            height: 105px;
+
+            min-width: 105px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #008c70,
+                    #00c49c
+                );
+
+            border:
+                4px solid
+                rgba(255,255,255,.10);
+
+            box-shadow:
+                0 0 30px
+                rgba(0,196,156,.20);
+
+            font-size: 42px;
+
+            font-weight: 800;
+
+            color: white;
+
+        }
+
+        .profile-name {
+
+            font-size: 30px;
+
+            font-weight: 800;
+
+            margin-bottom: 5px;
+
+            color: white;
+
+        }
+
+        .profile-role {
+
+            color: #00c49c;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            margin-bottom: 9px;
+
+        }
+
+        .profile-location {
+
+            color:
+                rgba(255,255,255,.60);
+
+            font-size: 13px;
+
+        }
+
+        .profile-location i {
+
+            color: #00c49c;
+
+            margin-right: 4px;
+
+        }
+
+
+        /* =====================================================
+           EDIT BUTTON
+        ===================================================== */
+
+        .edit-btn {
+
+            border:
+                1px solid #285e51;
+
+            background:
+                rgba(0,196,156,.06);
+
+            color: #00c49c;
+
+            padding:
+                10px 18px;
+
+            border-radius: 9px;
+
+            font-weight: 700;
+
+            transition: .3s;
+
+        }
+
+        .edit-btn:hover {
+
+            background: #008c70;
+
+            border-color: #008c70;
+
+            color: white;
+
+        }
+
+
+        /* =====================================================
+           STAT CARDS
+        ===================================================== */
+
+        .stats-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+            gap: 15px;
+
+            margin-bottom: 25px;
+
+        }
+
+        .stat-card {
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #07100d,
+                    #0a1713
+                );
+
+            border:
+                1px solid #285e51;
+
+            border-radius: 14px;
+
+            padding: 20px;
+
+            transition: .3s;
+
+        }
+
+        .stat-card:hover {
+
+            transform:
+                translateY(-4px);
+
+            border-color:
+                #00c49c;
+
+        }
+
+        .stat-icon {
+
+            width: 42px;
+
+            height: 42px;
+
+            border-radius: 10px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                rgba(0,196,156,.10);
+
+            color: #00c49c;
+
+            font-size: 20px;
+
+            margin-bottom: 12px;
+
+        }
+
+        .stat-number {
+
+            font-size: 25px;
+
+            font-weight: 800;
+
+            color: white;
+
+        }
+
+        .stat-label {
+
+            color:
+                rgba(255,255,255,.50);
+
+            font-size: 12px;
+
+            margin-top: 2px;
+
+        }
+
+
+        /* =====================================================
+           GRID
+        ===================================================== */
+
+        .content-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1.4fr .8fr;
+
+            gap: 22px;
+
+        }
+
+
+        /* =====================================================
+           CARD
+        ===================================================== */
+
+        .section-card {
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #07100d,
+                    #091511
+                );
+
+            border:
+                1px solid #285e51;
+
+            border-radius: 16px;
+
+            padding: 24px;
+
+            margin-bottom: 22px;
+
+        }
+
+        .section-header {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding-bottom: 14px;
+
+            border-bottom:
+                1px solid #1d443a;
+
+            margin-bottom: 20px;
+
+        }
+
+        .section-title {
+
+            font-size: 18px;
+
+            font-weight: 800;
+
+            color: white;
+
+        }
+
+        .section-title i {
+
+            color: #00c49c;
+
+            margin-right: 8px;
+
+        }
+
+
+        /* =====================================================
+           PERSONAL INFO
+        ===================================================== */
+
+        .info-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2,1fr);
+
+            gap: 18px;
+
+        }
+
+        .info-label {
+
+            color:
+                rgba(255,255,255,.45);
+
+            font-size: 11px;
+
+            text-transform: uppercase;
+
+            letter-spacing: .7px;
+
+            margin-bottom: 5px;
+
+        }
+
+        .info-value {
+
+            color:
+                rgba(255,255,255,.90);
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            word-break: break-word;
+
+        }
+
+        .info-value a {
+
+            color: #00c49c;
+
+            text-decoration: none;
+
+        }
+
+
+        /* =====================================================
+           EDUCATION
+        ===================================================== */
+
+        .education-item {
+
+            display: flex;
+
+            gap: 15px;
+
+        }
+
+        .education-icon {
+
+            width: 45px;
+
+            height: 45px;
+
+            min-width: 45px;
+
+            border-radius: 10px;
+
+            background:
+                rgba(0,196,156,.10);
+
+            color: #00c49c;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 20px;
+
+        }
+
+        .education-degree {
+
+            font-size: 15px;
+
+            font-weight: 800;
+
+            color: white;
+
+            margin-bottom: 4px;
+
+        }
+
+        .education-college {
+
+            font-size: 13px;
+
+            color:
+                rgba(255,255,255,.65);
+
+        }
+
+        .education-meta {
+
+            margin-top: 5px;
+
+            color: #00c49c;
+
+            font-size: 12px;
+
+        }
+
+
+        /* =====================================================
+           SKILLS
+        ===================================================== */
+
+        .skill-item {
+
+            margin-bottom: 17px;
+
+        }
+
+        .skill-top {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: 7px;
+
+        }
+
+        .skill-name {
+
+            font-size: 13px;
+
+            color:
+                rgba(255,255,255,.85);
+
+            font-weight: 600;
+
+        }
+
+        .skill-percent {
+
+            color: #00c49c;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+        }
+
+        .skill-bar {
+
+            height: 7px;
+
+            background: #12221d;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+        }
+
+        .skill-progress {
+
+            height: 100%;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #008c70,
+                    #00c49c
+                );
+
+        }
+
+
+        /* =====================================================
+           CAREER READINESS
+        ===================================================== */
+
+        .readiness {
+
+            text-align: center;
+
+            padding: 10px;
+
+        }
+
+        .circle {
+
+            width: 145px;
+
+            height: 145px;
+
+            border-radius: 50%;
+
+            margin:
+                0 auto 18px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                conic-gradient(
+                    #00c49c 0deg 302deg,
+                    #18372e 302deg 360deg
+                );
+
+            position: relative;
+
+        }
+
+        .circle::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 112px;
+
+            height: 112px;
+
+            background: #08110e;
+
+            border-radius: 50%;
+
+        }
+
+        .circle-text {
+
+            position: relative;
+
+            z-index: 2;
+
+            font-size: 28px;
+
+            font-weight: 800;
+
+            color: white;
+
+        }
+
+        .readiness-title {
+
+            font-size: 16px;
+
+            font-weight: 800;
+
+            margin-bottom: 5px;
+
+        }
+
+        .readiness-text {
+
+            font-size: 12px;
+
+            color:
+                rgba(255,255,255,.50);
+
+            line-height: 1.6;
+
+        }
+
+
+        /* =====================================================
+           PROJECT
+        ===================================================== */
+
+        .project-card {
+
+            border:
+                1px solid #1d443a;
+
+            background:
+                rgba(0,196,156,.025);
+
+            border-radius: 11px;
+
+            padding: 17px;
+
+            margin-bottom: 12px;
+
+        }
+
+        .project-title {
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+            color: #00c49c;
+
+            margin-bottom: 7px;
+
+        }
+
+        .project-description {
+
+            color:
+                rgba(255,255,255,.60);
+
+            font-size: 12px;
+
+            line-height: 1.6;
+
+        }
+
+        .tag-list {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 6px;
+
+            margin-top: 10px;
+
+        }
+
+        .tag {
+
+            background:
+                rgba(0,196,156,.08);
+
+            border:
+                1px solid
+                rgba(0,196,156,.18);
+
+            color: #00c49c;
+
+            border-radius: 5px;
+
+            padding:
+                4px 8px;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+        }
+
+
+        /* =====================================================
+           CERTIFICATION
+        ===================================================== */
+
+        .certificate-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            padding:
+                12px 0;
+
+            border-bottom:
+                1px solid #18352e;
+
+        }
+
+        .certificate-item:last-child {
+
+            border-bottom: none;
+
+        }
+
+        .certificate-icon {
+
+            width: 38px;
+
+            height: 38px;
+
+            border-radius: 9px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                rgba(0,196,156,.10);
+
+            color: #00c49c;
+
+        }
+
+        .certificate-name {
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            color: white;
+
+        }
+
+        .certificate-status {
+
+            font-size: 10px;
+
+            color: #00c49c;
+
+            margin-top: 3px;
+
+        }
+
+
+        /* =====================================================
+           ACHIEVEMENTS
+        ===================================================== */
+
+        .achievement {
+
+            display: flex;
+
+            gap: 12px;
+
+            margin-bottom: 15px;
+
+        }
+
+        .achievement-icon {
+
+            color: #00c49c;
+
+            font-size: 18px;
+
+        }
+
+        .achievement-text {
+
+            font-size: 13px;
+
+            color:
+                rgba(255,255,255,.70);
+
+            line-height: 1.5;
+
+        }
+
+
+        /* =====================================================
+           RESUME BUTTON
+        ===================================================== */
+
+        .resume-box {
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(0,140,112,.15),
+                    rgba(0,196,156,.05)
+                );
+
+            border:
+                1px solid #285e51;
+
+            border-radius: 14px;
+
+            padding: 22px;
+
+        }
+
+        .resume-box i {
+
+            font-size: 35px;
+
+            color: #00c49c;
+
+        }
+
+        .resume-box h5 {
+
+            margin-top: 10px;
+
+            font-weight: 800;
+
+        }
+
+        .resume-box p {
+
+            color:
+                rgba(255,255,255,.50);
+
+            font-size: 12px;
+
+        }
+
+        .resume-btn {
+
+            display: inline-block;
+
+            background: #008c70;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding:
+                9px 18px;
+
+            border-radius: 8px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            margin-top: 5px;
+
+        }
+
+        .resume-btn:hover {
+
+            background: #00a886;
+
+            color: white;
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .footer {
+
+            text-align: center;
+
+            border-top:
+                1px solid #1d443a;
+
+            margin-top: 40px;
+
+            padding:
+                25px;
+
+            color:
+                rgba(255,255,255,.40);
+
+            font-size: 12px;
+
+        }
+
+
+        /* =====================================================
+           MODAL
+        ===================================================== */
+
+        .modal-content {
+
+            background: #08100d;
+
+            border:
+                1px solid #285e51;
+
+            color: white;
+
+            border-radius: 15px;
+
+        }
+
+        .modal-header {
+
+            border-bottom:
+                1px solid #1d443a;
+
+        }
+
+        .modal-footer {
+
+            border-top:
+                1px solid #1d443a;
+
+        }
+
+        .modal-title {
+
+            font-weight: 800;
+
+            color: #00c49c;
+
+        }
+
+        .btn-close {
+
+            filter: invert(1);
+
+        }
+
+        .form-label {
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+        }
+
+        .form-control {
+
+            background: #0a1713;
+
+            border:
+                1px solid #285e51;
+
+            color: white;
+
+            min-height: 43px;
+
+        }
+
+        .form-control:focus {
+
+            background: #0a1713;
+
+            color: white;
+
+            border-color: #00c49c;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(0,196,156,.10);
+
+        }
+
+        .form-control::placeholder {
+
+            color:
+                rgba(255,255,255,.35);
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media(max-width: 992px) {
+
+            .content-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .stats-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+
+            }
+
+        }
+
+
+        @media(max-width: 768px) {
+
+            .nav-menu {
+
+                display: none;
+
+            }
+
+            .mobile-menu {
+
+                display: block;
+
+            }
+
+            .profile-hero-content {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+            }
+
+            .profile-left {
+
+                align-items: flex-start;
+
+            }
+
+            .edit-btn {
+
+                width: 100%;
+
+            }
+
+        }
+
+
+        @media(max-width: 576px) {
+
+            .main-container {
+
+                padding:
+                    0 12px;
+
+                margin-top: 20px;
+
+            }
+
+            .profile-hero {
+
+                padding: 20px;
+
+            }
+
+            .profile-left {
+
+                flex-direction: column;
+
+            }
+
+            .avatar {
+
+                width: 85px;
+
+                height: 85px;
+
+                min-width: 85px;
+
+                font-size: 32px;
+
+            }
+
+            .profile-name {
+
+                font-size: 24px;
+
+            }
+
+            .stats-grid {
+
+                grid-template-columns: 1fr 1fr;
+
+                gap: 10px;
+
+            }
+
+            .stat-card {
+
+                padding: 15px;
+
+            }
+
+            .stat-number {
+
+                font-size: 21px;
+
+            }
+
+            .section-card {
+
+                padding: 18px;
+
+            }
+
+            .info-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar-custom">
+
+    <div class="navbar-container">
+
+        <a
+            href="/dashboard"
+            class="brand">
+
+            Placement<span>X</span>
+
+        </a>
+
+
+        <div class="nav-menu">
+
+            <a
+                href="/dashboard"
+                class="nav-link-custom">
+
+                <i class="bi bi-speedometer2"></i>
+
+                Dashboard
+
+            </a>
+
+
+            <a
+                href="/jobs"
+                class="nav-link-custom">
+
+                <i class="bi bi-briefcase"></i>
+
+                Latest Jobs
+
+            </a>
+
+
+            <a
+                href="/coding"
+                class="nav-link-custom">
+
+                <i class="bi bi-code-slash"></i>
+
+                Coding
+
+            </a>
+
+
+            <a
+                href="/profile"
+                class="profile-btn">
+
+                <i class="bi bi-person-circle"></i>
+
+                Profile
+
+            </a>
+
+        </div>
+
+
+        <button
+            class="mobile-menu"
+            onclick="toggleMobileMenu()">
+
+            <i class="bi bi-list"></i>
+
+        </button>
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="main-container">
+
+
+    <!-- =================================================
+         PROFILE HERO
+    ================================================= -->
+
+    <section class="profile-hero">
+
+        <div class="profile-hero-content">
+
+
+            <div class="profile-left">
+
+
+                <div class="avatar">
+
+                    M
+
+                </div>
+
+
+                <div>
+
+                    <div class="profile-name">
+
+                        Manjiri Mahalle
+
+                    </div>
+
+
+                    <div class="profile-role">
+
+                        Engineering Student | Aspiring Software Developer
+
+                    </div>
+
+
+                    <div class="profile-location">
+
+                        <i class="bi bi-geo-alt-fill"></i>
+
+                        Amravati, Maharashtra, India
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="edit-btn"
+                data-bs-toggle="modal"
+                data-bs-target="#editProfileModal">
+
+                <i class="bi bi-pencil-square"></i>
+
+                Edit Profile
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         STATS
+    ================================================= -->
+
+    <section class="stats-grid">
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+
+                <i class="bi bi-code-slash"></i>
+
+            </div>
+
+            <div class="stat-number">
+
+                42
+
+            </div>
+
+            <div class="stat-label">
+
+                Coding Problems
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+
+                <i class="bi bi-folder-fill"></i>
+
+            </div>
+
+            <div class="stat-number">
+
+                6
+
+            </div>
+
+            <div class="stat-label">
+
+                Projects
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+
+                <i class="bi bi-award-fill"></i>
+
+            </div>
+
+            <div class="stat-number">
+
+                8
+
+            </div>
+
+            <div class="stat-label">
+
+                Certifications
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+
+                <i class="bi bi-graph-up-arrow"></i>
+
+            </div>
+
+            <div class="stat-number">
+
+                84%
+
+            </div>
+
+            <div class="stat-label">
+
+                Career Readiness
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         CONTENT GRID
+    ================================================= -->
+
+    <div class="content-grid">
+
+
+        <!-- =================================================
+             LEFT COLUMN
+        ================================================= -->
+
+        <div>
+
+
+            <!-- PERSONAL INFORMATION -->
+
+            <section class="section-card">
+
+                <div class="section-header">
+
+                    <div class="section-title">
+
+                        <i class="bi bi-person-vcard"></i>
+
+                        Personal Information
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-grid">
+
+
+                    <div>
+
+                        <div class="info-label">
+
+                            Full Name
+
+                        </div>
+
+                        <div class="info-value">
+
+                            Manjiri Mahalle
+
+                        </div>
+
+                    </div>
+
+
+                    <div>
+
+                        <div class="info-label">
+
+                            Email
+
+                        </div>
+
+                        <div class="info-value">
+
+                            manjiri@example.com
+
+                        </div>
+
+                    </div>
+
+
+                    <div>
+
+                        <div class="info-label">
+
+                            Phone
+
+                        </div>
+
+                        <div class="info-value">
+
+                            +91 XXXXX XXXXX
+
+                        </div>
+
+                    </div>
+
+
+                    <div>
+
+                        <div class="info-label">
+
+                            Location
+
+                        </div>
+
+                        <div class="info-value">
+
+                            Amravati, Maharashtra
+
+                        </div>
+
+                    </div>
+
+
+                    <div>
+
+                        <div class="info-label">
+
+                            LinkedIn
+
+                        </div>
+
+                        <div class="info-value">
+
+                            <a
+                                href="#"
+                                target="_blank">
+
+                                LinkedIn Profile
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div>
+
+                        <div class="info-label">
+
+                            GitHub
+
+                        </div>
+
+                        <div class="info-value">
+
+                            <a
+                                href="#"
+                                target="_blank">
+
+                                GitHub Profile
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- EDUCATION -->
+
+            <section class="section-card">
+
+                <div class="section-header">
+
+                    <div class="section-title">
+
+                        <i class="bi bi-mortarboard-fill"></i>
+
+                        Education
+
+                    </div>
+
+                </div>
+
+
+                <div class="education-item">
+
+
+                    <div class="education-icon">
+
+                        <i class="bi bi-building"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <div class="education-degree">
+
+                            Bachelor of Engineering
+
+                        </div>
+
+
+                        <div class="education-college">
+
+                            P. R. Pote Patil College of Engineering & Management
+
+                        </div>
+
+
+                        <div class="education-meta">
+
+                            Computer / Engineering &nbsp; • &nbsp; Expected 2027
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- PROJECTS -->
+
+            <section class="section-card">
+
+                <div class="section-header">
+
+                    <div class="section-title">
+
+                        <i class="bi bi-kanban-fill"></i>
+
+                        Projects
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-card">
+
+                    <div class="project-title">
+
+                        PlacementX – Placement Preparation Portal
+
+                    </div>
+
+
+                    <div class="project-description">
+
+                        A web-based placement preparation platform
+                        providing coding practice, aptitude preparation,
+                        job opportunities, interview preparation and
+                        career resources.
+
+                    </div>
+
+
+                    <div class="tag-list">
+
+                        <span class="tag">HTML</span>
+
+                        <span class="tag">CSS</span>
+
+                        <span class="tag">JavaScript</span>
+
+                        <span class="tag">Node.js</span>
+
+                        <span class="tag">MongoDB</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-card">
+
+                    <div class="project-title">
+
+                        Student Management System
+
+                    </div>
+
+
+                    <div class="project-description">
+
+                        A CRUD-based student management application
+                        designed to store and manage student records
+                        using a web interface and database.
+
+                    </div>
+
+
+                    <div class="tag-list">
+
+                        <span class="tag">Node.js</span>
+
+                        <span class="tag">Express</span>
+
+                        <span class="tag">MongoDB</span>
+
+                        <span class="tag">EJS</span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ACHIEVEMENTS -->
+
+            <section class="section-card">
+
+                <div class="section-header">
+
+                    <div class="section-title">
+
+                        <i class="bi bi-trophy-fill"></i>
+
+                        Achievements
+
+                    </div>
+
+                </div>
+
+
+                <div class="achievement">
+
+                    <div class="achievement-icon">
+
+                        <i class="bi bi-star-fill"></i>
+
+                    </div>
+
+                    <div class="achievement-text">
+
+                        Participated in college-level technical
+                        competitions and project activities.
+
+                    </div>
+
+                </div>
+
+
+                <div class="achievement">
+
+                    <div class="achievement-icon">
+
+                        <i class="bi bi-bar-chart-fill"></i>
+
+                    </div>
+
+                    <div class="achievement-text">
+
+                        Worked on Data Analytics and Power BI projects.
+
+                    </div>
+
+                </div>
+
+
+                <div class="achievement">
+
+                    <div class="achievement-icon">
+
+                        <i class="bi bi-code-square"></i>
+
+                    </div>
+
+                    <div class="achievement-text">
+
+                        Practicing programming, SQL and problem-solving
+                        for placement preparation.
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+
+        <!-- =================================================
+             RIGHT COLUMN
+        ================================================= -->
+
+        <div>
+
+
+            <!-- CAREER READINESS -->
+
+            <section class="section-card">
+
+                <div class="section-header">
+
+                    <div class="section-title">
+
+                        <i class="bi bi-speedometer2"></i>
+
+                        Career Readiness
+
+                    </div>
+
+                </div>
+
+
+                <div class="readiness">
+
+                    <div class="circle">
+
+                        <div class="circle-text">
+
+                            84%
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="readiness-title">
+
+                        You're almost placement ready!
+
+                    </div>
+
+
+                    <div class="readiness-text">
+
+                        Complete your profile, improve coding
+                        practice and add more projects to increase
+                        your career readiness.
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SKILLS -->
+
+            <section class="section-card">
+
+                <div class="section-header">
+
+                    <div class="section-title">
+
+                        <i class="bi bi-lightning-charge-fill"></i>
+
+                        Technical Skills
+
+                    </div>
+
+                </div>
+
+
+                <div class="skill-item">
+
+                    <div class="skill-top">
+
+                        <span class="skill-name">
+
+                            Python
+
+                        </span>
+
+                        <span class="skill-percent">
+
+                            85%
+
+                        </span>
+
+                    </div>
+
+                    <div class="skill-bar">
+
+                        <div
+                            class="skill-progress"
+                            style="width:85%">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="skill-item">
+
+                    <div class="skill-top">
+
+                        <span class="skill-name">
+
+                            SQL
+
+                        </span>
+
+                        <span class="skill-percent">
+
+                            80%
+
+                        </span>
+
+                    </div>
+
+                    <div class="skill-bar">
+
+                        <div
+                            class="skill-progress"
+                            style="width:80%">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="skill-item">
+
+                    <div class="skill-top">
+
+                        <span class="skill-name">
+
+                            HTML / CSS
+
+                        </span>
+
+                        <span class="skill-percent">
+
+                            90%
+
+                        </span>
+
+                    </div>
+
+                    <div class="skill-bar">
+
+                        <div
+                            class="skill-progress"
+                            style="width:90%">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="skill-item">
+
+                    <div class="skill-top">
+
+                        <span class="skill-name">
+
+                            JavaScript
+
+                        </span>
+
+                        <span class="skill-percent">
+
+                            75%
+
+                        </span>
+
+                    </div>
+
+                    <div class="skill-bar">
+
+                        <div
+                            class="skill-progress"
+                            style="width:75%">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="skill-item">
+
+                    <div class="skill-top">
+
+                        <span class="skill-name">
+
+                            Power BI
+
+                        </span>
+
+                        <span class="skill-percent">
+
+                            78%
+
+                        </span>
+
+                    </div>
+
+                    <div class="skill-bar">
+
+                        <div
+                            class="skill-progress"
+                            style="width:78%">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- CERTIFICATIONS -->
+
+            <section class="section-card">
+
+                <div class="section-header">
+
+                    <div class="section-title">
+
+                        <i class="bi bi-patch-check-fill"></i>
+
+                        Certifications
+
+                    </div>
+
+                </div>
+
+
+                <div class="certificate-item">
+
+                    <div class="certificate-icon">
+
+                        <i class="bi bi-award"></i>
+
+                    </div>
+
+                    <div>
+
+                        <div class="certificate-name">
+
+                            Python Programming
+
+                        </div>
+
+                        <div class="certificate-status">
+
+                            Verified Certificate
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="certificate-item">
+
+                    <div class="certificate-icon">
+
+                        <i class="bi bi-bar-chart"></i>
+
+                    </div>
+
+                    <div>
+
+                        <div class="certificate-name">
+
+                            Power BI Data Analytics
+
+                        </div>
+
+                        <div class="certificate-status">
+
+                            Verified Certificate
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="certificate-item">
+
+                    <div class="certificate-icon">
+
+                        <i class="bi bi-database"></i>
+
+                    </div>
+
+                    <div>
+
+                        <div class="certificate-name">
+
+                            SQL Database
+
+                        </div>
+
+                        <div class="certificate-status">
+
+                            Verified Certificate
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- RESUME -->
+
+            <section class="section-card">
+
+                <div class="resume-box">
+
+                    <i class="bi bi-file-earmark-person-fill"></i>
+
+                    <h5>
+
+                        Build Your Resume
+
+                    </h5>
+
+                    <p>
+
+                        Create a professional resume
+                        for your placement applications.
+
+                    </p>
+
+                    <a
+                        href="/resume"
+                        class="resume-btn">
+
+                        <i class="bi bi-file-earmark-text"></i>
+
+                        Open Resume Builder
+
+                    </a>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    © 2026 PlacementX
+
+    <br>
+
+    Build your career with confidence 🚀
+
+</footer>
+
+
+
+<!-- =====================================================
+     EDIT PROFILE MODAL
+===================================================== -->
+
+<div
+    class="modal fade"
+    id="editProfileModal"
+    tabindex="-1">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+
+                    <i class="bi bi-person-gear"></i>
+
+                    Edit Profile
+
+                </h5>
+
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+
+                </button>
+
+            </div>
+
+
+            <div class="modal-body">
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+
+                        Full Name
+
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        value="Manjiri Mahalle">
+
+                </div>
+
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+
+                        Professional Title
+
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        value="Engineering Student">
+
+                </div>
+
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+
+                        Email
+
+                    </label>
+
+                    <input
+                        type="email"
+                        class="form-control"
+                        placeholder="your@email.com">
+
+                </div>
+
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+
+                        Phone
+
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        placeholder="+91 XXXXX XXXXX">
+
+                </div>
+
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+
+                        Location
+
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        value="Amravati, Maharashtra">
+
+                </div>
+
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+
+                        LinkedIn
+
+                    </label>
+
+                    <input
+                        type="url"
+                        class="form-control"
+                        placeholder="https://linkedin.com/in/...">
+
+                </div>
+
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+
+                        GitHub
+
+                    </label>
+
+                    <input
+                        type="url"
+                        class="form-control"
+                        placeholder="https://github.com/...">
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal">
+
+                    Cancel
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="profile-btn"
+                    onclick="saveProfile()">
+
+                    <i class="bi bi-check-circle"></i>
+
+                    Save Changes
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- Bootstrap JS -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+<script>
+
+    function toggleMobileMenu() {
+
+        alert("Use the desktop navigation or add a mobile menu here.");
+
+    }
+
+
+    function saveProfile() {
+
+        alert("Profile updated successfully!");
+
+        const modal =
+            bootstrap.Modal.getInstance(
+                document.getElementById("editProfileModal")
+            );
+
+        if (modal) {
+
+            modal.hide();
+
+        }
+
+    }
+
+</script>
+
+
+</body>
+
+</html>

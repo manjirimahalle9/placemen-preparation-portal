@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Notifications | PlacementX</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f8f7;
+            color: #16332e;
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            background: #006f5a;
+            padding: 15px 30px;
+        }
+
+        .navbar-brand {
+            color: white !important;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .nav-link {
+            color: rgba(255,255,255,.9) !important;
+            margin-left: 15px;
+        }
+
+        .nav-link:hover {
+            color: white !important;
+        }
+
+        /* CONTAINER */
+
+        .container-main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .page-subtitle {
+            color: #64746f;
+            margin-bottom: 30px;
+        }
+
+        /* NOTIFICATION */
+
+        .notification {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+
+            display: flex;
+            align-items: center;
+            gap: 18px;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,.07);
+            border-left: 5px solid #008c70;
+        }
+
+        .notification-icon {
+            width: 50px;
+            height: 50px;
+
+            border-radius: 12px;
+
+            background: #e6f5f1;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 23px;
+        }
+
+        .notification-content {
+            flex: 1;
+        }
+
+        .notification-title {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .notification-text {
+            color: #64746f;
+            margin: 0;
+        }
+
+        .notification-time {
+            color: #94a8a3;
+            font-size: 12px;
+            margin-top: 6px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 25px;
+
+            background: #008c70;
+            color: white;
+
+            padding: 10px 18px;
+            border-radius: 10px;
+
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-btn:hover {
+            background: #006f5a;
+            color: white;
+        }
+
+        @media(max-width:600px) {
+
+            .navbar {
+                padding: 12px 15px;
+            }
+
+            .container-main {
+                margin-top: 25px;
+            }
+
+            .page-title {
+                font-size: 26px;
+            }
+
+            .notification {
+                padding: 15px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-lg">
+
+    <a class="navbar-brand" href="/dashboard">
+        PlacementX
+    </a>
+
+    <div class="ms-auto">
+
+        <a class="nav-link d-inline-block"
+           href="/dashboard">
+            Dashboard
+        </a>
+
+        <a class="nav-link d-inline-block"
+           href="/logout">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- MAIN -->
+
+<div class="container-main">
+
+    <a href="/dashboard" class="back-btn">
+        ← Back to Dashboard
+    </a>
+
+    <h1 class="page-title">
+        🔔 Notifications
+    </h1>
+
+    <p class="page-subtitle">
+        Stay updated with placement opportunities and important announcements.
+    </p>
+
+
+    <!-- Notification 1 -->
+
+    <div class="notification">
+
+        <div class="notification-icon">
+            💼
+        </div>
+
+        <div class="notification-content">
+
+            <div class="notification-title">
+                New Job Opportunity
+            </div>
+
+            <p class="notification-text">
+                New placement opportunities have been added to the Jobs section.
+            </p>
+
+            <div class="notification-time">
+                Today
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Notification 2 -->
+
+    <div class="notification">
+
+        <div class="notification-icon">
+            📝
+        </div>
+
+        <div class="notification-content">
+
+            <div class="notification-title">
+                Practice Aptitude Questions
+            </div>
+
+            <p class="notification-text">
+                New aptitude questions are available for your placement preparation.
+            </p>
+
+            <div class="notification-time">
+                Today
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Notification 3 -->
+
+    <div class="notification">
+
+        <div class="notification-icon">
+                💻
+        </div>
+
+        <div class="notification-content">
+
+            <div class="notification-title">
+                New Coding Practice
+            </div>
+
+            <p class="notification-text">
+                Improve your coding skills by practicing the latest coding questions.
+            </p>
+
+            <div class="notification-time">
+                Yesterday
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Notification 4 -->
+
+    <div class="notification">
+
+        <div class="notification-icon">
+            🎯
+        </div>
+
+        <div class="notification-content">
+
+            <div class="notification-title">
+                Placement Preparation Reminder
+            </div>
+
+            <p class="notification-text">
+                Keep practicing aptitude, coding and interview questions regularly.
+            </p>
+
+            <div class="notification-time">
+                Yesterday
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

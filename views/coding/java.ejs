@@ -1,0 +1,2558 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Java Programming | PlacementX</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <style>
+
+        body {
+            background: #050706 !important;
+            color: white !important;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: #050706;
+            max-width: 1000px;
+        }
+
+        p,
+        li,
+        h2,
+        h3,
+        h4,
+        strong {
+            color: white;
+        }
+
+        /* ==============================
+           NAVBAR
+        ============================== */
+
+        .navbar {
+            background: #030504 !important;
+            border-bottom: 1px solid #008c70;
+        }
+
+        .navbar-brand {
+            color: #00c49c !important;
+            font-weight: 700;
+        }
+
+        .dashboard-btn {
+            background: #008c70;
+            color: white;
+            border: none;
+        }
+
+        .dashboard-btn:hover {
+            background: #00a886;
+            color: white;
+        }
+
+        /* ==============================
+           HEADER
+        ============================== */
+
+        .header {
+            background: #050706;
+            color: white;
+            padding: 35px;
+            text-align: center;
+            border-bottom: 1px solid #008c70;
+        }
+
+        .header h1 {
+            color: #00c49c;
+            font-weight: 700;
+        }
+
+        .header p {
+            color: white;
+        }
+
+        /* ==============================
+           TOPIC CARDS
+        ============================== */
+
+        .topic-card {
+            background: #050706 !important;
+            color: white !important;
+            border: 1px solid #008c70 !important;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow:
+                0 0 12px rgba(0, 140, 112, 0.10);
+        }
+
+        .topic-card h3 {
+            color: #00c49c;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .topic-card p,
+        .topic-card li {
+            color: white;
+            line-height: 1.7;
+        }
+
+        /* ==============================
+           CODE
+        ============================== */
+
+        pre {
+            background: #0a100e;
+            color: #00c49c;
+            padding: 18px;
+            border-radius: 8px;
+            border: 1px solid #285e51;
+            overflow-x: auto;
+        }
+
+        code {
+            color: #00c49c;
+        }
+
+        /* ==============================
+           SECTION TITLE
+        ============================== */
+
+        .section-title {
+            color: #00c49c !important;
+            font-weight: 700;
+        }
+
+        hr {
+            border-color: #008c70;
+            opacity: 1;
+        }
+
+        /* ==============================
+           ACCORDION
+        ============================== */
+
+        .accordion-item {
+            background: #050706 !important;
+            border-color: #008c70 !important;
+        }
+
+        .accordion-button {
+            background: #050706 !important;
+            color: white !important;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: #008c70 !important;
+            color: white !important;
+        }
+
+        .accordion-body {
+            background: #050706 !important;
+            color: white !important;
+            line-height: 1.7;
+        }
+
+        .accordion-button::after {
+            filter: brightness(0) invert(1);
+        }
+
+        /* ==============================
+           QUESTION CARD
+        ============================== */
+
+        .question-card {
+            background: #050706 !important;
+            color: white !important;
+            border: 1px solid #008c70 !important;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow:
+                0 0 12px rgba(0, 140, 112, 0.10);
+        }
+
+        .question-title {
+            color: #00c49c !important;
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .question-text {
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+        /* ==============================
+           OPTIONS
+        ============================== */
+
+        .option {
+            display: block;
+            background: #0a100e;
+            color: white;
+            border: 1px solid #285e51;
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .option:hover {
+            background: #0d1c18;
+            border-color: #00c49c;
+        }
+
+        .option input {
+            margin-right: 10px;
+            accent-color: #00c49c;
+        }
+
+        /* ==============================
+           SUBMIT BUTTON
+        ============================== */
+
+        .submit-question {
+            background: #008c70;
+            border: none;
+            color: white;
+            padding: 9px 20px;
+            border-radius: 7px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .submit-question:hover {
+            background: #00a886;
+            color: white;
+        }
+
+        .submit-question:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* ==============================
+           ANSWER RESULT
+        ============================== */
+
+        .answer-result {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            line-height: 1.7;
+        }
+
+        .correct-result {
+            background: #073d2f;
+            border: 1px solid #00c49c;
+        }
+
+        .wrong-result {
+            background: #351414;
+            border: 1px solid #dc3545;
+        }
+
+        /* ==============================
+           FINAL SCORE
+        ============================== */
+
+        #finalScore {
+            display: none;
+            background: #071d17;
+            border: 2px solid #00c49c;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        #finalScore h3 {
+            color: #00c49c !important;
+        }
+
+        #scoreText,
+        #scoreMessage {
+            color: white !important;
+        }
+
+        /* ==============================
+           ALERT
+        ============================== */
+
+        .alert-success {
+            background: #050706 !important;
+            color: white !important;
+            border: 1px solid #008c70 !important;
+        }
+
+        /* ==============================
+           TABLE
+        ============================== */
+
+        .table {
+            background: #050706 !important;
+            color: white !important;
+        }
+
+        .table tbody tr,
+        .table tbody td {
+            background: #050706 !important;
+            color: white !important;
+            border-color: #008c70 !important;
+        }
+
+        .table-primary,
+        .table-primary th {
+            background: #008c70 !important;
+            color: white !important;
+        }
+
+        /* ==============================
+           MAIN SUBMIT
+        ============================== */
+
+        .main-submit {
+            background: #008c70;
+            border: none;
+            color: white;
+            font-weight: 600;
+        }
+
+        .main-submit:hover {
+            background: #00a886;
+            color: white;
+        }
+
+        /* ==============================
+           BOTTOM BUTTONS
+        ============================== */
+
+        .complete-btn {
+            background: #198754;
+            border: none;
+            color: white;
+        }
+
+        .complete-btn:hover {
+            background: #157347;
+            color: white;
+        }
+
+        .back-btn {
+            background: #008c70;
+            border: none;
+            color: white;
+        }
+
+        .back-btn:hover {
+            background: #00a886;
+            color: white;
+        }
+
+        /* ==============================
+           MOBILE
+        ============================== */
+
+        @media (max-width: 576px) {
+
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .topic-card,
+            .question-card {
+                padding: 16px;
+            }
+
+            .bottom-buttons a,
+            .bottom-buttons button {
+                width: 100%;
+                margin: 5px 0 !important;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     NAVBAR
+=========================================== -->
+
+<nav class="navbar navbar-dark">
+
+    <div class="container">
+
+        <a href="/coding"
+           class="navbar-brand">
+
+            💻 Coding Preparation
+
+        </a>
+
+        <a href="/dashboard"
+           class="btn dashboard-btn">
+
+            Dashboard
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- ==========================================
+     HEADER
+=========================================== -->
+
+<div class="header">
+
+    <h1>☕ Java Programming</h1>
+
+    <p>
+        Learn Java programming for placement exams
+    </p>
+
+</div>
+
+
+<div class="container mt-5 mb-5">
+
+
+<!-- ==========================================
+     INTRODUCTION
+=========================================== -->
+
+<h2 class="section-title">
+
+    📚 Java Programming
+
+</h2>
+
+<hr>
+
+<p>
+
+    Java is a popular object-oriented programming language
+    widely used in software development and placement exams.
+
+    It is known for its platform independence, object-oriented
+    features, security, and large standard library.
+
+</p>
+
+
+<!-- ==========================================
+     TOPICS COVERED
+=========================================== -->
+
+<h4 class="mt-4">
+
+    📖 Topics Covered
+
+</h4>
+
+
+<ul class="list-group mb-4">
+
+    <li class="list-group-item bg-dark text-white border-success">
+        Basic Java Program
+    </li>
+
+    <li class="list-group-item bg-dark text-white border-success">
+        Variables and Data Types
+    </li>
+
+    <li class="list-group-item bg-dark text-white border-success">
+        Operators
+    </li>
+
+    <li class="list-group-item bg-dark text-white border-success">
+        If-Else
+    </li>
+
+    <li class="list-group-item bg-dark text-white border-success">
+        Loops
+    </li>
+
+    <li class="list-group-item bg-dark text-white border-success">
+        Arrays
+    </li>
+
+    <li class="list-group-item bg-dark text-white border-success">
+        Strings
+    </li>
+
+    <li class="list-group-item bg-dark text-white border-success">
+        Methods
+    </li>
+
+    <li class="list-group-item bg-dark text-white border-success">
+        Classes and Objects
+    </li>
+
+    <li class="list-group-item bg-dark text-white border-success">
+        Inheritance
+    </li>
+
+    <li class="list-group-item bg-dark text-white border-success">
+        Exception Handling
+    </li>
+
+</ul>
+
+
+<!-- ==========================================
+     JAVA TOPICS
+=========================================== -->
+
+<h4 class="mt-4">
+
+    🧠 Java Concepts
+
+</h4>
+
+
+<div class="accordion"
+     id="javaTopics">
+
+
+    <!-- BASIC PROGRAM -->
+
+    <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+            <button
+                class="accordion-button collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#basicJava">
+
+                1. Basic Java Program
+
+            </button>
+
+        </h2>
+
+        <div id="basicJava"
+             class="accordion-collapse collapse">
+
+            <div class="accordion-body">
+
+                Every Java application normally contains a
+                <strong>main()</strong> method from which execution
+                begins.
+
+<pre>
+class Main {
+
+    public static void main(String[] args) {
+
+        System.out.println("Hello World");
+
+    }
+
+}
+</pre>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- VARIABLES -->
+
+    <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+            <button
+                class="accordion-button collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#variables">
+
+                2. Variables and Data Types
+
+            </button>
+
+        </h2>
+
+        <div id="variables"
+             class="accordion-collapse collapse">
+
+            <div class="accordion-body">
+
+                Variables are used to store data.
+
+                <br><br>
+
+                Common Java data types include:
+
+                <ul>
+
+                    <li>int – Integer values</li>
+
+                    <li>float – Decimal values</li>
+
+                    <li>double – Large decimal values</li>
+
+                    <li>char – Single character</li>
+
+                    <li>boolean – true or false</li>
+
+                    <li>String – Sequence of characters</li>
+
+                </ul>
+
+<pre>
+int age = 20;
+
+double marks = 85.5;
+
+char grade = 'A';
+
+boolean passed = true;
+</pre>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- OPERATORS -->
+
+    <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+            <button
+                class="accordion-button collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#operators">
+
+                3. Operators
+
+            </button>
+
+        </h2>
+
+        <div id="operators"
+             class="accordion-collapse collapse">
+
+            <div class="accordion-body">
+
+                Operators are used to perform operations
+                on values.
+
+                <br><br>
+
+                Examples include:
+
+                <ul>
+
+                    <li>Arithmetic: +, -, *, /, %</li>
+
+                    <li>Relational: &gt;, &lt;, ==, !=</li>
+
+                    <li>Logical: &amp;&amp;, ||, !</li>
+
+                </ul>
+
+<pre>
+int a = 10;
+int b = 5;
+
+System.out.println(a + b);
+System.out.println(a - b);
+System.out.println(a * b);
+System.out.println(a / b);
+</pre>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- IF ELSE -->
+
+    <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+            <button
+                class="accordion-button collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#ifelse">
+
+                4. If-Else
+
+            </button>
+
+        </h2>
+
+        <div id="ifelse"
+             class="accordion-collapse collapse">
+
+            <div class="accordion-body">
+
+                If-else statements are used to make decisions.
+
+<pre>
+int age = 20;
+
+if (age >= 18) {
+
+    System.out.println("Eligible");
+
+}
+else {
+
+    System.out.println("Not Eligible");
+
+}
+</pre>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- LOOP -->
+
+    <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+            <button
+                class="accordion-button collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#loops">
+
+                5. Loops
+
+            </button>
+
+        </h2>
+
+        <div id="loops"
+             class="accordion-collapse collapse">
+
+            <div class="accordion-body">
+
+                Loops are used to execute a block of code
+                repeatedly.
+
+<pre>
+for (int i = 1; i &lt;= 5; i++) {
+
+    System.out.println(i);
+
+}
+</pre>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ARRAYS -->
+
+    <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+            <button
+                class="accordion-button collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#arrays">
+
+                6. Arrays
+
+            </button>
+
+        </h2>
+
+        <div id="arrays"
+             class="accordion-collapse collapse">
+
+            <div class="accordion-body">
+
+                An array stores multiple values of the same
+                data type.
+
+<pre>
+int numbers[] = {
+    10, 20, 30, 40, 50
+};
+
+System.out.println(numbers[0]);
+</pre>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- STRINGS -->
+
+    <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+            <button
+                class="accordion-button collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#strings">
+
+                7. Strings
+
+            </button>
+
+        </h2>
+
+        <div id="strings"
+             class="accordion-collapse collapse">
+
+            <div class="accordion-body">
+
+                Strings are used to store sequences of characters.
+
+<pre>
+String name = "Java";
+
+System.out.println(name);
+
+System.out.println(name.length());
+
+System.out.println(name.toUpperCase());
+</pre>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- METHODS -->
+
+    <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+            <button
+                class="accordion-button collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#methods">
+
+                8. Methods
+
+            </button>
+
+        </h2>
+
+        <div id="methods"
+             class="accordion-collapse collapse">
+
+            <div class="accordion-body">
+
+                Methods are blocks of code designed to perform
+                a particular task.
+
+<pre>
+static int add(int a, int b) {
+
+    return a + b;
+
+}
+
+public static void main(String[] args) {
+
+    System.out.println(add(10, 20));
+
+}
+</pre>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- OOP -->
+
+    <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+            <button
+                class="accordion-button collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#oops">
+
+                9. Classes and Objects
+
+            </button>
+
+        </h2>
+
+        <div id="oops"
+             class="accordion-collapse collapse">
+
+            <div class="accordion-body">
+
+                A class is a blueprint for creating objects.
+
+                An object is an instance of a class.
+
+<pre>
+class Student {
+
+    String name;
+
+    void display() {
+
+        System.out.println(name);
+
+    }
+
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Student s = new Student();
+
+        s.name = "Manjiri";
+
+        s.display();
+
+    }
+
+}
+</pre>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- INHERITANCE -->
+
+    <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+            <button
+                class="accordion-button collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#inheritance">
+
+                10. Inheritance
+
+            </button>
+
+        </h2>
+
+        <div id="inheritance"
+             class="accordion-collapse collapse">
+
+            <div class="accordion-body">
+
+                Inheritance allows one class to acquire
+                properties and methods of another class.
+
+<pre>
+class Animal {
+
+    void sound() {
+
+        System.out.println("Animal Sound");
+
+    }
+
+}
+
+class Dog extends Animal {
+
+    void bark() {
+
+        System.out.println("Dog Barks");
+
+    }
+
+}
+</pre>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- EXCEPTION -->
+
+    <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+            <button
+                class="accordion-button collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#exception">
+
+                11. Exception Handling
+
+            </button>
+
+        </h2>
+
+        <div id="exception"
+             class="accordion-collapse collapse">
+
+            <div class="accordion-body">
+
+                Exception handling is used to handle runtime
+                errors without terminating the program unexpectedly.
+
+<pre>
+try {
+
+    int result = 10 / 0;
+
+}
+catch (ArithmeticException e) {
+
+    System.out.println("Cannot divide by zero");
+
+}
+</pre>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     IMPORTANT QUESTIONS
+=========================================== -->
+
+<div class="card topic-card mt-5">
+
+    <div class="card-body">
+
+        <h3>🎯 Important Java Programming Questions</h3>
+
+        <ol>
+
+            <li>Reverse a number</li>
+
+            <li>Check whether a number is prime</li>
+
+            <li>Check palindrome number</li>
+
+            <li>Find factorial of a number</li>
+
+            <li>Generate Fibonacci series</li>
+
+            <li>Find largest element in an array</li>
+
+            <li>Find smallest element in an array</li>
+
+            <li>Reverse a string</li>
+
+            <li>Count vowels in a string</li>
+
+            <li>Check whether a string is palindrome</li>
+
+            <li>Sort an array</li>
+
+            <li>Find duplicate elements</li>
+
+            <li>Swap two numbers</li>
+
+            <li>Calculate sum of array elements</li>
+
+            <li>Find second largest element</li>
+
+        </ol>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     PRACTICE QUESTIONS
+=========================================== -->
+
+<h4 class="mt-5 section-title">
+
+    📝 Java Practice Questions
+
+</h4>
+
+
+<!-- QUESTION 1 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+
+        Question 1
+
+    </div>
+
+    <div class="question-text">
+
+        Which method is the entry point of a Java program?
+
+    </div>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q1"
+               value="main">
+
+        main()
+
+    </label>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q1"
+               value="start">
+
+        start()
+
+    </label>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q1"
+               value="run">
+
+        run()
+
+    </label>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q1"
+               value="execute">
+
+        execute()
+
+    </label>
+
+    <button class="submit-question"
+            onclick="checkAnswer(1, 'main')">
+
+        Submit Answer
+
+    </button>
+
+    <div id="result1"
+         class="answer-result">
+
+    </div>
+
+</div>
+
+
+<!-- QUESTION 2 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+
+        Question 2
+
+    </div>
+
+    <div class="question-text">
+
+        Which keyword is used to create a class in Java?
+
+    </div>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q2"
+               value="class">
+
+        class
+
+    </label>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q2"
+               value="struct">
+
+        struct
+
+    </label>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q2"
+               value="define">
+
+        define
+
+    </label>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q2"
+               value="object">
+
+        object
+
+    </label>
+
+    <button class="submit-question"
+            onclick="checkAnswer(2, 'class')">
+
+        Submit Answer
+
+    </button>
+
+    <div id="result2"
+         class="answer-result">
+
+    </div>
+
+</div>
+
+
+<!-- QUESTION 3 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+
+        Question 3
+
+    </div>
+
+    <div class="question-text">
+
+        Which data type is used to store true or false
+        values in Java?
+
+    </div>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q3"
+               value="int">
+
+        int
+
+    </label>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q3"
+               value="boolean">
+
+        boolean
+
+    </label>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q3"
+               value="char">
+
+        char
+
+    </label>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q3"
+               value="float">
+
+        float
+
+    </label>
+
+    <button class="submit-question"
+            onclick="checkAnswer(3, 'boolean')">
+
+        Submit Answer
+
+    </button>
+
+    <div id="result3"
+         class="answer-result">
+
+    </div>
+
+</div>
+
+
+<!-- QUESTION 4 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+
+        Question 4
+
+    </div>
+
+    <div class="question-text">
+
+        Which keyword is used for inheritance in Java?
+
+    </div>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q4"
+               value="extends">
+
+        extends
+
+    </label>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q4"
+               value="inherit">
+
+        inherit
+
+    </label>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q4"
+               value="implements">
+
+        implements
+
+    </label>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q4"
+               value="super">
+
+        super
+
+    </label>
+
+    <button class="submit-question"
+            onclick="checkAnswer(4, 'extends')">
+
+        Submit Answer
+
+    </button>
+
+    <div id="result4"
+         class="answer-result">
+
+    </div>
+
+</div>
+
+
+<!-- QUESTION 5 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+
+        Question 5
+
+    </div>
+
+    <div class="question-text">
+
+        Which symbol is used for single-line comments
+        in Java?
+
+    </div>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q5"
+               value="//">
+
+        //
+
+    </label>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q5"
+               value="/*">
+
+        /*
+
+    </label>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q5"
+               value="#">
+
+        #
+
+    </label>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q5"
+               value="--">
+
+        --
+
+    </label>
+
+    <button class="submit-question"
+            onclick="checkAnswer(5, '//')">
+
+        Submit Answer
+
+    </button>
+
+    <div id="result5"
+         class="answer-result">
+
+    </div>
+
+</div>
+
+
+<!-- QUESTION 6 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+
+        Question 6
+
+    </div>
+
+    <div class="question-text">
+
+        What is the output of the following code?
+
+<pre>
+int a = 10;
+int b = 20;
+
+System.out.println(a + b);
+</pre>
+
+    </div>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q6"
+               value="20">
+
+        20
+
+    </label>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q6"
+               value="30">
+
+        30
+
+    </label>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q6"
+               value="10">
+
+        10
+
+    </label>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q6"
+               value="0">
+
+        0
+
+    </label>
+
+    <button class="submit-question"
+            onclick="checkAnswer(6, '30')">
+
+        Submit Answer
+
+    </button>
+
+    <div id="result6"
+         class="answer-result">
+
+    </div>
+
+</div>
+
+
+<!-- QUESTION 7 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+
+        Question 7
+
+    </div>
+
+    <div class="question-text">
+
+        Which keyword is used to create an object in Java?
+
+    </div>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q7"
+               value="new">
+
+        new
+
+    </label>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q7"
+               value="object">
+
+        object
+
+    </label>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q7"
+               value="create">
+
+        create
+
+    </label>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q7"
+               value="instance">
+
+        instance
+
+    </label>
+
+    <button class="submit-question"
+            onclick="checkAnswer(7, 'new')">
+
+        Submit Answer
+
+    </button>
+
+    <div id="result7"
+         class="answer-result">
+
+    </div>
+
+</div>
+
+
+<!-- QUESTION 8 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+
+        Question 8
+
+    </div>
+
+    <div class="question-text">
+
+        Which keyword is used to handle an exception?
+
+    </div>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q8"
+               value="try">
+
+        try
+
+    </label>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q8"
+               value="error">
+
+        error
+
+    </label>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q8"
+               value="exception">
+
+        exception
+
+    </label>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q8"
+               value="handle">
+
+        handle
+
+    </label>
+
+    <button class="submit-question"
+            onclick="checkAnswer(8, 'try')">
+
+        Submit Answer
+
+    </button>
+
+    <div id="result8"
+         class="answer-result">
+
+    </div>
+
+</div>
+
+
+<!-- QUESTION 9 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+
+        Question 9
+
+    </div>
+
+    <div class="question-text">
+
+        What is the index of the first element of a Java
+        array?
+
+    </div>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q9"
+               value="0">
+
+        0
+
+    </label>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q9"
+               value="1">
+
+        1
+
+    </label>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q9"
+               value="-1">
+
+        -1
+
+    </label>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q9"
+               value="2">
+
+        2
+
+    </label>
+
+    <button class="submit-question"
+            onclick="checkAnswer(9, '0')">
+
+        Submit Answer
+
+    </button>
+
+    <div id="result9"
+         class="answer-result">
+
+    </div>
+
+</div>
+
+
+<!-- QUESTION 10 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+
+        Question 10
+
+    </div>
+
+    <div class="question-text">
+
+        Which keyword is used to define a constant
+        variable in Java?
+
+    </div>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q10"
+               value="const">
+
+        const
+
+    </label>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q10"
+               value="final">
+
+        final
+
+    </label>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q10"
+               value="static">
+
+        static
+
+    </label>
+
+    <label class="option">
+
+        <input type="radio"
+               name="q10"
+               value="constant">
+
+        constant
+
+    </label>
+
+    <button class="submit-question"
+            onclick="checkAnswer(10, 'final')">
+
+        Submit Answer
+
+    </button>
+
+    <div id="result10"
+         class="answer-result">
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     SUBMIT ALL
+=========================================== -->
+
+<div class="text-center mt-4">
+
+    <button
+        class="btn btn-lg main-submit"
+        onclick="calculateScore()">
+
+        🏆 Submit All Questions
+
+    </button>
+
+</div>
+
+
+<!-- ==========================================
+     FINAL SCORE
+=========================================== -->
+
+<div id="finalScore">
+
+    <h3>
+
+        🎉 Quiz Completed!
+
+    </h3>
+
+    <h4 id="scoreText"></h4>
+
+    <p id="scoreMessage"></p>
+
+</div>
+
+
+<!-- ==========================================
+     IMPORTANCE
+=========================================== -->
+
+<h4 class="mt-5">
+
+    🎯 Importance of Java for Placements
+
+</h4>
+
+<ul>
+
+    <li>
+        Java is widely used in software development.
+    </li>
+
+    <li>
+        Java is frequently asked in technical interviews.
+    </li>
+
+    <li>
+        Object-oriented programming concepts are important
+        for placement exams.
+    </li>
+
+    <li>
+        Java is useful for backend and enterprise applications.
+    </li>
+
+    <li>
+        Java programming improves problem-solving skills.
+    </li>
+
+</ul>
+
+
+<!-- ==========================================
+     PREPARATION TIPS
+=========================================== -->
+
+<h4 class="mt-4">
+
+    🚀 Java Preparation Tips
+
+</h4>
+
+
+<div class="alert alert-success">
+
+    <ul>
+
+        <li>
+            Learn Java syntax and basic programming first.
+        </li>
+
+        <li>
+            Practice arrays and strings regularly.
+        </li>
+
+        <li>
+            Understand OOP concepts clearly.
+        </li>
+
+        <li>
+            Practice coding problems every day.
+        </li>
+
+        <li>
+            Learn exception handling and collections.
+        </li>
+
+        <li>
+            Solve previous placement coding questions.
+        </li>
+
+    </ul>
+
+</div>
+
+
+<!-- ==========================================
+     COMPANIES
+=========================================== -->
+
+<h4 class="mt-4">
+
+    🏢 Companies Asking Java Questions
+
+</h4>
+
+
+<table class="table table-bordered">
+
+    <thead class="table-primary">
+
+        <tr>
+
+            <th>
+                Company
+            </th>
+
+            <th>
+                Difficulty
+            </th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        <tr>
+
+            <td>TCS</td>
+
+            <td>Medium</td>
+
+        </tr>
+
+        <tr>
+
+            <td>Infosys</td>
+
+            <td>Medium</td>
+
+        </tr>
+
+        <tr>
+
+            <td>Wipro</td>
+
+            <td>Medium</td>
+
+        </tr>
+
+        <tr>
+
+            <td>Accenture</td>
+
+            <td>Medium</td>
+
+        </tr>
+
+        <tr>
+
+            <td>Cognizant</td>
+
+            <td>Medium</td>
+
+        </tr>
+
+        <tr>
+
+            <td>Capgemini</td>
+
+            <td>Medium</td>
+
+        </tr>
+
+        <tr>
+
+            <td>IBM</td>
+
+            <td>Medium to High</td>
+
+        </tr>
+
+    </tbody>
+
+</table>
+
+
+<!-- ==========================================
+     BOTTOM BUTTONS
+=========================================== -->
+
+<div class="text-center mt-4 mb-5 bottom-buttons">
+
+    <button
+        onclick="completeTopic()"
+        class="btn complete-btn btn-lg">
+
+        ✅ Complete Today's Task
+
+    </button>
+
+    <a
+        href="/coding"
+        class="btn back-btn btn-lg ms-2">
+
+        ⬅ Back to Coding
+
+    </a>
+
+</div>
+
+
+</div>
+
+
+<!-- ==========================================
+     BOOTSTRAP JAVASCRIPT
+=========================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+<script>
+
+/* =================================================
+   SCORE VARIABLES
+================================================= */
+
+let score = 0;
+
+let answeredQuestions = new Set();
+
+
+/* =================================================
+   ANSWER INFORMATION
+================================================= */
+
+const answerText = {
+
+    1: "main()",
+
+    2: "class",
+
+    3: "boolean",
+
+    4: "extends",
+
+    5: "//",
+
+    6: "30",
+
+    7: "new",
+
+    8: "try",
+
+    9: "0",
+
+    10: "final"
+
+};
+
+
+/* =================================================
+   EXPLANATIONS
+================================================= */
+
+const explanations = {
+
+    1:
+        "The main() method is the starting point of execution for a standard Java application.",
+
+    2:
+        "The class keyword is used to define a class in Java.",
+
+    3:
+        "The boolean data type stores either true or false.",
+
+    4:
+        "The extends keyword is used when one Java class inherits another class.",
+
+    5:
+        "The // symbol is used to create a single-line comment in Java.",
+
+    6:
+        "10 + 20 = 30, so the output is 30.",
+
+    7:
+        "The new keyword is used to create an object or instance of a class.",
+
+    8:
+        "The try block contains code that may generate an exception.",
+
+    9:
+        "Java arrays use zero-based indexing, so the first element is at index 0.",
+
+    10:
+        "The final keyword can be used to make a variable constant so its value cannot be reassigned."
+
+};
+
+
+/* =================================================
+   CHECK INDIVIDUAL QUESTION
+================================================= */
+
+function checkAnswer(questionNumber, correctAnswer) {
+
+    const selected =
+        document.querySelector(
+            `input[name="q${questionNumber}"]:checked`
+        );
+
+
+    const result =
+        document.getElementById(
+            `result${questionNumber}`
+        );
+
+
+    /* ---------------------------------------------
+       NO OPTION SELECTED
+    --------------------------------------------- */
+
+    if (!selected) {
+
+        result.style.display = "block";
+
+        result.className =
+            "answer-result wrong-result";
+
+        result.innerHTML =
+            "⚠️ <strong>Please select an option first.</strong>";
+
+        return;
+
+    }
+
+
+    /* ---------------------------------------------
+       ALREADY ANSWERED
+    --------------------------------------------- */
+
+    if (answeredQuestions.has(questionNumber)) {
+
+        result.style.display = "block";
+
+        result.className =
+            "answer-result correct-result";
+
+        result.innerHTML =
+            "ℹ️ <strong>This question has already been submitted.</strong>";
+
+        return;
+
+    }
+
+
+    /* ---------------------------------------------
+       MARK ANSWERED
+    --------------------------------------------- */
+
+    answeredQuestions.add(questionNumber);
+
+
+    /* ---------------------------------------------
+       CORRECT ANSWER
+    --------------------------------------------- */
+
+    if (selected.value === correctAnswer) {
+
+        score++;
+
+        result.style.display = "block";
+
+        result.className =
+            "answer-result correct-result";
+
+        result.innerHTML =
+
+            "✅ <strong>Correct Answer!</strong><br><br>" +
+
+            "Your answer: <strong>" +
+            answerText[questionNumber] +
+            "</strong><br><br>" +
+
+            "💡 " +
+            explanations[questionNumber];
+
+    }
+
+
+    /* ---------------------------------------------
+       WRONG ANSWER
+    --------------------------------------------- */
+
+    else {
+
+        result.style.display = "block";
+
+        result.className =
+            "answer-result wrong-result";
+
+        result.innerHTML =
+
+            "❌ <strong>Incorrect Answer!</strong><br><br>" +
+
+            "Your answer: <strong>" +
+            selected.parentElement.textContent.trim() +
+            "</strong><br><br>" +
+
+            "✅ Correct Answer: <strong>" +
+            answerText[questionNumber] +
+            "</strong><br><br>" +
+
+            "💡 " +
+            explanations[questionNumber];
+
+    }
+
+
+    /* ---------------------------------------------
+       DISABLE OPTIONS
+    --------------------------------------------- */
+
+    const options =
+        document.querySelectorAll(
+            `input[name="q${questionNumber}"]`
+        );
+
+
+    options.forEach(function(option) {
+
+        option.disabled = true;
+
+    });
+
+
+    /* ---------------------------------------------
+       DISABLE BUTTON
+    --------------------------------------------- */
+
+    const currentCard =
+        result.closest(".question-card");
+
+
+    const currentButton =
+        currentCard.querySelector(
+            ".submit-question"
+        );
+
+
+    currentButton.disabled = true;
+
+    currentButton.innerText =
+        "✓ Answer Submitted";
+
+}
+
+
+/* =================================================
+   CALCULATE FINAL SCORE
+================================================= */
+
+function calculateScore() {
+
+    const finalScore =
+        document.getElementById(
+            "finalScore"
+        );
+
+
+    const scoreText =
+        document.getElementById(
+            "scoreText"
+        );
+
+
+    const scoreMessage =
+        document.getElementById(
+            "scoreMessage"
+        );
+
+
+    finalScore.style.display = "block";
+
+
+    scoreText.innerHTML =
+        "Your Score: " +
+        score +
+        " / 10";
+
+
+    if (score === 10) {
+
+        scoreMessage.innerHTML =
+            "🏆 Excellent! You got all 10 questions correct!";
+
+    }
+
+    else if (score >= 8) {
+
+        scoreMessage.innerHTML =
+            "🌟 Great job! Your Java fundamentals are strong.";
+
+    }
+
+    else if (score >= 5) {
+
+        scoreMessage.innerHTML =
+            "👍 Good attempt! Keep practicing Java.";
+
+    }
+
+    else {
+
+        scoreMessage.innerHTML =
+            "📚 Keep practicing. Review Java fundamentals and try again.";
+
+    }
+
+
+    finalScore.scrollIntoView({
+
+        behavior: "smooth",
+
+        block: "center"
+
+    });
+
+}
+
+
+/* =================================================
+   COMPLETE TODAY'S TASK
+================================================= */
+
+function completeTopic() {
+
+    const today =
+        new Date().toDateString();
+
+
+    let progress =
+        JSON.parse(
+            localStorage.getItem(
+                "placementProgress"
+            )
+        ) || {
+
+            streak: 0,
+
+            lastCompleted: "",
+
+            completedTopics: {},
+
+            completedTasks: {}
+
+        };
+
+
+    const taskName =
+        "Java Programming";
+
+
+    /* ---------------------------------------------
+       SUPPORT OLD DATA FORMAT
+    --------------------------------------------- */
+
+    if (!progress.completedTasks) {
+
+        progress.completedTasks = {};
+
+    }
+
+
+    /* ---------------------------------------------
+       ALREADY COMPLETED
+    --------------------------------------------- */
+
+    if (
+        progress.completedTasks[taskName] === today
+    ) {
+
+        alert(
+            "✅ You already completed Java Programming today!"
+        );
+
+        return;
+
+    }
+
+
+    /* ---------------------------------------------
+       SAVE COMPLETION
+    --------------------------------------------- */
+
+    progress.completedTasks[taskName] =
+        today;
+
+
+    /* ---------------------------------------------
+       ALSO SAVE TOPIC FORMAT
+    --------------------------------------------- */
+
+    if (!progress.completedTopics) {
+
+        progress.completedTopics = {};
+
+    }
+
+
+    progress.completedTopics[taskName] =
+        today;
+
+
+    /* ---------------------------------------------
+       UPDATE STREAK
+    --------------------------------------------- */
+
+    if (
+        progress.lastCompleted !== today
+    ) {
+
+        progress.streak++;
+
+        progress.lastCompleted =
+            today;
+
+    }
+
+
+    /* ---------------------------------------------
+       SAVE
+    --------------------------------------------- */
+
+    localStorage.setItem(
+
+        "placementProgress",
+
+        JSON.stringify(progress)
+
+    );
+
+
+    /* ---------------------------------------------
+       SUCCESS MESSAGE
+    --------------------------------------------- */
+
+    alert(
+
+        "🎉 Java Programming completed!\n\n" +
+
+        "🔥 Current Streak: " +
+
+        progress.streak +
+
+        " day(s)"
+
+    );
+
+
+    /* ---------------------------------------------
+       GO TO DASHBOARD
+    --------------------------------------------- */
+
+    window.location.href =
+        "/dashboard";
+
+}
+
+</script>
+
+
+</body>
+
+</html>

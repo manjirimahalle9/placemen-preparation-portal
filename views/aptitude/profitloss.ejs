@@ -1,0 +1,2728 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Profit and Loss | PlacementX</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+
+    <style>
+
+        body {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+            min-height: 100vh;
+
+        }
+
+
+        .container {
+
+            background: #050706;
+
+            max-width: 1000px;
+
+        }
+
+
+        p,
+        li,
+        h2,
+        h4,
+        strong {
+
+            color: white;
+
+        }
+
+
+        /* ==============================
+           TITLE
+        ============================== */
+
+        .page-title {
+
+            color: #00c49c !important;
+
+            font-weight: 700;
+
+        }
+
+
+        hr {
+
+            border-color: #008c70;
+
+            opacity: 1;
+
+        }
+
+
+        /* ==============================
+           TOPICS LIST
+        ============================== */
+
+        .list-group-item {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+            border-color: #008c70 !important;
+
+        }
+
+
+        /* ==============================
+           ACCORDION
+        ============================== */
+
+        .accordion-item {
+
+            background: #050706 !important;
+
+            border-color: #008c70 !important;
+
+        }
+
+
+        .accordion-button {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+        }
+
+
+        .accordion-button:not(.collapsed) {
+
+            background: #008c70 !important;
+
+            color: white !important;
+
+        }
+
+
+        .accordion-body {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+        }
+
+
+        .accordion-button::after {
+
+            filter: brightness(0) invert(1);
+
+        }
+
+
+        /* ==============================
+           QUESTION CARD
+        ============================== */
+
+        .question-card {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+            border: 1px solid #008c70 !important;
+
+            border-radius: 10px;
+
+            padding: 20px;
+
+            margin-bottom: 20px;
+
+            box-shadow:
+                0 0 12px rgba(0, 140, 112, 0.10);
+
+        }
+
+
+        .question-title {
+
+            color: #00c49c !important;
+
+            font-size: 19px;
+
+            font-weight: 700;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .question-text {
+
+            line-height: 1.7;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        /* ==============================
+           OPTIONS
+        ============================== */
+
+        .option {
+
+            display: block;
+
+            background: #0a100e;
+
+            color: white;
+
+            border: 1px solid #285e51;
+
+            border-radius: 8px;
+
+            padding: 12px 15px;
+
+            margin-bottom: 10px;
+
+            cursor: pointer;
+
+            transition: 0.25s;
+
+        }
+
+
+        .option:hover {
+
+            background: #0d1c18;
+
+            border-color: #00c49c;
+
+        }
+
+
+        .option input {
+
+            margin-right: 10px;
+
+            accent-color: #00c49c;
+
+        }
+
+
+        /* ==============================
+           SUBMIT QUESTION BUTTON
+        ============================== */
+
+        .submit-question {
+
+            background: #008c70;
+
+            border: none;
+
+            color: white;
+
+            padding: 9px 20px;
+
+            border-radius: 7px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+        }
+
+
+        .submit-question:hover {
+
+            background: #00a886;
+
+            color: white;
+
+        }
+
+
+        .submit-question:disabled {
+
+            opacity: 0.6;
+
+            cursor: not-allowed;
+
+        }
+
+
+        /* ==============================
+           MAIN SUBMIT BUTTON
+        ============================== */
+
+        .main-submit {
+
+            background: #008c70 !important;
+
+            border: none;
+
+            color: white !important;
+
+            padding: 12px 25px;
+
+            border-radius: 8px;
+
+            font-weight: 600;
+
+        }
+
+
+        .main-submit:hover {
+
+            background: #00a886 !important;
+
+            color: white !important;
+
+        }
+
+
+        /* ==============================
+           ANSWER RESULT
+        ============================== */
+
+        .answer-result {
+
+            display: none;
+
+            margin-top: 15px;
+
+            padding: 15px;
+
+            border-radius: 8px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .correct-result {
+
+            background: #073d2f;
+
+            border: 1px solid #00c49c;
+
+        }
+
+
+        .wrong-result {
+
+            background: #351414;
+
+            border: 1px solid #dc3545;
+
+        }
+
+
+        .correct-result strong,
+        .wrong-result strong {
+
+            color: white;
+
+        }
+
+
+        /* ==============================
+           FINAL SCORE
+        ============================== */
+
+        #finalScore {
+
+            display: none;
+
+            background: #071d17;
+
+            border: 2px solid #00c49c;
+
+            border-radius: 12px;
+
+            padding: 25px;
+
+            margin-top: 30px;
+
+            text-align: center;
+
+        }
+
+
+        #finalScore h3 {
+
+            color: #00c49c !important;
+
+        }
+
+
+        #scoreText {
+
+            color: white !important;
+
+        }
+
+
+        #scoreMessage {
+
+            color: white !important;
+
+        }
+
+
+        /* ==============================
+           PREPARATION ALERT
+        ============================== */
+
+        .alert-success {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+            border: 1px solid #008c70 !important;
+
+        }
+
+
+        .alert-success li {
+
+            color: white !important;
+
+        }
+
+
+        /* ==============================
+           TABLE
+        ============================== */
+
+        .table {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+        }
+
+
+        .table tbody tr,
+        .table tbody td {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+            border-color: #008c70 !important;
+
+        }
+
+
+        .table-primary,
+        .table-primary th {
+
+            background: #008c70 !important;
+
+            color: white !important;
+
+        }
+
+
+        /* ==============================
+           BOTTOM BUTTONS
+        ============================== */
+
+        .complete-btn {
+
+            background: #198754;
+
+            border: none;
+
+            color: white;
+
+        }
+
+
+        .complete-btn:hover {
+
+            background: #157347;
+
+            color: white;
+
+        }
+
+
+        .back-btn {
+
+            background: #008c70;
+
+            border: none;
+
+            color: white;
+
+        }
+
+
+        .back-btn:hover {
+
+            background: #00a886;
+
+            color: white;
+
+        }
+
+
+        /* ==============================
+           MOBILE
+        ============================== */
+
+        @media (max-width: 576px) {
+
+            .container {
+
+                padding-left: 15px;
+
+                padding-right: 15px;
+
+            }
+
+
+            .question-card {
+
+                padding: 16px;
+
+            }
+
+
+            .bottom-buttons a,
+            .bottom-buttons button {
+
+                width: 100%;
+
+                margin: 5px 0 !important;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="container mt-5 mb-5">
+
+
+    <!-- ==========================================
+         TITLE
+    =========================================== -->
+
+    <h2 class="text-center page-title">
+
+        💰 Profit and Loss
+
+    </h2>
+
+
+    <hr>
+
+
+    <!-- ==========================================
+         INTRODUCTION
+    =========================================== -->
+
+    <p>
+
+        Profit and Loss is an important quantitative aptitude
+        topic used in placement exams. It tests your ability
+        to calculate cost price, selling price, profit, loss,
+        profit percentage, loss percentage, discount and marked
+        price.
+
+        These concepts are commonly used in business and
+        real-world financial calculations.
+
+    </p>
+
+
+    <!-- ==========================================
+         TOPICS COVERED
+    =========================================== -->
+
+    <h4 class="mt-4">
+
+        📚 Topics Covered
+
+    </h4>
+
+
+    <ul class="list-group mb-4">
+
+        <li class="list-group-item">
+            Cost Price
+        </li>
+
+        <li class="list-group-item">
+            Selling Price
+        </li>
+
+        <li class="list-group-item">
+            Profit
+        </li>
+
+        <li class="list-group-item">
+            Loss
+        </li>
+
+        <li class="list-group-item">
+            Profit Percentage
+        </li>
+
+        <li class="list-group-item">
+            Loss Percentage
+        </li>
+
+        <li class="list-group-item">
+            Discount
+        </li>
+
+        <li class="list-group-item">
+            Marked Price
+        </li>
+
+        <li class="list-group-item">
+            Successive Discounts
+        </li>
+
+        <li class="list-group-item">
+            Overall Profit and Loss
+        </li>
+
+    </ul>
+
+
+    <!-- ==========================================
+         TOPIC DEFINITIONS
+    =========================================== -->
+
+    <h4>
+
+        📖 Topic Definitions
+
+    </h4>
+
+
+    <div class="accordion"
+         id="profitLossTopics">
+
+
+        <!-- COST PRICE -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#cpTopic">
+
+                    1. Cost Price (CP)
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="cpTopic"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    Cost Price (CP) is the price at which
+                    an item is purchased.
+
+                    <br><br>
+
+                    <strong>Example:</strong>
+
+                    If a shopkeeper buys an item for ₹500,
+                    then CP = ₹500.
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SELLING PRICE -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#spTopic">
+
+                    2. Selling Price (SP)
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="spTopic"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    Selling Price (SP) is the price at which
+                    an item is sold to the customer.
+
+                    <br><br>
+
+                    <strong>Example:</strong>
+
+                    If an item is sold for ₹600,
+                    then SP = ₹600.
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROFIT -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#profitTopic">
+
+                    3. Profit
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="profitTopic"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    Profit occurs when the Selling Price
+                    is greater than the Cost Price.
+
+                    <br><br>
+
+                    <strong>Formula:</strong>
+
+                    Profit = SP − CP
+
+                    <br><br>
+
+                    <strong>Profit Percentage:</strong>
+
+                    Profit % = (Profit / CP) × 100
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- LOSS -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#lossTopic">
+
+                    4. Loss
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="lossTopic"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    Loss occurs when the Selling Price
+                    is less than the Cost Price.
+
+                    <br><br>
+
+                    <strong>Formula:</strong>
+
+                    Loss = CP − SP
+
+                    <br><br>
+
+                    <strong>Loss Percentage:</strong>
+
+                    Loss % = (Loss / CP) × 100
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROFIT PERCENTAGE -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#profitPercentTopic">
+
+                    5. Profit Percentage
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="profitPercentTopic"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    Profit percentage represents the profit
+                    earned as a percentage of the Cost Price.
+
+                    <br><br>
+
+                    <strong>Formula:</strong>
+
+                    Profit % =
+
+                    (Profit / CP) × 100
+
+                    <br><br>
+
+                    <strong>Example:</strong>
+
+                    CP = ₹500 and SP = ₹600.
+
+                    Profit = ₹100.
+
+                    Profit % = (100 / 500) × 100 = 20%.
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- LOSS PERCENTAGE -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#lossPercentTopic">
+
+                    6. Loss Percentage
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="lossPercentTopic"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    Loss percentage represents the loss
+                    as a percentage of the Cost Price.
+
+                    <br><br>
+
+                    <strong>Formula:</strong>
+
+                    Loss % =
+
+                    (Loss / CP) × 100
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- DISCOUNT -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#discountTopic">
+
+                    7. Discount
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="discountTopic"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    Discount is the reduction given on the
+                    Marked Price of an item.
+
+                    <br><br>
+
+                    <strong>Formula:</strong>
+
+                    Discount = Marked Price − Selling Price
+
+                    <br><br>
+
+                    <strong>Discount %:</strong>
+
+                    Discount % =
+
+                    (Discount / Marked Price) × 100
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MARKED PRICE -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#markedPriceTopic">
+
+                    8. Marked Price
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="markedPriceTopic"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    Marked Price (MP) is the price printed or
+                    displayed on a product before applying a
+                    discount.
+
+                    <br><br>
+
+                    <strong>Formula:</strong>
+
+                    SP = MP − Discount
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SUCCESSIVE DISCOUNT -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#successiveTopic">
+
+                    9. Successive Discounts
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="successiveTopic"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    Successive discounts are two or more
+                    discounts applied one after another.
+
+                    <br><br>
+
+                    <strong>Formula for two discounts:</strong>
+
+                    Net Discount % =
+
+                    A + B − (A × B / 100)
+
+                    <br><br>
+
+                    Example: 20% and 10% discounts.
+
+                    Net Discount =
+
+                    20 + 10 − (20 × 10 / 100)
+
+                    = 28%.
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- OVERALL -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#overallTopic">
+
+                    10. Overall Profit and Loss
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="overallTopic"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    Overall profit or loss is calculated by
+                    comparing the total Cost Price with the
+                    total Selling Price.
+
+                    <br><br>
+
+                    <strong>Profit:</strong>
+
+                    Total SP − Total CP
+
+                    <br><br>
+
+                    <strong>Loss:</strong>
+
+                    Total CP − Total SP
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ==========================================
+         PRACTICE QUESTIONS
+    =========================================== -->
+
+    <h4 class="mt-5">
+
+        📝 Practice Questions
+
+    </h4>
+
+
+    <!-- ==========================================
+         QUESTION 1
+    =========================================== -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+
+            Question 1
+
+        </div>
+
+
+        <div class="question-text">
+
+            An item is bought for ₹500 and sold for ₹600.
+
+            What is the profit?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q1"
+                value="50">
+
+            ₹50
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q1"
+                value="100">
+
+            ₹100
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q1"
+                value="150">
+
+            ₹150
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q1"
+                value="200">
+
+            ₹200
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(1, '100')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result1"
+             class="answer-result">
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         QUESTION 2
+    =========================================== -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+
+            Question 2
+
+        </div>
+
+
+        <div class="question-text">
+
+            An article costs ₹1,000 and is sold for ₹900.
+
+            What is the loss?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q2"
+                value="50">
+
+            ₹50
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q2"
+                value="100">
+
+            ₹100
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q2"
+                value="150">
+
+            ₹150
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q2"
+                value="200">
+
+            ₹200
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(2, '100')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result2"
+             class="answer-result">
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         QUESTION 3
+    =========================================== -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+
+            Question 3
+
+        </div>
+
+
+        <div class="question-text">
+
+            An article is bought for ₹500 and sold for ₹600.
+
+            What is the profit percentage?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q3"
+                value="10">
+
+            10%
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q3"
+                value="15">
+
+            15%
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q3"
+                value="20">
+
+            20%
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q3"
+                value="25">
+
+            25%
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(3, '20')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result3"
+             class="answer-result">
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         QUESTION 4
+    =========================================== -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+
+            Question 4
+
+        </div>
+
+
+        <div class="question-text">
+
+            An article is bought for ₹800 and sold for ₹680.
+
+            What is the loss percentage?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q4"
+                value="10">
+
+            10%
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q4"
+                value="12">
+
+            12%
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q4"
+                value="15">
+
+            15%
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q4"
+                value="20">
+
+            20%
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(4, '15')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result4"
+             class="answer-result">
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         QUESTION 5
+    =========================================== -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+
+            Question 5
+
+        </div>
+
+
+        <div class="question-text">
+
+            An item has a marked price of ₹1,000.
+            A discount of 20% is offered.
+
+            What is the selling price?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q5"
+                value="700">
+
+            ₹700
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q5"
+                value="750">
+
+            ₹750
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q5"
+                value="800">
+
+            ₹800
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q5"
+                value="850">
+
+            ₹850
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(5, '800')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result5"
+             class="answer-result">
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         QUESTION 6
+    =========================================== -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+
+            Question 6
+
+        </div>
+
+
+        <div class="question-text">
+
+            A shopkeeper buys an article for ₹2,000 and
+            sells it at a profit of 15%.
+
+            What is the selling price?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q6"
+                value="2200">
+
+            ₹2,200
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q6"
+                value="2250">
+
+            ₹2,250
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q6"
+                value="2300">
+
+            ₹2,300
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q6"
+                value="2400">
+
+            ₹2,400
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(6, '2300')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result6"
+             class="answer-result">
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         QUESTION 7
+    =========================================== -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+
+            Question 7
+
+        </div>
+
+
+        <div class="question-text">
+
+            An article is sold for ₹1,200 at a loss of 20%.
+
+            What was its Cost Price?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q7"
+                value="1400">
+
+            ₹1,400
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q7"
+                value="1500">
+
+            ₹1,500
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q7"
+                value="1600">
+
+            ₹1,600
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q7"
+                value="1800">
+
+            ₹1,800
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(7, '1500')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result7"
+             class="answer-result">
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         QUESTION 8
+    =========================================== -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+
+            Question 8
+
+        </div>
+
+
+        <div class="question-text">
+
+            A product has a marked price of ₹2,500.
+            A discount of 10% is given.
+
+            What is the discount amount?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q8"
+                value="200">
+
+            ₹200
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q8"
+                value="250">
+
+            ₹250
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q8"
+                value="300">
+
+            ₹300
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q8"
+                value="350">
+
+            ₹350
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(8, '250')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result8"
+             class="answer-result">
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         QUESTION 9
+    =========================================== -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+
+            Question 9
+
+        </div>
+
+
+        <div class="question-text">
+
+            An item is bought for ₹1,500 and sold for ₹1,800.
+
+            What is the profit percentage?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q9"
+                value="15">
+
+            15%
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q9"
+                value="20">
+
+            20%
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q9"
+                value="25">
+
+            25%
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q9"
+                value="30">
+
+            30%
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(9, '20')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result9"
+             class="answer-result">
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         QUESTION 10
+    =========================================== -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+
+            Question 10
+
+        </div>
+
+
+        <div class="question-text">
+
+            An article is marked at ₹2,000 and sold after
+            successive discounts of 20% and 10%.
+
+            What is the final selling price?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q10"
+                value="1400">
+
+            ₹1,400
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q10"
+                value="1440">
+
+            ₹1,440
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q10"
+                value="1500">
+
+            ₹1,500
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q10"
+                value="1600">
+
+            ₹1,600
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(10, '1440')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result10"
+             class="answer-result">
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         SUBMIT ALL QUESTIONS
+    =========================================== -->
+
+    <div class="text-center mt-4">
+
+        <button
+            class="btn btn-lg main-submit"
+            onclick="calculateScore()">
+
+            🏆 Submit All Questions
+
+        </button>
+
+    </div>
+
+
+    <!-- ==========================================
+         FINAL SCORE
+    =========================================== -->
+
+    <div id="finalScore">
+
+        <h3>
+
+            🎉 Quiz Completed!
+
+        </h3>
+
+
+        <h4 id="scoreText">
+
+        </h4>
+
+
+        <p id="scoreMessage">
+
+        </p>
+
+    </div>
+
+
+    <!-- ==========================================
+         IMPORTANCE
+    =========================================== -->
+
+    <h4 class="mt-5">
+
+        🎯 Importance of Profit and Loss
+
+    </h4>
+
+
+    <ul>
+
+        <li>
+            Useful in placement aptitude tests.
+        </li>
+
+        <li>
+            Improves mathematical calculation skills.
+        </li>
+
+        <li>
+            Helps understand business calculations.
+        </li>
+
+        <li>
+            Develops percentage calculation ability.
+        </li>
+
+        <li>
+            Improves problem-solving speed.
+        </li>
+
+    </ul>
+
+
+    <!-- ==========================================
+         PREPARATION TIPS
+    =========================================== -->
+
+    <h4 class="mt-4">
+
+        🚀 Preparation Tips
+
+    </h4>
+
+
+    <div class="alert alert-success">
+
+        <ul>
+
+            <li>
+                Remember the CP, SP, Profit and Loss formulas.
+            </li>
+
+            <li>
+                Practice percentage calculations regularly.
+            </li>
+
+            <li>
+                Understand discount and marked price problems.
+            </li>
+
+            <li>
+                Practice successive discount questions.
+            </li>
+
+            <li>
+                Solve previous placement aptitude questions.
+            </li>
+
+            <li>
+                Practice calculations without a calculator.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- ==========================================
+         COMPANIES
+    =========================================== -->
+
+    <h4 class="mt-4">
+
+        🏢 Companies Asking Profit and Loss
+
+    </h4>
+
+
+    <table class="table table-bordered">
+
+        <thead class="table-primary">
+
+            <tr>
+
+                <th>
+                    Company
+                </th>
+
+                <th>
+                    Difficulty
+                </th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+            <tr>
+
+                <td>
+                    TCS
+                </td>
+
+                <td>
+                    Medium
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Infosys
+                </td>
+
+                <td>
+                    Medium
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Wipro
+                </td>
+
+                <td>
+                    Medium
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Accenture
+                </td>
+
+                <td>
+                    Medium
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Cognizant
+                </td>
+
+                <td>
+                    Medium
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Capgemini
+                </td>
+
+                <td>
+                    Medium
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    IBM
+                </td>
+
+                <td>
+                    Medium to High
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+
+    <!-- ==========================================
+         BOTTOM BUTTONS
+    =========================================== -->
+
+    <div class="text-center mt-4 mb-5 bottom-buttons">
+
+
+        <button
+            onclick="completeTopic()"
+            class="btn complete-btn btn-lg">
+
+            ✅ Complete Today's Task
+
+        </button>
+
+
+        <a
+            href="/aptitude"
+            class="btn back-btn btn-lg ms-2">
+
+            ⬅ Back to Aptitude
+
+        </a>
+
+
+    </div>
+
+
+</div>
+
+
+<!-- ==========================================
+     BOOTSTRAP JAVASCRIPT
+=========================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+<script>
+
+
+/* =================================================
+   SCORE VARIABLES
+================================================= */
+
+let score = 0;
+
+let answeredQuestions = new Set();
+
+
+/* =================================================
+   ANSWER INFORMATION
+================================================= */
+
+const answerText = {
+
+    1: "₹100",
+
+    2: "₹100",
+
+    3: "20%",
+
+    4: "15%",
+
+    5: "₹800",
+
+    6: "₹2,300",
+
+    7: "₹1,500",
+
+    8: "₹250",
+
+    9: "20%",
+
+    10: "₹1,440"
+
+};
+
+
+/* =================================================
+   EXPLANATIONS
+================================================= */
+
+const explanations = {
+
+    1:
+        "Profit = SP − CP = ₹600 − ₹500 = ₹100.",
+
+
+    2:
+        "Loss = CP − SP = ₹1,000 − ₹900 = ₹100.",
+
+
+    3:
+        "Profit = ₹600 − ₹500 = ₹100. Profit % = (100 ÷ 500) × 100 = 20%.",
+
+
+    4:
+        "Loss = ₹800 − ₹680 = ₹120. Loss % = (120 ÷ 800) × 100 = 15%.",
+
+
+    5:
+        "Discount = 20% of ₹1,000 = ₹200. Selling Price = ₹1,000 − ₹200 = ₹800.",
+
+
+    6:
+        "Profit = 15% of ₹2,000 = ₹300. Selling Price = ₹2,000 + ₹300 = ₹2,300.",
+
+
+    7:
+        "A 20% loss means SP = 80% of CP. Therefore CP = ₹1,200 ÷ 0.80 = ₹1,500.",
+
+
+    8:
+        "Discount = 10% of ₹2,500 = (10 ÷ 100) × ₹2,500 = ₹250.",
+
+
+    9:
+        "Profit = ₹1,800 − ₹1,500 = ₹300. Profit % = (300 ÷ 1,500) × 100 = 20%.",
+
+
+    10:
+        "First discount: ₹2,000 × 80% = ₹1,600. Second discount: ₹1,600 × 90% = ₹1,440."
+
+};
+
+
+/* =================================================
+   CHECK INDIVIDUAL QUESTION
+================================================= */
+
+function checkAnswer(questionNumber, correctAnswer) {
+
+
+    const selected =
+        document.querySelector(
+            `input[name="q${questionNumber}"]:checked`
+        );
+
+
+    const result =
+        document.getElementById(
+            `result${questionNumber}`
+        );
+
+
+    /* ---------------------------------------------
+       NO OPTION SELECTED
+    --------------------------------------------- */
+
+    if (!selected) {
+
+        result.style.display = "block";
+
+        result.className =
+            "answer-result wrong-result";
+
+        result.innerHTML =
+
+            "⚠️ <strong>Please select an option first.</strong>";
+
+        return;
+
+    }
+
+
+    /* ---------------------------------------------
+       ALREADY ANSWERED
+    --------------------------------------------- */
+
+    if (
+        answeredQuestions.has(questionNumber)
+    ) {
+
+        result.style.display = "block";
+
+        result.className =
+            "answer-result correct-result";
+
+        result.innerHTML =
+
+            "ℹ️ <strong>This question has already been submitted.</strong>";
+
+        return;
+
+    }
+
+
+    /* ---------------------------------------------
+       MARK QUESTION AS ANSWERED
+    --------------------------------------------- */
+
+    answeredQuestions.add(questionNumber);
+
+
+    /* ---------------------------------------------
+       CORRECT ANSWER
+    --------------------------------------------- */
+
+    if (
+        selected.value === correctAnswer
+    ) {
+
+        score++;
+
+
+        result.style.display = "block";
+
+        result.className =
+            "answer-result correct-result";
+
+
+        result.innerHTML =
+
+            "✅ <strong>Correct Answer!</strong><br><br>" +
+
+            "Your answer: <strong>" +
+            answerText[questionNumber] +
+            "</strong><br><br>" +
+
+            "💡 " +
+            explanations[questionNumber];
+
+    }
+
+
+    /* ---------------------------------------------
+       WRONG ANSWER
+    --------------------------------------------- */
+
+    else {
+
+        result.style.display = "block";
+
+        result.className =
+            "answer-result wrong-result";
+
+
+        result.innerHTML =
+
+            "❌ <strong>Incorrect Answer!</strong><br><br>" +
+
+            "Your answer: <strong>" +
+            selected.parentElement.textContent.trim() +
+            "</strong><br><br>" +
+
+            "✅ Correct Answer: <strong>" +
+            answerText[questionNumber] +
+            "</strong><br><br>" +
+
+            "💡 " +
+            explanations[questionNumber];
+
+    }
+
+
+    /* ---------------------------------------------
+       DISABLE OPTIONS
+    --------------------------------------------- */
+
+    const options =
+        document.querySelectorAll(
+            `input[name="q${questionNumber}"]`
+        );
+
+
+    options.forEach(function(option) {
+
+        option.disabled = true;
+
+    });
+
+
+    /* ---------------------------------------------
+       DISABLE CURRENT BUTTON
+    --------------------------------------------- */
+
+    const currentCard =
+        result.closest(".question-card");
+
+
+    const currentButton =
+        currentCard.querySelector(
+            ".submit-question"
+        );
+
+
+    currentButton.disabled = true;
+
+
+    currentButton.innerText =
+        "✓ Answer Submitted";
+
+}
+
+
+/* =================================================
+   CALCULATE FINAL SCORE
+================================================= */
+
+function calculateScore() {
+
+
+    const finalScore =
+        document.getElementById(
+            "finalScore"
+        );
+
+
+    const scoreText =
+        document.getElementById(
+            "scoreText"
+        );
+
+
+    const scoreMessage =
+        document.getElementById(
+            "scoreMessage"
+        );
+
+
+    /* ---------------------------------------------
+       SHOW SCORE
+    --------------------------------------------- */
+
+    finalScore.style.display = "block";
+
+
+    scoreText.innerHTML =
+        "Your Score: " +
+        score +
+        " / 10";
+
+
+    /* ---------------------------------------------
+       SCORE MESSAGE
+    --------------------------------------------- */
+
+    if (score === 10) {
+
+        scoreMessage.innerHTML =
+            "🏆 Excellent! You got all 10 questions correct!";
+
+    }
+
+    else if (score >= 8) {
+
+        scoreMessage.innerHTML =
+            "🌟 Great job! Your Profit and Loss skills are strong.";
+
+    }
+
+    else if (score >= 5) {
+
+        scoreMessage.innerHTML =
+            "👍 Good attempt! Keep practicing Profit and Loss questions.";
+
+    }
+
+    else {
+
+        scoreMessage.innerHTML =
+            "📚 Keep practicing. Review the explanations and try again.";
+
+    }
+
+
+    /* ---------------------------------------------
+       SCROLL TO SCORE
+    --------------------------------------------- */
+
+    finalScore.scrollIntoView({
+
+        behavior: "smooth",
+
+        block: "center"
+
+    });
+
+}
+
+
+/* =================================================
+   COMPLETE TODAY'S TASK
+================================================= */
+
+function completeTopic() {
+
+
+    const today =
+        new Date().toDateString();
+
+
+    let progress =
+        JSON.parse(
+            localStorage.getItem(
+                "placementProgress"
+            )
+        ) || {
+
+            streak: 0,
+
+            lastCompleted: "",
+
+            completedTopics: {}
+
+        };
+
+
+    const topic =
+        "Profit and Loss";
+
+
+    /* ---------------------------------------------
+       ALREADY COMPLETED TODAY
+    --------------------------------------------- */
+
+    if (
+        progress.completedTopics[topic] === today
+    ) {
+
+        alert(
+            "✅ You already completed this task today!"
+        );
+
+        return;
+
+    }
+
+
+    /* ---------------------------------------------
+       SAVE COMPLETION
+    --------------------------------------------- */
+
+    progress.completedTopics[topic] =
+        today;
+
+
+    /* ---------------------------------------------
+       UPDATE STREAK
+    --------------------------------------------- */
+
+    if (
+        progress.lastCompleted !== today
+    ) {
+
+        progress.streak++;
+
+        progress.lastCompleted =
+            today;
+
+    }
+
+
+    /* ---------------------------------------------
+       SAVE TO LOCAL STORAGE
+    --------------------------------------------- */
+
+    localStorage.setItem(
+
+        "placementProgress",
+
+        JSON.stringify(progress)
+
+    );
+
+
+    /* ---------------------------------------------
+       SUCCESS MESSAGE
+    --------------------------------------------- */
+
+    alert(
+
+        "🎉 Profit and Loss completed!" +
+
+        "\n🔥 Streak: " +
+
+        progress.streak +
+
+        " day(s)"
+
+    );
+
+
+    /* ---------------------------------------------
+       GO TO DASHBOARD
+    --------------------------------------------- */
+
+    window.location.href =
+        "/dashboard";
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

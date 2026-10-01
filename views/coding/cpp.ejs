@@ -1,0 +1,2951 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>C++ Programming | PlacementX</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+
+    <style>
+
+        body {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+            min-height: 100vh;
+
+        }
+
+
+        .container {
+
+            background: #050706;
+
+            max-width: 1000px;
+
+        }
+
+
+        p,
+        li,
+        h2,
+        h3,
+        h4,
+        strong {
+
+            color: white;
+
+        }
+
+
+        /* ==============================
+           NAVBAR
+        ============================== */
+
+        .navbar {
+
+            background: #050706 !important;
+
+            border-bottom: 1px solid #008c70;
+
+        }
+
+
+        .navbar-brand {
+
+            color: #00c49c !important;
+
+            font-weight: 700;
+
+        }
+
+
+        .dashboard-btn {
+
+            background: #008c70;
+
+            border: none;
+
+            color: white;
+
+        }
+
+
+        .dashboard-btn:hover {
+
+            background: #00a886;
+
+            color: white;
+
+        }
+
+
+        /* ==============================
+           HEADER
+        ============================== */
+
+        .header {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #050706,
+                    #071d17
+                );
+
+            color: white;
+
+            padding: 40px 20px;
+
+            text-align: center;
+
+            border-bottom: 1px solid #008c70;
+
+        }
+
+
+        .header h1 {
+
+            color: #00c49c;
+
+            font-weight: 700;
+
+        }
+
+
+        .header p {
+
+            color: white;
+
+            margin-bottom: 0;
+
+        }
+
+
+        /* ==============================
+           PAGE TITLE
+        ============================== */
+
+        .page-title {
+
+            color: #00c49c !important;
+
+            font-weight: 700;
+
+        }
+
+
+        hr {
+
+            border-color: #008c70;
+
+            opacity: 1;
+
+        }
+
+
+        /* ==============================
+           TOPIC CARDS
+        ============================== */
+
+        .topic-card {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+            border: 1px solid #008c70 !important;
+
+            border-radius: 10px;
+
+            margin-bottom: 20px;
+
+            box-shadow:
+                0 0 12px rgba(0, 140, 112, 0.10);
+
+        }
+
+
+        .topic-card .card-body {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+            padding: 22px;
+
+        }
+
+
+        .topic-card h3 {
+
+            color: #00c49c !important;
+
+            font-weight: 700;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .topic-card li {
+
+            margin-bottom: 7px;
+
+        }
+
+
+        /* ==============================
+           CODE BLOCK
+        ============================== */
+
+        pre {
+
+            background: #0a100e !important;
+
+            color: #00c49c !important;
+
+            padding: 18px;
+
+            border-radius: 8px;
+
+            border: 1px solid #285e51;
+
+            overflow-x: auto;
+
+            line-height: 1.6;
+
+        }
+
+
+        code {
+
+            color: #00c49c;
+
+        }
+
+
+        /* ==============================
+           TOPICS LIST
+        ============================== */
+
+        .list-group-item {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+            border-color: #008c70 !important;
+
+        }
+
+
+        /* ==============================
+           ACCORDION
+        ============================== */
+
+        .accordion-item {
+
+            background: #050706 !important;
+
+            border-color: #008c70 !important;
+
+        }
+
+
+        .accordion-button {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+        }
+
+
+        .accordion-button:not(.collapsed) {
+
+            background: #008c70 !important;
+
+            color: white !important;
+
+        }
+
+
+        .accordion-body {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+        }
+
+
+        .accordion-button::after {
+
+            filter: brightness(0) invert(1);
+
+        }
+
+
+        /* ==============================
+           QUESTION CARD
+        ============================== */
+
+        .question-card {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+            border: 1px solid #008c70 !important;
+
+            border-radius: 10px;
+
+            padding: 20px;
+
+            margin-bottom: 20px;
+
+            box-shadow:
+                0 0 12px rgba(0, 140, 112, 0.10);
+
+        }
+
+
+        .question-title {
+
+            color: #00c49c !important;
+
+            font-size: 19px;
+
+            font-weight: 700;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .question-text {
+
+            line-height: 1.7;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        /* ==============================
+           OPTIONS
+        ============================== */
+
+        .option {
+
+            display: block;
+
+            background: #0a100e;
+
+            color: white;
+
+            border: 1px solid #285e51;
+
+            border-radius: 8px;
+
+            padding: 12px 15px;
+
+            margin-bottom: 10px;
+
+            cursor: pointer;
+
+            transition: 0.25s;
+
+        }
+
+
+        .option:hover {
+
+            background: #0d1c18;
+
+            border-color: #00c49c;
+
+        }
+
+
+        .option input {
+
+            margin-right: 10px;
+
+            accent-color: #00c49c;
+
+        }
+
+
+        /* ==============================
+           SUBMIT QUESTION
+        ============================== */
+
+        .submit-question {
+
+            background: #008c70;
+
+            border: none;
+
+            color: white;
+
+            padding: 9px 20px;
+
+            border-radius: 7px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+        }
+
+
+        .submit-question:hover {
+
+            background: #00a886;
+
+            color: white;
+
+        }
+
+
+        .submit-question:disabled {
+
+            opacity: 0.6;
+
+            cursor: not-allowed;
+
+        }
+
+
+        /* ==============================
+           ANSWER RESULT
+        ============================== */
+
+        .answer-result {
+
+            display: none;
+
+            margin-top: 15px;
+
+            padding: 15px;
+
+            border-radius: 8px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .correct-result {
+
+            background: #073d2f;
+
+            border: 1px solid #00c49c;
+
+        }
+
+
+        .wrong-result {
+
+            background: #351414;
+
+            border: 1px solid #dc3545;
+
+        }
+
+
+        .correct-result strong,
+        .wrong-result strong {
+
+            color: white;
+
+        }
+
+
+        /* ==============================
+           FINAL SCORE
+        ============================== */
+
+        #finalScore {
+
+            display: none;
+
+            background: #071d17;
+
+            border: 2px solid #00c49c;
+
+            border-radius: 12px;
+
+            padding: 25px;
+
+            margin-top: 30px;
+
+            text-align: center;
+
+        }
+
+
+        #finalScore h3 {
+
+            color: #00c49c !important;
+
+        }
+
+
+        #scoreText {
+
+            color: white !important;
+
+        }
+
+
+        #scoreMessage {
+
+            color: white !important;
+
+        }
+
+
+        /* ==============================
+           PREPARATION ALERT
+        ============================== */
+
+        .alert-success {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+            border: 1px solid #008c70 !important;
+
+        }
+
+
+        .alert-success li {
+
+            color: white !important;
+
+        }
+
+
+        /* ==============================
+           TABLE
+        ============================== */
+
+        .table {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+        }
+
+
+        .table tbody tr,
+        .table tbody td {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+            border-color: #008c70 !important;
+
+        }
+
+
+        .table-primary,
+        .table-primary th {
+
+            background: #008c70 !important;
+
+            color: white !important;
+
+        }
+
+
+        /* ==============================
+           BOTTOM BUTTONS
+        ============================== */
+
+        .complete-btn {
+
+            background: #198754;
+
+            border: none;
+
+            color: white;
+
+        }
+
+
+        .complete-btn:hover {
+
+            background: #157347;
+
+            color: white;
+
+        }
+
+
+        .back-btn {
+
+            background: #008c70;
+
+            border: none;
+
+            color: white;
+
+        }
+
+
+        .back-btn:hover {
+
+            background: #00a886;
+
+            color: white;
+
+        }
+
+
+        .main-submit {
+
+            background: #008c70;
+
+            color: white;
+
+            border: none;
+
+        }
+
+
+        .main-submit:hover {
+
+            background: #00a886;
+
+            color: white;
+
+        }
+
+
+        /* ==============================
+           MOBILE
+        ============================== */
+
+        @media (max-width: 576px) {
+
+            .container {
+
+                padding-left: 15px;
+
+                padding-right: 15px;
+
+            }
+
+
+            .question-card {
+
+                padding: 16px;
+
+            }
+
+
+            .bottom-buttons a,
+            .bottom-buttons button {
+
+                width: 100%;
+
+                margin: 5px 0 !important;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     NAVBAR
+=========================================== -->
+
+<nav class="navbar navbar-dark">
+
+    <div class="container">
+
+        <a href="/coding"
+           class="navbar-brand">
+
+            💻 Coding Preparation
+
+        </a>
+
+
+        <a href="/dashboard"
+           class="btn dashboard-btn">
+
+            Dashboard
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- ==========================================
+     HEADER
+=========================================== -->
+
+<div class="header">
+
+    <h1>🟦 C++ Programming</h1>
+
+    <p>
+        Learn C++ programming for placement exams
+    </p>
+
+</div>
+
+
+<div class="container mt-5 mb-5">
+
+
+    <!-- ==========================================
+         INTRODUCTION
+    =========================================== -->
+
+    <h2 class="text-center page-title">
+
+        💻 C++ Programming
+
+    </h2>
+
+    <hr>
+
+
+    <p>
+
+        C++ is a powerful object-oriented programming language
+        widely used in technical interviews and placement exams.
+        It supports procedural programming, object-oriented
+        programming, templates, STL, and competitive programming.
+
+    </p>
+
+
+    <!-- ==========================================
+         TOPICS COVERED
+    =========================================== -->
+
+    <h4 class="mt-4">
+
+        📚 Topics Covered
+
+    </h4>
+
+
+    <ul class="list-group mb-4">
+
+        <li class="list-group-item">
+            Basic C++ Program
+        </li>
+
+        <li class="list-group-item">
+            Variables and Data Types
+        </li>
+
+        <li class="list-group-item">
+            Input and Output
+        </li>
+
+        <li class="list-group-item">
+            Operators
+        </li>
+
+        <li class="list-group-item">
+            If-Else Statements
+        </li>
+
+        <li class="list-group-item">
+            Loops
+        </li>
+
+        <li class="list-group-item">
+            Arrays
+        </li>
+
+        <li class="list-group-item">
+            Strings
+        </li>
+
+        <li class="list-group-item">
+            Functions
+        </li>
+
+        <li class="list-group-item">
+            Pointers
+        </li>
+
+        <li class="list-group-item">
+            Object-Oriented Programming
+        </li>
+
+        <li class="list-group-item">
+            STL
+        </li>
+
+    </ul>
+
+
+    <!-- ==========================================
+         TOPIC DEFINITIONS
+    =========================================== -->
+
+    <h4>
+
+        📖 C++ Topic Definitions
+
+    </h4>
+
+
+    <div class="accordion"
+         id="cppTopics">
+
+
+        <!-- BASIC PROGRAM -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#basicTopic">
+
+                    1. Basic C++ Program
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="basicTopic"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    Every C++ program starts execution from
+                    the <strong>main()</strong> function.
+
+<pre>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+
+    cout &lt;&lt; "Hello World";
+
+    return 0;
+}</pre>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- VARIABLES -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#variablesTopic">
+
+                    2. Variables and Data Types
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="variablesTopic"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    Variables store data values.
+
+                    <ul>
+
+                        <li>
+                            int – Integer values
+                        </li>
+
+                        <li>
+                            float – Decimal values
+                        </li>
+
+                        <li>
+                            char – Character
+                        </li>
+
+                        <li>
+                            double – Large decimal values
+                        </li>
+
+                        <li>
+                            bool – True or false
+                        </li>
+
+                    </ul>
+
+<pre>int age = 20;
+
+float marks = 85.5;
+
+char grade = 'A';
+
+bool passed = true;</pre>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- INPUT OUTPUT -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#inputTopic">
+
+                    3. Input and Output
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="inputTopic"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    C++ uses <strong>cin</strong> for input and
+                    <strong>cout</strong> for output.
+
+<pre>int age;
+
+cin &gt;&gt; age;
+
+cout &lt;&lt; "Age = " &lt;&lt; age;</pre>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- IF ELSE -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#ifTopic">
+
+                    4. If-Else
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="ifTopic"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    If-else is used to make decisions.
+
+<pre>int age = 20;
+
+if(age &gt;= 18) {
+
+    cout &lt;&lt; "Eligible";
+
+}
+else {
+
+    cout &lt;&lt; "Not Eligible";
+
+}</pre>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- LOOPS -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#loopTopic">
+
+                    5. Loops
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="loopTopic"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    Loops execute a block of code repeatedly.
+
+<pre>for(int i = 1; i &lt;= 5; i++) {
+
+    cout &lt;&lt; i &lt;&lt; " ";
+
+}</pre>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ARRAYS -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#arrayTopic">
+
+                    6. Arrays
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="arrayTopic"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    Arrays store multiple values of the same
+                    data type.
+
+<pre>int numbers[5] =
+{10, 20, 30, 40, 50};
+
+cout &lt;&lt; numbers[0];</pre>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FUNCTIONS -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#functionTopic">
+
+                    7. Functions
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="functionTopic"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    Functions are reusable blocks of code.
+
+<pre>int add(int a, int b) {
+
+    return a + b;
+
+}</pre>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- OOPS -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#oopsTopic">
+
+                    8. Object-Oriented Programming
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="oopsTopic"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    C++ supports OOP concepts such as:
+
+                    <ul>
+
+                        <li>Class</li>
+
+                        <li>Object</li>
+
+                        <li>Inheritance</li>
+
+                        <li>Polymorphism</li>
+
+                        <li>Encapsulation</li>
+
+                        <li>Abstraction</li>
+
+                    </ul>
+
+<pre>class Student {
+
+public:
+
+    string name;
+
+    void display() {
+
+        cout &lt;&lt; name;
+
+    }
+
+};</pre>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- STL -->
+
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#stlTopic">
+
+                    9. STL
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="stlTopic"
+                class="accordion-collapse collapse">
+
+                <div class="accordion-body">
+
+                    STL stands for Standard Template Library.
+                    It provides useful data structures and
+                    algorithms.
+
+                    <ul>
+
+                        <li>vector</li>
+
+                        <li>stack</li>
+
+                        <li>queue</li>
+
+                        <li>set</li>
+
+                        <li>map</li>
+
+                        <li>sort()</li>
+
+                    </ul>
+
+<pre>#include &lt;vector&gt;
+
+vector&lt;int&gt; numbers;
+
+numbers.push_back(10);
+numbers.push_back(20);</pre>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         PRACTICE QUESTIONS
+    =========================================== -->
+
+    <h4 class="mt-5">
+
+        📝 C++ Practice Questions
+
+    </h4>
+
+
+    <!-- QUESTION 1 -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+
+            Question 1
+
+        </div>
+
+        <div class="question-text">
+
+            Which function is the starting point of
+            execution in a C++ program?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q1"
+                value="main">
+
+            main()
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q1"
+                value="start">
+
+            start()
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q1"
+                value="run">
+
+            run()
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q1"
+                value="execute">
+
+            execute()
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(1, 'main')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result1"
+             class="answer-result"></div>
+
+    </div>
+
+
+    <!-- QUESTION 2 -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+
+            Question 2
+
+        </div>
+
+        <div class="question-text">
+
+            Which operator is used with cout to display
+            output in C++?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q2"
+                value=">>">
+
+            &gt;&gt;
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q2"
+                value="<<">
+
+            &lt;&lt;
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q2"
+                value="==">
+
+            ==
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q2"
+                value="=">
+
+            =
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(2, '<<')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result2"
+             class="answer-result"></div>
+
+    </div>
+
+
+    <!-- QUESTION 3 -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+
+            Question 3
+
+        </div>
+
+        <div class="question-text">
+
+            Which data type is used to store a single
+            character?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q3"
+                value="int">
+
+            int
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q3"
+                value="float">
+
+            float
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q3"
+                value="char">
+
+            char
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q3"
+                value="string">
+
+            string
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(3, 'char')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result3"
+             class="answer-result"></div>
+
+    </div>
+
+
+    <!-- QUESTION 4 -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+
+            Question 4
+
+        </div>
+
+        <div class="question-text">
+
+            Which loop is commonly used when the number
+            of iterations is known?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q4"
+                value="for">
+
+            for loop
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q4"
+                value="while">
+
+            while loop
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q4"
+                value="do">
+
+            do-while loop
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q4"
+                value="switch">
+
+            switch
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(4, 'for')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result4"
+             class="answer-result"></div>
+
+    </div>
+
+
+    <!-- QUESTION 5 -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+
+            Question 5
+
+        </div>
+
+        <div class="question-text">
+
+            What is the index of the first element
+            in a C++ array?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q5"
+                value="0">
+
+            0
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q5"
+                value="1">
+
+            1
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q5"
+                value="-1">
+
+            -1
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q5"
+                value="2">
+
+            2
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(5, '0')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result5"
+             class="answer-result"></div>
+
+    </div>
+
+
+    <!-- QUESTION 6 -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+
+            Question 6
+
+        </div>
+
+        <div class="question-text">
+
+            Which concept allows a class to acquire
+            properties of another class?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q6"
+                value="encapsulation">
+
+            Encapsulation
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q6"
+                value="inheritance">
+
+            Inheritance
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q6"
+                value="abstraction">
+
+            Abstraction
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q6"
+                value="overloading">
+
+            Overloading
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(6, 'inheritance')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result6"
+             class="answer-result"></div>
+
+    </div>
+
+
+    <!-- QUESTION 7 -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+
+            Question 7
+
+        </div>
+
+        <div class="question-text">
+
+            Which STL container stores elements in
+            dynamic array form?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q7"
+                value="stack">
+
+            stack
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q7"
+                value="vector">
+
+            vector
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q7"
+                value="queue">
+
+            queue
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q7"
+                value="set">
+
+            set
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(7, 'vector')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result7"
+             class="answer-result"></div>
+
+    </div>
+
+
+    <!-- QUESTION 8 -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+
+            Question 8
+
+        </div>
+
+        <div class="question-text">
+
+            What will be the output?
+
+<pre>int a = 10;
+int b = 20;
+
+cout &lt;&lt; a + b;</pre>
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q8"
+                value="10">
+
+            10
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q8"
+                value="20">
+
+            20
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q8"
+                value="30">
+
+            30
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q8"
+                value="0">
+
+            0
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(8, '30')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result8"
+             class="answer-result"></div>
+
+    </div>
+
+
+    <!-- QUESTION 9 -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+
+            Question 9
+
+        </div>
+
+        <div class="question-text">
+
+            Which keyword is used to create a class
+            in C++?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q9"
+                value="object">
+
+            object
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q9"
+                value="class">
+
+            class
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q9"
+                value="struct">
+
+            struct
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q9"
+                value="new">
+
+            new
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(9, 'class')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result9"
+             class="answer-result"></div>
+
+    </div>
+
+
+    <!-- QUESTION 10 -->
+
+    <div class="question-card">
+
+        <div class="question-title">
+
+            Question 10
+
+        </div>
+
+        <div class="question-text">
+
+            Which STL function is commonly used to
+            sort elements?
+
+        </div>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q10"
+                value="order">
+
+            order()
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q10"
+                value="sort">
+
+            sort()
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q10"
+                value="arrange">
+
+            arrange()
+
+        </label>
+
+
+        <label class="option">
+
+            <input
+                type="radio"
+                name="q10"
+                value="sequence">
+
+            sequence()
+
+        </label>
+
+
+        <button
+            class="submit-question"
+            onclick="checkAnswer(10, 'sort')">
+
+            Submit Answer
+
+        </button>
+
+
+        <div id="result10"
+             class="answer-result"></div>
+
+    </div>
+
+
+    <!-- ==========================================
+         SUBMIT ALL
+    =========================================== -->
+
+    <div class="text-center mt-4">
+
+        <button
+            class="btn btn-lg main-submit"
+            onclick="calculateScore()">
+
+            🏆 Submit All Questions
+
+        </button>
+
+    </div>
+
+
+    <!-- ==========================================
+         FINAL SCORE
+    =========================================== -->
+
+    <div id="finalScore">
+
+        <h3>
+
+            🎉 Quiz Completed!
+
+        </h3>
+
+
+        <h4 id="scoreText"></h4>
+
+
+        <p id="scoreMessage"></p>
+
+    </div>
+
+
+    <!-- ==========================================
+         IMPORTANCE
+    =========================================== -->
+
+    <h4 class="mt-5">
+
+        🎯 Importance of C++ for Placements
+
+    </h4>
+
+
+    <ul>
+
+        <li>
+            C++ is widely used in technical interviews.
+        </li>
+
+        <li>
+            Helps develop strong programming fundamentals.
+        </li>
+
+        <li>
+            Important for Data Structures and Algorithms.
+        </li>
+
+        <li>
+            STL makes problem solving faster.
+        </li>
+
+        <li>
+            Useful for competitive programming.
+        </li>
+
+        <li>
+            Helps understand Object-Oriented Programming.
+        </li>
+
+    </ul>
+
+
+    <!-- ==========================================
+         PREPARATION TIPS
+    =========================================== -->
+
+    <h4 class="mt-4">
+
+        🚀 C++ Preparation Tips
+
+    </h4>
+
+
+    <div class="alert alert-success">
+
+        <ul>
+
+            <li>
+                Practice C++ syntax regularly.
+            </li>
+
+            <li>
+                Learn loops, arrays, strings and functions.
+            </li>
+
+            <li>
+                Understand OOP concepts clearly.
+            </li>
+
+            <li>
+                Practice pointers and references.
+            </li>
+
+            <li>
+                Learn STL containers and algorithms.
+            </li>
+
+            <li>
+                Solve coding problems every day.
+            </li>
+
+            <li>
+                Practice previous placement questions.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- ==========================================
+         IMPORTANT PROGRAMS
+    =========================================== -->
+
+    <h4 class="mt-4">
+
+        🎯 Important C++ Coding Questions
+
+    </h4>
+
+
+    <div class="topic-card card">
+
+        <div class="card-body">
+
+            <ol>
+
+                <li>
+                    Reverse a number
+                </li>
+
+                <li>
+                    Check prime number
+                </li>
+
+                <li>
+                    Check palindrome
+                </li>
+
+                <li>
+                    Find factorial
+                </li>
+
+                <li>
+                    Generate Fibonacci series
+                </li>
+
+                <li>
+                    Find largest element in array
+                </li>
+
+                <li>
+                    Reverse a string
+                </li>
+
+                <li>
+                    Count vowels in a string
+                </li>
+
+                <li>
+                    Sort an array
+                </li>
+
+                <li>
+                    Find duplicate elements
+                </li>
+
+                <li>
+                    Find second largest element
+                </li>
+
+                <li>
+                    Implement binary search
+                </li>
+
+                <li>
+                    Implement linear search
+                </li>
+
+                <li>
+                    Check Armstrong number
+                </li>
+
+                <li>
+                    Swap two numbers
+                </li>
+
+            </ol>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         COMPANIES
+    =========================================== -->
+
+    <h4 class="mt-4">
+
+        🏢 Companies Asking C++ Questions
+
+    </h4>
+
+
+    <table class="table table-bordered">
+
+        <thead class="table-primary">
+
+            <tr>
+
+                <th>
+                    Company
+                </th>
+
+                <th>
+                    Difficulty
+                </th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+            <tr>
+
+                <td>
+                    TCS
+                </td>
+
+                <td>
+                    Easy to Medium
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Infosys
+                </td>
+
+                <td>
+                    Easy to Medium
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Wipro
+                </td>
+
+                <td>
+                    Medium
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Accenture
+                </td>
+
+                <td>
+                    Easy to Medium
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Cognizant
+                </td>
+
+                <td>
+                    Medium
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Capgemini
+                </td>
+
+                <td>
+                    Medium
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    IBM
+                </td>
+
+                <td>
+                    Medium to High
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Deloitte
+                </td>
+
+                <td>
+                    Medium
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+
+    <!-- ==========================================
+         BOTTOM BUTTONS
+    =========================================== -->
+
+    <div class="text-center mt-4 mb-5 bottom-buttons">
+
+
+        <button
+            onclick="completeTopic()"
+            class="btn complete-btn btn-lg">
+
+            ✅ Complete Today's Task
+
+        </button>
+
+
+        <a
+            href="/coding"
+            class="btn back-btn btn-lg ms-2">
+
+            ⬅ Back to Coding
+
+        </a>
+
+    </div>
+
+
+</div>
+
+
+<!-- ==========================================
+     BOOTSTRAP JAVASCRIPT
+=========================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+<script>
+
+
+/* =================================================
+   SCORE VARIABLES
+================================================= */
+
+let score = 0;
+
+let answeredQuestions = new Set();
+
+
+/* =================================================
+   ANSWER INFORMATION
+================================================= */
+
+const answerText = {
+
+    1: "main()",
+
+    2: "<<",
+
+    3: "char",
+
+    4: "for loop",
+
+    5: "0",
+
+    6: "Inheritance",
+
+    7: "vector",
+
+    8: "30",
+
+    9: "class",
+
+    10: "sort()"
+
+};
+
+
+/* =================================================
+   EXPLANATIONS
+================================================= */
+
+const explanations = {
+
+    1:
+        "The main() function is the entry point of a C++ program. Program execution begins from main().",
+
+
+    2:
+        "The insertion operator << is used with cout to display output on the screen.",
+
+
+    3:
+        "The char data type is used to store a single character such as 'A' or 'B'.",
+
+
+    4:
+        "A for loop is commonly used when the number of iterations is known in advance.",
+
+
+    5:
+        "C++ arrays use zero-based indexing. Therefore, the first element is stored at index 0.",
+
+
+    6:
+        "Inheritance allows a derived class to acquire properties and behaviors of a base class.",
+
+
+    7:
+        "vector is an STL container that works like a dynamic array and can grow in size.",
+
+
+    8:
+        "a = 10 and b = 20. Therefore, a + b = 10 + 20 = 30.",
+
+
+    9:
+        "The class keyword is used to define a class in C++.",
+
+
+    10:
+        "The sort() algorithm from the C++ STL is commonly used to arrange elements in sorted order."
+
+};
+
+
+/* =================================================
+   CHECK INDIVIDUAL QUESTION
+================================================= */
+
+function checkAnswer(questionNumber, correctAnswer) {
+
+
+    const selected =
+        document.querySelector(
+            `input[name="q${questionNumber}"]:checked`
+        );
+
+
+    const result =
+        document.getElementById(
+            `result${questionNumber}`
+        );
+
+
+    /* ---------------------------------------------
+       NO OPTION SELECTED
+    --------------------------------------------- */
+
+    if (!selected) {
+
+        result.style.display = "block";
+
+        result.className =
+            "answer-result wrong-result";
+
+        result.innerHTML =
+            "⚠️ <strong>Please select an option first.</strong>";
+
+        return;
+
+    }
+
+
+    /* ---------------------------------------------
+       ALREADY ANSWERED
+    --------------------------------------------- */
+
+    if (
+        answeredQuestions.has(questionNumber)
+    ) {
+
+        result.style.display = "block";
+
+        result.className =
+            "answer-result correct-result";
+
+        result.innerHTML =
+            "ℹ️ <strong>This question has already been submitted.</strong>";
+
+        return;
+
+    }
+
+
+    /* ---------------------------------------------
+       MARK QUESTION AS ANSWERED
+    --------------------------------------------- */
+
+    answeredQuestions.add(questionNumber);
+
+
+    /* ---------------------------------------------
+       CORRECT ANSWER
+    --------------------------------------------- */
+
+    if (
+        selected.value === correctAnswer
+    ) {
+
+        score++;
+
+
+        result.style.display = "block";
+
+        result.className =
+            "answer-result correct-result";
+
+
+        result.innerHTML =
+
+            "✅ <strong>Correct Answer!</strong><br><br>" +
+
+            "Your answer: <strong>" +
+            answerText[questionNumber] +
+            "</strong><br><br>" +
+
+            "💡 " +
+            explanations[questionNumber];
+
+    }
+
+
+    /* ---------------------------------------------
+       WRONG ANSWER
+    --------------------------------------------- */
+
+    else {
+
+        result.style.display = "block";
+
+        result.className =
+            "answer-result wrong-result";
+
+
+        result.innerHTML =
+
+            "❌ <strong>Incorrect Answer!</strong><br><br>" +
+
+            "Your answer: <strong>" +
+            selected.parentElement.textContent.trim() +
+            "</strong><br><br>" +
+
+            "✅ Correct Answer: <strong>" +
+            answerText[questionNumber] +
+            "</strong><br><br>" +
+
+            "💡 " +
+            explanations[questionNumber];
+
+    }
+
+
+    /* ---------------------------------------------
+       DISABLE OPTIONS
+    --------------------------------------------- */
+
+    const options =
+        document.querySelectorAll(
+            `input[name="q${questionNumber}"]`
+        );
+
+
+    options.forEach(function(option) {
+
+        option.disabled = true;
+
+    });
+
+
+    /* ---------------------------------------------
+       DISABLE CURRENT BUTTON
+    --------------------------------------------- */
+
+    const currentCard =
+        result.closest(".question-card");
+
+
+    const currentButton =
+        currentCard.querySelector(
+            ".submit-question"
+        );
+
+
+    currentButton.disabled = true;
+
+
+    currentButton.innerText =
+        "✓ Answer Submitted";
+
+}
+
+
+/* =================================================
+   CALCULATE FINAL SCORE
+================================================= */
+
+function calculateScore() {
+
+
+    const finalScore =
+        document.getElementById(
+            "finalScore"
+        );
+
+
+    const scoreText =
+        document.getElementById(
+            "scoreText"
+        );
+
+
+    const scoreMessage =
+        document.getElementById(
+            "scoreMessage"
+        );
+
+
+    /* ---------------------------------------------
+       SHOW SCORE
+    --------------------------------------------- */
+
+    finalScore.style.display = "block";
+
+
+    scoreText.innerHTML =
+        "Your Score: " +
+        score +
+        " / 10";
+
+
+    /* ---------------------------------------------
+       SCORE MESSAGE
+    --------------------------------------------- */
+
+    if (score === 10) {
+
+        scoreMessage.innerHTML =
+            "🏆 Excellent! You got all 10 questions correct!";
+
+    }
+
+    else if (score >= 8) {
+
+        scoreMessage.innerHTML =
+            "🌟 Great job! Your C++ fundamentals are strong.";
+
+    }
+
+    else if (score >= 5) {
+
+        scoreMessage.innerHTML =
+            "👍 Good attempt! Keep practicing C++.";
+
+    }
+
+    else {
+
+        scoreMessage.innerHTML =
+            "📚 Keep practicing. Review the explanations and try again.";
+
+    }
+
+
+    /* ---------------------------------------------
+       SCROLL TO SCORE
+    --------------------------------------------- */
+
+    finalScore.scrollIntoView({
+
+        behavior: "smooth",
+
+        block: "center"
+
+    });
+
+}
+
+
+/* =================================================
+   COMPLETE TODAY'S TASK
+================================================= */
+
+function completeTopic() {
+
+
+    const today =
+        new Date().toDateString();
+
+
+    let progress =
+        JSON.parse(
+            localStorage.getItem(
+                "placementProgress"
+            )
+        ) || {
+
+            streak: 0,
+
+            lastCompleted: "",
+
+            completedTasks: {}
+
+        };
+
+
+    const taskName =
+        "C++ Programming";
+
+
+    /* ---------------------------------------------
+       CHECK OLD PROGRESS FORMAT
+    --------------------------------------------- */
+
+    if (!progress.completedTasks) {
+
+        progress.completedTasks = {};
+
+    }
+
+
+    /* ---------------------------------------------
+       ALREADY COMPLETED TODAY
+    --------------------------------------------- */
+
+    if (
+        progress.completedTasks[taskName] === today
+    ) {
+
+        alert(
+            "✅ You already completed C++ Programming today!"
+        );
+
+        return;
+
+    }
+
+
+    /* ---------------------------------------------
+       MARK TASK COMPLETED
+    --------------------------------------------- */
+
+    progress.completedTasks[taskName] =
+        today;
+
+
+    /* ---------------------------------------------
+       UPDATE STREAK
+    --------------------------------------------- */
+
+    if (
+        progress.lastCompleted !== today
+    ) {
+
+        progress.streak++;
+
+        progress.lastCompleted =
+            today;
+
+    }
+
+
+    /* ---------------------------------------------
+       SAVE PROGRESS
+    --------------------------------------------- */
+
+    localStorage.setItem(
+
+        "placementProgress",
+
+        JSON.stringify(progress)
+
+    );
+
+
+    /* ---------------------------------------------
+       SUCCESS MESSAGE
+    --------------------------------------------- */
+
+    alert(
+
+        "🎉 C++ Programming completed!" +
+
+        "\n\n🔥 Current Streak: " +
+
+        progress.streak +
+
+        " day(s)"
+
+    );
+
+
+    /* ---------------------------------------------
+       GO TO DASHBOARD
+    --------------------------------------------- */
+
+    window.location.href =
+        "/dashboard";
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,3294 @@
+ ```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Interview Preparation | PlacementX</title>
+
+    <!-- BOOTSTRAP -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- GOOGLE FONT -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- ICONS -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+
+    font-family: "Inter", sans-serif;
+
+    color: #eafff9;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(0,196,156,.14),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(0,140,112,.13),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(0,255,204,.07),
+            transparent 35%
+        ),
+        #050807;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.grid-bg {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -3;
+
+    opacity: .11;
+
+    background-image:
+        linear-gradient(
+            rgba(0,196,156,.16) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(0,196,156,.16) 1px,
+            transparent 1px
+        );
+
+    background-size: 55px 55px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent
+        );
+}
+
+
+.glow {
+
+    position: fixed;
+
+    width: 350px;
+
+    height: 350px;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    opacity: .16;
+
+    pointer-events: none;
+
+    z-index: -2;
+
+    animation: floatingGlow 10s ease-in-out infinite alternate;
+}
+
+.glow-1 {
+
+    background: #00c49c;
+
+    top: 5%;
+
+    left: -120px;
+}
+
+.glow-2 {
+
+    background: #008c70;
+
+    right: -120px;
+
+    top: 40%;
+
+    animation-delay: 2s;
+}
+
+.glow-3 {
+
+    background: #00ffd0;
+
+    bottom: -150px;
+
+    left: 40%;
+
+    animation-delay: 4s;
+}
+
+
+@keyframes floatingGlow {
+
+    from {
+        transform: translate(0,0) scale(1);
+    }
+
+    to {
+        transform: translate(45px,-35px) scale(1.15);
+    }
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+
+    background:
+        rgba(5,12,10,.80) !important;
+
+    backdrop-filter: blur(18px);
+
+    border-bottom:
+        1px solid rgba(0,196,156,.14);
+
+    padding: 14px 0;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+}
+
+
+.navbar-brand {
+
+    color: white !important;
+
+    font-weight: 800;
+
+    font-size: 20px;
+}
+
+
+.brand-dot {
+
+    display: inline-block;
+
+    width: 9px;
+
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #00c49c;
+
+    margin-right: 8px;
+
+    box-shadow:
+        0 0 15px #00c49c;
+}
+
+
+.dashboard-btn {
+
+    color: #dffff7;
+
+    border:
+        1px solid rgba(0,196,156,.30);
+
+    background:
+        rgba(0,196,156,.07);
+
+    padding: 9px 17px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition: .3s;
+}
+
+
+.dashboard-btn:hover {
+
+    color: white;
+
+    background: #008c70;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 30px rgba(0,196,156,.18);
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.main-container {
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding:
+        35px 20px 70px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    position: relative;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    padding: 65px 25px;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,140,112,.26),
+            rgba(0,196,156,.05)
+        );
+
+    border:
+        1px solid rgba(0,196,156,.22);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.40);
+}
+
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+
+    height: 500px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(0,196,156,.09);
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    animation:
+        heroPulse 5s linear infinite;
+}
+
+
+.hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 700px;
+
+    height: 700px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(0,196,156,.04);
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%,-50%);
+}
+
+
+@keyframes heroPulse {
+
+    0% {
+
+        transform:
+            translate(-50%,-50%)
+            scale(.8);
+
+        opacity: .1;
+    }
+
+    50% {
+
+        opacity: .7;
+    }
+
+    100% {
+
+        transform:
+            translate(-50%,-50%)
+            scale(1.15);
+
+        opacity: 0;
+    }
+}
+
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.hero-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 8px 15px;
+
+    border-radius: 50px;
+
+    color: #68ffdc;
+
+    background:
+        rgba(0,196,156,.08);
+
+    border:
+        1px solid rgba(0,196,156,.22);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    margin-bottom: 18px;
+}
+
+
+.hero h1 {
+
+    font-size:
+        clamp(35px,5vw,62px);
+
+    font-weight: 800;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 15px;
+}
+
+
+.gradient-text {
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #65ffdc,
+            #00c49c
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+
+.hero p {
+
+    max-width: 750px;
+
+    margin: auto;
+
+    color: #9bb8b0;
+
+    line-height: 1.8;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats {
+
+    margin-top: 25px;
+}
+
+
+.stat-card {
+
+    height: 100%;
+
+    padding: 22px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(10,23,19,.75);
+
+    border:
+        1px solid rgba(0,196,156,.13);
+
+    backdrop-filter: blur(15px);
+
+    transition: .3s;
+}
+
+
+.stat-card:hover {
+
+    transform: translateY(-5px);
+
+    border-color:
+        rgba(0,196,156,.35);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,196,156,.08);
+}
+
+
+.stat-icon {
+
+    width: 45px;
+
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background:
+        rgba(0,196,156,.10);
+
+    color: #63ffdd;
+
+    font-size: 20px;
+
+    margin-bottom: 12px;
+}
+
+
+.stat-number {
+
+    font-size: 27px;
+
+    font-weight: 800;
+}
+
+
+.stat-label {
+
+    color: #708d85;
+
+    font-size: 11px;
+
+    margin-top: 4px;
+}
+
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+
+.section-title {
+
+    margin-top: 50px;
+
+    margin-bottom: 22px;
+}
+
+
+.section-title h2 {
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+    margin-bottom: 5px;
+}
+
+
+.section-title p {
+
+    color: #708a83;
+
+    font-size: 12px;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   INFO CARD
+========================================================= */
+
+.info-card {
+
+    padding: 27px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(10,22,19,.78);
+
+    border:
+        1px solid rgba(0,196,156,.13);
+
+    line-height: 1.8;
+
+    color: #9bb4ad;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.18);
+}
+
+
+.info-card strong {
+
+    color: #69ffdc;
+}
+
+
+/* =========================================================
+   ROUND CARDS
+========================================================= */
+
+.round-card {
+
+    height: 100%;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15,31,27,.90),
+            rgba(7,16,14,.90)
+        );
+
+    border:
+        1px solid rgba(0,196,156,.13);
+
+    transition: .35s;
+}
+
+
+.round-card:hover {
+
+    transform: translateY(-8px);
+
+    border-color:
+        rgba(0,196,156,.38);
+
+    box-shadow:
+        0 25px 55px rgba(0,0,0,.40);
+}
+
+
+.round-icon {
+
+    width: 58px;
+
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 17px;
+
+    background:
+        rgba(0,196,156,.10);
+
+    border:
+        1px solid rgba(0,196,156,.18);
+
+    font-size: 25px;
+
+    margin-bottom: 18px;
+}
+
+
+.round-card h5 {
+
+    font-weight: 800;
+
+    margin-bottom: 9px;
+}
+
+
+.round-card p {
+
+    color: #7e9992;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+.round-status {
+
+    display: inline-block;
+
+    padding: 5px 9px;
+
+    border-radius: 50px;
+
+    color: #69ffdc;
+
+    background:
+        rgba(0,196,156,.07);
+
+    border:
+        1px solid rgba(0,196,156,.15);
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   ACCORDION
+========================================================= */
+
+.accordion {
+
+    --bs-accordion-bg: transparent;
+
+    --bs-accordion-border-color:
+        rgba(0,196,156,.12);
+
+    --bs-accordion-color: #dffcf5;
+
+    --bs-accordion-btn-color: #e8fff9;
+
+    --bs-accordion-btn-bg:
+        rgba(10,22,19,.72);
+
+    --bs-accordion-active-color: #72ffdf;
+
+    --bs-accordion-active-bg:
+        rgba(0,196,156,.08);
+
+    --bs-accordion-btn-focus-box-shadow: none;
+}
+
+
+.accordion-item {
+
+    margin-bottom: 10px;
+
+    border-radius: 14px !important;
+
+    overflow: hidden;
+
+    border:
+        1px solid rgba(0,196,156,.12) !important;
+}
+
+
+.accordion-button {
+
+    padding: 17px 20px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+.accordion-button::after {
+
+    filter:
+        brightness(0)
+        saturate(100%)
+        invert(79%)
+        sepia(28%)
+        saturate(1000%);
+}
+
+
+.accordion-body {
+
+    background:
+        rgba(6,14,12,.85);
+
+    color: #91aaa3;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    padding: 22px;
+}
+
+
+.accordion-body strong {
+
+    color: #65ffdc;
+}
+
+
+/* =========================================================
+   QUESTION CARD
+========================================================= */
+
+.question-card {
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(10,22,19,.76);
+
+    border:
+        1px solid rgba(0,196,156,.13);
+
+    color: #a1b9b2;
+}
+
+
+.question-list {
+
+    margin: 0;
+
+    padding-left: 20px;
+}
+
+
+.question-list li {
+
+    padding: 10px 0;
+
+    border-bottom:
+        1px solid rgba(0,196,156,.07);
+
+    font-size: 13px;
+}
+
+
+.question-list li:last-child {
+
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   STAR METHOD
+========================================================= */
+
+.star-card {
+
+    padding: 27px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0,140,112,.18),
+            rgba(10,22,19,.85)
+        );
+
+    border:
+        1px solid rgba(0,196,156,.20);
+}
+
+
+.star-step {
+
+    display: flex;
+
+    gap: 15px;
+
+    margin-bottom: 18px;
+}
+
+
+.star-letter {
+
+    min-width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        rgba(0,196,156,.11);
+
+    border:
+        1px solid rgba(0,196,156,.18);
+
+    color: #64ffdd;
+
+    font-weight: 800;
+}
+
+
+.star-step h6 {
+
+    font-weight: 800;
+
+    margin-bottom: 4px;
+}
+
+
+.star-step p {
+
+    color: #809a93;
+
+    font-size: 12px;
+
+    margin: 0;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   CHECKLIST
+========================================================= */
+
+.check-card {
+
+    height: 100%;
+
+    padding: 25px;
+
+    border-radius: 19px;
+
+    background:
+        rgba(10,22,19,.76);
+
+    border:
+        1px solid rgba(0,196,156,.13);
+}
+
+
+.check-card h5 {
+
+    font-weight: 800;
+
+    margin-bottom: 18px;
+}
+
+
+.check-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 10px 0;
+
+    border-bottom:
+        1px solid rgba(0,196,156,.07);
+
+    color: #8ea9a1;
+
+    font-size: 12px;
+}
+
+
+.check-item i {
+
+    color: #00c49c;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   READINESS
+========================================================= */
+
+.readiness-card {
+
+    padding: 28px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,140,112,.20),
+            rgba(10,22,19,.85)
+        );
+
+    border:
+        1px solid rgba(0,196,156,.18);
+}
+
+
+.readiness-title {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+
+    font-size: 12px;
+
+    color: #8ba69e;
+}
+
+
+.progress {
+
+    height: 7px;
+
+    background:
+        rgba(255,255,255,.05);
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+
+.progress-bar {
+
+    background:
+        linear-gradient(
+            90deg,
+            #008c70,
+            #00d5a9
+        );
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   TIPS
+========================================================= */
+
+.tip-card {
+
+    padding: 24px;
+
+    border-radius: 18px;
+
+    height: 100%;
+
+    background:
+        rgba(10,22,19,.75);
+
+    border:
+        1px solid rgba(0,196,156,.12);
+}
+
+
+.tip-card h6 {
+
+    font-weight: 800;
+
+    margin-bottom: 10px;
+}
+
+
+.tip-card p {
+
+    color: #819b94;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   DO DON'T
+========================================================= */
+
+.do-card,
+.dont-card {
+
+    height: 100%;
+
+    padding: 25px;
+
+    border-radius: 19px;
+
+    background:
+        rgba(10,22,19,.78);
+}
+
+
+.do-card {
+
+    border:
+        1px solid rgba(0,196,156,.20);
+}
+
+
+.dont-card {
+
+    border:
+        1px solid rgba(255,90,100,.17);
+}
+
+
+.do-card h5 {
+
+    color: #5fffdc;
+
+    font-weight: 800;
+}
+
+
+.dont-card h5 {
+
+    color: #ff8790;
+
+    font-weight: 800;
+}
+
+
+.do-card li,
+.dont-card li {
+
+    color: #8ea8a1;
+
+    font-size: 12px;
+
+    margin-bottom: 11px;
+}
+
+
+/* =========================================================
+   MOCK INTERVIEW
+========================================================= */
+
+.mock-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 35px;
+
+    border-radius: 23px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,140,112,.24),
+            rgba(0,196,156,.06)
+        );
+
+    border:
+        1px solid rgba(0,196,156,.20);
+}
+
+
+.mock-icon {
+
+    width: 70px;
+
+    height: 70px;
+
+    margin:
+        0 auto 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background:
+        rgba(0,196,156,.11);
+
+    border:
+        1px solid rgba(0,196,156,.20);
+
+    font-size: 31px;
+}
+
+
+.mock-card h3 {
+
+    font-weight: 800;
+}
+
+
+.mock-card p {
+
+    max-width: 650px;
+
+    margin:
+        10px auto 22px;
+
+    color: #829d95;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+.mock-btn {
+
+    display: inline-block;
+
+    padding: 11px 22px;
+
+    border-radius: 11px;
+
+    text-decoration: none;
+
+    color: white;
+
+    background: #008c70;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    transition: .3s;
+}
+
+
+.mock-btn:hover {
+
+    background: #00a985;
+
+    color: white;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(0,196,156,.18);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+
+    text-align: center;
+
+    padding: 28px;
+
+    border-top:
+        1px solid rgba(0,196,156,.10);
+
+    color: #607a73;
+
+    font-size: 11px;
+}
+
+
+.footer strong {
+
+    color: #00c49c;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:768px) {
+
+    .main-container {
+
+        padding:
+            20px 14px 50px;
+    }
+
+    .hero {
+
+        padding: 45px 20px;
+
+        border-radius: 21px;
+    }
+
+    .hero h1 {
+
+        letter-spacing: -1px;
+    }
+
+    .section-title {
+
+        margin-top: 35px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- BACKGROUND -->
+
+<div class="grid-bg"></div>
+
+<div class="glow glow-1"></div>
+
+<div class="glow glow-2"></div>
+
+<div class="glow glow-3"></div>
+
+
+<!-- ======================================================
+     NAVBAR
+======================================================= -->
+
+<nav class="navbar navbar-dark">
+
+    <div class="container">
+
+        <a
+            href="/dashboard"
+            class="navbar-brand">
+
+            <span class="brand-dot"></span>
+
+            PlacementX
+
+        </a>
+
+
+        <a
+            href="/dashboard"
+            class="dashboard-btn">
+
+            <i class="bi bi-grid"></i>
+
+            Dashboard
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- ======================================================
+     MAIN
+======================================================= -->
+
+<main class="main-container">
+
+
+<!-- ======================================================
+     HERO
+======================================================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+
+            <i class="bi bi-mic-fill"></i>
+
+            INTERVIEW INTELLIGENCE
+
+        </div>
+
+
+        <h1>
+
+            <span class="gradient-text">
+
+                Interview Preparation
+
+            </span>
+
+        </h1>
+
+
+        <p>
+
+            Build confidence, improve communication,
+            strengthen technical knowledge and prepare
+            yourself for every stage of the placement interview.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     STATS
+======================================================= -->
+
+<div class="row g-3 stats">
+
+
+    <div class="col-6 col-lg-3">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+
+                <i class="bi bi-person-video3"></i>
+
+            </div>
+
+            <div class="stat-number">
+                4+
+            </div>
+
+            <div class="stat-label">
+                Interview Stages
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-6 col-lg-3">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+
+                <i class="bi bi-question-circle"></i>
+
+            </div>
+
+            <div class="stat-number">
+                40+
+            </div>
+
+            <div class="stat-label">
+                Practice Questions
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-6 col-lg-3">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+
+                <i class="bi bi-code-slash"></i>
+
+            </div>
+
+            <div class="stat-number">
+                5+
+            </div>
+
+            <div class="stat-label">
+                Technical Areas
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-6 col-lg-3">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+
+                <i class="bi bi-trophy"></i>
+
+            </div>
+
+            <div class="stat-number">
+                360°
+            </div>
+
+            <div class="stat-label">
+                Interview Preparation
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ======================================================
+     WHAT IS INTERVIEW
+======================================================= -->
+
+<div class="section-title">
+
+    <h2>
+        📌 What is an Interview?
+    </h2>
+
+    <p>
+        Understand what interviewers evaluate.
+    </p>
+
+</div>
+
+
+<div class="info-card">
+
+    <p>
+
+        An interview is a formal conversation between
+        a candidate and an interviewer. The interviewer
+        evaluates your technical knowledge, communication,
+        problem-solving ability, confidence, attitude and
+        suitability for the job.
+
+    </p>
+
+
+    <p class="mb-0">
+
+        Placement interviews can include aptitude,
+        coding, technical, HR, managerial and behavioral
+        rounds. Preparing for each stage increases your
+        confidence and performance.
+
+    </p>
+
+</div>
+
+
+<!-- ======================================================
+     INTERVIEW ROADMAP
+======================================================= -->
+
+<div class="section-title">
+
+    <h2>
+        🧭 Interview Roadmap
+    </h2>
+
+    <p>
+        Follow the complete placement interview journey.
+    </p>
+
+</div>
+
+
+<div class="row g-4">
+
+
+    <div class="col-md-6 col-lg-3">
+
+        <div class="round-card">
+
+            <div class="round-icon">
+                🧮
+            </div>
+
+            <span class="round-status">
+                ROUND 01
+            </span>
+
+            <h5 class="mt-3">
+                Aptitude
+            </h5>
+
+            <p>
+                Quantitative aptitude, logical reasoning,
+                verbal ability and data interpretation.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-6 col-lg-3">
+
+        <div class="round-card">
+
+            <div class="round-icon">
+                💻
+            </div>
+
+            <span class="round-status">
+                ROUND 02
+            </span>
+
+            <h5 class="mt-3">
+                Coding
+            </h5>
+
+            <p>
+                Programming logic, problem solving,
+                algorithms, SQL and coding challenges.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-6 col-lg-3">
+
+        <div class="round-card">
+
+            <div class="round-icon">
+                🧠
+            </div>
+
+            <span class="round-status">
+                ROUND 03
+            </span>
+
+            <h5 class="mt-3">
+                Technical
+            </h5>
+
+            <p>
+                OOP, DBMS, SQL, OS, networking,
+                projects and programming fundamentals.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-6 col-lg-3">
+
+        <div class="round-card">
+
+            <div class="round-icon">
+                🎤
+            </div>
+
+            <span class="round-status">
+                ROUND 04
+            </span>
+
+            <h5 class="mt-3">
+                HR / Behavioral
+            </h5>
+
+            <p>
+                Communication, confidence, personality,
+                teamwork and career goals.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ======================================================
+     HR QUESTIONS
+======================================================= -->
+
+<div class="section-title">
+
+    <h2>
+        👨‍💼 HR Interview Questions
+    </h2>
+
+    <p>
+        Practice the questions commonly asked in HR interviews.
+    </p>
+
+</div>
+
+
+<div class="accordion" id="hrQuestions">
+
+
+    <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+            <button
+                class="accordion-button collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#hr1">
+
+                01. Tell me about yourself.
+
+            </button>
+
+        </h2>
+
+
+        <div
+            id="hr1"
+            class="accordion-collapse collapse">
+
+            <div class="accordion-body">
+
+                <strong>Sample Answer:</strong>
+
+                <p>
+
+                    My name is Manjiri. I am an engineering
+                    student with an interest in software development
+                    and technology. I have knowledge of programming,
+                    databases and web development. I enjoy learning
+                    new technologies and solving programming problems.
+                    My goal is to start my career in a good organization
+                    where I can improve my technical skills and
+                    contribute to the company.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+            <button
+                class="accordion-button collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#hr2">
+
+                02. What are your strengths?
+
+            </button>
+
+        </h2>
+
+
+        <div
+            id="hr2"
+            class="accordion-collapse collapse">
+
+            <div class="accordion-body">
+
+                <strong>Sample Answer:</strong>
+
+                <p>
+
+                    My strengths are that I am a quick learner,
+                    hardworking and responsible. I try to understand
+                    problems carefully and find practical solutions.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+            <button
+                class="accordion-button collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#hr3">
+
+                03. What is your weakness?
+
+            </button>
+
+        </h2>
+
+
+        <div
+            id="hr3"
+            class="accordion-collapse collapse">
+
+            <div class="accordion-body">
+
+                <strong>Sample Answer:</strong>
+
+                <p>
+
+                    Sometimes I spend extra time checking my work
+                    because I want it to be accurate. I am improving
+                    this by setting priorities and managing my time
+                    more effectively.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+            <button
+                class="accordion-button collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#hr4">
+
+                04. Why should we hire you?
+
+            </button>
+
+        </h2>
+
+
+        <div
+            id="hr4"
+            class="accordion-collapse collapse">
+
+            <div class="accordion-body">
+
+                <strong>Sample Answer:</strong>
+
+                <p>
+
+                    You should hire me because I am willing to learn,
+                    have a strong interest in technology and can adapt
+                    to new environments. I will use my skills and
+                    dedication to contribute positively to the team.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+            <button
+                class="accordion-button collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#hr5">
+
+                05. Where do you see yourself in five years?
+
+            </button>
+
+        </h2>
+
+
+        <div
+            id="hr5"
+            class="accordion-collapse collapse">
+
+            <div class="accordion-body">
+
+                <strong>Sample Answer:</strong>
+
+                <p>
+
+                    In five years, I want to become a skilled
+                    professional with strong technical and
+                    problem-solving abilities. I would like to
+                    take more responsibility and contribute to
+                    important projects in the organization.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+            <button
+                class="accordion-button collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#hr6">
+
+                06. Why do you want to join our company?
+
+            </button>
+
+        </h2>
+
+
+        <div
+            id="hr6"
+            class="accordion-collapse collapse">
+
+            <div class="accordion-body">
+
+                <strong>How to answer:</strong>
+
+                <p>
+
+                    Connect your career goals with the company's
+                    work, learning opportunities, technology,
+                    culture and the role you are applying for.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+            <button
+                class="accordion-button collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#hr7">
+
+                07. Why did you choose your engineering field?
+
+            </button>
+
+        </h2>
+
+
+        <div
+            id="hr7"
+            class="accordion-collapse collapse">
+
+            <div class="accordion-body">
+
+                <strong>Tip:</strong>
+
+                <p>
+
+                    Explain your genuine interest, what you have
+                    learned and how your engineering background
+                    connects with the position.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+            <button
+                class="accordion-button collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#hr8">
+
+                08. Are you comfortable working in a team?
+
+            </button>
+
+        </h2>
+
+
+        <div
+            id="hr8"
+            class="accordion-collapse collapse">
+
+            <div class="accordion-body">
+
+                <strong>Tip:</strong>
+
+                <p>
+
+                    Give a real example from a college project,
+                    assignment, competition or team activity.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!-- ======================================================
+     TECHNICAL QUESTIONS
+======================================================= -->
+
+<div class="section-title">
+
+    <h2>
+        💻 Technical Interview
+    </h2>
+
+    <p>
+        Revise the technical fundamentals before your interview.
+    </p>
+
+</div>
+
+
+<div class="accordion" id="technicalQuestions">
+
+
+    <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+            <button
+                class="accordion-button collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#technical1">
+
+                01. What is OOP?
+
+            </button>
+
+        </h2>
+
+
+        <div
+            id="technical1"
+            class="accordion-collapse collapse">
+
+            <div class="accordion-body">
+
+                <strong>Answer:</strong>
+
+                <p>
+
+                    OOP stands for Object-Oriented Programming.
+                    It is a programming approach based on objects
+                    and classes.
+
+                </p>
+
+                <p>
+                    Four major concepts:
+                </p>
+
+                <ul>
+
+                    <li>Encapsulation</li>
+
+                    <li>Inheritance</li>
+
+                    <li>Polymorphism</li>
+
+                    <li>Abstraction</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+            <button
+                class="accordion-button collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#technical2">
+
+                02. What is DBMS?
+
+            </button>
+
+        </h2>
+
+
+        <div
+            id="technical2"
+            class="accordion-collapse collapse">
+
+            <div class="accordion-body">
+
+                <strong>Answer:</strong>
+
+                <p>
+
+                    DBMS stands for Database Management System.
+                    It is software used to store, manage, organize
+                    and retrieve data from databases.
+
+                </p>
+
+                <p>
+
+                    Examples include MySQL, Oracle, PostgreSQL
+                    and MongoDB.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+            <button
+                class="accordion-button collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#technical3">
+
+                03. What is SQL?
+
+            </button>
+
+        </h2>
+
+
+        <div
+            id="technical3"
+            class="accordion-collapse collapse">
+
+            <div class="accordion-body">
+
+                <strong>Answer:</strong>
+
+                <p>
+
+                    SQL stands for Structured Query Language.
+                    It is used to communicate with relational
+                    databases.
+
+                </p>
+
+                <p>
+
+                    Common commands include SELECT, INSERT,
+                    UPDATE and DELETE.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+            <button
+                class="accordion-button collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#technical4">
+
+                04. What is a programming language?
+
+            </button>
+
+        </h2>
+
+
+        <div
+            id="technical4"
+            class="accordion-collapse collapse">
+
+            <div class="accordion-body">
+
+                <strong>Answer:</strong>
+
+                <p>
+
+                    A programming language is used by programmers
+                    to give instructions to a computer.
+
+                </p>
+
+                <p>
+
+                    Examples include C, C++, Java and Python.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+            <button
+                class="accordion-button collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#technical5">
+
+                05. What is an API?
+
+            </button>
+
+        </h2>
+
+
+        <div
+            id="technical5"
+            class="accordion-collapse collapse">
+
+            <div class="accordion-body">
+
+                <strong>Answer:</strong>
+
+                <p>
+
+                    API stands for Application Programming Interface.
+                    It allows different software applications to
+                    communicate with each other.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+            <button
+                class="accordion-button collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#technical6">
+
+                06. What is the difference between SQL and NoSQL?
+
+            </button>
+
+        </h2>
+
+
+        <div
+            id="technical6"
+            class="accordion-collapse collapse">
+
+            <div class="accordion-body">
+
+                <strong>Answer:</strong>
+
+                <p>
+
+                    SQL databases generally use structured,
+                    relational tables, while NoSQL databases
+                    can use flexible models such as documents,
+                    key-value pairs or graphs.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+            <button
+                class="accordion-button collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#technical7">
+
+                07. What is an operating system?
+
+            </button>
+
+        </h2>
+
+
+        <div
+            id="technical7"
+            class="accordion-collapse collapse">
+
+            <div class="accordion-body">
+
+                <strong>Answer:</strong>
+
+                <p>
+
+                    An operating system is system software that
+                    manages computer hardware and software resources
+                    and provides services to applications.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+            <button
+                class="accordion-button collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#technical8">
+
+                08. What is a computer network?
+
+            </button>
+
+        </h2>
+
+
+        <div
+            id="technical8"
+            class="accordion-collapse collapse">
+
+            <div class="accordion-body">
+
+                <strong>Answer:</strong>
+
+                <p>
+
+                    A computer network is a group of connected
+                    devices that communicate and share resources.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!-- ======================================================
+     BEHAVIORAL
+======================================================= -->
+
+<div class="section-title">
+
+    <h2>
+        🧠 Behavioral Questions
+    </h2>
+
+    <p>
+        Prepare real examples from your academic and project experience.
+    </p>
+
+</div>
+
+
+<div class="question-card">
+
+    <ol class="question-list">
+
+        <li>
+            Tell me about a difficult problem you solved.
+        </li>
+
+        <li>
+            How do you handle pressure?
+        </li>
+
+        <li>
+            How do you handle failure?
+        </li>
+
+        <li>
+            Describe a time when you worked in a team.
+        </li>
+
+        <li>
+            How do you manage your time?
+        </li>
+
+        <li>
+            How would you handle a disagreement with a teammate?
+        </li>
+
+        <li>
+            Tell me about a time you showed leadership.
+        </li>
+
+        <li>
+            Describe a situation where you learned from a mistake.
+        </li>
+
+    </ol>
+
+</div>
+
+
+<!-- ======================================================
+     STAR METHOD
+======================================================= -->
+
+<div class="section-title">
+
+    <h2>
+        ⭐ STAR Method
+    </h2>
+
+    <p>
+        Use this structure for behavioral questions.
+    </p>
+
+</div>
+
+
+<div class="star-card">
+
+
+    <div class="star-step">
+
+        <div class="star-letter">
+            S
+        </div>
+
+        <div>
+
+            <h6>
+                Situation
+            </h6>
+
+            <p>
+                Explain the situation or background.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="star-step">
+
+        <div class="star-letter">
+            T
+        </div>
+
+        <div>
+
+            <h6>
+                Task
+            </h6>
+
+            <p>
+                Explain what responsibility or objective you had.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="star-step">
+
+        <div class="star-letter">
+            A
+        </div>
+
+        <div>
+
+            <h6>
+                Action
+            </h6>
+
+            <p>
+                Explain the specific actions you personally took.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="star-step mb-0">
+
+        <div class="star-letter">
+            R
+        </div>
+
+        <div>
+
+            <h6>
+                Result
+            </h6>
+
+            <p>
+                Explain the outcome and what you learned.
+            </p>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!-- ======================================================
+     PROJECT QUESTIONS
+======================================================= -->
+
+<div class="section-title">
+
+    <h2>
+        🚀 Project-Based Questions
+    </h2>
+
+    <p>
+        Be ready to explain every part of your project.
+    </p>
+
+</div>
+
+
+<div class="question-card">
+
+    <ol class="question-list">
+
+        <li>
+            Explain your project.
+        </li>
+
+        <li>
+            What technologies did you use?
+        </li>
+
+        <li>
+            Why did you choose these technologies?
+        </li>
+
+        <li>
+            What was your role in the project?
+        </li>
+
+        <li>
+            What challenges did you face?
+        </li>
+
+        <li>
+            How did you solve those challenges?
+        </li>
+
+        <li>
+            What database did you use and why?
+        </li>
+
+        <li>
+            How does your frontend communicate with the backend?
+        </li>
+
+        <li>
+            What improvements would you make to the project?
+        </li>
+
+        <li>
+            What did you learn from the project?
+        </li>
+
+    </ol>
+
+</div>
+
+
+<!-- ======================================================
+     COMMUNICATION SKILLS
+======================================================= -->
+
+<div class="section-title">
+
+    <h2>
+        🗣️ Communication Skills
+    </h2>
+
+    <p>
+        Technical knowledge is important, but communication matters too.
+    </p>
+
+</div>
+
+
+<div class="row g-4">
+
+
+    <div class="col-md-6 col-lg-3">
+
+        <div class="tip-card">
+
+            <h6>
+                🎯 Be Clear
+            </h6>
+
+            <p>
+                Give direct answers and avoid unnecessary
+                explanations.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-6 col-lg-3">
+
+        <div class="tip-card">
+
+            <h6>
+                👁️ Eye Contact
+            </h6>
+
+            <p>
+                Maintain natural eye contact and show that
+                you are actively listening.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-6 col-lg-3">
+
+        <div class="tip-card">
+
+            <h6>
+                🎤 Voice
+            </h6>
+
+            <p>
+                Speak at a comfortable speed with confidence
+                and clarity.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-6 col-lg-3">
+
+        <div class="tip-card">
+
+            <h6>
+                🧘 Confidence
+            </h6>
+
+            <p>
+                Stay calm when you don't know an answer.
+                Think before responding.
+            </p>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!-- ======================================================
+     TECHNICAL CHECKLIST
+======================================================= -->
+
+<div class="section-title">
+
+    <h2>
+        🧰 Technical Revision Checklist
+    </h2>
+
+    <p>
+        Revise these areas before appearing for technical interviews.
+    </p>
+
+</div>
+
+
+<div class="row g-4">
+
+
+    <div class="col-md-6">
+
+        <div class="check-card">
+
+            <h5>
+                Programming
+            </h5>
+
+
+            <div class="check-item">
+
+                <i class="bi bi-check-circle-fill"></i>
+
+                C / C++ / Java / Python
+
+            </div>
+
+
+            <div class="check-item">
+
+                <i class="bi bi-check-circle-fill"></i>
+
+                Arrays & Strings
+
+            </div>
+
+
+            <div class="check-item">
+
+                <i class="bi bi-check-circle-fill"></i>
+
+                Functions & Recursion
+
+            </div>
+
+
+            <div class="check-item">
+
+                <i class="bi bi-check-circle-fill"></i>
+
+                OOP Concepts
+
+            </div>
+
+
+            <div class="check-item">
+
+                <i class="bi bi-check-circle-fill"></i>
+
+                Basic Data Structures
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-6">
+
+        <div class="check-card">
+
+            <h5>
+                Computer Science
+            </h5>
+
+
+            <div class="check-item">
+
+                <i class="bi bi-check-circle-fill"></i>
+
+                DBMS
+
+            </div>
+
+
+            <div class="check-item">
+
+                <i class="bi bi-check-circle-fill"></i>
+
+                SQL Queries
+
+            </div>
+
+
+            <div class="check-item">
+
+                <i class="bi bi-check-circle-fill"></i>
+
+                Operating Systems
+
+            </div>
+
+
+            <div class="check-item">
+
+                <i class="bi bi-check-circle-fill"></i>
+
+                Computer Networks
+
+            </div>
+
+
+            <div class="check-item">
+
+                <i class="bi bi-check-circle-fill"></i>
+
+                Software Engineering Basics
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!-- ======================================================
+     INTERVIEW READINESS
+======================================================= -->
+
+<div class="section-title">
+
+    <h2>
+        📊 Interview Readiness
+    </h2>
+
+    <p>
+        A balanced preparation strategy improves your confidence.
+    </p>
+
+</div>
+
+
+<div class="readiness-card">
+
+
+    <div class="readiness-title">
+
+        <span>
+            Technical Knowledge
+        </span>
+
+        <span>
+            85%
+        </span>
+
+    </div>
+
+
+    <div class="progress mb-4">
+
+        <div
+            class="progress-bar"
+            style="width:85%">
+        </div>
+
+    </div>
+
+
+    <div class="readiness-title">
+
+        <span>
+            Communication
+        </span>
+
+        <span>
+            75%
+        </span>
+
+    </div>
+
+
+    <div class="progress mb-4">
+
+        <div
+            class="progress-bar"
+            style="width:75%">
+        </div>
+
+    </div>
+
+
+    <div class="readiness-title">
+
+        <span>
+            Problem Solving
+        </span>
+
+        <span>
+            80%
+        </span>
+
+    </div>
+
+
+    <div class="progress mb-4">
+
+        <div
+            class="progress-bar"
+            style="width:80%">
+        </div>
+
+    </div>
+
+
+    <div class="readiness-title">
+
+        <span>
+            Confidence
+        </span>
+
+        <span>
+            70%
+        </span>
+
+    </div>
+
+
+    <div class="progress">
+
+        <div
+            class="progress-bar"
+            style="width:70%">
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!-- ======================================================
+     DO DON'T
+======================================================= -->
+
+<div class="section-title">
+
+    <h2>
+        ✅ Do's & ❌ Don'ts
+    </h2>
+
+</div>
+
+
+<div class="row g-4">
+
+
+    <div class="col-md-6">
+
+        <div class="do-card">
+
+            <h5>
+                <i class="bi bi-check-circle-fill"></i>
+                Do
+            </h5>
+
+            <ul class="mt-3">
+
+                <li>
+                    Be punctual.
+                </li>
+
+                <li>
+                    Speak clearly.
+                </li>
+
+                <li>
+                    Be confident.
+                </li>
+
+                <li>
+                    Listen carefully.
+                </li>
+
+                <li>
+                    Give honest answers.
+                </li>
+
+                <li>
+                    Keep your resume updated.
+                </li>
+
+                <li>
+                    Research the company.
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-6">
+
+        <div class="dont-card">
+
+            <h5>
+                <i class="bi bi-x-circle-fill"></i>
+                Don't
+            </h5>
+
+            <ul class="mt-3">
+
+                <li>
+                    Do not interrupt the interviewer.
+                </li>
+
+                <li>
+                    Do not lie about your skills.
+                </li>
+
+                <li>
+                    Do not speak negatively about others.
+                </li>
+
+                <li>
+                    Do not use your phone.
+                </li>
+
+                <li>
+                    Do not memorize answers without understanding.
+                </li>
+
+                <li>
+                    Do not panic if you don't know an answer.
+                </li>
+
+                <li>
+                    Do not argue with the interviewer.
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ======================================================
+     MOCK INTERVIEW
+======================================================= -->
+
+<div class="section-title">
+
+    <h2>
+        🎯 Mock Interview
+    </h2>
+
+    <p>
+        Test yourself before the real interview.
+    </p>
+
+</div>
+
+
+<div class="mock-card">
+
+    <div class="mock-icon">
+
+        🎤
+
+    </div>
+
+
+    <h3>
+        Are You Interview Ready?
+    </h3>
+
+
+    <p>
+
+        Practice your introduction, technical questions,
+        behavioral questions and project explanation.
+        The more you practice, the more confident you become.
+
+    </p>
+
+
+    <button
+        class="mock-btn"
+        onclick="startMockInterview()">
+
+        Start Mock Interview
+
+    </button>
+
+</div>
+
+
+<!-- ======================================================
+     FINAL MESSAGE
+======================================================= -->
+
+<div class="text-center mt-5">
+
+    <h3 style="font-weight:800;">
+
+        🚀 Prepare. Practice. Perform.
+
+    </h3>
+
+
+    <p style="color:#718b84;">
+
+        Your next interview can be the beginning
+        of your career journey.
+
+    </p>
+
+
+    <a
+        href="/dashboard"
+        class="dashboard-btn">
+
+        ← Back to Dashboard
+
+    </a>
+
+</div>
+
+
+</main>
+
+
+<!-- ======================================================
+     FOOTER
+======================================================= -->
+
+<footer class="footer">
+
+    © 2026
+
+    <strong>
+        PlacementX
+    </strong>
+
+    • Interview Preparation Portal
+
+    <br>
+
+    <span>
+        Build skills • Practice consistently • Get placed 🚀
+    </span>
+
+</footer>
+
+
+<!-- BOOTSTRAP -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+<script>
+
+/* =========================================================
+   MOCK INTERVIEW
+========================================================= */
+
+function startMockInterview() {
+
+    const questions = [
+
+        "Tell me about yourself.",
+
+        "What are your strengths?",
+
+        "Why should we hire you?",
+
+        "Explain your final year project.",
+
+        "What is OOP?",
+
+        "What is DBMS?",
+
+        "What is SQL?",
+
+        "Where do you see yourself in five years?"
+
+    ];
+
+
+    let index = 0;
+
+
+    function askQuestion() {
+
+        if (index >= questions.length) {
+
+            alert(
+                "🎉 Mock Interview Completed!\n\n" +
+                "Great job! Review your answers and improve the areas where you felt less confident."
+            );
+
+            return;
+
+        }
+
+
+        const answer = prompt(
+
+            "Question " +
+            (index + 1) +
+            " of " +
+            questions.length +
+            ":\n\n" +
+            questions[index]
+
+        );
+
+
+        if (answer !== null) {
+
+            index++;
+
+            setTimeout(
+                askQuestion,
+                100
+            );
+
+        }
+
+    }
+
+
+    askQuestion();
+
+}
+
+</script>
+
+
+</body>
+
+</html>

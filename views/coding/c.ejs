@@ -1,0 +1,3710 @@
+ ```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>C Programming | Placement</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+            min-height: 100vh;
+
+        }
+
+
+        .container {
+
+            background: #050706;
+
+            max-width: 1000px;
+
+        }
+
+
+        p,
+        li,
+        h2,
+        h3,
+        h4,
+        strong {
+
+            color: white;
+
+        }
+
+
+        /* ==============================
+           TITLE
+        ============================== */
+
+        .page-title {
+
+            color: #00c49c !important;
+
+            font-weight: 700;
+
+        }
+
+
+        hr {
+
+            border-color: #008c70;
+
+            opacity: 1;
+
+        }
+
+
+        /* ==============================
+           HEADER
+        ============================== */
+
+        .coding-header {
+
+            padding: 35px 20px;
+
+            text-align: center;
+
+            margin-bottom: 30px;
+
+            border:
+
+                1px solid
+
+                rgba(0,196,156,0.35);
+
+            border-radius: 15px;
+
+            background:
+
+                linear-gradient(
+
+                    135deg,
+
+                    rgba(0,140,112,0.20),
+
+                    rgba(5,7,6,0.95)
+
+                );
+
+            box-shadow:
+
+                0 0 35px
+
+                rgba(0,140,112,0.12);
+
+        }
+
+
+        .coding-header h1 {
+
+            color: #00c49c;
+
+            font-weight: 800;
+
+        }
+
+
+        .coding-header p {
+
+            color:
+
+                rgba(255,255,255,0.65);
+
+            margin-bottom: 0;
+
+        }
+
+
+        /* ==============================
+           NAVBAR
+        ============================== */
+
+        .navbar {
+
+            background: #07100d !important;
+
+            border-bottom:
+
+                1px solid
+
+                rgba(0,196,156,0.25);
+
+        }
+
+
+        .navbar-brand {
+
+            font-weight: 700;
+
+            color: #00c49c !important;
+
+        }
+
+
+        .dashboard-btn {
+
+            background: #008c70;
+
+            color: white;
+
+            border: none;
+
+        }
+
+
+        .dashboard-btn:hover {
+
+            background: #00c49c;
+
+            color: white;
+
+        }
+
+
+        /* ==============================
+           TOPIC CARDS
+        ============================== */
+
+        .topic-card {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+            border:
+
+                1px solid
+
+                #008c70 !important;
+
+            border-radius: 12px;
+
+            margin-bottom: 20px;
+
+            overflow: hidden;
+
+            box-shadow:
+
+                0 0 15px
+
+                rgba(0,140,112,0.08);
+
+            transition: 0.3s;
+
+        }
+
+
+        .topic-card:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow:
+
+                0 0 25px
+
+                rgba(0,196,156,0.15);
+
+        }
+
+
+        .topic-card .card-body {
+
+            padding: 25px;
+
+        }
+
+
+        .topic-card h3 {
+
+            color: #00c49c;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .topic-card li {
+
+            margin-bottom: 7px;
+
+        }
+
+
+        /* ==============================
+           CODE
+        ============================== */
+
+        pre {
+
+            background: #020403;
+
+            color: #00e0b0;
+
+            padding: 18px;
+
+            border-radius: 8px;
+
+            border:
+
+                1px solid
+
+                rgba(0,196,156,0.25);
+
+            overflow-x: auto;
+
+            margin-top: 15px;
+
+        }
+
+
+        code {
+
+            color: #00e0b0;
+
+        }
+
+
+        /* ==============================
+           QUESTION CARD
+        ============================== */
+
+        .question-card {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+            border:
+
+                1px solid
+
+                #008c70 !important;
+
+            border-radius: 10px;
+
+            padding: 20px;
+
+            margin-bottom: 20px;
+
+            box-shadow:
+
+                0 0 12px
+
+                rgba(0,140,112,0.10);
+
+        }
+
+
+        .question-title {
+
+            color: #00c49c !important;
+
+            font-size: 19px;
+
+            font-weight: 700;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .question-text {
+
+            line-height: 1.7;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .question-text code {
+
+            color: #00e0b0;
+
+        }
+
+
+        /* ==============================
+           OPTIONS
+        ============================== */
+
+        .option {
+
+            display: block;
+
+            background: #0a100e;
+
+            color: white;
+
+            border:
+
+                1px solid
+
+                #285e51;
+
+            border-radius: 8px;
+
+            padding: 12px 15px;
+
+            margin-bottom: 10px;
+
+            cursor: pointer;
+
+            transition: 0.25s;
+
+        }
+
+
+        .option:hover {
+
+            background: #0d1c18;
+
+            border-color: #00c49c;
+
+        }
+
+
+        .option input {
+
+            margin-right: 10px;
+
+            accent-color: #00c49c;
+
+        }
+
+
+        /* ==============================
+           SUBMIT BUTTON
+        ============================== */
+
+        .submit-question {
+
+            background: #008c70;
+
+            border: none;
+
+            color: white;
+
+            padding: 9px 20px;
+
+            border-radius: 7px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+        }
+
+
+        .submit-question:hover {
+
+            background: #00a886;
+
+            color: white;
+
+        }
+
+
+        .submit-question:disabled {
+
+            opacity: 0.6;
+
+            cursor: not-allowed;
+
+        }
+
+
+        /* ==============================
+           ANSWER RESULT
+        ============================== */
+
+        .answer-result {
+
+            display: none;
+
+            margin-top: 15px;
+
+            padding: 15px;
+
+            border-radius: 8px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .correct-result {
+
+            background: #073d2f;
+
+            border:
+
+                1px solid
+
+                #00c49c;
+
+        }
+
+
+        .wrong-result {
+
+            background: #351414;
+
+            border:
+
+                1px solid
+
+                #dc3545;
+
+        }
+
+
+        /* ==============================
+           FINAL SCORE
+        ============================== */
+
+        #finalScore {
+
+            display: none;
+
+            background: #071d17;
+
+            border:
+
+                2px solid
+
+                #00c49c;
+
+            border-radius: 12px;
+
+            padding: 25px;
+
+            margin-top: 30px;
+
+            text-align: center;
+
+        }
+
+
+        #finalScore h3 {
+
+            color: #00c49c !important;
+
+        }
+
+
+        #scoreText,
+        #scoreMessage {
+
+            color: white !important;
+
+        }
+
+
+        /* ==============================
+           SECTION HEADINGS
+        ============================== */
+
+        .section-heading {
+
+            color: #00c49c;
+
+            font-weight: 700;
+
+        }
+
+
+        /* ==============================
+           ALERT
+        ============================== */
+
+        .alert-success {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+            border:
+
+                1px solid
+
+                #008c70 !important;
+
+        }
+
+
+        .alert-success li {
+
+            color: white !important;
+
+        }
+
+
+        /* ==============================
+           TABLE
+        ============================== */
+
+        .table {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+        }
+
+
+        .table tbody tr,
+        .table tbody td {
+
+            background: #050706 !important;
+
+            color: white !important;
+
+            border-color: #008c70 !important;
+
+        }
+
+
+        .table-primary,
+        .table-primary th {
+
+            background: #008c70 !important;
+
+            color: white !important;
+
+        }
+
+
+        /* ==============================
+           BOTTOM BUTTONS
+        ============================== */
+
+        .complete-btn {
+
+            background: #198754;
+
+            border: none;
+
+            color: white;
+
+        }
+
+
+        .complete-btn:hover {
+
+            background: #157347;
+
+            color: white;
+
+        }
+
+
+        .back-btn {
+
+            background: #008c70;
+
+            border: none;
+
+            color: white;
+
+        }
+
+
+        .back-btn:hover {
+
+            background: #00a886;
+
+            color: white;
+
+        }
+
+
+        .main-submit {
+
+            background: #00c49c;
+
+            color: #02100c;
+
+            font-weight: 700;
+
+            border: none;
+
+        }
+
+
+        .main-submit:hover {
+
+            background: #00e0b0;
+
+            color: #02100c;
+
+        }
+
+
+        /* ==============================
+           MOBILE
+        ============================== */
+
+        @media (max-width: 576px) {
+
+            .container {
+
+                padding-left: 15px;
+
+                padding-right: 15px;
+
+            }
+
+
+            .question-card {
+
+                padding: 16px;
+
+            }
+
+
+            .bottom-buttons a,
+            .bottom-buttons button {
+
+                width: 100%;
+
+                margin: 5px 0 !important;
+
+            }
+
+
+            pre {
+
+                font-size: 13px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     NAVBAR
+=========================================== -->
+
+<nav class="navbar navbar-dark">
+
+    <div class="container-fluid px-4">
+
+        <a
+            href="/coding"
+            class="navbar-brand">
+
+            💻 Placement Coding
+
+        </a>
+
+
+        <a
+            href="/dashboard"
+            class="btn dashboard-btn">
+
+            Dashboard
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+<div class="container mt-4 mb-5">
+
+
+<!-- ==========================================
+     HEADER
+=========================================== -->
+
+<div class="coding-header">
+
+    <h1>
+
+        🔵 C Programming
+
+    </h1>
+
+    <p>
+
+        Learn C programming for placement exams
+        and technical interviews.
+
+    </p>
+
+</div>
+
+
+<!-- ==========================================
+     INTRODUCTION
+=========================================== -->
+
+<h2 class="page-title">
+
+    📘 C Programming
+
+</h2>
+
+<hr>
+
+
+<p>
+
+    C is a general-purpose programming language widely
+    used to understand programming fundamentals,
+    memory management, data structures and algorithms.
+
+    It is also useful for placement exams because it
+    develops strong logical and problem-solving skills.
+
+</p>
+
+
+<!-- ==========================================
+     TOPICS COVERED
+=========================================== -->
+
+<h4 class="mt-4 section-heading">
+
+    📚 Topics Covered
+
+</h4>
+
+
+<ul>
+
+    <li>C Program Structure</li>
+
+    <li>Variables and Data Types</li>
+
+    <li>Operators</li>
+
+    <li>Conditional Statements</li>
+
+    <li>Loops</li>
+
+    <li>Arrays</li>
+
+    <li>Strings</li>
+
+    <li>Functions</li>
+
+    <li>Pointers</li>
+
+    <li>Structures</li>
+
+</ul>
+
+
+<!-- ==========================================
+     BASIC PROGRAM
+=========================================== -->
+
+<div class="card shadow topic-card">
+
+    <div class="card-body">
+
+        <h3>
+
+            1. Basic C Program
+
+        </h3>
+
+        <p>
+
+            Every C program normally starts execution
+            from the <strong>main()</strong> function.
+
+        </p>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+
+    printf("Hello World");
+
+    return 0;
+
+}</code></pre>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     VARIABLES
+=========================================== -->
+
+<div class="card shadow topic-card">
+
+    <div class="card-body">
+
+        <h3>
+
+            2. Variables and Data Types
+
+        </h3>
+
+        <ul>
+
+            <li>
+                <strong>int</strong> – Integer values
+            </li>
+
+            <li>
+                <strong>float</strong> – Decimal values
+            </li>
+
+            <li>
+                <strong>char</strong> – Single character
+            </li>
+
+            <li>
+                <strong>double</strong> – Large decimal values
+            </li>
+
+        </ul>
+
+<pre><code>int age = 20;
+
+float marks = 85.5;
+
+char grade = 'A';
+
+double salary = 45000.50;</code></pre>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     OPERATORS
+=========================================== -->
+
+<div class="card shadow topic-card">
+
+    <div class="card-body">
+
+        <h3>
+
+            3. Operators
+
+        </h3>
+
+        <p>
+
+            Operators are used to perform calculations
+            and comparisons.
+
+        </p>
+
+        <ul>
+
+            <li>Arithmetic: +, -, *, /, %</li>
+
+            <li>Relational: &gt;, &lt;, ==, !=</li>
+
+            <li>Logical: &amp;&amp;, ||, !</li>
+
+            <li>Assignment: =, +=, -=</li>
+
+        </ul>
+
+<pre><code>int a = 10;
+int b = 5;
+
+printf("%d", a + b);
+printf("%d", a * b);
+printf("%d", a % b);</code></pre>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     IF ELSE
+=========================================== -->
+
+<div class="card shadow topic-card">
+
+    <div class="card-body">
+
+        <h3>
+
+            4. If-Else
+
+        </h3>
+
+        <p>
+
+            Conditional statements are used to make
+            decisions in a program.
+
+        </p>
+
+<pre><code>int age = 20;
+
+if(age &gt;= 18) {
+
+    printf("Eligible");
+
+}
+else {
+
+    printf("Not Eligible");
+
+}</code></pre>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     SWITCH
+=========================================== -->
+
+<div class="card shadow topic-card">
+
+    <div class="card-body">
+
+        <h3>
+
+            5. Switch Statement
+
+        </h3>
+
+<pre><code>int choice = 2;
+
+switch(choice) {
+
+    case 1:
+        printf("C");
+        break;
+
+    case 2:
+        printf("C++");
+        break;
+
+    default:
+        printf("Invalid");
+
+}</code></pre>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     FOR LOOP
+=========================================== -->
+
+<div class="card shadow topic-card">
+
+    <div class="card-body">
+
+        <h3>
+
+            6. For Loop
+
+        </h3>
+
+        <p>
+
+            A for loop is useful when the number of
+            iterations is known.
+
+        </p>
+
+<pre><code>for(int i = 1; i &lt;= 5; i++) {
+
+    printf("%d ", i);
+
+}</code></pre>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     WHILE LOOP
+=========================================== -->
+
+<div class="card shadow topic-card">
+
+    <div class="card-body">
+
+        <h3>
+
+            7. While Loop
+
+        </h3>
+
+<pre><code>int i = 1;
+
+while(i &lt;= 5) {
+
+    printf("%d ", i);
+
+    i++;
+
+}</code></pre>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     ARRAY
+=========================================== -->
+
+<div class="card shadow topic-card">
+
+    <div class="card-body">
+
+        <h3>
+
+            8. Arrays
+
+        </h3>
+
+        <p>
+
+            An array stores multiple values of the
+            same data type.
+
+        </p>
+
+<pre><code>int numbers[5] =
+    {10, 20, 30, 40, 50};
+
+printf("%d", numbers[0]);</code></pre>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     STRING
+=========================================== -->
+
+<div class="card shadow topic-card">
+
+    <div class="card-body">
+
+        <h3>
+
+            9. Strings
+
+        </h3>
+
+        <p>
+
+            A string is an array of characters ending
+            with a null character.
+
+        </p>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+
+    char name[] = "PlacementX";
+
+    printf("%s", name);
+
+    return 0;
+
+}</code></pre>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     FUNCTIONS
+=========================================== -->
+
+<div class="card shadow topic-card">
+
+    <div class="card-body">
+
+        <h3>
+
+            10. Functions
+
+        </h3>
+
+        <p>
+
+            Functions divide a program into reusable
+            blocks of code.
+
+        </p>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+int add(int a, int b) {
+
+    return a + b;
+
+}
+
+int main() {
+
+    printf("%d", add(10, 20));
+
+    return 0;
+
+}</code></pre>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     POINTERS
+=========================================== -->
+
+<div class="card shadow topic-card">
+
+    <div class="card-body">
+
+        <h3>
+
+            11. Pointers
+
+        </h3>
+
+        <p>
+
+            A pointer stores the memory address of
+            another variable.
+
+        </p>
+
+<pre><code>int number = 10;
+
+int *ptr = &amp;number;
+
+printf("%d", *ptr);</code></pre>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     STRUCTURE
+=========================================== -->
+
+<div class="card shadow topic-card">
+
+    <div class="card-body">
+
+        <h3>
+
+            12. Structure
+
+        </h3>
+
+        <p>
+
+            Structures allow us to group different
+            data types under one name.
+
+        </p>
+
+<pre><code>struct Student {
+
+    int age;
+
+    char grade;
+
+};
+
+struct Student s;
+
+s.age = 20;
+
+s.grade = 'A';</code></pre>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     PRACTICE QUESTIONS
+=========================================== -->
+
+<h2 class="page-title mt-5">
+
+    📝 C Programming Practice Questions
+
+</h2>
+
+<hr>
+
+
+<!-- QUESTION 1 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+        Question 1
+    </div>
+
+    <div class="question-text">
+
+        Which function is the starting point of
+        execution in a C program?
+
+    </div>
+
+
+    <label class="option">
+
+        <input
+            type="radio"
+            name="q1"
+            value="main">
+
+        main()
+
+    </label>
+
+
+    <label class="option">
+
+        <input
+            type="radio"
+            name="q1"
+            value="start">
+
+        start()
+
+    </label>
+
+
+    <label class="option">
+
+        <input
+            type="radio"
+            name="q1"
+            value="run">
+
+        run()
+
+    </label>
+
+
+    <label class="option">
+
+        <input
+            type="radio"
+            name="q1"
+            value="execute">
+
+        execute()
+
+    </label>
+
+
+    <button
+        class="submit-question"
+        onclick="checkAnswer(1,'main')">
+
+        Submit Answer
+
+    </button>
+
+
+    <div id="result1"
+         class="answer-result">
+    </div>
+
+</div>
+
+
+<!-- QUESTION 2 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+        Question 2
+    </div>
+
+    <div class="question-text">
+
+        Which data type is used to store an integer?
+
+    </div>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q2"
+               value="float">
+
+        float
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q2"
+               value="int">
+
+        int
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q2"
+               value="char">
+
+        char
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q2"
+               value="double">
+
+        double
+
+    </label>
+
+
+    <button
+        class="submit-question"
+        onclick="checkAnswer(2,'int')">
+
+        Submit Answer
+
+    </button>
+
+
+    <div id="result2"
+         class="answer-result">
+    </div>
+
+</div>
+
+
+<!-- QUESTION 3 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+        Question 3
+    </div>
+
+    <div class="question-text">
+
+        What is the output?
+
+<pre><code>int a = 10;
+printf("%d", a);</code></pre>
+
+    </div>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q3"
+               value="5">
+
+        5
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q3"
+               value="10">
+
+        10
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q3"
+               value="0">
+
+        0
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q3"
+               value="error">
+
+        Error
+
+    </label>
+
+
+    <button
+        class="submit-question"
+        onclick="checkAnswer(3,'10')">
+
+        Submit Answer
+
+    </button>
+
+
+    <div id="result3"
+         class="answer-result">
+    </div>
+
+</div>
+
+
+<!-- QUESTION 4 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+        Question 4
+    </div>
+
+    <div class="question-text">
+
+        Which operator is used to find the remainder
+        of a division?
+
+    </div>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q4"
+               value="+">
+
+        +
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q4"
+               value="/">
+
+        /
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q4"
+               value="%">
+
+        %
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q4"
+               value="*">
+
+        *
+
+    </label>
+
+
+    <button
+        class="submit-question"
+        onclick="checkAnswer(4,'%')">
+
+        Submit Answer
+
+    </button>
+
+
+    <div id="result4"
+         class="answer-result">
+    </div>
+
+</div>
+
+
+<!-- QUESTION 5 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+        Question 5
+    </div>
+
+    <div class="question-text">
+
+        What is the output?
+
+<pre><code>printf("%d", 5 + 3 * 2);</code></pre>
+
+    </div>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q5"
+               value="16">
+
+        16
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q5"
+               value="11">
+
+        11
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q5"
+               value="13">
+
+        13
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q5"
+               value="10">
+
+        10
+
+    </label>
+
+
+    <button
+        class="submit-question"
+        onclick="checkAnswer(5,'11')">
+
+        Submit Answer
+
+    </button>
+
+
+    <div id="result5"
+         class="answer-result">
+    </div>
+
+</div>
+
+
+<!-- QUESTION 6 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+        Question 6
+    </div>
+
+    <div class="question-text">
+
+        Which loop is commonly used when the number
+        of iterations is known?
+
+    </div>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q6"
+               value="for">
+
+        for loop
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q6"
+               value="while">
+
+        while loop
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q6"
+               value="switch">
+
+        switch
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q6"
+               value="if">
+
+        if
+
+    </label>
+
+
+    <button
+        class="submit-question"
+        onclick="checkAnswer(6,'for')">
+
+        Submit Answer
+
+    </button>
+
+
+    <div id="result6"
+         class="answer-result">
+    </div>
+
+</div>
+
+
+<!-- QUESTION 7 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+        Question 7
+    </div>
+
+    <div class="question-text">
+
+        What is the index of the first element of
+        an array in C?
+
+    </div>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q7"
+               value="0">
+
+        0
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q7"
+               value="1">
+
+        1
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q7"
+               value="-1">
+
+        -1
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q7"
+               value="2">
+
+        2
+
+    </label>
+
+
+    <button
+        class="submit-question"
+        onclick="checkAnswer(7,'0')">
+
+        Submit Answer
+
+    </button>
+
+
+    <div id="result7"
+         class="answer-result">
+    </div>
+
+</div>
+
+
+<!-- QUESTION 8 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+        Question 8
+    </div>
+
+    <div class="question-text">
+
+        Which symbol is used to get the address of
+        a variable?
+
+    </div>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q8"
+               value="*">
+
+        *
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q8"
+               value="&amp;">
+
+        &amp;
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q8"
+               value="%">
+
+        %
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q8"
+               value="#">
+
+        #
+
+    </label>
+
+
+    <button
+        class="submit-question"
+        onclick="checkAnswer(8,'&amp;')">
+
+        Submit Answer
+
+    </button>
+
+
+    <div id="result8"
+         class="answer-result">
+    </div>
+
+</div>
+
+
+<!-- QUESTION 9 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+        Question 9
+    </div>
+
+    <div class="question-text">
+
+        Which symbol is used to dereference a pointer?
+
+    </div>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q9"
+               value="&amp;">
+
+        &amp;
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q9"
+               value="*">
+
+        *
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q9"
+               value="%">
+
+        %
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q9"
+               value="@">
+
+        @
+
+    </label>
+
+
+    <button
+        class="submit-question"
+        onclick="checkAnswer(9,'*')">
+
+        Submit Answer
+
+    </button>
+
+
+    <div id="result9"
+         class="answer-result">
+    </div>
+
+</div>
+
+
+<!-- QUESTION 10 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+        Question 10
+    </div>
+
+    <div class="question-text">
+
+        Which keyword is used to define a structure?
+
+    </div>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q10"
+               value="class">
+
+        class
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q10"
+               value="struct">
+
+        struct
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q10"
+               value="record">
+
+        record
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q10"
+               value="object">
+
+        object
+
+    </label>
+
+
+    <button
+        class="submit-question"
+        onclick="checkAnswer(10,'struct')">
+
+        Submit Answer
+
+    </button>
+
+
+    <div id="result10"
+         class="answer-result">
+    </div>
+
+</div>
+
+
+<!-- QUESTION 11 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+        Question 11
+    </div>
+
+    <div class="question-text">
+
+        What is the output?
+
+<pre><code>int x = 10;
+
+if(x &gt; 5)
+    printf("Yes");
+else
+    printf("No");</code></pre>
+
+    </div>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q11"
+               value="Yes">
+
+        Yes
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q11"
+               value="No">
+
+        No
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q11"
+               value="Error">
+
+        Error
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q11"
+               value="Nothing">
+
+        Nothing
+
+    </label>
+
+
+    <button
+        class="submit-question"
+        onclick="checkAnswer(11,'Yes')">
+
+        Submit Answer
+
+    </button>
+
+
+    <div id="result11"
+         class="answer-result">
+    </div>
+
+</div>
+
+
+<!-- QUESTION 12 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+        Question 12
+    </div>
+
+    <div class="question-text">
+
+        What will be the output?
+
+<pre><code>int i;
+
+for(i = 1; i &lt;= 3; i++)
+    printf("%d ", i);</code></pre>
+
+    </div>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q12"
+               value="1 2">
+
+        1 2
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q12"
+               value="1 2 3">
+
+        1 2 3
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q12"
+               value="0 1 2">
+
+        0 1 2
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q12"
+               value="3">
+
+        3
+
+    </label>
+
+
+    <button
+        class="submit-question"
+        onclick="checkAnswer(12,'1 2 3')">
+
+        Submit Answer
+
+    </button>
+
+
+    <div id="result12"
+         class="answer-result">
+    </div>
+
+</div>
+
+
+<!-- QUESTION 13 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+        Question 13
+    </div>
+
+    <div class="question-text">
+
+        Which header file is required for
+        <code>printf()</code>?
+
+    </div>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q13"
+               value="stdio">
+
+        stdio.h
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q13"
+               value="conio">
+
+        conio.h
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q13"
+               value="string">
+
+        string.h
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q13"
+               value="math">
+
+        math.h
+
+    </label>
+
+
+    <button
+        class="submit-question"
+        onclick="checkAnswer(13,'stdio')">
+
+        Submit Answer
+
+    </button>
+
+
+    <div id="result13"
+         class="answer-result">
+    </div>
+
+</div>
+
+
+<!-- QUESTION 14 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+        Question 14
+    </div>
+
+    <div class="question-text">
+
+        Which function is used to calculate the length
+        of a string?
+
+    </div>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q14"
+               value="strlen">
+
+        strlen()
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q14"
+               value="strcpy">
+
+        strcpy()
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q14"
+               value="strcmp">
+
+        strcmp()
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q14"
+               value="strcat">
+
+        strcat()
+
+    </label>
+
+
+    <button
+        class="submit-question"
+        onclick="checkAnswer(14,'strlen')">
+
+        Submit Answer
+
+    </button>
+
+
+    <div id="result14"
+         class="answer-result">
+    </div>
+
+</div>
+
+
+<!-- QUESTION 15 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+        Question 15
+    </div>
+
+    <div class="question-text">
+
+        What is the output?
+
+<pre><code>int a = 5;
+int b = 2;
+
+printf("%d", a / b);</code></pre>
+
+    </div>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q15"
+               value="2">
+
+        2
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q15"
+               value="2.5">
+
+        2.5
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q15"
+               value="3">
+
+        3
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q15"
+               value="0">
+
+        0
+
+    </label>
+
+
+    <button
+        class="submit-question"
+        onclick="checkAnswer(15,'2')">
+
+        Submit Answer
+
+    </button>
+
+
+    <div id="result15"
+         class="answer-result">
+    </div>
+
+</div>
+
+
+<!-- QUESTION 16 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+        Question 16
+    </div>
+
+    <div class="question-text">
+
+        Which keyword is used to return a value from
+        a function?
+
+    </div>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q16"
+               value="return">
+
+        return
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q16"
+               value="send">
+
+        send
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q16"
+               value="output">
+
+        output
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q16"
+               value="break">
+
+        break
+
+    </label>
+
+
+    <button
+        class="submit-question"
+        onclick="checkAnswer(16,'return')">
+
+        Submit Answer
+
+    </button>
+
+
+    <div id="result16"
+         class="answer-result">
+    </div>
+
+</div>
+
+
+<!-- QUESTION 17 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+        Question 17
+    </div>
+
+    <div class="question-text">
+
+        Which keyword is used to exit from a loop
+        immediately?
+
+    </div>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q17"
+               value="continue">
+
+        continue
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q17"
+               value="break">
+
+        break
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q17"
+               value="exit">
+
+        exit
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q17"
+               value="stop">
+
+        stop
+
+    </label>
+
+
+    <button
+        class="submit-question"
+        onclick="checkAnswer(17,'break')">
+
+        Submit Answer
+
+    </button>
+
+
+    <div id="result17"
+         class="answer-result">
+    </div>
+
+</div>
+
+
+<!-- QUESTION 18 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+        Question 18
+    </div>
+
+    <div class="question-text">
+
+        Which keyword is used to skip the current
+        iteration of a loop?
+
+    </div>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q18"
+               value="break">
+
+        break
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q18"
+               value="continue">
+
+        continue
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q18"
+               value="skip">
+
+        skip
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q18"
+               value="pass">
+
+        pass
+
+    </label>
+
+
+    <button
+        class="submit-question"
+        onclick="checkAnswer(18,'continue')">
+
+        Submit Answer
+
+    </button>
+
+
+    <div id="result18"
+         class="answer-result">
+    </div>
+
+</div>
+
+
+<!-- QUESTION 19 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+        Question 19
+    </div>
+
+    <div class="question-text">
+
+        What is the output?
+
+<pre><code>int x = 10;
+
+printf("%d", x % 3);</code></pre>
+
+    </div>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q19"
+               value="0">
+
+        0
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q19"
+               value="1">
+
+        1
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q19"
+               value="2">
+
+        2
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q19"
+               value="3">
+
+        3
+
+    </label>
+
+
+    <button
+        class="submit-question"
+        onclick="checkAnswer(19,'1')">
+
+        Submit Answer
+
+    </button>
+
+
+    <div id="result19"
+         class="answer-result">
+    </div>
+
+</div>
+
+
+<!-- QUESTION 20 -->
+
+<div class="question-card">
+
+    <div class="question-title">
+        Question 20
+    </div>
+
+    <div class="question-text">
+
+        Which of the following is used to declare a
+        pointer to an integer?
+
+    </div>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q20"
+               value="int">
+
+        int p
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q20"
+               value="pointer">
+
+        pointer int p
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q20"
+               value="intstar">
+
+        int *p
+
+    </label>
+
+
+    <label class="option">
+
+        <input type="radio"
+               name="q20"
+               value="ptr">
+
+        ptr int p
+
+    </label>
+
+
+    <button
+        class="submit-question"
+        onclick="checkAnswer(20,'intstar')">
+
+        Submit Answer
+
+    </button>
+
+
+    <div id="result20"
+         class="answer-result">
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     SUBMIT ALL
+=========================================== -->
+
+<div class="text-center mt-4">
+
+    <button
+        class="btn btn-lg main-submit"
+        onclick="calculateScore()">
+
+        🏆 Submit All Questions
+
+    </button>
+
+</div>
+
+
+<!-- ==========================================
+     FINAL SCORE
+=========================================== -->
+
+<div id="finalScore">
+
+    <h3>
+
+        🎉 C Programming Quiz Completed!
+
+    </h3>
+
+
+    <h4 id="scoreText"></h4>
+
+
+    <p id="scoreMessage"></p>
+
+</div>
+
+
+<!-- ==========================================
+     IMPORTANCE
+=========================================== -->
+
+<h4 class="mt-5 section-heading">
+
+    🎯 Importance of C Programming
+
+</h4>
+
+
+<ul>
+
+    <li>
+        Builds strong programming fundamentals.
+    </li>
+
+    <li>
+        Improves logical and problem-solving skills.
+    </li>
+
+    <li>
+        Helps understand memory management.
+    </li>
+
+    <li>
+        Useful for technical placement interviews.
+    </li>
+
+    <li>
+        Provides a strong foundation for C++ and DSA.
+    </li>
+
+</ul>
+
+
+<!-- ==========================================
+     PREPARATION TIPS
+=========================================== -->
+
+<h4 class="mt-4 section-heading">
+
+    🚀 C Programming Preparation Tips
+
+</h4>
+
+
+<div class="alert alert-success">
+
+    <ul>
+
+        <li>
+            Practice C syntax every day.
+        </li>
+
+        <li>
+            Understand pointers and memory carefully.
+        </li>
+
+        <li>
+            Practice loops and pattern programs.
+        </li>
+
+        <li>
+            Solve array and string problems.
+        </li>
+
+        <li>
+            Practice previous placement questions.
+        </li>
+
+        <li>
+            Write programs instead of only reading theory.
+        </li>
+
+        <li>
+            Practice output-based questions.
+        </li>
+
+    </ul>
+
+</div>
+
+
+<!-- ==========================================
+     IMPORTANT PROGRAMS
+=========================================== -->
+
+<h4 class="mt-4 section-heading">
+
+    🎯 Important C Programs
+
+</h4>
+
+
+<div class="card topic-card">
+
+    <div class="card-body">
+
+        <ol>
+
+            <li>Reverse a number</li>
+
+            <li>Check prime number</li>
+
+            <li>Check palindrome</li>
+
+            <li>Find factorial</li>
+
+            <li>Fibonacci series</li>
+
+            <li>Find largest element in array</li>
+
+            <li>Find smallest element in array</li>
+
+            <li>Reverse a string</li>
+
+            <li>Count vowels in a string</li>
+
+            <li>Swap two numbers</li>
+
+            <li>Sort an array</li>
+
+            <li>Search an element in an array</li>
+
+        </ol>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     COMPANIES
+=========================================== -->
+
+<h4 class="mt-4 section-heading">
+
+    🏢 Companies Where C Knowledge Is Useful
+
+</h4>
+
+
+<table class="table table-bordered">
+
+    <thead class="table-primary">
+
+        <tr>
+
+            <th>
+                Company
+            </th>
+
+            <th>
+                Difficulty
+            </th>
+
+        </tr>
+
+    </thead>
+
+
+    <tbody>
+
+        <tr>
+
+            <td>
+                TCS
+            </td>
+
+            <td>
+                Medium
+            </td>
+
+        </tr>
+
+
+        <tr>
+
+            <td>
+                Infosys
+            </td>
+
+            <td>
+                Medium
+            </td>
+
+        </tr>
+
+
+        <tr>
+
+            <td>
+                Wipro
+            </td>
+
+            <td>
+                Medium
+            </td>
+
+        </tr>
+
+
+        <tr>
+
+            <td>
+                Accenture
+            </td>
+
+            <td>
+                Medium
+            </td>
+
+        </tr>
+
+
+        <tr>
+
+            <td>
+                Cognizant
+            </td>
+
+            <td>
+                Medium
+            </td>
+
+        </tr>
+
+
+        <tr>
+
+            <td>
+                Capgemini
+            </td>
+
+            <td>
+                Medium
+            </td>
+
+        </tr>
+
+
+        <tr>
+
+            <td>
+                IBM
+            </td>
+
+            <td>
+                Medium to High
+            </td>
+
+        </tr>
+
+    </tbody>
+
+</table>
+
+
+<!-- ==========================================
+     BOTTOM BUTTONS
+=========================================== -->
+
+<div class="text-center mt-4 mb-5 bottom-buttons">
+
+    <button
+        onclick="completeTopic()"
+        class="btn complete-btn btn-lg">
+
+        ✅ Complete Today's Task
+
+    </button>
+
+
+    <a
+        href="/coding"
+        class="btn back-btn btn-lg ms-2">
+
+        ⬅ Back to Coding
+
+    </a>
+
+</div>
+
+
+</div>
+
+
+<!-- ==========================================
+     BOOTSTRAP JS
+=========================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+<script>
+
+/* =================================================
+   SCORE VARIABLES
+================================================= */
+
+let score = 0;
+
+let answeredQuestions = new Set();
+
+
+/* =================================================
+   ANSWERS
+================================================= */
+
+const answerText = {
+
+    1: "main()",
+
+    2: "int",
+
+    3: "10",
+
+    4: "%",
+
+    5: "11",
+
+    6: "for loop",
+
+    7: "0",
+
+    8: "&",
+
+    9: "*",
+
+    10: "struct",
+
+    11: "Yes",
+
+    12: "1 2 3",
+
+    13: "stdio.h",
+
+    14: "strlen()",
+
+    15: "2",
+
+    16: "return",
+
+    17: "break",
+
+    18: "continue",
+
+    19: "1",
+
+    20: "int *p"
+
+};
+
+
+/* =================================================
+   EXPLANATIONS
+================================================= */
+
+const explanations = {
+
+    1:
+        "Execution of a C program begins from the main() function.",
+
+    2:
+        "The int data type is used to store integer values.",
+
+    3:
+        "The variable a contains the value 10, so printf() displays 10.",
+
+    4:
+        "The % operator returns the remainder after division.",
+
+    5:
+        "Multiplication has higher precedence than addition. Therefore 3 × 2 = 6 and 5 + 6 = 11.",
+
+    6:
+        "A for loop is commonly used when the number of iterations is known.",
+
+    7:
+        "C arrays use zero-based indexing, so the first element has index 0.",
+
+    8:
+        "The & operator returns the memory address of a variable.",
+
+    9:
+        "The * operator is used to dereference a pointer and access its stored value.",
+
+    10:
+        "The struct keyword is used to define a structure in C.",
+
+    11:
+        "Since 10 is greater than 5, the if condition is true and Yes is printed.",
+
+    12:
+        "The loop starts at 1 and continues while i is less than or equal to 3, so it prints 1 2 3.",
+
+    13:
+        "printf() is declared in the stdio.h header file.",
+
+    14:
+        "strlen() returns the number of characters in a string, excluding the null character.",
+
+    15:
+        "Both operands are integers, so integer division is performed. 5 / 2 gives 2.",
+
+    16:
+        "The return keyword sends a value back from a function.",
+
+    17:
+        "The break statement immediately terminates the loop.",
+
+    18:
+        "The continue statement skips the remaining statements in the current iteration.",
+
+    19:
+        "10 divided by 3 leaves a remainder of 1, so 10 % 3 is 1.",
+
+    20:
+        "int *p declares p as a pointer to an integer."
+};
+
+
+/* =================================================
+   CHECK INDIVIDUAL ANSWER
+================================================= */
+
+function checkAnswer(questionNumber, correctAnswer) {
+
+
+    const selected =
+
+        document.querySelector(
+
+            `input[name="q${questionNumber}"]:checked`
+
+        );
+
+
+    const result =
+
+        document.getElementById(
+
+            `result${questionNumber}`
+
+        );
+
+
+    /* ---------------------------------------------
+       NO OPTION
+    --------------------------------------------- */
+
+    if (!selected) {
+
+        result.style.display = "block";
+
+        result.className =
+            "answer-result wrong-result";
+
+        result.innerHTML =
+
+            "⚠️ <strong>Please select an option first.</strong>";
+
+        return;
+
+    }
+
+
+    /* ---------------------------------------------
+       ALREADY ANSWERED
+    --------------------------------------------- */
+
+    if (
+
+        answeredQuestions.has(questionNumber)
+
+    ) {
+
+        result.style.display = "block";
+
+        result.className =
+            "answer-result correct-result";
+
+        result.innerHTML =
+
+            "ℹ️ <strong>This question has already been submitted.</strong>";
+
+        return;
+
+    }
+
+
+    answeredQuestions.add(questionNumber);
+
+
+    /* ---------------------------------------------
+       CORRECT
+    --------------------------------------------- */
+
+    if (
+
+        selected.value === correctAnswer
+
+    ) {
+
+        score++;
+
+
+        result.style.display = "block";
+
+        result.className =
+            "answer-result correct-result";
+
+
+        result.innerHTML =
+
+            "✅ <strong>Correct Answer!</strong><br><br>" +
+
+            "Your answer: <strong>" +
+
+            answerText[questionNumber] +
+
+            "</strong><br><br>" +
+
+            "💡 " +
+
+            explanations[questionNumber];
+
+    }
+
+
+    /* ---------------------------------------------
+       WRONG
+    --------------------------------------------- */
+
+    else {
+
+        result.style.display = "block";
+
+        result.className =
+            "answer-result wrong-result";
+
+
+        result.innerHTML =
+
+            "❌ <strong>Incorrect Answer!</strong><br><br>" +
+
+            "Your answer: <strong>" +
+
+            selected.parentElement.textContent.trim() +
+
+            "</strong><br><br>" +
+
+            "✅ Correct Answer: <strong>" +
+
+            answerText[questionNumber] +
+
+            "</strong><br><br>" +
+
+            "💡 " +
+
+            explanations[questionNumber];
+
+    }
+
+
+    /* ---------------------------------------------
+       DISABLE OPTIONS
+    --------------------------------------------- */
+
+    const options =
+
+        document.querySelectorAll(
+
+            `input[name="q${questionNumber}"]`
+
+        );
+
+
+    options.forEach(function(option) {
+
+        option.disabled = true;
+
+    });
+
+
+    /* ---------------------------------------------
+       DISABLE BUTTON
+    --------------------------------------------- */
+
+    const currentCard =
+
+        result.closest(".question-card");
+
+
+    const currentButton =
+
+        currentCard.querySelector(
+
+            ".submit-question"
+
+        );
+
+
+    currentButton.disabled = true;
+
+    currentButton.innerText =
+        "✓ Answer Submitted";
+
+}
+
+
+/* =================================================
+   CALCULATE FINAL SCORE
+================================================= */
+
+function calculateScore() {
+
+
+    const finalScore =
+
+        document.getElementById(
+            "finalScore"
+        );
+
+
+    const scoreText =
+
+        document.getElementById(
+            "scoreText"
+        );
+
+
+    const scoreMessage =
+
+        document.getElementById(
+            "scoreMessage"
+        );
+
+
+    finalScore.style.display = "block";
+
+
+    scoreText.innerHTML =
+
+        "Your Score: " +
+
+        score +
+
+        " / 20";
+
+
+    if (score === 20) {
+
+        scoreMessage.innerHTML =
+
+            "🏆 Excellent! You got all 20 questions correct!";
+
+    }
+
+    else if (score >= 16) {
+
+        scoreMessage.innerHTML =
+
+            "🌟 Great job! Your C programming fundamentals are strong.";
+
+    }
+
+    else if (score >= 10) {
+
+        scoreMessage.innerHTML =
+
+            "👍 Good attempt! Continue practicing C programming.";
+
+    }
+
+    else {
+
+        scoreMessage.innerHTML =
+
+            "📚 Keep practicing. Review the explanations and try again.";
+
+    }
+
+
+    finalScore.scrollIntoView({
+
+        behavior: "smooth",
+
+        block: "center"
+
+    });
+
+}
+
+
+/* =================================================
+   COMPLETE TODAY'S TASK
+================================================= */
+
+function completeTopic() {
+
+
+    const today =
+
+        new Date().toDateString();
+
+
+    let progress =
+
+        JSON.parse(
+
+            localStorage.getItem(
+
+                "placementProgress"
+
+            )
+
+        ) || {
+
+            streak: 0,
+
+            lastCompleted: "",
+
+            completedTasks: {}
+
+        };
+
+
+    const taskName =
+        "C Programming";
+
+
+    /* ---------------------------------------------
+       CHECK ALREADY COMPLETED
+    --------------------------------------------- */
+
+    if (
+
+        progress.completedTasks &&
+
+        progress.completedTasks[taskName] === today
+
+    ) {
+
+        alert(
+
+            "✅ You already completed C Programming today!"
+
+        );
+
+        return;
+
+    }
+
+
+    /* ---------------------------------------------
+       CREATE OBJECT
+    --------------------------------------------- */
+
+    if (!progress.completedTasks) {
+
+        progress.completedTasks = {};
+
+    }
+
+
+    /* ---------------------------------------------
+       SAVE COMPLETION
+    --------------------------------------------- */
+
+    progress.completedTasks[taskName] = today;
+
+
+    /* ---------------------------------------------
+       UPDATE STREAK
+    --------------------------------------------- */
+
+    if (
+
+        progress.lastCompleted !== today
+
+    ) {
+
+        progress.streak++;
+
+        progress.lastCompleted = today;
+
+    }
+
+
+    /* ---------------------------------------------
+       SAVE
+    --------------------------------------------- */
+
+    localStorage.setItem(
+
+        "placementProgress",
+
+        JSON.stringify(progress)
+
+    );
+
+
+    /* ---------------------------------------------
+       SUCCESS MESSAGE
+    --------------------------------------------- */
+
+    alert(
+
+        "🎉 C Programming completed!\n\n" +
+
+        "🔥 Current Streak: " +
+
+        progress.streak +
+
+        " day(s)"
+
+    );
+
+
+    /* ---------------------------------------------
+       DASHBOARD
+    --------------------------------------------- */
+
+    window.location.href =
+        "/dashboard";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
+
